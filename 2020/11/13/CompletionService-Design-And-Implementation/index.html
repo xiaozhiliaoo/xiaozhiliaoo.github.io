@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java.util.concurrent," />
 
 
 
@@ -86,14 +86,17 @@
 
 
 
-<meta name="description" content="为学日益,为道日损">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小知了的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/index.html">
+<meta name="description" content="序言使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CompletionService设计与实现">
+<meta property="og:url" content="http://yoursite.com/2020/11/13/CompletionService-Design-And-Implementation/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="为学日益,为道日损">
+<meta property="og:description" content="序言使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过E">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-12T18:42:06.000Z">
+<meta property="article:modified_time" content="2020-11-12T18:51:38.900Z">
 <meta property="article:author" content="LiLi">
+<meta property="article:tag" content="java.util.concurrent">
 <meta name="twitter:card" content="summary">
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/内存泄露/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/13/CompletionService-Design-And-Implementation/"/>
 
 
 
 
 
-  <title>Tag: 内存泄露 | 小知了的博客</title>
+  <title>CompletionService设计与实现 | 小知了的博客</title>
   
 
 
@@ -149,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -275,54 +278,169 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>内存泄露<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/13/CompletionService-Design-And-Implementation/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/08/16/OOM/" itemprop="url">
-              
-                <span itemprop="name">java.lang.OutOfMemoryError内存溢出</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">CompletionService设计与实现</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-08-16T21:51:03+08:00"
-              content="2020-08-16" >
-          08-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-13T02:42:06+08:00">
+                2020-11-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JDK-Source-Code/" itemprop="url" rel="index">
+                    <span itemprop="name">JDK-Source-Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过ExecutorCompletionService实现，这两个实现均非常简单。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java-util-concurrent/" rel="tag"># java.util.concurrent</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/11/11/FutureTask-Design-And-Implementation/" rel="next" title="FutureTask设计与实现">
+                <i class="fa fa-chevron-left"></i> FutureTask设计与实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -330,6 +448,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -350,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -429,6 +560,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">2.</span> <span class="nav-text">结构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -562,6 +709,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

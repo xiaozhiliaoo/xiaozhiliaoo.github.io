@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/images/FutureTaskStatus.png">
 <meta property="og:image" content="http://yoursite.com/images/FutureTaskStack.png">
 <meta property="article:published_time" content="2020-11-10T18:14:39.000Z">
-<meta property="article:modified_time" content="2020-11-12T18:29:04.956Z">
+<meta property="article:modified_time" content="2020-11-12T18:41:36.604Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.util.concurrent">
 <meta name="twitter:card" content="summary">
@@ -471,6 +471,12 @@
 
 <h2 id="是否完成isDone"><a href="#是否完成isDone" class="headerlink" title="是否完成isDone"></a>是否完成isDone</h2><p>同样根据状态判断。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state != NEW;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h1>
       
     </div>
     
@@ -509,6 +515,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/11/13/CompletionService-Design-And-Implementation/" rel="prev" title="CompletionService设计与实现">
+                CompletionService设计与实现 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -589,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -658,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等待节点WaitNode"><span class="nav-number">4.2.</span> <span class="nav-text">等待节点WaitNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例变量"><span class="nav-number">4.3.</span> <span class="nav-text">实例变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务状态"><span class="nav-number">4.4.</span> <span class="nav-text">任务状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务运行run"><span class="nav-number">4.5.</span> <span class="nav-text">任务运行run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取任务结果get"><span class="nav-number">4.6.</span> <span class="nav-text">获取任务结果get()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#awaitDone-自旋等待结果"><span class="nav-number">4.6.1.</span> <span class="nav-text">awaitDone 自旋等待结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finishCompletion-完成任务"><span class="nav-number">4.6.2.</span> <span class="nav-text">finishCompletion 完成任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带超时的get"><span class="nav-number">4.7.</span> <span class="nav-text">带超时的get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消任务cancel"><span class="nav-number">4.8.</span> <span class="nav-text">取消任务cancel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#是否取消isCancelled"><span class="nav-number">4.9.</span> <span class="nav-text">是否取消isCancelled</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#是否完成isDone"><span class="nav-number">4.10.</span> <span class="nav-text">是否完成isDone</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建"><span class="nav-number">4.1.</span> <span class="nav-text">创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#等待节点WaitNode"><span class="nav-number">4.2.</span> <span class="nav-text">等待节点WaitNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例变量"><span class="nav-number">4.3.</span> <span class="nav-text">实例变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务状态"><span class="nav-number">4.4.</span> <span class="nav-text">任务状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务运行run"><span class="nav-number">4.5.</span> <span class="nav-text">任务运行run</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取任务结果get"><span class="nav-number">4.6.</span> <span class="nav-text">获取任务结果get()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#awaitDone-自旋等待结果"><span class="nav-number">4.6.1.</span> <span class="nav-text">awaitDone 自旋等待结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#finishCompletion-完成任务"><span class="nav-number">4.6.2.</span> <span class="nav-text">finishCompletion 完成任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#带超时的get"><span class="nav-number">4.7.</span> <span class="nav-text">带超时的get()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消任务cancel"><span class="nav-number">4.8.</span> <span class="nav-text">取消任务cancel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#是否取消isCancelled"><span class="nav-number">4.9.</span> <span class="nav-text">是否取消isCancelled</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#是否完成isDone"><span class="nav-number">4.10.</span> <span class="nav-text">是否完成isDone</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战案例"><span class="nav-number">5.</span> <span class="nav-text">实战案例</span></a></li></ol></div>
             
 
           </div>

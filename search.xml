@@ -112,19 +112,6 @@
       </tags>
   </entry>
   <entry>
-    <title>HashMap设计与实现</title>
-    <url>/2020/11/08/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
     <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
     <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
@@ -136,6 +123,18 @@
       </categories>
       <tags>
         <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CompletionService设计与实现</title>
+    <url>/2020/11/13/CompletionService-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过ExecutorCompletionService实现，这两个实现均非常简单。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
       </tags>
   </entry>
   <entry>
@@ -226,12 +225,31 @@
 
 
 <h2 id="是否完成isDone"><a href="#是否完成isDone" class="headerlink" title="是否完成isDone"></a>是否完成isDone</h2><p>同样根据状态判断。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state != NEW;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state != NEW;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HashMap设计与实现</title>
+    <url>/2020/11/08/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -257,6 +275,44 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -340,44 +396,6 @@
       <tags>
         <tag>Homework</tag>
         <tag>LinkedList</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -594,6 +612,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -655,24 +691,6 @@
       <tags>
         <tag>guava-retry</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>面向对象设计的启发60条黄金法则</title>
