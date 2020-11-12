@@ -383,7 +383,7 @@
       
         
           
-          序言FutureTask是Future和Runnable的实现，ThreadPoolExecutor在执行任务的时候，其实执行的是FutureTask. 传统Runnable接口实现的任务只有执行方法run，并没有任务取消，执行超时等功能，但是FutureTask其内部将任务执行过程分为一系列状态，
+          序言FutureTask是Future和Runnable的实现，ThreadPoolExecutor在执行任务的时候，执行的是FutureTask. 传统Runnable接口实现的任务只有执行方法run，并没有任务取消，执行超时等功能，并且Runnable并没有提供任务状态的抽象，其实每个任务都是有
           ...
           <!--noindex-->
           <div class="post-button text-center">
