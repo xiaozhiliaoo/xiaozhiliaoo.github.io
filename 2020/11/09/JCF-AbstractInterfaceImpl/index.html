@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="概述抽象实现抽象实现的好处，留一个抽象方法 AbstractCollectionAbstractList">
+<meta name="description" content="概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。 抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java集合框架(2)-抽象实现">
 <meta property="og:url" content="http://yoursite.com/2020/11/09/JCF-AbstractInterfaceImpl/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="概述抽象实现抽象实现的好处，留一个抽象方法 AbstractCollectionAbstractList">
+<meta property="og:description" content="概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。 抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-08T18:34:19.000Z">
-<meta property="article:modified_time" content="2020-11-08T18:38:12.719Z">
+<meta property="article:modified_time" content="2020-11-14T10:26:41.443Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.util.*">
 <meta property="article:tag" content="java collection framework">
@@ -382,8 +382,9 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="抽象实现"><a href="#抽象实现" class="headerlink" title="抽象实现"></a>抽象实现</h1><p>抽象实现的好处，留一个抽象方法</p>
-<h2 id="AbstractCollection"><a href="#AbstractCollection" class="headerlink" title="AbstractCollection"></a>AbstractCollection</h2><h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList</h2>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p><strong>接口定义类型，抽象类实现骨架</strong>。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。</p>
+<h1 id="抽象实现"><a href="#抽象实现" class="headerlink" title="抽象实现"></a>抽象实现</h1><p>抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。可以认为抽象实现是模板模式的一种应用。</p>
+<h2 id="AbstractCollection"><a href="#AbstractCollection" class="headerlink" title="AbstractCollection"></a>AbstractCollection</h2><h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList</h2><h3 id="AbstractSequentialList"><a href="#AbstractSequentialList" class="headerlink" title="AbstractSequentialList"></a>AbstractSequentialList</h3><h3 id="AbstractSet"><a href="#AbstractSet" class="headerlink" title="AbstractSet"></a>AbstractSet</h3><h3 id="AbstractMap"><a href="#AbstractMap" class="headerlink" title="AbstractMap"></a>AbstractMap</h3>
       
     </div>
     
@@ -415,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="java集合框架(1)-概述">
-                <i class="fa fa-chevron-left"></i> java集合框架(1)-概述
+              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="java集合框架(1)-接口概述">
+                <i class="fa fa-chevron-left"></i> java集合框架(1)-接口概述
               </a>
             
           </div>
@@ -577,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象实现"><span class="nav-number">2.</span> <span class="nav-text">抽象实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractCollection"><span class="nav-number">2.1.</span> <span class="nav-text">AbstractCollection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractList"><span class="nav-number">2.2.</span> <span class="nav-text">AbstractList</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#抽象实现"><span class="nav-number">2.</span> <span class="nav-text">抽象实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractCollection"><span class="nav-number">2.1.</span> <span class="nav-text">AbstractCollection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AbstractList"><span class="nav-number">2.2.</span> <span class="nav-text">AbstractList</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractSequentialList"><span class="nav-number">2.2.1.</span> <span class="nav-text">AbstractSequentialList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractSet"><span class="nav-number">2.2.2.</span> <span class="nav-text">AbstractSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractMap"><span class="nav-number">2.2.3.</span> <span class="nav-text">AbstractMap</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

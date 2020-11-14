@@ -982,9 +982,9 @@ ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。
       
         
           
-          概述抽象实现抽象实现的好处，留一个抽象方法
-AbstractCollectionAbstractList
-          
+          概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。
+抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/11/09/JCF-AbstractInterfaceImpl/#more" rel="contents">
@@ -1057,7 +1057,7 @@ AbstractCollectionAbstractList
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/11/09/JCF-HighLevel/" itemprop="url">java集合框架(1)-概述</a></h1>
+                <a class="post-title-link" href="/2020/11/09/JCF-HighLevel/" itemprop="url">java集合框架(1)-接口概述</a></h1>
         
 
         <div class="post-meta">
