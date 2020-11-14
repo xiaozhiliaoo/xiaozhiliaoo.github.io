@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="OOD," />
+  <meta name="keywords" content="java.lang," />
 
 
 
@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="本文翻译内容来自http:&#x2F;&#x2F;www.cs.uno.edu&#x2F;~jaime&#x2F;Courses&#x2F;4210&#x2F;heuristics.pdf ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，http">
+<meta name="description" content="概述结构实现实战使用注意">
 <meta property="og:type" content="article">
-<meta property="og:title" content="面向对象设计的启发60条黄金法则">
-<meta property="og:url" content="http://yoursite.com/2020/09/01/ood-heuristics-translate/index.html">
+<meta property="og:title" content="ThreadLocal设计,实现,使用注意">
+<meta property="og:url" content="http://yoursite.com/2020/11/15/ThreadLocal-Design-And-Implementation/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="本文翻译内容来自http:&#x2F;&#x2F;www.cs.uno.edu&#x2F;~jaime&#x2F;Courses&#x2F;4210&#x2F;heuristics.pdf ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，http">
+<meta property="og:description" content="概述结构实现实战使用注意">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-01T03:15:41.000Z">
-<meta property="article:modified_time" content="2020-09-05T06:54:57.463Z">
+<meta property="article:published_time" content="2020-11-14T19:39:59.000Z">
+<meta property="article:modified_time" content="2020-11-14T19:45:22.514Z">
 <meta property="article:author" content="LiLi">
-<meta property="article:tag" content="OOD">
+<meta property="article:tag" content="java.lang">
 <meta name="twitter:card" content="summary">
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/09/01/ood-heuristics-translate/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/11/15/ThreadLocal-Design-And-Implementation/"/>
 
 
 
 
 
-  <title>面向对象设计的启发60条黄金法则 | 小知了的博客</title>
+  <title>ThreadLocal设计,实现,使用注意 | 小知了的博客</title>
   
 
 
@@ -292,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/01/ood-heuristics-translate/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/15/ThreadLocal-Design-And-Implementation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LiLi">
@@ -309,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">面向对象设计的启发60条黄金法则</h1>
+          <h1 class="post-title" itemprop="name headline">ThreadLocal设计,实现,使用注意</h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-01T11:15:41+08:00">
-                2020-09-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-15T03:39:59+08:00">
+                2020-11-15
               </time>
             
 
@@ -344,8 +344,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index">
-                    <span itemprop="name">翻译</span>
+                  <a href="/categories/JDK-Source-Code/" itemprop="url" rel="index">
+                    <span itemprop="name">JDK-Source-Code</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JDK-Source-Code/Java-Lang-Package/" itemprop="url" rel="index">
+                    <span itemprop="name">Java-Lang-Package</span>
                   </a>
                 </span>
 
@@ -381,49 +392,7 @@
       
 
       
-        <p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
-<ol>
-<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
-<li>所有数据应该隐藏在类内。</li>
-<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
-<li>最小化类的消息规范。</li>
-<li>实现所有客户端可理解的最小接口。</li>
-<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
-<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
-<li>一个类应该捕获有且只有一个关键抽象。</li>
-<li>保存数据和行为在同一地方。</li>
-<li>拆分不相关信息到另一个类。</li>
-<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
-<li>将对象视为一类服务而不是一类数据。</li>
-<li>设计面向对象服务时使用它们的状态决定行为。</li>
-<li>使用不可变对象，也叫信使。</li>
-<li>设计时，尽可能水平得，统一得分配系统智能。</li>
-<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
-<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
-<li>todo</li>
-<li>尽可能对真实世界建模。</li>
-<li>从设计中消除不相关的类</li>
-<li>减少系统无关的类。</li>
-<li>todo</li>
-<li>最小化类和其他类的协作者。</li>
-<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
-<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
-<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
-<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
-<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
-<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
-<li>继承应该只被用作对层次体系建模。</li>
-<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
-<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
-<li>理论上，继承层次应该很深，越深越好。</li>
-<li>todo</li>
-<li>对于实现继承结构，所有抽象类必须是基类。</li>
-<li>在实现继承时，所有基类应该是抽象类。</li>
-<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
-<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
-<li></li>
-</ol>
-
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1>
       
     </div>
     
@@ -440,7 +409,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OOD/" rel="tag"># OOD</a>
+            <a href="/tags/java-lang/" rel="tag"># java.lang</a>
           
         </div>
       
@@ -453,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/28/Software-Craftsmanship-Note/" rel="next" title="《软件工艺》-读书笔记">
-                <i class="fa fa-chevron-left"></i> 《软件工艺》-读书笔记
+              <a href="/2020/11/14/HashMap-Design-And-Implementation/" rel="next" title="Java集合框架(4)-HashMap设计与实现">
+                <i class="fa fa-chevron-left"></i> Java集合框架(4)-HashMap设计与实现
               </a>
             
           </div>
@@ -462,10 +431,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/08/AQS-api-explain/" rel="prev" title="AQS(AbstractQueuedSynchronizer) API分析">
-                AQS(AbstractQueuedSynchronizer) API分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -596,6 +570,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结构"><span class="nav-number">2.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">4.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用注意"><span class="nav-number">5.</span> <span class="nav-text">使用注意</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
