@@ -33,6 +33,23 @@
       </tags>
   </entry>
   <entry>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -106,25 +123,23 @@
 ]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
       </tags>
   </entry>
   <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
-
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
-]]></content>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>java.util.concurrent</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -162,6 +177,7 @@
 <h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
@@ -179,19 +195,6 @@
       </categories>
       <tags>
         <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -291,24 +294,10 @@
 <h1 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -321,6 +310,62 @@
       </categories>
       <tags>
         <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(1)-接口定义类型</title>
+    <url>/2020/11/09/JCF-HighLevel/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
+<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
+<p>使用集合类型有非常多的好处：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
+<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
+
+<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
+<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
+<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
+<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
+<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
+
+
+
+<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
+
+<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
+<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
+<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
+<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
+<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
+
+
+
+<p>Map接口里面的Map.Entry</p>
+<p>map接口</p>
+<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -437,41 +482,18 @@
       </tags>
   </entry>
   <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
       <categories>
-        <category>JVM</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -516,59 +538,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(1)-接口定义类型</title>
-    <url>/2020/11/09/JCF-HighLevel/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
-<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
-<p>使用集合类型有非常多的好处：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
-<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
-
-<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
-<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
-<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
-<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
-<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
-<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
-
-
-
-<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
-
-<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
-<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
-<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
-<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
-<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
-
-
-
-<p>Map接口里面的Map.Entry</p>
-<p>map接口</p>
-<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
-]]></content>
+    <title>String,StringBuilder,StringBuffer设计与实现</title>
+    <url>/2020/11/08/String-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
+        <tag>java.lang</tag>
       </tags>
   </entry>
   <entry>
@@ -583,35 +562,42 @@
       </tags>
   </entry>
   <entry>
-    <title>String,StringBuilder,StringBuffer设计与实现</title>
-    <url>/2020/11/08/String-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
+]]></content>
       <categories>
-        <category>JDK-Source-Code</category>
+        <category>JVM</category>
       </categories>
       <tags>
-        <tag>java.lang</tag>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>ThreadPoolExecutor设计与实现</title>
@@ -797,6 +783,7 @@
 <h2 id="Spring的抽象"><a href="#Spring的抽象" class="headerlink" title="Spring的抽象"></a>Spring的抽象</h2><h1 id="结论和启示"><a href="#结论和启示" class="headerlink" title="结论和启示"></a>结论和启示</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
@@ -917,5 +904,23 @@
       <tags>
         <tag>guava-retry</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
 </search>
