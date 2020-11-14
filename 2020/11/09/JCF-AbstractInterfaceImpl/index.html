@@ -88,13 +88,13 @@
 
 <meta name="description" content="概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。 抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java集合框架(2)-抽象实现骨架">
+<meta property="og:title" content="Java集合框架(2)-抽象实现骨架">
 <meta property="og:url" content="http://yoursite.com/2020/11/09/JCF-AbstractInterfaceImpl/index.html">
 <meta property="og:site_name" content="小知了的博客">
 <meta property="og:description" content="概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。 抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-08T18:34:19.000Z">
-<meta property="article:modified_time" content="2020-11-14T11:05:17.128Z">
+<meta property="article:modified_time" content="2020-11-14T11:15:15.618Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.util.*">
 <meta property="article:tag" content="java collection framework">
@@ -134,7 +134,7 @@
 
 
 
-  <title>java集合框架(2)-抽象实现骨架 | 小知了的博客</title>
+  <title>Java集合框架(2)-抽象实现骨架 | 小知了的博客</title>
   
 
 
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java集合框架(2)-抽象实现骨架</h1>
+          <h1 class="post-title" itemprop="name headline">Java集合框架(2)-抽象实现骨架</h1>
         
 
         <div class="post-meta">
@@ -419,7 +419,13 @@
 
 
 <p>我们可以看到抽象方法在实现普通方法时候是基本每个方法都会调用。</p>
-<h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList</h2><h3 id="AbstractSequentialList"><a href="#AbstractSequentialList" class="headerlink" title="AbstractSequentialList"></a>AbstractSequentialList</h3><h3 id="AbstractSet"><a href="#AbstractSet" class="headerlink" title="AbstractSet"></a>AbstractSet</h3><h3 id="AbstractMap"><a href="#AbstractMap" class="headerlink" title="AbstractMap"></a>AbstractMap</h3>
+<h2 id="AbstractList"><a href="#AbstractList" class="headerlink" title="AbstractList"></a>AbstractList</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AbstractList抽象方法有两个，1是新定义的get 2是继承父类的size，而父类AbstractCollection中的抽象方法只实现了一个iterator()，因为对于List来说，iterator行为是确认的。但是get行为需要子类实现。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="AbstractSequentialList"><a href="#AbstractSequentialList" class="headerlink" title="AbstractSequentialList"></a>AbstractSequentialList</h3><h3 id="AbstractSet"><a href="#AbstractSet" class="headerlink" title="AbstractSet"></a>AbstractSet</h3><h3 id="AbstractMap"><a href="#AbstractMap" class="headerlink" title="AbstractMap"></a>AbstractMap</h3>
       
     </div>
     
@@ -451,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="java集合框架(1)-接口概述">
-                <i class="fa fa-chevron-left"></i> java集合框架(1)-接口概述
+              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="Java集合框架(1)-接口概述">
+                <i class="fa fa-chevron-left"></i> Java集合框架(1)-接口概述
               </a>
             
           </div>
@@ -544,7 +550,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
