@@ -94,7 +94,7 @@
 <meta property="og:description" content="概述接口定义类型，抽象类实现骨架。这种技巧在JCF中是标配。一来替客户端提供如何实现一个接口的最直接的参考。二来帮助客户端以此实现功能更强的接口。如Guava的集合也是参考这种模式。 抽象实现抽象类的最重要分析是留下了哪些抽象方法，而留下的抽象方法是真正实现类的差异，而抽象类中的普通方法使用抽象方法来实现，而抽象方法实现由实现类实现，并且抽象类没有任何字段，所以也能从侧面体现留下的抽象方法的价值。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-08T18:34:19.000Z">
-<meta property="article:modified_time" content="2020-11-14T12:40:16.810Z">
+<meta property="article:modified_time" content="2020-11-14T12:42:20.394Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.util.*">
 <meta property="article:tag" content="java collection framework">
@@ -479,7 +479,7 @@
 
 
 
-<h3 id="修改操作方法"><a href="#修改操作方法" class="headerlink" title="修改操作方法"></a>修改操作方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//put方法在这里没有办法实现，正如add方法在AbstractCollection/List/Set中无法实现一样</span></span><br><span class="line"><span class="comment">//因为你不知道放入的数据结构，真正的数据结构定义是在实现类中，如HashMap，TreeMap这里面，</span></span><br><span class="line"><span class="comment">//正是因为抽象类的实现没有引入成员变量，所以放入时候才不会指定特定的存储细节，这也是</span></span><br><span class="line"><span class="comment">//集合框架获得灵活性的最要机制，如果在抽象类中引入了成员变量作为存储结构，那么子类的实现将会</span></span><br><span class="line"><span class="comment">//被束缚在抽象类，此时抽象类将不再抽象，而是一种实现了。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="修改操作方法"><a href="#修改操作方法" class="headerlink" title="修改操作方法"></a>修改操作方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//put方法在这里没有实现，也没有办法实现，正如add方法在AbstractCollection/List/Set中无法实现一样</span></span><br><span class="line"><span class="comment">//因为你不知道放入的数据结构，真正的数据结构定义是在实现类中，如HashMap，TreeMap这里面，</span></span><br><span class="line"><span class="comment">//正是因为抽象类的实现没有引入成员变量，所以放入时候才不会指定特定的存储细节，这也是</span></span><br><span class="line"><span class="comment">//集合框架获得灵活性的最要机制，如果在抽象类中引入了成员变量作为存储结构，那么子类的实现将会</span></span><br><span class="line"><span class="comment">//被束缚在抽象类，此时抽象类将不再抽象，而是一种实现了。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -511,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="Java集合框架(1)-接口概述">
-                <i class="fa fa-chevron-left"></i> Java集合框架(1)-接口概述
+              <a href="/2020/11/09/JCF-HighLevel/" rel="next" title="Java集合框架(1)-接口定义类型">
+                <i class="fa fa-chevron-left"></i> Java集合框架(1)-接口定义类型
               </a>
             
           </div>
