@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020年尾声规划</title>
+    <url>/2020/08/16/2020-plan/</url>
+    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
+<p>经过思考以下几个点需要不断提高：</p>
+<ol>
+<li>体系化思考，深度思考能力(欠缺)</li>
+<li>提高技术鉴赏力，品味(一般)</li>
+<li>算法能力(严重短板)</li>
+<li>工程，架构以及软件设计能力(一般)</li>
+<li>项目管理能力(欠缺)</li>
+<li>英语读写，中文读写，文档能力(欠缺)</li>
+<li>面试能力，BQ，面试题  (不满意)</li>
+</ol>
+<p>希望接下来四个月能做到：算法+源码</p>
+<ol>
+<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
+<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
+<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
+<li>录源码分析技术视频提高表达能力(有点难)</li>
+</ol>
+<p>以上四点综合提高1。</p>
+<p>以诸葛亮的诫子书共勉：</p>
+<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>2020尾声规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -81,35 +113,15 @@
       </tags>
   </entry>
   <entry>
-    <title>2020年尾声规划</title>
-    <url>/2020/08/16/2020-plan/</url>
-    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
-<p>经过思考以下几个点需要不断提高：</p>
-<ol>
-<li>体系化思考，深度思考能力(欠缺)</li>
-<li>提高技术鉴赏力，品味(一般)</li>
-<li>算法能力(严重短板)</li>
-<li>工程，架构以及软件设计能力(一般)</li>
-<li>项目管理能力(欠缺)</li>
-<li>英语读写，中文读写，文档能力(欠缺)</li>
-<li>面试能力，BQ，面试题  (不满意)</li>
-</ol>
-<p>希望接下来四个月能做到：算法+源码</p>
-<ol>
-<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
-<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
-<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
-<li>录源码分析技术视频提高表达能力(有点难)</li>
-</ol>
-<p>以上四点综合提高1。</p>
-<p>以诸葛亮的诫子书共勉：</p>
-<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
-]]></content>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>规划</category>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
       </categories>
       <tags>
-        <tag>2020尾声规划</tag>
+        <tag>object pool</tag>
       </tags>
   </entry>
   <entry>
@@ -140,6 +152,20 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -181,37 +207,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -315,6 +310,23 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -431,15 +443,44 @@
       </tags>
   </entry>
   <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+    <title>Leetcode LinkedList(206,237,707,876)</title>
+    <url>/2020/07/06/LinkedList/</url>
+    <content><![CDATA[<ol start="206">
+<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
+<p>Time：O(n)</p>
+<p>Space：O(1)</p>
+</blockquote>
+<ol start="237">
+<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<blockquote>
+<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
+</blockquote>
+<ol start="876">
+<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>读后感</category>
+        <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>Homework</tag>
+        <tag>LinkedList</tag>
       </tags>
   </entry>
   <entry>
@@ -499,47 +540,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode LinkedList(206,237,707,876)</title>
-    <url>/2020/07/06/LinkedList/</url>
-    <content><![CDATA[<ol start="206">
-<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
-<p>Time：O(n)</p>
-<p>Space：O(1)</p>
-</blockquote>
-<ol start="237">
-<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​      </p>
-<blockquote>
-<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
-</blockquote>
-<ol start="876">
-<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>Homework</tag>
-        <tag>LinkedList</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java.lang.OutOfMemoryError内存溢出</title>
     <url>/2020/08/16/OOM/</url>
     <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
@@ -589,6 +589,30 @@
       </tags>
   </entry>
   <entry>
+    <title>Spring-Bean(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Bean-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Bean</category>
+      </categories>
+      <tags>
+        <tag>SpringBean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
+    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-WebMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>String,StringBuilder,StringBuffer设计与实现</title>
     <url>/2020/11/08/String-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
@@ -596,6 +620,7 @@
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
+        <category>Java-Lang-Package</category>
       </categories>
       <tags>
         <tag>java.lang</tag>
@@ -662,6 +687,30 @@
       </categories>
       <tags>
         <tag>guava-retry</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring事务(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Transaction-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Transaction</category>
+      </categories>
+      <tags>
+        <tag>Spring事务</tag>
       </tags>
   </entry>
   <entry>
