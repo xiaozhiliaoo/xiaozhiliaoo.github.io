@@ -394,8 +394,9 @@
       
         
           
-          概述结构实现API演进实战使用注意
-          
+          概述线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。
+结构在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/11/15/ThreadLocal-Design-And-Implementation/#more" rel="contents">

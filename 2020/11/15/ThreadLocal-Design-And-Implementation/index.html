@@ -86,18 +86,21 @@
 
 
 
-<meta name="description" content="概述结构实现API演进实战使用注意">
+<meta name="description" content="概述线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。 结构在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakRefe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadLocal设计,实现,使用注意">
 <meta property="og:url" content="http://yoursite.com/2020/11/15/ThreadLocal-Design-And-Implementation/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="概述结构实现API演进实战使用注意">
+<meta property="og:description" content="概述线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。 结构在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakRefe">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/ThreadLocalMap.png">
+<meta property="og:image" content="http://yoursite.com/images/ThreadLocal.png">
 <meta property="article:published_time" content="2020-11-14T19:39:59.000Z">
-<meta property="article:modified_time" content="2020-11-14T19:46:45.931Z">
+<meta property="article:modified_time" content="2020-11-15T16:42:26.191Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.lang">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/ThreadLocalMap.png">
 
 
 
@@ -392,7 +395,15 @@
       
 
       
-        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
+
+
+
+<p>下图是类图：</p>
+<p><img src="/images/ThreadLocal.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1>
       
     </div>
     
