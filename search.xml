@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2020年尾声规划</title>
-    <url>/2020/08/16/2020-plan/</url>
-    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
-<p>经过思考以下几个点需要不断提高：</p>
-<ol>
-<li>体系化思考，深度思考能力(欠缺)</li>
-<li>提高技术鉴赏力，品味(一般)</li>
-<li>算法能力(严重短板)</li>
-<li>工程，架构以及软件设计能力(一般)</li>
-<li>项目管理能力(欠缺)</li>
-<li>英语读写，中文读写，文档能力(欠缺)</li>
-<li>面试能力，BQ，面试题  (不满意)</li>
-</ol>
-<p>希望接下来四个月能做到：算法+源码</p>
-<ol>
-<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
-<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
-<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
-<li>录源码分析技术视频提高表达能力(有点难)</li>
-</ol>
-<p>以上四点综合提高1。</p>
-<p>以诸葛亮的诫子书共勉：</p>
-<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
-]]></content>
-      <categories>
-        <category>规划</category>
-      </categories>
-      <tags>
-        <tag>2020尾声规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -113,6 +81,38 @@
       </tags>
   </entry>
   <entry>
+    <title>2020年尾声规划</title>
+    <url>/2020/08/16/2020-plan/</url>
+    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
+<p>经过思考以下几个点需要不断提高：</p>
+<ol>
+<li>体系化思考，深度思考能力(欠缺)</li>
+<li>提高技术鉴赏力，品味(一般)</li>
+<li>算法能力(严重短板)</li>
+<li>工程，架构以及软件设计能力(一般)</li>
+<li>项目管理能力(欠缺)</li>
+<li>英语读写，中文读写，文档能力(欠缺)</li>
+<li>面试能力，BQ，面试题  (不满意)</li>
+</ol>
+<p>希望接下来四个月能做到：算法+源码</p>
+<ol>
+<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
+<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
+<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
+<li>录源码分析技术视频提高表达能力(有点难)</li>
+</ol>
+<p>以上四点综合提高1。</p>
+<p>以诸葛亮的诫子书共勉：</p>
+<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>2020尾声规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Apache-Commons-Pool(1)-核心接口</title>
     <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
     <content><![CDATA[]]></content>
@@ -146,47 +146,6 @@
 <p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
 <p>我们先从Queue的API看起：</p>
 ]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
-      </categories>
-      <tags>
-        <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CompletionService设计与实现</title>
-    <url>/2020/11/13/CompletionService-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过ExecutorCompletionService实现，这两个实现均非常简单。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/CompletionService.png" style="zoom:60%;" />
-
-<p>通过类图，可以看出CompletionService并没有继承ExecutorService，而是内部包含了AbstractExecutorService类，CompletionService和ExecutorService比较类似地方是都有submit方法，而CompletionService获取执行结果是根据take和poll的方式去获取。</p>
-<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="任务结果排队的QueueingFuture"><a href="#任务结果排队的QueueingFuture" class="headerlink" title="任务结果排队的QueueingFuture"></a>任务结果排队的QueueingFuture</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全部final，说明在构造函数里面会创建好这些实例变量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Executor executor;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> AbstractExecutorService aes;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * FutureTask extension to enqueue upon completion.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueingFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">FutureTask</span>&lt;<span class="title">Void</span>&gt; </span>&#123;</span><br><span class="line">    QueueingFuture(RunnableFuture&lt;V&gt; task,</span><br><span class="line">                   BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue) &#123;</span><br><span class="line">        <span class="keyword">super</span>(task, <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">this</span>.task = task;</span><br><span class="line">        <span class="keyword">this</span>.completionQueue = completionQueue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Future&lt;V&gt; task;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue;</span><br><span class="line">    <span class="comment">//FutureTask的钩子方法，用户任务结束时候的扩展，QueueingFuture继承了该方法，并将结束的</span></span><br><span class="line">    <span class="comment">//任务放入阻塞队列</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123; completionQueue.add(task); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ExecutorCompletionService</span><span class="params">(Executor executor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (executor == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.executor = executor;</span><br><span class="line">    <span class="keyword">this</span>.aes = (executor <span class="keyword">instanceof</span> AbstractExecutorService) ?</span><br><span class="line">        (AbstractExecutorService) executor : <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.completionQueue = <span class="keyword">new</span> LinkedBlockingQueue&lt;Future&lt;V&gt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ExecutorCompletionService</span><span class="params">(Executor executor,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (executor == <span class="keyword">null</span> || completionQueue == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.executor = executor;</span><br><span class="line">    <span class="keyword">this</span>.aes = (executor <span class="keyword">instanceof</span> AbstractExecutorService) ?</span><br><span class="line">        (AbstractExecutorService) executor : <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.completionQueue = completionQueue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="提交任务submit"><a href="#提交任务submit" class="headerlink" title="提交任务submit"></a>提交任务submit</h2><p>提交任务和AbstractExecutorService类似，只不过提交的是返回结果排队的QueueingFuture.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">submit</span><span class="params">(Callable&lt;V&gt; task)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (task == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    RunnableFuture&lt;V&gt; f = newTaskFor(task);</span><br><span class="line">    executor.execute(<span class="keyword">new</span> QueueingFuture&lt;V&gt;(f, completionQueue));</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">submit</span><span class="params">(Runnable task, V result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (task == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        RunnableFuture&lt;V&gt; f = newTaskFor(task, result);</span><br><span class="line">        executor.execute(<span class="keyword">new</span> QueueingFuture&lt;V&gt;(f, completionQueue));</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="从阻塞队列获取任务结果take，poll"><a href="#从阻塞队列获取任务结果take，poll" class="headerlink" title="从阻塞队列获取任务结果take，poll"></a>从阻塞队列获取任务结果take，poll</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果没有完成的任务会阻塞等待</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.take();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果没有完成的任务返回null</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.poll();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//带有超时的获取任务结果，任务超时，则被中断</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">poll</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.poll(timeout, unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Util-Concurrent</category>
@@ -299,6 +258,47 @@
       </tags>
   </entry>
   <entry>
+    <title>CompletionService设计与实现</title>
+    <url>/2020/11/13/CompletionService-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过ExecutorCompletionService实现，这两个实现均非常简单。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/CompletionService.png" style="zoom:60%;" />
+
+<p>通过类图，可以看出CompletionService并没有继承ExecutorService，而是内部包含了AbstractExecutorService类，CompletionService和ExecutorService比较类似地方是都有submit方法，而CompletionService获取执行结果是根据take和poll的方式去获取。</p>
+<h1 id="API"><a href="#API" class="headerlink" title="API"></a>API</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="任务结果排队的QueueingFuture"><a href="#任务结果排队的QueueingFuture" class="headerlink" title="任务结果排队的QueueingFuture"></a>任务结果排队的QueueingFuture</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全部final，说明在构造函数里面会创建好这些实例变量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Executor executor;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> AbstractExecutorService aes;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * FutureTask extension to enqueue upon completion.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueingFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">FutureTask</span>&lt;<span class="title">Void</span>&gt; </span>&#123;</span><br><span class="line">    QueueingFuture(RunnableFuture&lt;V&gt; task,</span><br><span class="line">                   BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue) &#123;</span><br><span class="line">        <span class="keyword">super</span>(task, <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">this</span>.task = task;</span><br><span class="line">        <span class="keyword">this</span>.completionQueue = completionQueue;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Future&lt;V&gt; task;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue;</span><br><span class="line">    <span class="comment">//FutureTask的钩子方法，用户任务结束时候的扩展，QueueingFuture继承了该方法，并将结束的</span></span><br><span class="line">    <span class="comment">//任务放入阻塞队列</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">done</span><span class="params">()</span> </span>&#123; completionQueue.add(task); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ExecutorCompletionService</span><span class="params">(Executor executor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (executor == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.executor = executor;</span><br><span class="line">    <span class="keyword">this</span>.aes = (executor <span class="keyword">instanceof</span> AbstractExecutorService) ?</span><br><span class="line">        (AbstractExecutorService) executor : <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.completionQueue = <span class="keyword">new</span> LinkedBlockingQueue&lt;Future&lt;V&gt;&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ExecutorCompletionService</span><span class="params">(Executor executor,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 BlockingQueue&lt;Future&lt;V&gt;&gt; completionQueue)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (executor == <span class="keyword">null</span> || completionQueue == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    <span class="keyword">this</span>.executor = executor;</span><br><span class="line">    <span class="keyword">this</span>.aes = (executor <span class="keyword">instanceof</span> AbstractExecutorService) ?</span><br><span class="line">        (AbstractExecutorService) executor : <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">this</span>.completionQueue = completionQueue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="提交任务submit"><a href="#提交任务submit" class="headerlink" title="提交任务submit"></a>提交任务submit</h2><p>提交任务和AbstractExecutorService类似，只不过提交的是返回结果排队的QueueingFuture.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">submit</span><span class="params">(Callable&lt;V&gt; task)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (task == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">    RunnableFuture&lt;V&gt; f = newTaskFor(task);</span><br><span class="line">    executor.execute(<span class="keyword">new</span> QueueingFuture&lt;V&gt;(f, completionQueue));</span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">submit</span><span class="params">(Runnable task, V result)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (task == <span class="keyword">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        RunnableFuture&lt;V&gt; f = newTaskFor(task, result);</span><br><span class="line">        executor.execute(<span class="keyword">new</span> QueueingFuture&lt;V&gt;(f, completionQueue));</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="从阻塞队列获取任务结果take，poll"><a href="#从阻塞队列获取任务结果take，poll" class="headerlink" title="从阻塞队列获取任务结果take，poll"></a>从阻塞队列获取任务结果take，poll</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果没有完成的任务会阻塞等待</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.take();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果没有完成的任务返回null</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.poll();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//带有超时的获取任务结果，任务超时，则被中断</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Future&lt;V&gt; <span class="title">poll</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> completionQueue.poll(timeout, unit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
     <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
     <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
@@ -327,18 +327,6 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -380,6 +368,68 @@
       <tags>
         <tag>Homework</tag>
         <tag>LinkedList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>paper</category>
+        <category>distributed system</category>
+      </categories>
+      <tags>
+        <tag>distributed-tracing</tag>
       </tags>
   </entry>
   <entry>
@@ -552,52 +602,14 @@
       </tags>
   </entry>
   <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Paper-Dapper</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
+    <title>《软件工艺》-读书笔记</title>
+    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>paper</category>
+        <category>读后感</category>
       </categories>
       <tags>
-        <tag>distributed-tracing</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -613,28 +625,15 @@
       </tags>
   </entry>
   <entry>
-    <title>《软件工艺》-读书笔记</title>
-    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
+    <title>Spring事务(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Transaction-Interface/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>读后感</category>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Transaction</category>
       </categories>
       <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>String,StringBuilder,StringBuffer设计与实现</title>
-    <url>/2020/11/08/String-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Lang-Package</category>
-      </categories>
-      <tags>
-        <tag>java.lang</tag>
+        <tag>Spring事务</tag>
       </tags>
   </entry>
   <entry>
@@ -650,21 +649,11 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring事务(1)-核心接口</title>
-    <url>/2000/11/15/Spring-Transaction-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-Transaction</category>
-      </categories>
-      <tags>
-        <tag>Spring事务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ThreadLocal设计,实现,使用注意</title>
-    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1>]]></content>
+    <title>String,StringBuilder,StringBuffer设计与实现</title>
+    <url>/2020/11/08/String-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Lang-Package</category>
@@ -870,6 +859,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>ThreadLocal设计,实现,使用注意</title>
+    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Lang-Package</category>
+      </categories>
+      <tags>
+        <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -984,23 +1003,5 @@
       <tags>
         <tag>OOD</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
 </search>
