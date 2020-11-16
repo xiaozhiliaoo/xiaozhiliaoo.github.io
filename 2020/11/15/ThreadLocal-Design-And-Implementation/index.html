@@ -94,9 +94,10 @@
 <meta property="og:description" content="概述线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。 结构在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakRefe">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/ThreadLocalMap.png">
+<meta property="og:image" content="http://yoursite.com/images/ThreadLocalMultiThread.png">
 <meta property="og:image" content="http://yoursite.com/images/ThreadLocal.png">
 <meta property="article:published_time" content="2020-11-14T19:39:59.000Z">
-<meta property="article:modified_time" content="2020-11-15T16:56:52.219Z">
+<meta property="article:modified_time" content="2020-11-16T04:40:44.352Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.lang">
 <meta name="twitter:card" content="summary">
@@ -396,17 +397,24 @@
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<p>单一线程：</p>
 <img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
 
 
 
+<p>多线程：</p>
+<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
+<p>从图中得出结论：</p>
+<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap.关系多对一，一对多</p>
+<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap.关系一对多，一对一</p>
 <p>下图是类图：</p>
 <p><img src="/images/ThreadLocal.png" alt=""></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
 <p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
 <p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
 <p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
+<p>5 内存泄漏和变量泄漏问题。</p>
 
       
     </div>
