@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://yoursite.com/images/ThreadLocalMultiThread.png">
 <meta property="og:image" content="http://yoursite.com/images/ThreadLocal.png">
 <meta property="article:published_time" content="2020-11-14T19:39:59.000Z">
-<meta property="article:modified_time" content="2020-11-16T04:40:44.352Z">
+<meta property="article:modified_time" content="2020-11-16T05:23:16.811Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="java.lang">
 <meta name="twitter:card" content="summary">
@@ -406,8 +406,9 @@
 <p>多线程：</p>
 <p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
 <p>从图中得出结论：</p>
-<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap.关系多对一，一对多</p>
-<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap.关系一对多，一对一</p>
+<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
+<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
+<p>所以ThreadLocalMap数量和线程数有关。</p>
 <p>下图是类图：</p>
 <p><img src="/images/ThreadLocal.png" alt=""></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
