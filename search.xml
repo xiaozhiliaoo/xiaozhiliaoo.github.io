@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>2020年尾声规划</title>
+    <url>/2020/08/16/2020-plan/</url>
+    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
+<p>经过思考以下几个点需要不断提高：</p>
+<ol>
+<li>体系化思考，深度思考能力(欠缺)</li>
+<li>提高技术鉴赏力，品味(一般)</li>
+<li>算法能力(严重短板)</li>
+<li>工程，架构以及软件设计能力(一般)</li>
+<li>项目管理能力(欠缺)</li>
+<li>英语读写，中文读写，文档能力(欠缺)</li>
+<li>面试能力，BQ，面试题  (不满意)</li>
+</ol>
+<p>希望接下来四个月能做到：算法+源码</p>
+<ol>
+<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
+<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
+<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
+<li>录源码分析技术视频提高表达能力(有点难)</li>
+</ol>
+<p>以上四点综合提高1。</p>
+<p>以诸葛亮的诫子书共勉：</p>
+<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>2020尾声规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -93,35 +125,20 @@
       </tags>
   </entry>
   <entry>
-    <title>2020年尾声规划</title>
-    <url>/2020/08/16/2020-plan/</url>
-    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
-<p>经过思考以下几个点需要不断提高：</p>
-<ol>
-<li>体系化思考，深度思考能力(欠缺)</li>
-<li>提高技术鉴赏力，品味(一般)</li>
-<li>算法能力(严重短板)</li>
-<li>工程，架构以及软件设计能力(一般)</li>
-<li>项目管理能力(欠缺)</li>
-<li>英语读写，中文读写，文档能力(欠缺)</li>
-<li>面试能力，BQ，面试题  (不满意)</li>
-</ol>
-<p>希望接下来四个月能做到：算法+源码</p>
-<ol>
-<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
-<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
-<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
-<li>录源码分析技术视频提高表达能力(有点难)</li>
-</ol>
-<p>以上四点综合提高1。</p>
-<p>以诸葛亮的诫子书共勉：</p>
-<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
 ]]></content>
       <categories>
-        <category>规划</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
-        <tag>2020尾声规划</tag>
+        <tag>java.util.concurrent</tag>
       </tags>
   </entry>
   <entry>
@@ -182,19 +199,39 @@
     <title>动态代理Proxy的设计与实现</title>
     <url>/2020/11/21/Dynamic-Proxy/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，InvocationHandler是方法调用的拦截，Method是反射的方法。</p>
-<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//需要代理的接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//代理接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(),</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl()));</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//需要代理的接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//代理接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(),</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl()));</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-<p>我们可以看下生成的$Proxy0类，分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RuntimeException | Error var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> var2;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UndeclaredThrowableException(var3);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RuntimeException | Error var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> var2;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UndeclaredThrowableException(var3);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RuntimeException | Error var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> var2;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UndeclaredThrowableException(var3);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RuntimeException | Error var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> var2;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UndeclaredThrowableException(var3);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RuntimeException | Error var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> var2;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> UndeclaredThrowableException(var3);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">            m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">            m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">            m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">            m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchMethodException var2) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchMethodError(var2.getMessage());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException var3) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NoClassDefFoundError(var3.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看下生成的$Proxy0类，分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-]]></content>
+
+
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
+<p><img src="/images/Proxy.png" alt=""></p>
+<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
+<p><img src="/images/GOF-Proxy.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
       </categories>
       <tags>
         <tag>java.lang.reflect</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -301,37 +338,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
-
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
-      </categories>
-      <tags>
-        <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合框架(4)-HashMap设计与实现</title>
     <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
@@ -346,18 +352,6 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -474,6 +468,18 @@
       </tags>
   </entry>
   <entry>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合框架(1)-接口定义类型</title>
     <url>/2020/11/09/JCF-HighLevel/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
@@ -571,18 +577,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>paper</category>
-        <category>distributed system</category>
-      </categories>
-      <tags>
-        <tag>distributed-tracing</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java.lang.OutOfMemoryError内存溢出</title>
     <url>/2020/08/16/OOM/</url>
     <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
@@ -632,15 +626,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring事务(1)-核心接口</title>
-    <url>/2000/11/15/Spring-Transaction-Interface/</url>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-Transaction</category>
+        <category>paper</category>
+        <category>distributed system</category>
       </categories>
       <tags>
-        <tag>Spring事务</tag>
+        <tag>distributed-tracing</tag>
       </tags>
   </entry>
   <entry>
@@ -653,6 +647,18 @@
       </categories>
       <tags>
         <tag>SpringBean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring事务(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Transaction-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Transaction</category>
+      </categories>
+      <tags>
+        <tag>Spring事务</tag>
       </tags>
   </entry>
   <entry>
@@ -910,24 +916,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -1042,5 +1030,23 @@
       <tags>
         <tag>OOD</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
 </search>
