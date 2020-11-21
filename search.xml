@@ -33,6 +33,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
+      </categories>
+      <tags>
+        <tag>object pool</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -113,15 +125,42 @@
       </tags>
   </entry>
   <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
       <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>object pool</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态代理Proxy的设计与实现</title>
+    <url>/2020/11/21/Dynamic-Proxy/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
+<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以看下生成的$Proxy0类，该类是真正的代理类。分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
+<p><img src="/images/Proxy.png" alt=""></p>
+<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
+<p><img src="/images/GOF-Proxy.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+      </categories>
+      <tags>
+        <tag>java.lang.reflect</tag>
       </tags>
   </entry>
   <entry>
@@ -180,45 +219,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态代理Proxy的设计与实现</title>
-    <url>/2020/11/21/Dynamic-Proxy/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
-<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们可以看下生成的$Proxy0类，分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
-<p><img src="/images/Proxy.png" alt=""></p>
-<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
-<p><img src="/images/GOF-Proxy.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-      </categories>
-      <tags>
-        <tag>java.lang.reflect</tag>
       </tags>
   </entry>
   <entry>
@@ -322,20 +322,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -464,23 +450,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合框架(1)-接口定义类型</title>
     <url>/2020/11/09/JCF-HighLevel/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
@@ -527,6 +496,23 @@
 <p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
 ]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Collection-Framework</category>
@@ -616,15 +602,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
+    <title>《软件工艺》-读书笔记</title>
+    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>paper</category>
-        <category>distributed system</category>
+        <category>读后感</category>
       </categories>
       <tags>
-        <tag>distributed-tracing</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -640,6 +625,30 @@
       </tags>
   </entry>
   <entry>
+    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
+    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-WebMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>paper</category>
+        <category>distributed system</category>
+      </categories>
+      <tags>
+        <tag>distributed-tracing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring事务(1)-核心接口</title>
     <url>/2000/11/15/Spring-Transaction-Interface/</url>
     <content><![CDATA[]]></content>
@@ -652,9 +661,12 @@
       </tags>
   </entry>
   <entry>
-    <title>《软件工艺》-读书笔记</title>
-    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
-    <content><![CDATA[]]></content>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
       <categories>
         <category>读后感</category>
       </categories>
@@ -674,18 +686,6 @@
       </categories>
       <tags>
         <tag>java.lang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
-    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-WebMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
       </tags>
   </entry>
   <entry>
