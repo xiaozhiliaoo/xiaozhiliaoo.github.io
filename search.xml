@@ -33,6 +33,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
+      </categories>
+      <tags>
+        <tag>object pool</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -113,15 +125,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
+    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
+    <url>/2020/11/28/CI-Book-Reading/</url>
+    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
+<p>构建：编译，测试，审查，部署</p>
+<p>I Build So Consistently</p>
+<p>任何时候都要100%通过自动化测试</p>
+<p>一个单元测试1s内</p>
+<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
+<p>持续审查：自动化审查80%，人工审查20%</p>
+<p>圈复杂度和测试覆盖率有关。</p>
+]]></content>
       <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
+        <category>读后感</category>
       </categories>
       <tags>
-        <tag>object pool</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -152,25 +171,6 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
-    <url>/2020/11/28/CI-Book-Reading/</url>
-    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
-<p>构建：编译，测试，审查，部署</p>
-<p>I Build So Consistently</p>
-<p>任何时候都要100%通过自动化测试</p>
-<p>一个单元测试1s内</p>
-<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
-<p>持续审查：自动化审查80%，人工审查20%</p>
-<p>圈复杂度和测试覆盖率有关。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -215,20 +215,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态代理Proxy的设计与实现</title>
     <url>/2020/11/21/Dynamic-Proxy/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
@@ -252,6 +238,20 @@
       </categories>
       <tags>
         <tag>java.lang.reflect</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -999,6 +999,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>面向对象设计的启发60条黄金法则</title>
     <url>/2020/09/01/ood-heuristics-translate/</url>
     <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
@@ -1050,24 +1068,6 @@
       <tags>
         <tag>OOD</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>持续集成之实践单元测试</title>
