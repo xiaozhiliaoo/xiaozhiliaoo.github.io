@@ -95,7 +95,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/CI.png">
 <meta property="article:published_time" content="2020-12-01T17:13:05.000Z">
-<meta property="article:modified_time" content="2020-12-05T19:40:40.293Z">
+<meta property="article:modified_time" content="2020-12-05T19:45:11.088Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="单元测试">
 <meta name="twitter:card" content="summary">
@@ -384,13 +384,12 @@
 
       
         <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
-<p>如果我的代码很难测试，那么对客户端来说设计不佳。<strong>Design</strong></p>
-<p>如果需要为一个类编写很多测试，就会意识到内聚性不足， <strong>Cohesive</strong></p>
-<p>如果我的测试有很多无关的依赖，那么一定是耦合过多了， <strong>Loosely Couped</strong></p>
-<p>如果我的测试依赖于实现细节，那么肯定是封装出现了问题， <strong>Encapsulated</strong> </p>
-<p>如果测试结果在被测对象以外对象中体现，我的对象可能不够自主， <strong>Assertive</strong></p>
-<p>如果我一遍一遍编写同样的测试，那肯定出现了冗余。 <strong>Nonredundant</strong></p>
-<p>我们可以看到测试作为外部视角对代码进行检测是非常重要且有必要的。</p>
+<p><strong>Design</strong>：如果我的代码很难测试，那么对客户端来说设计不佳。</p>
+<p><strong>Cohesive</strong>：如果需要为一个类编写很多测试，就会意识到内聚性不足。</p>
+<p><strong>Loosely Couped</strong>：如果我的测试有很多无关的依赖，那么一定是耦合过多了。 </p>
+<p><strong>Encapsulated</strong>：如果我的测试依赖于实现细节，那么肯定是封装出现了问题。</p>
+<p><strong>Assertive</strong>：如果测试结果在被测对象以外对象中体现，我的对象可能不够自主。</p>
+<p><strong>Nonredundant</strong>：如果我一遍一遍编写同样的测试，那肯定出现了冗余。</p>
 <p>一个常规的CI流程如下：</p>
 <img src="/images/CI.png" style="zoom:80%;" />
 

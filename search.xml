@@ -33,35 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
-
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
-      </categories>
-      <tags>
-        <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
-      </categories>
-      <tags>
-        <tag>object pool</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -142,6 +113,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
+      </categories>
+      <tags>
+        <tag>object pool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
     <url>/2020/11/28/CI-Book-Reading/</url>
     <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
@@ -158,19 +171,6 @@
       </categories>
       <tags>
         <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -212,63 +212,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态代理Proxy的设计与实现</title>
-    <url>/2020/11/21/Dynamic-Proxy/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
-<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们可以看下生成的$Proxy0类，该类是真正的代理类。分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
-<p><img src="/images/Proxy.png" alt=""></p>
-<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
-<p><img src="/images/GOF-Proxy.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-      </categories>
-      <tags>
-        <tag>java.lang.reflect</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -375,9 +318,54 @@
       </tags>
   </entry>
   <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>动态代理Proxy的设计与实现</title>
+    <url>/2020/11/21/Dynamic-Proxy/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
+<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以看下生成的$Proxy0类，该类是真正的代理类。分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
+<p><img src="/images/Proxy.png" alt=""></p>
+<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
+<p><img src="/images/GOF-Proxy.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+      </categories>
+      <tags>
+        <tag>java.lang.reflect</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
 ]]></content>
       <categories>
         <category>读后感</category>
@@ -387,59 +375,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(1)-接口定义类型</title>
-    <url>/2020/11/09/JCF-HighLevel/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
-<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
-<p>使用集合类型有非常多的好处：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
-<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
-
-<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
-<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
-<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
-<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
-<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
-<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
-
-
-
-<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
-
-<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
-<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
-<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
-<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
-<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
-
-
-
-<p>Map接口里面的Map.Entry</p>
-<p>map接口</p>
-<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
 ]]></content>
       <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
+        <category>读后感</category>
       </categories>
       <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -556,15 +500,59 @@
       </tags>
   </entry>
   <entry>
-    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
-    <content><![CDATA[]]></content>
+    <title>Java集合框架(1)-接口定义类型</title>
+    <url>/2020/11/09/JCF-HighLevel/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
+<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
+<p>使用集合类型有非常多的好处：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
+<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
+
+<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
+<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
+<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
+<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
+<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
+
+
+
+<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
+
+<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
+<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
+<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
+<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
+<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
+
+
+
+<p>Map接口里面的Map.Entry</p>
+<p>map接口</p>
+<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
+]]></content>
       <categories>
-        <category>paper</category>
-        <category>distributed system</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>distributed-tracing</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -647,6 +635,18 @@
       </tags>
   </entry>
   <entry>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>paper</category>
+        <category>distributed system</category>
+      </categories>
+      <tags>
+        <tag>distributed-tracing</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《软件工艺》-读书笔记</title>
     <url>/2020/08/28/Software-Craftsmanship-Note/</url>
     <content><![CDATA[]]></content>
@@ -696,18 +696,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
-    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-WebMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ThreadLocal设计,实现,使用注意</title>
     <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
@@ -737,6 +725,18 @@
       </categories>
       <tags>
         <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
+    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-WebMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
       </tags>
   </entry>
   <entry>
@@ -1070,57 +1070,15 @@
       </tags>
   </entry>
   <entry>
-    <title>我的技术书单</title>
-    <url>/2020/12/06/technical-book-list/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
-<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
-<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>《深入理解计算机系统》</td>
-<td>xxx</td>
-<td>xxx</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
-      <categories>
-        <category>我的书单</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>持续集成之实践单元测试</title>
     <url>/2020/12/02/unit-test/</url>
     <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
-<p>如果我的代码很难测试，那么对客户端来说设计不佳。<strong>Design</strong></p>
-<p>如果需要为一个类编写很多测试，就会意识到内聚性不足， <strong>Cohesive</strong></p>
-<p>如果我的测试有很多无关的依赖，那么一定是耦合过多了， <strong>Loosely Couped</strong></p>
-<p>如果我的测试依赖于实现细节，那么肯定是封装出现了问题， <strong>Encapsulated</strong> </p>
-<p>如果测试结果在被测对象以外对象中体现，我的对象可能不够自主， <strong>Assertive</strong></p>
-<p>如果我一遍一遍编写同样的测试，那肯定出现了冗余。 <strong>Nonredundant</strong></p>
-<p>我们可以看到测试作为外部视角对代码进行检测是非常重要且有必要的。</p>
+<p><strong>Design</strong>：如果我的代码很难测试，那么对客户端来说设计不佳。</p>
+<p><strong>Cohesive</strong>：如果需要为一个类编写很多测试，就会意识到内聚性不足。</p>
+<p><strong>Loosely Couped</strong>：如果我的测试有很多无关的依赖，那么一定是耦合过多了。 </p>
+<p><strong>Encapsulated</strong>：如果我的测试依赖于实现细节，那么肯定是封装出现了问题。</p>
+<p><strong>Assertive</strong>：如果测试结果在被测对象以外对象中体现，我的对象可能不够自主。</p>
+<p><strong>Nonredundant</strong>：如果我一遍一遍编写同样的测试，那肯定出现了冗余。</p>
 <p>一个常规的CI流程如下：</p>
 <img src="/images/CI.png" style="zoom:80%;" />
 
@@ -1188,6 +1146,47 @@
       </categories>
       <tags>
         <tag>单元测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的技术书单</title>
+    <url>/2020/12/06/technical-book-list/</url>
+    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
+<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
+<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
+<thead>
+<tr>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>《深入理解计算机系统》</td>
+<td>xxx</td>
+<td>xxx</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
+      <categories>
+        <category>我的书单</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
 </search>
