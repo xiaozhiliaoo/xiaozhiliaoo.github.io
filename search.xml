@@ -33,6 +33,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
+      </categories>
+      <tags>
+        <tag>object pool</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -103,35 +132,6 @@
 
 
 <p>Done！</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
-      </categories>
-      <tags>
-        <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
-      </categories>
-      <tags>
-        <tag>object pool</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
-
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
 ]]></content>
       <categories>
         <category>JDK-Source-Code</category>
@@ -215,20 +215,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>动态代理Proxy的设计与实现</title>
     <url>/2020/11/21/Dynamic-Proxy/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
@@ -255,9 +241,11 @@
       </tags>
   </entry>
   <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
 ]]></content>
       <categories>
         <category>读后感</category>
@@ -367,6 +355,91 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(1)-接口定义类型</title>
+    <url>/2020/11/09/JCF-HighLevel/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
+<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
+<p>使用集合类型有非常多的好处：</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
+<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
+
+<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
+<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
+<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
+<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
+<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
+
+
+
+<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
+
+<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
+<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
+<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
+<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
+<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
+
+
+
+<p>Map接口里面的Map.Entry</p>
+<p>map接口</p>
+<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -483,120 +556,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Leetcode LinkedList(206,237,707,876)</title>
-    <url>/2020/07/06/LinkedList/</url>
-    <content><![CDATA[<ol start="206">
-<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
-<p>Time：O(n)</p>
-<p>Space：O(1)</p>
-</blockquote>
-<ol start="237">
-<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​      </p>
-<blockquote>
-<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
-</blockquote>
-<ol start="876">
-<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据结构和算法</category>
-      </categories>
-      <tags>
-        <tag>Homework</tag>
-        <tag>LinkedList</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(1)-接口定义类型</title>
-    <url>/2020/11/09/JCF-HighLevel/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
-<p>集合设计包括<strong>接口，实现和算法</strong>三大核心功能。接口包括类型接口和迭代器接口，类型接口是List，Set，Map，Queue等接口，而迭代器接口包括顺序迭代器和分割器，实现包括骨架实现，视图实现，数据结构实现，骨架实现就是AbstractList，AbstractSet，AbstractMap,AbstractQueue等实现，视图实现比如ArrayList的SubList，HashMap的KeySet，Values和EntrySet，而数据结构实现是特定的类型实现比如List有ArrayList和LinkedList，算法主要有排序，查找，shuffle 等，这三个功能构成了集合的设计核心。</p>
-<p>使用集合类型有非常多的好处：</p>
-<p>1</p>
-<p>2</p>
-<p>3</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>集合中最重要的是接口，接口定义了数据类型，抽象类实现了接口，而具体集合类实现了真正的类型。接下来会分析每种数据结构类型接口方法，根本特征以及不同类型之间的真正区别。</p>
-<h3 id="基本接口"><a href="#基本接口" class="headerlink" title="基本接口"></a>基本接口</h3><img src="/images/JCF-Base.png" style="zoom:67%;" />
-
-<p>集合的基本组成是元素，元素即对象。这些元素本身是普通对象，但是被集合框架管理起来就具有鲜明特点，如可以迭代，可以被分割，可以比较大小排序，而正是这些基础的能力构成了集合最核心的三大接口：<strong>Iterator，Spliterator，Comparator</strong>.</p>
-<p><strong>Iterator</strong>提供了种不需要知道集合实现就能遍历的能力,也是经典的设计模式。</p>
-<p><strong>Spliterator</strong>提供了分割集合的能力，在并行遍历中常用。</p>
-<p><strong>Comparator</strong>提供了元素比较大小的能力，在排序中常用。</p>
-<h3 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h3><p>Collection是JCF的顶级接口，该接口定义了集合的基本操作，其中分为查询，修改，块操作，基本对象操作。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查询</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">Iterator&lt;E&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line">Object[] toArray();</span><br><span class="line">&lt;T&gt; T[] toArray(T[] a);</span><br><span class="line"><span class="comment">//修改，在List/Set/Queue中也会重新定义这些方法，因为这些方法在这些接口中有了新的含义，异常也和Collection</span></span><br><span class="line"><span class="comment">//add接口异常也不一样，因为add对于不同接口意思不同，，如List.add只是添加元素，Set.add添加不同元素，Queue.add</span></span><br><span class="line"><span class="comment">//如果超过了Queue长度，会抛出异常。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="comment">//块操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//基本对象操作</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>这些操作定义了Collection基本操作，也是契约。而这些子接口Set，List，Queue有些重新定义了Collection接口方法，有些则没有，因为不同接口的含义不同。比如List，Set，Queue都重新定义了add方法，但是List，Set定义size()方法，Queue却没有定义，因为我认为size方法在List和Set(cardinality)含义不同，但是Queue的size含义和Collection一样。这种<strong>父接口定义方法，在子接口重新定义方法</strong>的技巧在JCF中广泛使用。</p>
-<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><img src="/images/List-Impl.png" style="zoom:67%;" />
-
-
-
-<p>List是一种Collection，但是Collection不一样，List支持index访问，所以List接口新加了关于index的方法，index是List最重要的抽象之一.同时List也把Collection中的方法重新定义了下，</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection&lt;? extends E&gt; c)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object o)</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">ListIterator&lt;E&gt; <span class="title">listIterator</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">E <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, E element)</span></span>;</span><br><span class="line"><span class="function">List&lt;E&gt; <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h3><img src="/images/set-impl.jpg" style="zoom:67%;" />
-
-<p>Set接口将Collection方法几乎全部定义了遍，因为Set具有数学意义上集合的含义，所以集合操作需要新定义一套契约，用来表达Set的不同于Collection之处。</p>
-<h3 id="Queue接口"><a href="#Queue接口" class="headerlink" title="Queue接口"></a>Queue接口</h3><p><img src="/images/Queue-Impl.png" alt=""></p>
-<p>Queue也是一种Collection，但是接口中并没有新加任何方法，只是把Collection接口方法重新定义了下，因为和Collection内涵不一样。但是仅仅重新定义了add方法，其他方法并没有重新定义，因为add方法在Queue满的时候会抛出异常。这和List，Set，Collection均不一样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//入队，如果队列满抛出IllegalStateException异常</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//入队，如果队列满返回false</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">remove</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//出队队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">poll</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则抛出NoSuchElementException异常</span></span><br><span class="line"><span class="function">E <span class="title">element</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//查看队头元素，没有元素则返回false</span></span><br><span class="line"><span class="function">E <span class="title">peek</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>队列方法比较对称，add/remove，offer/poll，element/peek，这也是API对称设计的范例。</p>
-<h3 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h3><p><img src="/images/Deque-Impl.png" alt=""></p>
-<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><img src="/images/Map-Impl.png" style="zoom:67%;" />
-
-
-
-<p>Map接口里面的Map.Entry</p>
-<p>map接口</p>
-<p>以上便是集合框架最重要的接口和实现(不包括并发集合，并发集合将在并发中分析)了，我们接下来分析将会围绕抽象实现和具体集合类而展开</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">https://docs.oracle.com/javase/tutorial/collections/</a></p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java.lang.OutOfMemoryError内存溢出</title>
     <url>/2020/08/16/OOM/</url>
     <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
@@ -647,14 +606,44 @@
       </tags>
   </entry>
   <entry>
-    <title>《软件工艺》-读书笔记</title>
-    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
-    <content><![CDATA[]]></content>
+    <title>Leetcode LinkedList(206,237,707,876)</title>
+    <url>/2020/07/06/LinkedList/</url>
+    <content><![CDATA[<ol start="206">
+<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
+<p>Time：O(n)</p>
+<p>Space：O(1)</p>
+</blockquote>
+<ol start="237">
+<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<blockquote>
+<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
+</blockquote>
+<ol start="876">
+<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
+</blockquote>
+]]></content>
       <categories>
-        <category>读后感</category>
+        <category>数据结构和算法</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>Homework</tag>
+        <tag>LinkedList</tag>
       </tags>
   </entry>
   <entry>
@@ -670,15 +659,14 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
-    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <title>《软件工艺》-读书笔记</title>
+    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-WebMVC</category>
+        <category>读后感</category>
       </categories>
       <tags>
-        <tag>SpringMVC</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -694,11 +682,55 @@
       </tags>
   </entry>
   <entry>
+    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
+    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-WebMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>String,StringBuilder,StringBuffer设计与实现</title>
     <url>/2020/11/08/String-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
 <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Lang-Package</category>
+      </categories>
+      <tags>
+        <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ThreadLocal设计,实现,使用注意</title>
+    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<p>单一线程：</p>
+<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
+
+
+
+<p>多线程：</p>
+<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
+<p>从图中得出结论：</p>
+<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
+<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
+<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
+<p>下图是类图：</p>
+<p><img src="/images/ThreadLocal.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
+<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
+<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
+<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
+<p>5 内存泄漏和变量泄漏问题。</p>
+]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Lang-Package</category>
@@ -922,91 +954,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>ThreadLocal设计,实现,使用注意</title>
-    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
-<p>单一线程：</p>
-<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
-
-
-
-<p>多线程：</p>
-<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
-<p>从图中得出结论：</p>
-<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
-<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
-<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
-<p>下图是类图：</p>
-<p><img src="/images/ThreadLocal.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
-<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
-<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
-<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
-<p>5 内存泄漏和变量泄漏问题。</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Lang-Package</category>
-      </categories>
-      <tags>
-        <tag>java.lang</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面向对象设计的启发60条黄金法则</title>
-    <url>/2020/09/01/ood-heuristics-translate/</url>
-    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
-<ol>
-<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
-<li>所有数据应该隐藏在类内。</li>
-<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
-<li>最小化类的消息规范。</li>
-<li>实现所有客户端可理解的最小接口。</li>
-<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
-<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
-<li>一个类应该捕获有且只有一个关键抽象。</li>
-<li>保存数据和行为在同一地方。</li>
-<li>拆分不相关信息到另一个类。</li>
-<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
-<li>将对象视为一类服务而不是一类数据。</li>
-<li>设计面向对象服务时使用它们的状态决定行为。</li>
-<li>使用不可变对象，也叫信使。</li>
-<li>设计时，尽可能水平得，统一得分配系统智能。</li>
-<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
-<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
-<li>todo</li>
-<li>尽可能对真实世界建模。</li>
-<li>从设计中消除不相关的类</li>
-<li>减少系统无关的类。</li>
-<li>todo</li>
-<li>最小化类和其他类的协作者。</li>
-<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
-<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
-<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
-<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
-<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
-<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
-<li>继承应该只被用作对层次体系建模。</li>
-<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
-<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
-<li>理论上，继承层次应该很深，越深越好。</li>
-<li>todo</li>
-<li>对于实现继承结构，所有抽象类必须是基类。</li>
-<li>在实现继承时，所有基类应该是抽象类。</li>
-<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
-<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
-<li></li>
-</ol>
-]]></content>
-      <categories>
-        <category>翻译</category>
-      </categories>
-      <tags>
-        <tag>OOD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -1070,44 +1017,56 @@
       </tags>
   </entry>
   <entry>
-    <title>我的技术书单</title>
-    <url>/2020/12/06/technical-book-list/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
-<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
-<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>购买时间</th>
-<th>阅读情况</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>《深入理解计算机系统》</td>
-<td>xxx</td>
-<td>xxx</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
+    <title>面向对象设计的启发60条黄金法则</title>
+    <url>/2020/09/01/ood-heuristics-translate/</url>
+    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
+<ol>
+<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
+<li>所有数据应该隐藏在类内。</li>
+<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
+<li>最小化类的消息规范。</li>
+<li>实现所有客户端可理解的最小接口。</li>
+<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
+<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
+<li>一个类应该捕获有且只有一个关键抽象。</li>
+<li>保存数据和行为在同一地方。</li>
+<li>拆分不相关信息到另一个类。</li>
+<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
+<li>将对象视为一类服务而不是一类数据。</li>
+<li>设计面向对象服务时使用它们的状态决定行为。</li>
+<li>使用不可变对象，也叫信使。</li>
+<li>设计时，尽可能水平得，统一得分配系统智能。</li>
+<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
+<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
+<li>todo</li>
+<li>尽可能对真实世界建模。</li>
+<li>从设计中消除不相关的类</li>
+<li>减少系统无关的类。</li>
+<li>todo</li>
+<li>最小化类和其他类的协作者。</li>
+<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
+<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
+<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
+<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
+<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
+<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
+<li>继承应该只被用作对层次体系建模。</li>
+<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
+<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
+<li>理论上，继承层次应该很深，越深越好。</li>
+<li>todo</li>
+<li>对于实现继承结构，所有抽象类必须是基类。</li>
+<li>在实现继承时，所有基类应该是抽象类。</li>
+<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
+<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
+<li></li>
+</ol>
+]]></content>
       <categories>
-        <category>我的书单</category>
+        <category>翻译</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>OOD</tag>
       </tags>
   </entry>
   <entry>
@@ -1181,6 +1140,47 @@
       </categories>
       <tags>
         <tag>单元测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的技术书单</title>
+    <url>/2020/12/06/technical-book-list/</url>
+    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
+<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
+<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
+<thead>
+<tr>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>《深入理解计算机系统》</td>
+<td>xxx</td>
+<td>xxx</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
+      <categories>
+        <category>我的书单</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
 </search>
