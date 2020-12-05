@@ -33,18 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
-      </categories>
-      <tags>
-        <tag>object pool</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ArrayBlockingQueue设计与实现</title>
     <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
@@ -59,6 +47,18 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
+      </categories>
+      <tags>
+        <tag>object pool</tag>
       </tags>
   </entry>
   <entry>
@@ -142,19 +142,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
     <url>/2020/11/28/CI-Book-Reading/</url>
     <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
@@ -171,6 +158,19 @@
       </categories>
       <tags>
         <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -215,6 +215,20 @@
       </tags>
   </entry>
   <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态代理Proxy的设计与实现</title>
     <url>/2020/11/21/Dynamic-Proxy/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
@@ -241,17 +255,20 @@
       </tags>
   </entry>
   <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
       <categories>
-        <category>读后感</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -355,23 +372,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -556,44 +556,6 @@
       </tags>
   </entry>
   <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
     <url>/2000/11/15/Paper-Dapper/</url>
     <content><![CDATA[]]></content>
@@ -647,15 +609,41 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring-Bean(1)-核心接口</title>
-    <url>/2000/11/15/Spring-Bean-Interface/</url>
-    <content><![CDATA[]]></content>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
+]]></content>
       <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-Bean</category>
+        <category>JVM</category>
       </categories>
       <tags>
-        <tag>SpringBean</tag>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -667,6 +655,18 @@
       </categories>
       <tags>
         <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring-Bean(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Bean-Interface/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Bean</category>
+      </categories>
+      <tags>
+        <tag>SpringBean</tag>
       </tags>
   </entry>
   <entry>
@@ -682,18 +682,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
-    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-WebMVC</category>
-      </categories>
-      <tags>
-        <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>String,StringBuilder,StringBuffer设计与实现</title>
     <url>/2020/11/08/String-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
@@ -705,6 +693,18 @@
       </categories>
       <tags>
         <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringWebMVC(1)-DispatcherServlet设计</title>
+    <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Spring-Source-Code</category>
+        <category>Spring-WebMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
       </tags>
   </entry>
   <entry>
@@ -936,24 +936,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -1017,6 +999,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>面向对象设计的启发60条黄金法则</title>
     <url>/2020/09/01/ood-heuristics-translate/</url>
     <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
@@ -1070,9 +1070,57 @@
       </tags>
   </entry>
   <entry>
+    <title>我的技术书单</title>
+    <url>/2020/12/06/technical-book-list/</url>
+    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
+<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
+<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
+<thead>
+<tr>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>《深入理解计算机系统》</td>
+<td>xxx</td>
+<td>xxx</td>
+<td>xxx</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
+      <categories>
+        <category>我的书单</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>持续集成之实践单元测试</title>
     <url>/2020/12/02/unit-test/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。</p>
+    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
+<p>如果我的代码很难测试，那么对客户端来说设计不佳。<strong>Design</strong></p>
+<p>如果需要为一个类编写很多测试，就会意识到内聚性不足， <strong>Cohesive</strong></p>
+<p>如果我的测试有很多无关的依赖，那么一定是耦合过多了， <strong>Loosely Couped</strong></p>
+<p>如果我的测试依赖于实现细节，那么肯定是封装出现了问题， <strong>Encapsulated</strong> </p>
+<p>如果测试结果在被测对象以外对象中体现，我的对象可能不够自主， <strong>Assertive</strong></p>
+<p>如果我一遍一遍编写同样的测试，那肯定出现了冗余。 <strong>Nonredundant</strong></p>
+<p>我们可以看到测试作为外部视角对代码进行检测是非常重要且有必要的。</p>
 <p>一个常规的CI流程如下：</p>
 <img src="/images/CI.png" style="zoom:80%;" />
 
@@ -1140,47 +1188,6 @@
       </categories>
       <tags>
         <tag>单元测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的技术书单</title>
-    <url>/2020/12/06/technical-book-list/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。</p>
-<h1 id="书单汇总"><a href="#书单汇总" class="headerlink" title="书单汇总"></a>书单汇总</h1><p>书单会以分类展示，并且写明作者，很多书的作者非常知名，购买时间主要为了看自己在特定时间内对什么感兴趣，阅读情况分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,1 00%  <strong>5</strong>  读过多次   </p>
-<h2 id="计算机科学"><a href="#计算机科学" class="headerlink" title="计算机科学"></a>计算机科学</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>《深入理解计算机系统》</td>
-<td>xxx</td>
-<td>xxx</td>
-<td>xxx</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h2 id="软件工程"><a href="#软件工程" class="headerlink" title="软件工程"></a>软件工程</h2><h2 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h2><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><h2 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h2>]]></content>
-      <categories>
-        <category>我的书单</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
 </search>
