@@ -33,6 +33,23 @@
       </tags>
   </entry>
   <entry>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Apache-Commons-Pool(1)-核心接口</title>
     <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
     <content><![CDATA[]]></content>
@@ -125,20 +142,61 @@
       </tags>
   </entry>
   <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+    <title>动态代理Proxy的设计与实现</title>
+    <url>/2020/11/21/Dynamic-Proxy/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
+<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
-]]></content>
+
+
+<p>我们可以看下生成的$Proxy0类，该类是真正的代理类。分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
+<p><img src="/images/Proxy.png" alt=""></p>
+<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
+<p><img src="/images/GOF-Proxy.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
       </categories>
       <tags>
-        <tag>java.util.concurrent</tag>
+        <tag>java.lang.reflect</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
+    <url>/2020/11/28/CI-Book-Reading/</url>
+    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
+<p>构建：编译，测试，审查，部署</p>
+<p>I Build So Consistently</p>
+<p>任何时候都要100%通过自动化测试</p>
+<p>一个单元测试1s内</p>
+<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
+<p>持续审查：自动化审查80%，人工审查20%</p>
+<p>圈复杂度和测试覆盖率有关。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -183,64 +241,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
-    <url>/2020/11/28/CI-Book-Reading/</url>
-    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
-<p>构建：编译，测试，审查，部署</p>
-<p>I Build So Consistently</p>
-<p>任何时候都要100%通过自动化测试</p>
-<p>一个单元测试1s内</p>
-<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
-<p>持续审查：自动化审查80%，人工审查20%</p>
-<p>圈复杂度和测试覆盖率有关。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>动态代理Proxy的设计与实现</title>
-    <url>/2020/11/21/Dynamic-Proxy/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>Java动态代理实现是基于反射和动态生成Class文件的技术，Proxy，InvocationHandler，Method是三个核心类，Proxy是代理类的入口，用来获取代理类，创建代理实例，获取InvocationHandler，判断某个类是否是代理类，InvocationHandler是方法调用的拦截，invoke方法是接口唯一方法，Method是反射的方法，用来完成方法调用。</p>
-<h1 id="案例看行为"><a href="#案例看行为" class="headerlink" title="案例看行为"></a>案例看行为</h1><p>我们先通过一个Person案例来看动态代理生成的代理类的模样。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//公共接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getName</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//公共接口实现</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonImpl</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="keyword">this</span>.name = name; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用处理器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Person person;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyInvocationHandler</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.person = person;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"before invoke"</span>);</span><br><span class="line">        Object invoke = method.invoke(person, args);</span><br><span class="line">        System.out.println(<span class="string">"after invoke"</span>);</span><br><span class="line">        <span class="keyword">return</span> invoke;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProxy</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生成动态代理类文件</span></span><br><span class="line">        System.getProperties().put(<span class="string">"jdk.proxy.ProxyGenerator.saveGeneratedFiles"</span>, <span class="string">"true"</span>);</span><br><span class="line">        <span class="comment">//通过Proxy.newProxyInstance创建动态代理类，并且转型成Person。Person本质是$Proxy0代理类。</span></span><br><span class="line">        Person person = (Person) Proxy.newProxyInstance(</span><br><span class="line">                Person<span class="class">.<span class="keyword">class</span>.<span class="title">getClassLoader</span>(), //类加载器</span></span><br><span class="line">                new Class[]&#123;Person.class&#125;,  //接口</span><br><span class="line">                <span class="keyword">new</span> MyInvocationHandler(<span class="keyword">new</span> PersonImpl())  <span class="comment">//调用处理器</span></span><br><span class="line">        );</span><br><span class="line">        person.setName(<span class="string">"lili"</span>);<span class="comment">//动态代理类调用setName</span></span><br><span class="line">        System.out.println(person.getName());<span class="comment">//动态代理类调用getName</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们可以看下生成的$Proxy0类，该类是真正的代理类。分析可知：该类是final说明不可被子类化，并且继承Proxy的构造函数，这也就是Proxy构造函数为什么是protect的原因，同时实现了Person接口，说明代理类可以转型为Person，从而可以调用Person方法产生代理行为，在方法层面，所有的方法都是final方法。在$Proxy0 m0，m1，m2始终为hashCode，equals，toString方法，而m3，m4 …… 为目标接口的方法，我们可以看到当$Proxy0调用setName时候，实质调用了h.invoke(this, m4, new Object[]{var1})方法，也就是我们自定义的MyInvocationHandler#invoke方法，从而产生代理行为。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> $<span class="title">Proxy0</span> <span class="keyword">extends</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m0;<span class="comment">//hashCode</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m1;<span class="comment">//equals</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m2;<span class="comment">//toString</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m3;<span class="comment">//getName</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Method m4;<span class="comment">//setName</span></span><br><span class="line">    <span class="comment">//继承Proxy构造方法</span></span><br><span class="line">    <span class="keyword">public</span> $Proxy0(InvocationHandler param1) &#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> (Integer)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m0, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (Boolean)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m1, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m2, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (String)<span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m3, (Object[])<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String var1)</span> </span>&#123;</span><br><span class="line">         <span class="keyword">super</span>.h.invoke(<span class="keyword">this</span>, m4, <span class="keyword">new</span> Object[]&#123;var1&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//获取到method对象</span></span><br><span class="line">    <span class="keyword">static</span> &#123;      </span><br><span class="line">        m0 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"hashCode"</span>);</span><br><span class="line">        m1 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"equals"</span>, Class.forName(<span class="string">"java.lang.Object"</span>));</span><br><span class="line">        m2 = Class.forName(<span class="string">"java.lang.Object"</span>).getMethod(<span class="string">"toString"</span>);</span><br><span class="line">        m3 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"getName"</span>);</span><br><span class="line">        m4 = Class.forName(<span class="string">"org.lili.jdk.lang.reflect.Person"</span>).getMethod(<span class="string">"setName"</span>, Class.forName(<span class="string">"java.lang.String"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>通过案例，我们可以勾画出动态代理的结构</p>
-<p><img src="/images/Proxy.png" alt=""></p>
-<p>$Proxy0作为Proxy，Person作为Subject，而PersonImpl作为RealSubject是和设计模式代理模式一模一样。</p>
-<p><img src="/images/GOF-Proxy.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-      </categories>
-      <tags>
-        <tag>java.lang.reflect</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
     <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
     <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
@@ -252,23 +252,6 @@
       </categories>
       <tags>
         <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -375,15 +358,20 @@
       </tags>
   </entry>
   <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
-]]></content>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
       <categories>
-        <category>读书</category>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
       </tags>
   </entry>
   <entry>
@@ -500,44 +488,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode LinkedList(206,237,707,876)</title>
-    <url>/2020/07/06/LinkedList/</url>
-    <content><![CDATA[<ol start="206">
-<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
-<p>Time：O(n)</p>
-<p>Space：O(1)</p>
-</blockquote>
-<ol start="237">
-<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​      </p>
-<blockquote>
-<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
-</blockquote>
-<ol start="876">
-<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
-</blockquote>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
 ]]></content>
       <categories>
-        <category>数据结构和算法</category>
+        <category>读书</category>
       </categories>
       <tags>
-        <tag>Homework</tag>
-        <tag>LinkedList</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -597,15 +556,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
-    <content><![CDATA[]]></content>
+    <title>Leetcode LinkedList(206,237,707,876)</title>
+    <url>/2020/07/06/LinkedList/</url>
+    <content><![CDATA[<ol start="206">
+<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
+<p>Time：O(n)</p>
+<p>Space：O(1)</p>
+</blockquote>
+<ol start="237">
+<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<blockquote>
+<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
+</blockquote>
+<ol start="876">
+<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
+</blockquote>
+]]></content>
       <categories>
-        <category>paper</category>
-        <category>distributed system</category>
+        <category>数据结构和算法</category>
       </categories>
       <tags>
-        <tag>distributed-tracing</tag>
+        <tag>Homework</tag>
+        <tag>LinkedList</tag>
       </tags>
   </entry>
   <entry>
@@ -647,17 +635,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《软件工艺》-读书笔记</title>
-    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring-Bean(1)-核心接口</title>
     <url>/2000/11/15/Spring-Bean-Interface/</url>
     <content><![CDATA[]]></content>
@@ -667,6 +644,18 @@
       </categories>
       <tags>
         <tag>SpringBean</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>paper</category>
+        <category>distributed system</category>
+      </categories>
+      <tags>
+        <tag>distributed-tracing</tag>
       </tags>
   </entry>
   <entry>
@@ -694,11 +683,29 @@
       </tags>
   </entry>
   <entry>
-    <title>String,StringBuilder,StringBuffer设计与实现</title>
-    <url>/2020/11/08/String-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <title>ThreadLocal设计,实现,使用注意</title>
+    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<p>单一线程：</p>
+<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
+
+
+
+<p>多线程：</p>
+<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
+<p>从图中得出结论：</p>
+<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
+<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
+<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
+<p>下图是类图：</p>
+<p><img src="/images/ThreadLocal.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
+<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
+<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
+<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
+<p>5 内存泄漏和变量泄漏问题。</p>
+]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Lang-Package</category>
@@ -706,24 +713,6 @@
       <tags>
         <tag>java.lang</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>guava-retry源码分析</title>
@@ -789,29 +778,11 @@
       </tags>
   </entry>
   <entry>
-    <title>ThreadLocal设计,实现,使用注意</title>
-    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
-<p>单一线程：</p>
-<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
-
-
-
-<p>多线程：</p>
-<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
-<p>从图中得出结论：</p>
-<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
-<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
-<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
-<p>下图是类图：</p>
-<p><img src="/images/ThreadLocal.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
-<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
-<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
-<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
-<p>5 内存泄漏和变量泄漏问题。</p>
-]]></content>
+    <title>String,StringBuilder,StringBuffer设计与实现</title>
+    <url>/2020/11/08/String-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
         <category>JDK-Source-Code</category>
         <category>Java-Lang-Package</category>
@@ -819,6 +790,24 @@
       <tags>
         <tag>java.lang</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>ThreadPoolExecutor设计与实现</title>
@@ -1017,1743 +1006,6 @@
       </tags>
   </entry>
   <entry>
-    <title>我的技术书单</title>
-    <url>/2020/12/06/technical-book-list/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对技术书单进行汇总。看看自己都买过哪些书，哪些看了，哪些没看。以后买的书也会进行汇总。</p>
-<h1 id="书单汇总-253"><a href="#书单汇总-253" class="headerlink" title="书单汇总(253)"></a>书单汇总(253)</h1><p>总数<strong>252</strong>本。  2020-12-15统计</p>
-<p>书单会以分类展示，并且写明作者，很多书的作者非常知名，阅读情况 会包含阅读时间(严重缺失)和阅读进度，阅读进度分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,100%  <strong>5</strong>  读过多次 ， 书名加粗的是个人觉得非常好的经典书，值得多次阅读。汇总不好的一点是没有时间维度，后期读书时候会在阅读情况中加上。</p>
-<h2 id="计算机科学-32"><a href="#计算机科学-32" class="headerlink" title="计算机科学(32)"></a>计算机科学(32)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>操作系统概念第九版</td>
-<td>Abraham Silberschatz</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>程序设计语言:设计与实现第四版</td>
-<td>Terrence W. Pratt</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库系统概念第五版</td>
-<td>Abraham Silberschatz</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Solaris内核结构第二版</td>
-<td>Richard McDougall</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Linux内核设计与实现-第三版</td>
-<td>Robert Love</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>现代操作系统 英文第四版</td>
-<td>Abdrew S. Tanenbaum</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>现代操作系统 中文第四版</td>
-<td>Abdrew S. Tanenbaum</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>编译原理 英文第二版</td>
-<td>Alfred V.Aho</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式计算-原理，算法与实践</td>
-<td>Ajay Kshemkalyani</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式数据库系统及其应用第三版</td>
-<td>徐俊刚</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机网络 英文第五版</td>
-<td>Abdrew S. Tanenbaum</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机组成与汇编语言原理 英文版</td>
-<td>Patricj Juola</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>算法第四版</td>
-<td>Robert Sedgewick</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>程序设计语言-实践之路第三版</td>
-<td>Michael L. Soctt</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机网络-第五版</td>
-<td>Abdrew S. Tanenbaum</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>软件工程-面向对象和传统的方法第八版</td>
-<td>Stephen R. Schach</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>分布式系统原理与范型 第二版</strong></td>
-<td>Abdrew S. Tanenbaum</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>多处理器编程的艺术 修订版</td>
-<td>Nir Shavit</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>数据结构 Java版第四版</td>
-<td>叶核亚</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>数据结构与算法</td>
-<td>张铭</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>算法设计与分析 第四版</td>
-<td>王晓东</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机组成与设计</td>
-<td>David A. Patterson等</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>操作系统-精髓与设计原理</td>
-<td>William Stallings</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机程序的构造和解释</td>
-<td>Harold Abelson</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>编译原理第二版</td>
-<td>Alfred V. Aho</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式系统概念与设计</td>
-<td>George Coulouris</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>数据结构与算法 Java语言描述</td>
-<td>Mark Allen Weiss</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>设计原本</td>
-<td>Frederick P. Brooks</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库系统公司概念 第六版</td>
-<td>Abraham Silberschazta</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>深入理解计算机系统</td>
-<td>Randal Bryant</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>程序设计语言概念-第九版</td>
-<td>Robert W.Sebesta</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>云计算与分布式系统</td>
-<td>Kai Hwang等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="语言-39"><a href="#语言-39" class="headerlink" title="语言(39)"></a>语言(39)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Beginnig Java Object从概念到代码第二版</td>
-<td>Jacquie Barker</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>深入理解java虚拟机第二版</td>
-<td>Bill Venners</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java脚本编程</td>
-<td>Dejan Bosanac</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>七周七语言</td>
-<td>Bruce Tate</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Scala编程第三版</td>
-<td>Martin Odersky</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Perl语言入门</td>
-<td>Pandal L. Schwartz</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>编程语言实现模式</td>
-<td>Terence Parr</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Practical Java</td>
-<td>Peter Haggar</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式Java应用基础与实践</td>
-<td>林昊</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>深入浅出NodeJS</td>
-<td>朴灵</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>七周七并发</td>
-<td>Paul Butcher</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java加密与解密的艺术 第二版</td>
-<td>梁栋</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Living Clojure</td>
-<td>Carin Meier</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>领域特定语言</td>
-<td>Martin Fowler</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>精通正则表达式</td>
-<td>Jeffrey Friedl</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>ANTLR4权威指南</td>
-<td>Terence Parr</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java并发编程从入门到精通</td>
-<td>张振华</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>Go程序设计语言 英文版</td>
-<td>Alan A. Donovan</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Lua设计与实现</td>
-<td>codedump</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Effective Java 第二版</strong></td>
-<td>Joshua Bloch</td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Effective Java 第三版</strong></td>
-<td>Joshua Bloch</td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td>Java并发编程的艺术</td>
-<td>方腾飞</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>虚拟机设计与实现-以JVM为例</td>
-<td>李晓峰</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Java多线程编程实战指南-设计模式-第二版</td>
-<td>黄文海</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java并发实现原理-JDK源码剖析</td>
-<td>余春龙</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Java并发编程实战</strong></td>
-<td>Brian Goetz</td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>深入理解Java虚拟机第二版</strong></td>
-<td>周志明</td>
-<td>5</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>深入理解Java虚拟机第三版</strong></td>
-<td>周志明</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java并发设计模式</td>
-<td>Doug Lea</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>实战Java高并发程序设计</td>
-<td>葛一鸣</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>精通Lambda表达式</td>
-<td>Maurice Naftalin</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Java编程思想第四版</td>
-<td>Bruce Eckel</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>函数式编程思维</td>
-<td>Neal Ford</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Java解惑</td>
-<td>Joshua Bloch</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Java性能优化权威指南</td>
-<td>Charlie Hunt</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Java技术手册</td>
-<td>Benjamin J. Evans</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Java虚拟机规范（JavaSE8）</td>
-<td>Tim Lindholm等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Java性能权威指南</td>
-<td>Scott Oaks</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Java虚拟机并发编程</td>
-<td>Venkat Subramaniam</td>
-<td>1</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="数据库-12"><a href="#数据库-12" class="headerlink" title="数据库(12)"></a>数据库(12)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>高性能的MySQL第三版</td>
-<td>Perter Zaitsev等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>高可用的MySQL第二版</td>
-<td>Charles Bell</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>深入理解MySQL核心技术</td>
-<td>Sasha Pachev</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>HBase权威指南</td>
-<td>Lars George</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>海量数据库解决方案</td>
-<td>韩.李华植</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库事务处理的艺术</td>
-<td>李海翔</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Effective MySQL之深入解析复制技术</td>
-<td>Ronald Bradford</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>MySQL技术内幕：InnoDB存储引擎</td>
-<td>姜承尧</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库系统内幕</td>
-<td>Alex Petrov</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>数据密集型应用系统设计</td>
-<td>Martin Kleppmann</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>NoSQL精粹</td>
-<td>Martin Flower</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库索引设计与优化</td>
-<td>Michael Leach等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="分布式与中间件-30"><a href="#分布式与中间件-30" class="headerlink" title="分布式与中间件(30)"></a>分布式与中间件(30)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Rabbitmq实战指南</td>
-<td>朱忠华</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Lucene实战第二版</td>
-<td>Michael McCandless</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Docker实战</td>
-<td>Jeff Nickoloff</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>深入剖析Nginx</td>
-<td>高群凯</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Http权威指南</td>
-<td>David Gourley等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Http/2基础教程</td>
-<td>Stephen Ludin</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Docker进阶与实战</td>
-<td>华为</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Etcd技术内幕</td>
-<td>百丽燊<strong>shēn</strong></td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式数据库架构基于MyCat中间件</td>
-<td>周继锋等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Web容量规划的艺术</td>
-<td>John Allspaw</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Mongodb实战第一版</td>
-<td>Kyle Banker</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>从Paxos到Zookeeper</td>
-<td>倪超</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Rabbitmq实战</td>
-<td>Alvaro Videla</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Netty实战</td>
-<td>Morman Maurer</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Kafka权威指南</td>
-<td>Neha Narkhede</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Elsaticsearch服务器开发第二版</td>
-<td>Rafa Kuc</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式服务框架原理与实践</td>
-<td>李林锋</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>大型网站系统与Java中间件实践</td>
-<td>曾宪杰</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>Kubernetes in Action</td>
-<td>Marko Luksa</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Java RESTful Web Service实战第二版</td>
-<td>韩陆</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Zookeeper 分布式过程协同技术详解</td>
-<td>Flavio Junqueira</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>深入分析Java Web技术内幕 修订版</td>
-<td>许令波</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>Redis实战</td>
-<td>Josiah L. Carlson</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>Redis设计与实现</td>
-<td>黄健宏</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>大规模分布式系统架构与设计实战</td>
-<td>彭渊</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>大规模分布式存储系统原理解析和架构实战</td>
-<td>杨传辉</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式消息中间件实践</td>
-<td>倪伟</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>深入分布式缓存-从原理到实践</td>
-<td>于君泽等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>分布式系统应用设计</td>
-<td>Brendan Burns</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>企业集成模式-设计构建及部署消息传递解决方案</td>
-<td>Gregor Hohpe</td>
-<td>1</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="框架-13"><a href="#框架-13" class="headerlink" title="框架(13)"></a>框架(13)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>重新定义SpringCloud实战</td>
-<td>许进等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Spring实现第四版</td>
-<td>Craig Walls</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>J2EE核心模式第二版</td>
-<td>Deepak Alur</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>精通Spring4.0企业应用开发实战</td>
-<td>陈雄华等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>Java WebSocket编程</td>
-<td>Danny Coward</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Spring框架高级编程</td>
-<td>Rod Johnson等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Mybatis技术内幕</td>
-<td>徐郡明</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Spring技术内幕第二版</td>
-<td>计文柯</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Spring源码深度解析第二版</td>
-<td>郝佳</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>深入理解SpringMVC源代码</td>
-<td>王耀</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Expert One on one J2EE Development Without EJB</strong></td>
-<td>Rod Johnson等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Expert One on one J2EE Design And Implement</strong></td>
-<td>Rod Johnson</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>软件框架设计的艺术</td>
-<td>Jaroslav Tulach</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="架构-28"><a href="#架构-28" class="headerlink" title="架构(28)"></a>架构(28)</h2><table>
-<thead>
-<tr>
-<th align="left">书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">从0开始学架构</td>
-<td>李运华</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">大型网站技术架构-核心原理与案例分析</td>
-<td>李智慧</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">软考：软件设计师教程</td>
-<td>诸华</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">大数据技术原理与应用第二版</td>
-<td>林子雨</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">企业IT架构转型之道</td>
-<td>钟华</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">Kubernates权威指南纪念版</td>
-<td>垄正等</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">构建实时机器学习系统</td>
-<td>彭江森</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">云系统管理-大规模分布式系统设计与运营</td>
-<td>Thomas A.Limoncelli</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">恰如其分的软件架构</td>
-<td>George Fairbanks</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">软件架构设计</td>
-<td>温昱</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">软件架构设计-第二版</td>
-<td>温昱</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">进化：运维技术变革与实践探索</td>
-<td>赵成</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">企业应用架构模式</td>
-<td>Martin Flower</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">Paas程序设计</td>
-<td>Lucas Carlson</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">让云落地 云计算服务模式</td>
-<td>Michael Kavis</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">架构之美</td>
-<td>Diomidis Spinellis</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">软件构架编档</td>
-<td>Paul Clements等</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">IT架构思维</td>
-<td>Peter Beijer等</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">架构整洁之道</td>
-<td>Robert C.Martin</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">云计算架构设计模式</td>
-<td>Alex Homer等</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">简单之美 软件开发实践者的思考</td>
-<td>倪健</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">架构即未来</td>
-<td>Martin L.Abbott</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">高扩展性网站的50条原则</td>
-<td>Martin L.Abbott</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">持续集成-软件质量改进的风险降低之道</td>
-<td>Paul M. Duvall</td>
-<td>2</td>
-<td><a href="https://xiaozhiliaoo.github.io/2020/11/28/CI-Book-Reading/" target="_blank" rel="noopener">notes</a></td>
-</tr>
-<tr>
-<td align="left">持续交付-发布可靠软件的系统方法</td>
-<td>Jez Humble</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">演进式架构</td>
-<td>Neal Ford</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">Tomcat架构解析</td>
-<td>刘光瑞</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left">白帽子讲Web安全</td>
-<td>吴翰清</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="软件工程-46"><a href="#软件工程-46" class="headerlink" title="软件工程(46)"></a>软件工程(46)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>超越软件架构</td>
-<td>Luke Hohmann</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>重构与模式</td>
-<td>Joshua Kerievsky</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Contributing To Eclipse</td>
-<td>Erich Gamma&amp;Kent Beck</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>软件工艺</td>
-<td>Pete McBreen</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>程序员修炼之道从小工到专家</td>
-<td>Andrew Hunt</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>面向对象分析与设计第二版</strong></td>
-<td>Grady Booch</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>面向对象分析与设计第三版</strong></td>
-<td>Grady Booch</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>人月神话</td>
-<td>Frederick P. Brooks</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>敏捷中国史话</td>
-<td>熊节</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>软件开发本质论</td>
-<td>Ron Jeffries</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>大教堂与集市</td>
-<td>Eric Raymond</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>快速软件开发</td>
-<td>Steve McConnell</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>程序开发心理学</td>
-<td>Gerald Weinberg</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>个体软件工程</td>
-<td>Watts S. Humphrey</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>走出软件工坊</td>
-<td>阿朱</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>UNIX编程艺术</td>
-<td>Eric S.Raymond</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>解析极限编程-拥抱变化第一版</td>
-<td>Kent Beck</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>敏捷软件开发-原则，模式-实践</td>
-<td>Robert C.Martin</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>实现模式</strong></td>
-<td>Kent Beck</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>面向模式的软件架构 资源管理模式</td>
-<td>Michael Kircher</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>编程珠玑第二版</td>
-<td>Jon Bentley</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>数据库访问模式</td>
-<td>Clifton Nock</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>反模式-危机中的软件，架构和项目的重构</td>
-<td>William Brown</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>面向对象项目的解决方案</td>
-<td>Grady Booch</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>软件构架实践</td>
-<td>Len Bass</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>面向模式的软件架构-模式系统第一卷</td>
-<td>Frank Buschmann</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>发布! 软件的设计与部署-第一版</td>
-<td>Michael T. Mygard</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>发布! 软件的设计与部署-第二版</td>
-<td>Michael T. Mygard</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>构建之法-现代软件工程0第三版</td>
-<td>邹欣</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>混沌工程Netflix系统稳定性之道</td>
-<td>Casey Rosenthal等</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>设计模式-可复用面向对象软件的基础</td>
-<td>GOF4</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>精益软件度量</td>
-<td>张松</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>测试驱动开发-英文版</td>
-<td>Kent Beck</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Xunit测试模式</td>
-<td>Gerard Meszaros</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Google软件测试之道</td>
-<td>James Whittaker</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>UML用户指南</td>
-<td>Grady Booch</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>敏捷革命</td>
-<td>Jeff Sutherland</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>看板方法-科技企业渐进变革成功之道</td>
-<td>David J. Anderson</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>敏捷迭代开发-管理者指南</td>
-<td>Craig Larman</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>UML和模式应用第三版</strong></td>
-<td>Craig Larman</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>面向对象编程导论 第三版</td>
-<td>Timothy A. Budd</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>编写有效用例</td>
-<td>Alistair Cockburn</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>代码大全第二版</td>
-<td>Steve McConnell</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>统一软件开发过程</td>
-<td>Ivar Jacobson</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>用户故事与敏捷方法</td>
-<td>Mike Cohn</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>面向快速交付的软件开发</td>
-<td>翟宏宝</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>有效的单元测试</td>
-<td>Lasse Koskela</td>
-<td>0</td>
-<td>2020-12-15</td>
-</tr>
-</tbody></table>
-<h2 id="设计-23"><a href="#设计-23" class="headerlink" title="设计(23)"></a>设计(23)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>重构-第一版</strong></td>
-<td>Martin Flower</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>微服务设计</td>
-<td>Sam Newman</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>UML和OOAD快速入门</td>
-<td>邱郁惠</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>软件设计之道：那些值得借鉴的实践案例</td>
-<td>麦思博</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>分析模式</td>
-<td>Martin Fowler</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>生产微服务</td>
-<td>Susan J.Fowler</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>修改代码的艺术-构建易维护代码的9条最佳实践</td>
-<td>David Scott Bernstein</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>修改代码的艺术</td>
-<td>Michael Feathers</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>遗留系统重建实战</td>
-<td>Chris Birchall</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>Junit实战第二版</td>
-<td>Peter Tahchiev</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>软件设计哲学</td>
-<td>John Ousterhout</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>领域驱动设计全面解析与实战</td>
-<td>彭晨阳</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>软件工程-实践者的研究方法-第八版</td>
-<td>Roger S.Pressman</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>实现领域驱动设计</td>
-<td>Vaughn Vernon</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>编程格调</td>
-<td>Brian W.Kernighan</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>对象设计：角色，责任和协作</td>
-<td>Rebecca Wirfs-Brock</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>OOD启思录</strong></td>
-<td>Arthur J. Riel</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>软件设计重构</td>
-<td>Tushar Sharma等</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>领域驱动设计精粹</td>
-<td>Vaughn Vernon</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>设计模式的艺术</td>
-<td>刘伟</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>代码精进之路-从码农到工匠</td>
-<td>张建飞</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>领域驱动设计</td>
-<td>Eric Evans</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>特征驱动开发方法原理与实践</td>
-<td>Stephen R. Palmer</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>浮现式设计：专业软件开发的演进本质</td>
-<td>Scott L.Bain</td>
-<td>0</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="产品-6"><a href="#产品-6" class="headerlink" title="产品(6)"></a>产品(6)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>产品设计与开发第五版</td>
-<td>Karl T.Ullrich</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>疯传</td>
-<td>Jonah Berger</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>人人都是产品经理-第二版</td>
-<td>苏杰</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>你的灯还亮着吗？</td>
-<td>Gerald M.Weinberg</td>
-<td>4</td>
-<td></td>
-</tr>
-<tr>
-<td>淘宝产品十年事</td>
-<td>苏杰</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>俞军 产品方法论</td>
-<td>俞军</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>1</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="系统-4"><a href="#系统-4" class="headerlink" title="系统(4)"></a>系统(4)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Linux系统编程手册-上</td>
-<td>Michael Kerrisk</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>Linux系统编程手册-下</td>
-<td>Michael Kerrisk</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>系统性能优化第二版</td>
-<td>Mike Loukides</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>性能之巅</td>
-<td>Brendan Gregg</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="其他-18"><a href="#其他-18" class="headerlink" title="其他(18)"></a>其他(18)</h2><table>
-<thead>
-<tr>
-<th>书名</th>
-<th>作者</th>
-<th>阅读情况</th>
-<th>读书笔记</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>金领简历</td>
-<td>Gayle Laakmann McDowell</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>IEEE计算机先驱奖(1980-2014)</td>
-<td>崔林</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>图灵和ACM图灵奖品(1966-2011)</td>
-<td>吴鹤龄</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>黑客与画家</td>
-<td>Paul Graham</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>延长万物之尺</td>
-<td>保罗.汉弗莱斯</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Effective Debugging</td>
-<td>Diomidis Spinellis</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>跨越鸿沟</td>
-<td>Geoffrey Moore</td>
-<td>2</td>
-<td></td>
-</tr>
-<tr>
-<td>微软团队成功墨诀</td>
-<td>麦卡锡</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>开源软件之道</td>
-<td>蔡俊杰</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>计算机英语教程双色版</td>
-<td>张强华</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>设计领导力</td>
-<td>Richard Banfield</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>开源软件与专有软件的竞争</td>
-<td>王广凤</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>程序员代码面试指南第二版</td>
-<td>左程云</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>剑指Offer 第二版</td>
-<td>何海涛</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td>OKR工作法-谷歌等顶级公司高绩效秘籍</td>
-<td>沃特克</td>
-<td>3</td>
-<td></td>
-</tr>
-<tr>
-<td>程序员的成长课</td>
-<td>安晓辉等</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>Java程序员面试算法宝典</td>
-<td>猿媛之家</td>
-<td>0</td>
-<td></td>
-</tr>
-<tr>
-<td>程序员面试金典 第六版</td>
-<td>盖尔-拉克曼</td>
-<td>1</td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面向对象设计的启发60条黄金法则</title>
-    <url>/2020/09/01/ood-heuristics-translate/</url>
-    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
-<ol>
-<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
-<li>所有数据应该隐藏在类内。</li>
-<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
-<li>最小化类的消息规范。</li>
-<li>实现所有客户端可理解的最小接口。</li>
-<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
-<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
-<li>一个类应该捕获有且只有一个关键抽象。</li>
-<li>保存数据和行为在同一地方。</li>
-<li>拆分不相关信息到另一个类。</li>
-<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
-<li>将对象视为一类服务而不是一类数据。</li>
-<li>设计面向对象服务时使用它们的状态决定行为。</li>
-<li>使用不可变对象，也叫信使。</li>
-<li>设计时，尽可能水平得，统一得分配系统智能。</li>
-<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
-<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
-<li>todo</li>
-<li>尽可能对真实世界建模。</li>
-<li>从设计中消除不相关的类</li>
-<li>减少系统无关的类。</li>
-<li>todo</li>
-<li>最小化类和其他类的协作者。</li>
-<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
-<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
-<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
-<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
-<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
-<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
-<li>继承应该只被用作对层次体系建模。</li>
-<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
-<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
-<li>理论上，继承层次应该很深，越深越好。</li>
-<li>todo</li>
-<li>对于实现继承结构，所有抽象类必须是基类。</li>
-<li>在实现继承时，所有基类应该是抽象类。</li>
-<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
-<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
-<li></li>
-</ol>
-]]></content>
-      <categories>
-        <category>翻译</category>
-      </categories>
-      <tags>
-        <tag>OOD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>持续集成之实践单元测试</title>
     <url>/2020/12/02/unit-test/</url>
     <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
@@ -2830,6 +1082,70 @@
       </categories>
       <tags>
         <tag>单元测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《软件工艺》-读书笔记</title>
+    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面向对象设计的启发60条黄金法则</title>
+    <url>/2020/09/01/ood-heuristics-translate/</url>
+    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
+<ol>
+<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
+<li>所有数据应该隐藏在类内。</li>
+<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
+<li>最小化类的消息规范。</li>
+<li>实现所有客户端可理解的最小接口。</li>
+<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
+<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
+<li>一个类应该捕获有且只有一个关键抽象。</li>
+<li>保存数据和行为在同一地方。</li>
+<li>拆分不相关信息到另一个类。</li>
+<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
+<li>将对象视为一类服务而不是一类数据。</li>
+<li>设计面向对象服务时使用它们的状态决定行为。</li>
+<li>使用不可变对象，也叫信使。</li>
+<li>设计时，尽可能水平得，统一得分配系统智能。</li>
+<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
+<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
+<li>todo</li>
+<li>尽可能对真实世界建模。</li>
+<li>从设计中消除不相关的类</li>
+<li>减少系统无关的类。</li>
+<li>todo</li>
+<li>最小化类和其他类的协作者。</li>
+<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
+<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
+<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
+<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
+<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
+<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
+<li>继承应该只被用作对层次体系建模。</li>
+<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
+<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
+<li>理论上，继承层次应该很深，越深越好。</li>
+<li>todo</li>
+<li>对于实现继承结构，所有抽象类必须是基类。</li>
+<li>在实现继承时，所有基类应该是抽象类。</li>
+<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
+<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>翻译</category>
+      </categories>
+      <tags>
+        <tag>OOD</tag>
       </tags>
   </entry>
 </search>
