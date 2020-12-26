@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="java.util.*,java collection framework," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,18 +86,14 @@
 
 
 
-<meta name="description" content="序言设计实现">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java集合框架(3)-ArrayList设计与实现">
-<meta property="og:url" content="http://yoursite.com/2020/11/14/ArrayList-Design-And-Implementation/index.html">
+<meta name="description" content="为学日益,为道日损">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小知了的博客">
+<meta property="og:url" content="http://yoursite.com/categories/JDK-Source-Code/Java-IO/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="序言设计实现">
+<meta property="og:description" content="为学日益,为道日损">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-11-14T11:13:24.000Z">
-<meta property="article:modified_time" content="2020-11-14T11:20:22.764Z">
 <meta property="article:author" content="LiLi">
-<meta property="article:tag" content="java.util.*">
-<meta property="article:tag" content="java collection framework">
 <meta name="twitter:card" content="summary">
 
 
@@ -128,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/11/14/ArrayList-Design-And-Implementation/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/JDK-Source-Code/Java-IO/"/>
 
 
 
 
 
-  <title>Java集合框架(3)-ArrayList设计与实现 | 小知了的博客</title>
+  <title>Category: Java-IO | 小知了的博客</title>
   
 
 
@@ -153,7 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,185 +283,55 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>Java-IO<small>Category</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/14/ArrayList-Design-And-Implementation/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LiLi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小知了的博客">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2020/11/26/io-interface/" itemprop="url">
+              
+                <span itemprop="name">Java IO(1) - 接口定义类型</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">Java集合框架(3)-ArrayList设计与实现</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-14T19:13:24+08:00">
-                2020-11-14
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-11-26T17:39:35+08:00"
+              content="2020-11-26" >
+          11-26
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK-Source-Code/" itemprop="url" rel="index">
-                    <span itemprop="name">JDK-Source-Code</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JDK-Source-Code/Java-Collection-Framework/" itemprop="url" rel="index">
-                    <span itemprop="name">Java-Collection-Framework</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/java-util/" rel="tag"># java.util.*</a>
-          
-            <a href="/tags/java-collection-framework/" rel="tag"># java collection framework</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/" rel="next" title="ArrayBlockingQueue设计与实现">
-                <i class="fa fa-chevron-left"></i> ArrayBlockingQueue设计与实现
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/11/14/HashMap-Design-And-Implementation/" rel="prev" title="Java集合框架(4)-HashMap设计与实现">
-                Java集合框架(4)-HashMap设计与实现 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -473,10 +339,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -497,17 +359,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,22 +438,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计"><span class="nav-number">2.</span> <span class="nav-text">设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">3.</span> <span class="nav-text">实现</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -734,10 +571,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
