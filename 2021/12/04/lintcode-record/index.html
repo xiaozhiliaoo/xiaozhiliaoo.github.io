@@ -1,0 +1,2624 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="lintcode," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法的沉淀。    Problem Type Diffculty Note Date1 Date2 Date3    13-implement-strstr string Easy  2020&#x2F;6&#x2F;19     594-strstr-ii hash,kmp Hard  2020&#x2F;6&#x2F;19     17-subsets">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lintcode解题记录">
+<meta property="og:url" content="http://yoursite.com/2021/12/04/lintcode-record/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法的沉淀。    Problem Type Diffculty Note Date1 Date2 Date3    13-implement-strstr string Easy  2020&#x2F;6&#x2F;19     594-strstr-ii hash,kmp Hard  2020&#x2F;6&#x2F;19     17-subsets">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-04T15:59:02.000Z">
+<meta property="article:modified_time" content="2021-01-04T16:31:22.710Z">
+<meta property="article:author" content="LiLi">
+<meta property="article:tag" content="lintcode">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/12/04/lintcode-record/"/>
+
+
+
+
+
+  <title>lintcode解题记录 | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">小知了的博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading-list">
+          <a href="/reading-list/" rel="section">
+            
+            Reading List
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/04/lintcode-record/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">lintcode解题记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-12-04T23:59:02+08:00">
+                2021-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm/lintcode/" itemprop="url" rel="index">
+                    <span itemprop="name">lintcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法的沉淀。</p>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Type</th>
+<th>Diffculty</th>
+<th>Note</th>
+<th>Date1</th>
+<th>Date2</th>
+<th>Date3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>13-implement-strstr</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>594-strstr-ii</td>
+<td>hash,kmp</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17-subsets</td>
+<td>combination,dfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18-subsets-ii</td>
+<td>dfs,backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1361-text-justification</td>
+<td></td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38-search-a-2d-matrix-ii</td>
+<td>sort-matrix</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>39-recover-rotated-sorted-array</td>
+<td>sort-array</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>573-build-post-office-ii</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>616-course-schedule-ii</td>
+<td>bfs,topological-sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>598-zombie-in-matrix</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>127-topological-sorting</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>433-number-of-islands</td>
+<td>bfs</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>677-number-of-big-islands</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>109-triangle</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>110-minimum-path-sum</td>
+<td>dp</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>114-unique-paths</td>
+<td>dp</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>99-reorder-list</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>174-remove-nth-node-from-end-of-list</td>
+<td>LinkedList</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>102-linked-list-cycle</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>103-linked-list-cycle-ii</td>
+<td>LinkedList</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>104-merge-k-sorted-lists</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>105-copy-list-with-random-pointer</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>106-convert-sorted-list-to-binary-search-tree</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>177-convert-sorted-array-to-binary-search-tree-with-minimal-height</td>
+<td>LinkedList</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>74 first-bad-version</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1496  implement-rand10-using-rand7</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>66  binary-tree-preorder-traversal</td>
+<td>Tree</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>67  binary-tree-inorder-traversal</td>
+<td>Tree</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>68  binary-tree-postorder-traversal</td>
+<td>Tree</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>86  binary-search-tree-iterator</td>
+<td>Tree</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>97  maximum-depth-of-binary-tree</td>
+<td>DC</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>93  balanced-binary-tree</td>
+<td>DC</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31  partition-array</td>
+<td>Array,Quick Sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>94  binary-tree-maximum-path-sum</td>
+<td>DC</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>88  lowest-common-ancestor-of-a-binary-tree</td>
+<td>DC,RE</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>69  binary-tree-level-order-traversal</td>
+<td>BFS</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>70  binary-tree-level-order-traversal-ii</td>
+<td>BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>95  validate-binary-search-tree</td>
+<td>traversal</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>85  insert-node-in-a-binary-search-tree</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>86  binary-search-tree-iterator</td>
+<td></td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>87  remove-node-in-binary-search-tree</td>
+<td></td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11  search-range-in-binary-search-tree</td>
+<td>tree-traversal</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12  min-stack</td>
+<td>stack</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>40  implement-queue-by-two-stacks</td>
+<td>stack</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>494-implement-stack-by-two-queues</td>
+<td>queue</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>130  heapify</td>
+<td>heap</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>158  valid-anagram</td>
+<td>string,map</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>122  largest-rectangle-in-histogram</td>
+<td>monotonic stack</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>126-max-tree</td>
+<td>monotonic stack</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>134-lru  cache</td>
+<td>hash</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24-lfu  cache</td>
+<td>hash</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>129-rehashing</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>171-anagrams</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>138-subarray-sum</td>
+<td>hash</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>124-longest-consecutive-sequence</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>81-find-median-from-data-stream</td>
+<td>heap</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>132-word-search-ii</td>
+<td>trie</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>442-implement-trie-prefix-tree</td>
+<td>trie</td>
+<td></td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>61-search-for-a-range</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>60-search-insert-position</td>
+<td>binarysearch</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28-search-a-2d-matrix</td>
+<td>binarysearch</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>75-find-peak-element</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>62-search-in-rotated-sorted-array(无重复)</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>63-search-in-rotated-sorted-array-ii(有重复)</td>
+<td>flow up</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6-merge-two-sorted-arrays</td>
+<td></td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>64-merge-sorted-array</td>
+<td></td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>159-find-minimum-in-rotated-sorted-array</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>160-find-minimum-in-rotated-sorted-array-ii</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>65-median-of-two-sorted-arrays</td>
+<td></td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8-rotate-string</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>53-reverse-words-in-a-string</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>241-string-to-integer</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1510-buddy-strings</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>415-valid-palindrome</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>767-reverse-array</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1283-reverse-string</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>78-longest-common-prefix</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1263-is-subsequence</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>384-longest-substring-without-repeating-characters</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>213-string-compression</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1352-compare-version-numbers</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1542-nexttime-norepeat</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>192-wildcard-matching</td>
+<td>string，DFS</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>98-sort-list（排序链表）</td>
+<td>sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>463-sort-integers (排序整数)</td>
+<td>sort</td>
+<td>Native</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>464-sort-integers-ii (排序整数)</td>
+<td>sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>136-palindrome-partitioning</td>
+<td>组合型DFS+Backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>77-longest-common-subsequence</td>
+<td>match-dp</td>
+<td></td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>79-longest-common-substring</td>
+<td></td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>680-spilt-string</td>
+<td>组合型DFS+Backtracking</td>
+<td></td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15-permutations</td>
+<td>排列型DFS+Backtracking</td>
+<td></td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16-permutations-ii</td>
+<td>排列型DFS+Backtracking</td>
+<td></td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>669-coin-change</td>
+<td>无限背包,DFS,DP,不用回溯</td>
+<td></td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>816-traveling-salesman-problem</td>
+<td>排列型DFS，pruning,dp</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1147-work-plan</td>
+<td>coordinate-dp</td>
+<td></td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>76-longest-increasing-subsequence</td>
+<td>match-dp</td>
+<td></td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>91-minimum-adjustment-cost</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34-n-queens-ii</td>
+<td>Backtracking+DFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>33-n-queens</td>
+<td>Backtracking+DFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>622-frog-jump</td>
+<td>DFS</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>602-russian-doll-envelopes</td>
+<td>dfs(指数级),dp(正解)</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>116-jump-game</td>
+<td>单序列dp(可行性)</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>117-jump-game-ii</td>
+<td>单序列dp(最小值)</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>149-best-time-to-buy-and-sell-stock</td>
+<td>单序列dp(最大值)</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>115-unique-paths-ii</td>
+<td></td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>111-climbing-stairs</td>
+<td>单序列dp(计数问题)</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>563-backpack-v</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>630-knight-shortest-path-ii</td>
+<td>dp, 单向BFS-&gt;双向BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>564-combination-sum-iv(backpack-vi)</td>
+<td>单序列dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>512-decode-ways</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>589-connecting-graph</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>752-rogue-knight-sven</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>590-connecting-graph-ii</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>360-sliding-window-median</td>
+<td>heap</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>401-kth-smallest-number-in-sorted-matrix</td>
+<td>heap</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>362-sliding-window-maximum</td>
+<td>monotonic-queue</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>178-graph-valid-tree</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>434-number-of-islands-ii</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>430-scramble-string</td>
+<td>dfs+pruning</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>802-sudoku-solver</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>121-word-ladder-ii</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>582-word-break-ii</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>652-factorization</td>
+<td>dfs+pruning+backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>119-edit-distance</td>
+<td>匹配性dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>787-the-maze</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>788-the-maze-ii</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>789-the-maze-iii</td>
+<td>bfs</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>691-recover-binary-search-tree</td>
+<td>bst</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>82-single-number</td>
+<td>bit，hash</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>83-single-number-ii</td>
+<td>bit，hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>84-single-number-iii</td>
+<td>bit，hash</td>
+<td></td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>46-majority-element</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1018-champagne-tower(triangle)</td>
+<td>二维坐标dp</td>
+<td></td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>200-longest-palindromic-substring</td>
+<td>区间dp</td>
+<td></td>
+<td></td>
+<td>2020/7/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1565-modern-ludo-i</td>
+<td>一维坐标dp</td>
+<td></td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1141-the-months-days</td>
+<td>闰年</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>254-drop-eggs</td>
+<td>归纳法</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47-majority-element-ii</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>48-majority-element-iii</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>150-best-time-to-buy-and-sell-stock-ii</td>
+<td>贪心</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>151-best-time-to-buy-and-sell-stock-iii</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>393-best-time-to-buy-and-sell-stock-iv</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>44-minimum-subarray</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>45-maximum-subarray-difference</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>138-subarray-sum</td>
+<td>hashmap</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>139-subarray-sum-closest</td>
+<td>Two Pointers，hashmap</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>56-two-sum</td>
+<td>Two Pointers</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>608-two-sum-ii-input-array-is-sorted</td>
+<td>Two Pointers</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>57-3sum</td>
+<td>Two Pointers</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>533-two-sum-closest-to-target</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>89-k-sum</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>140-fast-power</td>
+<td>DC</td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1324-count-primes</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>141-sqrtx</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2-trailing-zeros</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>141-o1-check-power-of-2</td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>49-sort-letters-by-case</td>
+<td>Two Pointers</td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1563-shortest-path-to-the-destination</td>
+<td>bfs</td>
+<td></td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>108-palindrome-partitioning-ii</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/8/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>107-word-break</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/8/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41-maximum-subarray</td>
+<td>dp</td>
+<td></td>
+<td></td>
+<td>2020/8/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29-interleaving-string</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>513-perfect-squares</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>394-coins-in-a-line</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>92-backpack</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>118-distinct-subsequences</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>604-window-sum</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>539-move-zeroes</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>remove-duplicate-numbers-in-array</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/10</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lintcode/" rel="tag"># lintcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/03/Algorithm-Engineering/" rel="next" title="惊奇的算法系列之简介">
+                <i class="fa fa-chevron-left"></i> 惊奇的算法系列之简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="LiLi" />
+            
+              <p class="site-author-name" itemprop="name">LiLi</p>
+              <p class="site-description motion-element" itemprop="description">为学日益,为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      StackOverflow</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiLi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
