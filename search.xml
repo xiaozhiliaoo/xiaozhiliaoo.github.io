@@ -1,50 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2020年尾声规划</title>
-    <url>/2020/08/16/2020-plan/</url>
-    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
-<p>经过思考以下几个点需要不断提高：</p>
-<ol>
-<li>体系化思考，深度思考能力(欠缺)</li>
-<li>提高技术鉴赏力，品味(一般)</li>
-<li>算法能力(严重短板)</li>
-<li>工程，架构以及软件设计能力(一般)</li>
-<li>项目管理能力(欠缺)</li>
-<li>英语读写，中文读写，文档能力(欠缺)</li>
-<li>面试能力，BQ，面试题  (不满意)</li>
-</ol>
-<p>希望接下来四个月能做到：算法+源码</p>
-<ol>
-<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
-<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
-<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
-<li>录源码分析技术视频提高表达能力(有点难)</li>
-</ol>
-<p>以上四点综合提高1。</p>
-<p>以诸葛亮的诫子书共勉：</p>
-<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
-]]></content>
-      <categories>
-        <category>规划</category>
-      </categories>
-      <tags>
-        <tag>2020尾声规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Apache-Commons-Pool(1)-核心接口</title>
-    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>ApacheCommon-Source-Code</category>
-        <category>Apache-Common-Pool</category>
-      </categories>
-      <tags>
-        <tag>object pool</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -125,6 +81,38 @@
       </tags>
   </entry>
   <entry>
+    <title>2020年尾声规划</title>
+    <url>/2020/08/16/2020-plan/</url>
+    <content><![CDATA[<p>2020年还有4个月就结束了，今年从疫情期间忙忙碌碌，时间过得飞快。想到了诸葛亮的诫子书一句话，年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及。觉得很惭愧，思想提高慢，能力提高慢，技术深度提高慢，希望制定以下计划来日益精进自我的技术。</p>
+<p>经过思考以下几个点需要不断提高：</p>
+<ol>
+<li>体系化思考，深度思考能力(欠缺)</li>
+<li>提高技术鉴赏力，品味(一般)</li>
+<li>算法能力(严重短板)</li>
+<li>工程，架构以及软件设计能力(一般)</li>
+<li>项目管理能力(欠缺)</li>
+<li>英语读写，中文读写，文档能力(欠缺)</li>
+<li>面试能力，BQ，面试题  (不满意)</li>
+</ol>
+<p>希望接下来四个月能做到：算法+源码</p>
+<ol>
+<li>lintcode 300道，按照九章课程大纲来。    提高3</li>
+<li>每周输出一篇源码分析的高质量博客。源码阅读范围，jdk(ref, reflect, java.lang.*, juc, collection,nio )，guava(cache,util.concurrent,based，eventbus等)，interface21，junit4，DesigniteJava，JavaNCSS，jdepend，javapoet，commons-pool，commons-dbutils，guice，common-lang3，spring-retry，aop-alliance.      提高2, 4 </li>
+<li>每两周至少阅读一本技术，并产出读后感。翻译，论文随机，没有特定范围        提高6</li>
+<li>录源码分析技术视频提高表达能力(有点难)</li>
+</ol>
+<p>以上四点综合提高1。</p>
+<p>以诸葛亮的诫子书共勉：</p>
+<p>夫君子之行，静以修身，俭以养德。非淡泊无以明志，非宁静无以致远。夫学须静也，才须学也，非学无以广才，非志无以成学。淫慢则不能励精，险躁则不能治性。年与时驰，意与日去，遂成枯落，多不接世，悲守穷庐，将复何及！</p>
+]]></content>
+      <categories>
+        <category>规划</category>
+      </categories>
+      <tags>
+        <tag>2020尾声规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>惊奇的算法系列之简介</title>
     <url>/2021/01/03/Algorithm-Engineering/</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要介绍比较经典的工程算法，理解这些算法非常有意义，对于程序优化有很有帮助，会发出惊奇的感慨，</p>
@@ -147,55 +135,6 @@
       </categories>
       <tags>
         <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ArrayBlockingQueue设计与实现</title>
-    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
-
-<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
-<p>我们先从Queue的API看起：</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Util-Concurrent</category>
-      </categories>
-      <tags>
-        <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(3)-ArrayList设计与实现</title>
-    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
-    <url>/2020/11/28/CI-Book-Reading/</url>
-    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
-<p>构建：编译，测试，审查，部署</p>
-<p>I Build So Consistently</p>
-<p>任何时候都要100%通过自动化测试</p>
-<p>一个单元测试1s内</p>
-<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
-<p>持续审查：自动化审查80%，人工审查20%</p>
-<p>圈复杂度和测试覆盖率有关。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -240,17 +179,15 @@
       </tags>
   </entry>
   <entry>
-    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
-    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
-    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
-<p>日常对设计的不关注，导致变化的成本暴增。</p>
-<p>价值观，原则，实践。</p>
-]]></content>
+    <title>Apache-Commons-Pool(1)-核心接口</title>
+    <url>/2000/11/15/Apache-Commons-Pool-Interface/</url>
+    <content><![CDATA[]]></content>
       <categories>
-        <category>读书</category>
+        <category>ApacheCommon-Source-Code</category>
+        <category>Apache-Common-Pool</category>
       </categories>
       <tags>
-        <tag>Book</tag>
+        <tag>object pool</tag>
       </tags>
   </entry>
   <entry>
@@ -279,6 +216,69 @@
       <tags>
         <tag>java.lang.reflect</tag>
         <tag>Java-Core</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArrayBlockingQueue设计与实现</title>
+    <url>/2020/11/13/ArrayBlockingQueue-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>ArrayBlockingQueue是数组实现的有界阻塞队列，也叫Bounded Buffer，是一种内存高性能的阻塞队列，常用来实现生产者和消费者模式。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><img src="/images/ArrayBlockingQueue.png" style="zoom:70%;" />
+
+<p>ArrayBlockingQueue是集合框架中新加的BlockingQueue接口的实现类。</p>
+<p>我们先从Queue的API看起：</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Util-Concurrent</category>
+      </categories>
+      <tags>
+        <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架(3)-ArrayList设计与实现</title>
+    <url>/2020/11/14/ArrayList-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《解析极限编程-拥抱变化》-读书笔记-待完成</title>
+    <url>/2020/08/02/ExtremeProgramExplainNotes/</url>
+    <content><![CDATA[<p>如何有足够时间，你会怎么做？</p>
+<p>日常对设计的不关注，导致变化的成本暴增。</p>
+<p>价值观，原则，实践。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《持续集成-软件质量改进和风险降低之道》-读书笔记</title>
+    <url>/2020/11/28/CI-Book-Reading/</url>
+    <content><![CDATA[<p>如果代码覆盖率低于85%，就让软件构建失败。</p>
+<p>构建：编译，测试，审查，部署</p>
+<p>I Build So Consistently</p>
+<p>任何时候都要100%通过自动化测试</p>
+<p>一个单元测试1s内</p>
+<p><a href="https://en.wikipedia.org/wiki/Fagan_inspection" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Fagan_inspection</a></p>
+<p>持续审查：自动化审查80%，人工审查20%</p>
+<p>圈复杂度和测试覆盖率有关。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -382,46 +382,6 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《敏捷中国史话》-读书笔记-待完成</title>
-    <url>/2020/08/06/HistoryOfAgileInChina/</url>
-    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架(4)-HashMap设计与实现</title>
-    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
-<p><img src="/images/HashMap.png" alt=""></p>
-<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Collection-Framework</category>
-      </categories>
-      <tags>
-        <tag>java.util.*</tag>
-        <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《软件工艺》-读书笔记</title>
-    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -538,44 +498,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Leetcode LinkedList(206,237,707,876)</title>
-    <url>/2020/07/06/LinkedList/</url>
-    <content><![CDATA[<ol start="206">
-<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
-<p>Time：O(n)</p>
-<p>Space：O(1)</p>
-</blockquote>
-<ol start="237">
-<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>​      </p>
-<blockquote>
-<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
-</blockquote>
-<ol start="876">
-<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
-</blockquote>
+    <title>《敏捷中国史话》-读书笔记-待完成</title>
+    <url>/2020/08/06/HistoryOfAgileInChina/</url>
+    <content><![CDATA[<p>最近在理解工程方面，读到了本书《敏捷中国史话》</p>
 ]]></content>
       <categories>
-        <category>algorithm</category>
-        <category>lintcode</category>
+        <category>读书</category>
       </categories>
       <tags>
-        <tag>LinkedList</tag>
+        <tag>Book</tag>
       </tags>
   </entry>
   <entry>
@@ -635,6 +566,87 @@
       </tags>
   </entry>
   <entry>
+    <title>Java集合框架(4)-HashMap设计与实现</title>
+    <url>/2020/11/14/HashMap-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>​          HashMap在面试中被频繁问到，从我入行(2015年)问到了现在，我一直思考，就一个Map的实现有什么好问的，曾经对问我HashMap的面试官忍不住吐槽：难道你们没别的问的了？但是不可避免这个问题的出现频率，因为这体现你的“Java基础”。于是为了回答好这个问题，我从网上看了很多资料，从此面试时候不在被HashMap所难倒，但是我好像除了应付面试，从HashMap并没有学到什么东西，有一天，我下定决心，真正地重新学习HashMap的实现，从此好像发现了宝藏一样，对我的代码水平提高也很有帮助，从最初的迷惑，不屑，到现在对HashMap的喜欢，也是见证自己对技术从实用主义到真正渴望理解的一个提高，也是从浮躁到沉淀的一个见证。所以这篇文章总结了自己对HashMap的设计与实现的认识。</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>​          HashMap作为最经典的Map接口实现，内部实现细节非常复杂，但是设计本身实现却是一致的，没有脱离Map接口和整个集合框架带给我们的抽象。<strong>Node</strong>和<strong>TreeNode</strong>作为<strong>Map.Entry</strong>的实现类，代表了<strong>HashMap</strong>内部的不同类型<strong>Entry</strong>， <strong>KeySet，Values，EntrySet</strong>分别作为Map的key,value，Entry的视图. 而<strong>HashIterator，KeyInterator，ValueIterator，EntryIterator</strong>分别作为KeySet，Values，EntrySet的迭代器实现，用于遍历Map，而<strong>HashMapSpliterator，KeySpliterator，ValueSpliterator，EntrySpliterator</strong>作为HashMap支持流式编程的Spliterator的实现。虽然看着类很多，但是抽象围绕<strong>迭代器，分割器，视图，Entry</strong>去实现的。由此可以得知，支持HashMap的实现由这些基本抽象组成。在接下来结构中，可以体现这些细节。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>HashMap的内部结构较多，但是并不难以理解。</p>
+<p><img src="/images/HashMap.png" alt=""></p>
+<h1 id="HashMap的API"><a href="#HashMap的API" class="headerlink" title="HashMap的API"></a>HashMap的API</h1><h1 id="HashMap的实现"><a href="#HashMap的实现" class="headerlink" title="HashMap的实现"></a>HashMap的实现</h1><h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Collection-Framework</category>
+      </categories>
+      <tags>
+        <tag>java.util.*</tag>
+        <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode LinkedList(206,237,707,876)</title>
+    <url>/2020/07/06/LinkedList/</url>
+    <content><![CDATA[<ol start="206">
+<li><h6 id="Reverse-Linked-List"><a href="#Reverse-Linked-List" class="headerlink" title="Reverse Linked List"></a>Reverse Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode reverseList(ListNode head) &#123;</span><br><span class="line">        ListNode pre &#x3D; null;</span><br><span class="line">        while (head !&#x3D; null) &#123;</span><br><span class="line">            ListNode temp &#x3D; head.next;</span><br><span class="line">            head.next &#x3D; pre;</span><br><span class="line">            pre &#x3D; head;</span><br><span class="line">            head &#x3D; temp;</span><br><span class="line">        &#125;</span><br><span class="line">        return pre;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>思路：先保存next指针，然后反转，在将head,temp移动到同一位置。</p>
+<p>Time：O(n)</p>
+<p>Space：O(1)</p>
+</blockquote>
+<ol start="237">
+<li><h6 id="Delete-Node-in-a-Linked-List"><a href="#Delete-Node-in-a-Linked-List" class="headerlink" title="Delete Node in a Linked List"></a>Delete Node in a Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void deleteNode(ListNode node) &#123;</span><br><span class="line">        if (node &#x3D;&#x3D; null) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        node.val &#x3D; node.next.val;</span><br><span class="line">        node.next &#x3D; node.next.next;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+<blockquote>
+<p>思路：因为没有头结点，所以直接将当前node next指向下下个节点。</p>
+</blockquote>
+<ol start="876">
+<li><h6 id="Middle-of-the-Linked-List"><a href="#Middle-of-the-Linked-List" class="headerlink" title="Middle of the Linked List"></a>Middle of the Linked List</h6></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public ListNode middleNode(ListNode head) &#123;</span><br><span class="line">        ListNode slow &#x3D; head;</span><br><span class="line">        ListNode fast &#x3D; head;</span><br><span class="line">        while (fast !&#x3D; null &amp;&amp; fast.next !&#x3D; null) &#123;</span><br><span class="line">            slow &#x3D; slow.next;</span><br><span class="line">            fast &#x3D; fast.next.next;</span><br><span class="line">        &#125;</span><br><span class="line">        return slow;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思路：双指针解法，快指针每次两步，慢指针每次一步，当快指针到终点时候，慢指针恰好在中点。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>algorithm</category>
+        <category>lintcode</category>
+      </categories>
+      <tags>
+        <tag>LinkedList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
+    <url>/2000/11/15/Paper-Dapper/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>paper</category>
+        <category>distributed system</category>
+      </categories>
+      <tags>
+        <tag>distributed-tracing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《软件工艺》-读书笔记</title>
+    <url>/2020/08/28/Software-Craftsmanship-Note/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>Book</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>java.lang.OutOfMemoryError内存溢出</title>
     <url>/2020/08/16/OOM/</url>
     <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
@@ -673,15 +685,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Dapper:A Large-Sacle Distrubuted Systems Tracing Infrastructure读后感</title>
-    <url>/2000/11/15/Paper-Dapper/</url>
+    <title>Spring-Bean(1)-核心接口</title>
+    <url>/2000/11/15/Spring-Bean-Interface/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>paper</category>
-        <category>distributed system</category>
+        <category>Spring-Source-Code</category>
+        <category>Spring-Bean</category>
       </categories>
       <tags>
-        <tag>distributed-tracing</tag>
+        <tag>SpringBean</tag>
       </tags>
   </entry>
   <entry>
@@ -697,33 +709,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring-Bean(1)-核心接口</title>
-    <url>/2000/11/15/Spring-Bean-Interface/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>Spring-Source-Code</category>
-        <category>Spring-Bean</category>
-      </categories>
-      <tags>
-        <tag>SpringBean</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>String,StringBuilder,StringBuffer设计与实现</title>
-    <url>/2020/11/08/String-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Lang-Package</category>
-      </categories>
-      <tags>
-        <tag>Java-Core</tag>
-        <tag>java.lang</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SpringWebMVC(1)-DispatcherServlet设计</title>
     <url>/2000/01/01/Spring-WebMVC-DispatcherServlet/</url>
     <content><![CDATA[]]></content>
@@ -733,71 +718,6 @@
       </categories>
       <tags>
         <tag>SpringMVC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CRUD Boy和API Caller的怪象</title>
-    <url>/2021/01/01/Think-CRUDBoy-APICaller/</url>
-    <content><![CDATA[<p>CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。</p>
-<h1 id="CRUD-Boy"><a href="#CRUD-Boy" class="headerlink" title="CRUD Boy"></a>CRUD Boy</h1><p>​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级之处在于程序开发仅仅是对数据库数据的事务脚本操作，但是业务系统设计，在小型项目中CRUD可以Hold住复杂度，但是当业务系统复杂起来时候，事务脚本将带来维护性和扩展性问题，此时系统的各种业务逻辑和组件将会变得非常复杂且无趣。解决这个办法在于<strong>良好的业务抽象</strong>和概念<strong>一致性的业务接口</strong>，此时CRUD将不再是事务脚本，而更类似于OOD，而随着业务演进，可能会拆分微服务，这时候如果没有从CRUD泥潭出来，新建的微服务还是会重复事务脚本的老路。而业界有更好的业务设计方法，是<strong>领域驱动设计</strong>，将业务设计和技术设计结合起来，可以借鉴其思想，有句话说的比较好DDD is OOD done right.</p>
-<p>​       同时CRUD代码也不是没有技术含量的，CRUD代码也需要扩展性，维护性，可读性，文档注释，可测试性，不断重构达到整洁代码的水平，而这些任意一个工程实践，都会对既有团队带来编码习惯带来改变和编程水平的提高。所以CRUD没有技术含量，是更多把CRUD当做业务需求翻译机，产品说加你就加，而不是业务需求的解释器，用技术语言来设计业务。</p>
-<p>​       </p>
-<h1 id="API-Caller"><a href="#API-Caller" class="headerlink" title="API Caller"></a>API Caller</h1><p>API Caller是只会简单用类库和调第三方接口，没有完全理解调用方。这种透明性对业务开发进度有帮助，但是对于个人技术成长却是弊大于利。比较典型的例子是你用别人封装好的Redis接口查数据，会错以为自己会Redis，用厂商提供好的mq接口开发，发送几条消息，消费几条消息就认为自己用过mq，从而在实际工作中变成了只会调用API。在Java类库中，NIO代码冗余且复杂，学习NIO API本身就是对NIO的学习，但是写完就忘，下次还要重新学习，但是下次的学习或许没有从更深概念理解NIO，而是重新学了一遍NIO API使用代码，这样比较浪费时间。</p>
-<p>对于高质量的程序，绝大部分是注重API设计质量的，这不仅关系到API使用，还有API的理解性上，好的API本身就会抽象最核心的概念给开发者，模块间通信也会精心设计API。在JAVA世界中，集合框架和并发包可以说是对API契约和设计的经典案例，任何学习API设计的都可以从此开始研究，光看集合提供的接口，就能够收获非常多的概念和抽象。同时高质量API的文档也能够加深对技术的理解。当然API的实现也很重要，但是重要程度不如API本身。关于这方面可以参考：<a href="https://xiaozhiliaoo.github.io/2020/11/09/JCF-HighLevel/" target="_blank" rel="noopener">集合接口</a></p>
-<p>我们以Guava Cache来分析从API中能获得什么？</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoadingCache的父接口Cache也包含非常多的方法，这里不做探讨。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadingCache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Cache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;, <span class="title">Function</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123; </span><br><span class="line">      <span class="function">V <span class="title">get</span><span class="params">(K key)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">      <span class="function">V <span class="title">getUnchecked</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="function">ImmutableMap&lt;K, V&gt; <span class="title">getAll</span><span class="params">(Iterable&lt;? extends K&gt; keys)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Loads a new value for key &#123;<span class="doctag">@code</span> key&#125;, possibly asynchronously. While the new value is loading</span></span><br><span class="line"><span class="comment">       * the previous value (if any) will continue to be returned by &#123;<span class="doctag">@code</span> get(key)&#125; unless it is</span></span><br><span class="line"><span class="comment">       * evicted. If the new value is loaded successfully it will replace the previous value in the</span></span><br><span class="line"><span class="comment">       * cache; if an exception is thrown while refreshing the previous value will remain, &lt;i&gt;and the</span></span><br><span class="line"><span class="comment">       * exception will be logged (using &#123;<span class="doctag">@link</span> java.util.logging.Logger&#125;) and swallowed&lt;/i&gt;.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Caches loaded by a &#123;<span class="doctag">@link</span> CacheLoader&#125; will call &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; if the cache</span></span><br><span class="line"><span class="comment">       * currently contains a value for &#123;<span class="doctag">@code</span> key&#125;, and &#123;<span class="doctag">@link</span> CacheLoader#load&#125; otherwise. Loading is</span></span><br><span class="line"><span class="comment">       * asynchronous only if &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; was overridden with an asynchronous</span></span><br><span class="line"><span class="comment">       * implementation.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Returns without doing anything if another thread is currently loading the value for &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">       * key&#125;. If the cache loader associated with this cache performs refresh asynchronously then this</span></span><br><span class="line"><span class="comment">       * method may return before refresh completes.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@since</span> 11.0</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Returns a view of the entries stored in this cache as a thread-safe map. Modifications made to</span></span><br><span class="line"><span class="comment">       * the map directly affect the cache.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Iterators from the returned map are at least &lt;i&gt;weakly consistent&lt;/i&gt;: they are safe for</span></span><br><span class="line"><span class="comment">       * concurrent use, but if the cache is modified (including by eviction) after the iterator is</span></span><br><span class="line"><span class="comment">       * created, it is undefined which of the changes (if any) will be reflected in that iterator.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function">ConcurrentMap&lt;K, V&gt; <span class="title">asMap</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>先看<strong>get</strong>方法，抛出了ExecutionException异常，这个异常定义在并发包java.util.concurrent下，所以可以猜测get时候会不会和并发，多线程执行有关.否则不可能无缘无故抛出这么个异常。事实证明猜测是对的，Guava对于<a href="https://github.com/google/guava/wiki/CachesExplained#interruption" target="_blank" rel="noopener">Interruption</a>的处理很多设计决策。</p>
-<p><strong>getUnchecked</strong>同样是获取v方法，没有抛出任何异常，方法名是获取非受检异常，可以看出获取key的时候，一定会报错，但是提供了更加灵活的异常处理机制，而这些知识，就需要对受检异常和非受检异常有清晰的认识才能设计出这样的API，否则是不会想到这一层的。</p>
-<p><strong>getAll</strong>这个接口设计很有意思，传参是Iterable，足够看到其通用和扩展性，但是返回确是不可变的Map，看到这里，是不是觉得比较有趣呢？可以质疑为什么不用List接口呢？当然使用的时候传入Key List是可以的，但是如果你不理解Iterable的接口，你这段代码很有可能需要百度demo才能写出来，下次遇到同样的问题还是没有任何进步，成为了API Caller。</p>
-<p><strong>refresh</strong>从方法签名看不出什么，但是API文档注释非常详细，足够了解了。</p>
-<p><strong>asMap</strong> 是缓存的视图，但是修改缓存视图会导致底层缓存被修改，并且用的是并发的Map接口，此时几乎可以得出结论，缓存大概率会并发读写的，所以benchmark时候，并发读写能力一定是一个点。此时你对ConcurrentMap操作时候就需要清晰地了解ConcurrentMap的特性，并发修改时候遍历等问题。如果你希望业务层缓存只能用来读，而缓存层做缓存更新的话，你可以将asMap包装成不可变的Map. 当转换成Map时候，疑问在于关于Cache的契约是否就会被打破了？比如get时候load数据。</p>
-<p>可以看到，还没有看LoadingCache的实现，我们就可以很多，看完核心接口，在辅以文档，可以说对Cache Design和Decision有最基本的认识了，缓存和高性能有着千丝万缕的关系，需要深入到边边角角，既能从高层知道如何设计一个Cache，也能从底层知道如何实现一个Cache，否则在工程中可能因为一个参数配置就会导致性能问题。虽然以上方法在使用起来非常简单，但是合理的理解其设计和抽象对使用产生很大帮助，对不同API也能触类旁通，也可以提高自己设计API的水平，从此脱离API Caller的窘境，成为一名API Designer. </p>
-<p>API Caller还有一个非常典型的例子是线程池的使用。API Caller还有特点不喜欢看API文档，甚至不知道哪里看API文档。</p>
-<p>个人比较喜欢的学习技术方法是：无论如何先看一遍官方文档，学有余力则看一遍API文档，很感兴趣则可以入手源码。</p>
-<h1 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h1><p>粘贴复制本身其实没有什么问题，可以提供编程效率，但是由于复制带来的<strong>代码重复</strong>问题较为严重。因为这是时空级别的重复，虽然重复的概念很简单，但是衍生带来的，维护性，可读性，耦合性，内聚性问题，牵一发而不知道影响面，会极大降低代码仓库质量和Bug数量。如果说技术债最严重的问题，我觉得是重复代码问题。通过良好的抽象和封装，以及子函数，状态聚合，行为聚合等编程手段，会减少重复问题。</p>
-<h1 id="技术方案与实现的不一致性"><a href="#技术方案与实现的不一致性" class="headerlink" title="技术方案与实现的不一致性"></a>技术方案与实现的不一致性</h1><p>技术方案更偏向于架构，而实现更偏向于代码。有些技术方案涉及到编程(比如redis使用)，有些则无需（比如nginx负载均衡和容器化）这两者在某些程度并不是一致的。有些时候技术方案提出者并不是实现者，即使是，也有可能出现方案很牛逼，但是编码能力有限会导致的实现不好的现象。这点有一个例子，比如架构上引入缓存作为一个高层次的组件，但是缓存具体选型和实现上，则会出现分歧，用ConcurrentHashMap还是Guava Cache呢？这两者对于代码实现的复杂度不同。在实现的时候，又会面临如何封装，代码包组织，如何抽象的编程等非常细节问题，如果使用了Guava Cache，则会不会沦为API Caller的窘境呢？</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>crud boy，api caller，copy paste在开发业务时候会带来巨大便利，但是使用和理解不好也会造成非常多技术债和坑，这对个人成长帮助有限，会带来<strong>我不断在学习</strong>的假象，实际难逃轮回，凡所有相，皆是虚妄，若见诸相非相，即见如来。多花些时间研究API(包括优质和劣质)是有帮助的，要对业内“<strong>忘记了，百度下就能知道了</strong>”如此言论保持怀疑，他会使你真正成为API Caller的。你我都在路上！</p>
-]]></content>
-      <categories>
-        <category>杂谈</category>
-      </categories>
-      <tags>
-        <tag>代码设计杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ThreadLocal设计,实现,使用注意</title>
-    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
-<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
-<p>单一线程：</p>
-<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
-
-
-
-<p>多线程：</p>
-<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
-<p>从图中得出结论：</p>
-<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
-<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
-<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
-<p>下图是类图：</p>
-<p><img src="/images/ThreadLocal.png" alt=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
-<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
-<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
-<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
-<p>5 内存泄漏和变量泄漏问题。</p>
-]]></content>
-      <categories>
-        <category>JDK-Source-Code</category>
-        <category>Java-Lang-Package</category>
-      </categories>
-      <tags>
-        <tag>java.lang</tag>
       </tags>
   </entry>
   <entry>
@@ -1059,6 +979,54 @@
       </tags>
   </entry>
   <entry>
+    <title>String,StringBuilder,StringBuffer设计与实现</title>
+    <url>/2020/11/08/String-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>String作为Java不可变类的经典设计</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p><img src="/images/String-Design.png" alt="String结构"></p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Lang-Package</category>
+      </categories>
+      <tags>
+        <tag>Java-Core</tag>
+        <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CRUD Boy和API Caller的怪象</title>
+    <url>/2021/01/01/Think-CRUDBoy-APICaller/</url>
+    <content><![CDATA[<p>CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。</p>
+<h1 id="CRUD-Boy"><a href="#CRUD-Boy" class="headerlink" title="CRUD Boy"></a>CRUD Boy</h1><p>​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级之处在于程序开发仅仅是对数据库数据的事务脚本操作，但是业务系统设计，在小型项目中CRUD可以Hold住复杂度，但是当业务系统复杂起来时候，事务脚本将带来维护性和扩展性问题，此时系统的各种业务逻辑和组件将会变得非常复杂且无趣。解决这个办法在于<strong>良好的业务抽象</strong>和概念<strong>一致性的业务接口</strong>，此时CRUD将不再是事务脚本，而更类似于OOD，而随着业务演进，可能会拆分微服务，这时候如果没有从CRUD泥潭出来，新建的微服务还是会重复事务脚本的老路。而业界有更好的业务设计方法，是<strong>领域驱动设计</strong>，将业务设计和技术设计结合起来，可以借鉴其思想，有句话说的比较好DDD is OOD done right.</p>
+<p>​       同时CRUD代码也不是没有技术含量的，CRUD代码也需要扩展性，维护性，可读性，文档注释，可测试性，不断重构达到整洁代码的水平，而这些任意一个工程实践，都会对既有团队带来编码习惯带来改变和编程水平的提高。所以CRUD没有技术含量，是更多把CRUD当做业务需求翻译机，产品说加你就加，而不是业务需求的解释器，用技术语言来设计业务。</p>
+<p>​       </p>
+<h1 id="API-Caller"><a href="#API-Caller" class="headerlink" title="API Caller"></a>API Caller</h1><p>API Caller是只会简单用类库和调第三方接口，没有完全理解调用方。这种透明性对业务开发进度有帮助，但是对于个人技术成长却是弊大于利。比较典型的例子是你用别人封装好的Redis接口查数据，会错以为自己会Redis，用厂商提供好的mq接口开发，发送几条消息，消费几条消息就认为自己用过mq，从而在实际工作中变成了只会调用API。在Java类库中，NIO代码冗余且复杂，学习NIO API本身就是对NIO的学习，但是写完就忘，下次还要重新学习，但是下次的学习或许没有从更深概念理解NIO，而是重新学了一遍NIO API使用代码，这样比较浪费时间。</p>
+<p>对于高质量的程序，绝大部分是注重API设计质量的，这不仅关系到API使用，还有API的理解性上，好的API本身就会抽象最核心的概念给开发者，模块间通信也会精心设计API。在JAVA世界中，集合框架和并发包可以说是对API契约和设计的经典案例，任何学习API设计的都可以从此开始研究，光看集合提供的接口，就能够收获非常多的概念和抽象。同时高质量API的文档也能够加深对技术的理解。当然API的实现也很重要，但是重要程度不如API本身。关于这方面可以参考：<a href="https://xiaozhiliaoo.github.io/2020/11/09/JCF-HighLevel/" target="_blank" rel="noopener">集合接口</a></p>
+<p>我们以Guava Cache来分析从API中能获得什么？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoadingCache的父接口Cache也包含非常多的方法，这里不做探讨。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadingCache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Cache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;, <span class="title">Function</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123; </span><br><span class="line">      <span class="function">V <span class="title">get</span><span class="params">(K key)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">      <span class="function">V <span class="title">getUnchecked</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="function">ImmutableMap&lt;K, V&gt; <span class="title">getAll</span><span class="params">(Iterable&lt;? extends K&gt; keys)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Loads a new value for key &#123;<span class="doctag">@code</span> key&#125;, possibly asynchronously. While the new value is loading</span></span><br><span class="line"><span class="comment">       * the previous value (if any) will continue to be returned by &#123;<span class="doctag">@code</span> get(key)&#125; unless it is</span></span><br><span class="line"><span class="comment">       * evicted. If the new value is loaded successfully it will replace the previous value in the</span></span><br><span class="line"><span class="comment">       * cache; if an exception is thrown while refreshing the previous value will remain, &lt;i&gt;and the</span></span><br><span class="line"><span class="comment">       * exception will be logged (using &#123;<span class="doctag">@link</span> java.util.logging.Logger&#125;) and swallowed&lt;/i&gt;.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Caches loaded by a &#123;<span class="doctag">@link</span> CacheLoader&#125; will call &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; if the cache</span></span><br><span class="line"><span class="comment">       * currently contains a value for &#123;<span class="doctag">@code</span> key&#125;, and &#123;<span class="doctag">@link</span> CacheLoader#load&#125; otherwise. Loading is</span></span><br><span class="line"><span class="comment">       * asynchronous only if &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; was overridden with an asynchronous</span></span><br><span class="line"><span class="comment">       * implementation.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Returns without doing anything if another thread is currently loading the value for &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">       * key&#125;. If the cache loader associated with this cache performs refresh asynchronously then this</span></span><br><span class="line"><span class="comment">       * method may return before refresh completes.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@since</span> 11.0</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Returns a view of the entries stored in this cache as a thread-safe map. Modifications made to</span></span><br><span class="line"><span class="comment">       * the map directly affect the cache.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Iterators from the returned map are at least &lt;i&gt;weakly consistent&lt;/i&gt;: they are safe for</span></span><br><span class="line"><span class="comment">       * concurrent use, but if the cache is modified (including by eviction) after the iterator is</span></span><br><span class="line"><span class="comment">       * created, it is undefined which of the changes (if any) will be reflected in that iterator.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function">ConcurrentMap&lt;K, V&gt; <span class="title">asMap</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>先看<strong>get</strong>方法，抛出了ExecutionException异常，这个异常定义在并发包java.util.concurrent下，所以可以猜测get时候会不会和并发，多线程执行有关.否则不可能无缘无故抛出这么个异常。事实证明猜测是对的，Guava对于<a href="https://github.com/google/guava/wiki/CachesExplained#interruption" target="_blank" rel="noopener">Interruption</a>的处理很多设计决策。</p>
+<p><strong>getUnchecked</strong>同样是获取v方法，没有抛出任何异常，方法名是获取非受检异常，可以看出获取key的时候，一定会报错，但是提供了更加灵活的异常处理机制，而这些知识，就需要对受检异常和非受检异常有清晰的认识才能设计出这样的API，否则是不会想到这一层的。</p>
+<p><strong>getAll</strong>这个接口设计很有意思，传参是Iterable，足够看到其通用和扩展性，但是返回确是不可变的Map，看到这里，是不是觉得比较有趣呢？可以质疑为什么不用List接口呢？当然使用的时候传入Key List是可以的，但是如果你不理解Iterable的接口，你这段代码很有可能需要百度demo才能写出来，下次遇到同样的问题还是没有任何进步，成为了API Caller。</p>
+<p><strong>refresh</strong>从方法签名看不出什么，但是API文档注释非常详细，足够了解了。</p>
+<p><strong>asMap</strong> 是缓存的视图，但是修改缓存视图会导致底层缓存被修改，并且用的是并发的Map接口，此时几乎可以得出结论，缓存大概率会并发读写的，所以benchmark时候，并发读写能力一定是一个点。此时你对ConcurrentMap操作时候就需要清晰地了解ConcurrentMap的特性，并发修改时候遍历等问题。如果你希望业务层缓存只能用来读，而缓存层做缓存更新的话，你可以将asMap包装成不可变的Map. 当转换成Map时候，疑问在于关于Cache的契约是否就会被打破了？比如get时候load数据。</p>
+<p>可以看到，还没有看LoadingCache的实现，我们就可以很多，看完核心接口，在辅以文档，可以说对Cache Design和Decision有最基本的认识了，缓存和高性能有着千丝万缕的关系，需要深入到边边角角，既能从高层知道如何设计一个Cache，也能从底层知道如何实现一个Cache，否则在工程中可能因为一个参数配置就会导致性能问题。虽然以上方法在使用起来非常简单，但是合理的理解其设计和抽象对使用产生很大帮助，对不同API也能触类旁通，也可以提高自己设计API的水平，从此脱离API Caller的窘境，成为一名API Designer. </p>
+<p>API Caller还有一个非常典型的例子是线程池的使用。API Caller还有特点不喜欢看API文档，甚至不知道哪里看API文档。</p>
+<p>个人比较喜欢的学习技术方法是：无论如何先看一遍官方文档，学有余力则看一遍API文档，很感兴趣则可以入手源码。</p>
+<h1 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h1><p>粘贴复制本身其实没有什么问题，可以提供编程效率，但是由于复制带来的<strong>代码重复</strong>问题较为严重。因为这是时空级别的重复，虽然重复的概念很简单，但是衍生带来的，维护性，可读性，耦合性，内聚性问题，牵一发而不知道影响面，会极大降低代码仓库质量和Bug数量。如果说技术债最严重的问题，我觉得是重复代码问题。通过良好的抽象和封装，以及子函数，状态聚合，行为聚合等编程手段，会减少重复问题。</p>
+<h1 id="技术方案与实现的不一致性"><a href="#技术方案与实现的不一致性" class="headerlink" title="技术方案与实现的不一致性"></a>技术方案与实现的不一致性</h1><p>技术方案更偏向于架构，而实现更偏向于代码。有些技术方案涉及到编程(比如redis使用)，有些则无需（比如nginx负载均衡和容器化）这两者在某些程度并不是一致的。有些时候技术方案提出者并不是实现者，即使是，也有可能出现方案很牛逼，但是编码能力有限会导致的实现不好的现象。这点有一个例子，比如架构上引入缓存作为一个高层次的组件，但是缓存具体选型和实现上，则会出现分歧，用ConcurrentHashMap还是Guava Cache呢？这两者对于代码实现的复杂度不同。在实现的时候，又会面临如何封装，代码包组织，如何抽象的编程等非常细节问题，如果使用了Guava Cache，则会不会沦为API Caller的窘境呢？</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>crud boy，api caller，copy paste在开发业务时候会带来巨大便利，但是使用和理解不好也会造成非常多技术债和坑，这对个人成长帮助有限，会带来<strong>我不断在学习</strong>的假象，实际难逃轮回，凡所有相，皆是虚妄，若见诸相非相，即见如来。多花些时间研究API(包括优质和劣质)是有帮助的，要对业内“<strong>忘记了，百度下就能知道了</strong>”如此言论保持怀疑，他会使你真正成为API Caller的。你我都在路上！</p>
+]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+      <tags>
+        <tag>代码设计杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ThreadPoolExecutor设计与实现</title>
     <url>/2020/11/10/ThreadPoolExecutor-API-explain/</url>
     <content><![CDATA[<p>​      线程池是Java并发包中的重要部分，也是高并发程序必不可少的类库，但是线程池技术本身比较复杂，不同语言对其实现提供的抽象也不一样，所以本文以Java线程池为例，分析它的设计与实现，以及它所带我们的抽象。</p>
@@ -1255,6 +1223,56 @@
       </tags>
   </entry>
   <entry>
+    <title>ThreadLocal设计,实现,使用注意</title>
+    <url>/2020/11/15/ThreadLocal-Design-And-Implementation/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>线程局部变量是避免多线程读取共享变量造成竞争的一种机制，每个线程只能看到自己的私有变量，这就避免了锁竞争问题。在Java中，使用ThreadLocal可以实现该机制。</p>
+<h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>在Java的ThreadLocal中，一个线程拥有多个ThreadLocal，每个ThreadLocal的变量存储在包级可见的内部静态类ThreadLocalMap中，ThreadLocalMap的Key是用WeakReference包装的ThreadLocal，Value则是强引用普通变量，每个ThreadLocal及其变量以KV形式存储在ThreadLocalMap中，而ThreadLocalMap并没有实现Map接口，而是自己实现了类似Map的功能。当前线程不在活跃的时候，垃圾收集器回自动回收ThreadLocal。即使内部细节非常多，但是ThreadLocal暴露给客户端的API确是非常简单，核心方法仅有initialValue，set，get，remove方法，这是经过多次改进后的设计。下图是结构图：</p>
+<p>单一线程：</p>
+<img src="/images/ThreadLocalMap.png" style="zoom:75%;" />
+
+
+
+<p>多线程：</p>
+<p><img src="/images/ThreadLocalMultiThread.png" alt=""></p>
+<p>从图中得出结论：</p>
+<p>多个线程使用同一个ThreadLocal时候，每个线程会在内部创建一个自己的ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=多:一:多</p>
+<p>一个线程使用多个ThreadLocal时候，一个线程创建了多个 ThreadLocalMap. Thread:ThreadLocal:ThreadLocalMap=一:多:一</p>
+<p>所以ThreadLocalMap数量和线程数有关。ThreadLocal是和一个领域或者业务有关。</p>
+<p>下图是类图：</p>
+<p><img src="/images/ThreadLocal.png" alt=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h1 id="API演进"><a href="#API演进" class="headerlink" title="API演进"></a>API演进</h1><h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><h1 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h1><p>1 由于每个线程的可以有多个ThreadLocal，每个ThreadLocal是唯一的，所以定义ThreadLocal时候需要定义成static final，并且初始化一个值。</p>
+<p>2 当已经给ThreadLocal设置值后，最好不需要时候主动remove，防止线程变量泄漏。</p>
+<p>3  当有父子线程需要共享传递值的时候，需要使用ThreadLocal的子类InheritableThreadLocal.</p>
+<p>4 当使用线程池更需要注意由于线程的可复用性，所以可能导致复用的线程拥有之前任务所传递的ThreadLocal局部变量，所以要在任务结束之后finallyremove该Worker的局部变量。</p>
+<p>5 内存泄漏和变量泄漏问题。</p>
+]]></content>
+      <categories>
+        <category>JDK-Source-Code</category>
+        <category>Java-Lang-Package</category>
+      </categories>
+      <tags>
+        <tag>java.lang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/07/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -1330,36 +1348,9 @@
       </tags>
   </entry>
   <entry>
-    <title>lintcode-ood</title>
-    <url>/2019/02/17/lintcode-ood/</url>
-    <content><![CDATA[<p>OOD Test:</p>
-<p><a href="https://www.jiuzhang.com/problem/search?tags=mian-xiang-dui-xiang" target="_blank" rel="noopener">https://www.jiuzhang.com/problem/search?tags=mian-xiang-dui-xiang</a></p>
-]]></content>
-      <categories>
-        <category>ood-design</category>
-      </categories>
-      <tags>
-        <tag>ood-design</tag>
-        <tag>interview</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
+    <title>kafka</title>
+    <url>/2021/03/21/kafka/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>系统设计初探</title>
@@ -1465,8 +1456,8 @@
         <category>system-design</category>
       </categories>
       <tags>
-        <tag>interview</tag>
         <tag>system-design</tag>
+        <tag>interview</tag>
       </tags>
   </entry>
   <entry>
@@ -4215,6 +4206,20 @@
       <tags>
         <tag>interview</tag>
         <tag>lintcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>lintcode-ood</title>
+    <url>/2019/02/17/lintcode-ood/</url>
+    <content><![CDATA[<p>OOD Test:</p>
+<p><a href="https://www.jiuzhang.com/problem/search?tags=mian-xiang-dui-xiang" target="_blank" rel="noopener">https://www.jiuzhang.com/problem/search?tags=mian-xiang-dui-xiang</a></p>
+]]></content>
+      <categories>
+        <category>ood-design</category>
+      </categories>
+      <tags>
+        <tag>interview</tag>
+        <tag>ood-design</tag>
       </tags>
   </entry>
   <entry>
