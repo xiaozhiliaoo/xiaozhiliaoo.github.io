@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="分布式系统泛型," />
 
 
 
@@ -86,14 +86,17 @@
 
 
 
-<meta name="description" content="为学日益,为道日损">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小知了的博客">
-<meta property="og:url" content="http://yoursite.com/categories/JDK-Source-Code/page/2/index.html">
+<meta name="description" content="hazelcast是一个分布式系统，并且提供了AP和CP模型，本文研究Hazelcast在分布式系统设计中的通用问题。    分布式系统的抽象 问题    系统体系结构 系统体系结构是什么？静态和动态视图是什么？系统接口是什么？   进程 进程模型是什么？有哪些核心进程？系统参与者有哪些？进程可能奔溃？进程如何工作完成系统功能？   通信 系统间如何通信？系统对外如何通信？同步还是异步？传递保证是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hazelcast内存网格系统研究">
+<meta property="og:url" content="http://yoursite.com/2021/04/24/hazelcast-imdg-research/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="为学日益,为道日损">
+<meta property="og:description" content="hazelcast是一个分布式系统，并且提供了AP和CP模型，本文研究Hazelcast在分布式系统设计中的通用问题。    分布式系统的抽象 问题    系统体系结构 系统体系结构是什么？静态和动态视图是什么？系统接口是什么？   进程 进程模型是什么？有哪些核心进程？系统参与者有哪些？进程可能奔溃？进程如何工作完成系统功能？   通信 系统间如何通信？系统对外如何通信？同步还是异步？传递保证是">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-24T09:47:43.000Z">
+<meta property="article:modified_time" content="2021-04-24T09:52:49.040Z">
 <meta property="article:author" content="LiLi">
+<meta property="article:tag" content="分布式系统泛型">
 <meta name="twitter:card" content="summary">
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/JDK-Source-Code/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/04/24/hazelcast-imdg-research/"/>
 
 
 
 
 
-  <title>Category: JDK-Source-Code | 小知了的博客</title>
+  <title>Hazelcast内存网格系统研究 | 小知了的博客</title>
   
 
 
@@ -149,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -283,115 +286,210 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>JDK-Source-Code<small>Category</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/24/hazelcast-imdg-research/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LiLi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/11/09/JCF-HighLevel/" itemprop="url">
-              
-                <span itemprop="name">Java集合框架(1)-接口定义类型</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Hazelcast内存网格系统研究</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-09T01:19:19+08:00"
-              content="2020-11-09" >
-          11-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-24T17:47:43+08:00">
+                2021-04-24
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">分布式系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/11/08/String-Design-And-Implementation/" itemprop="url">
-              
-                <span itemprop="name">String,StringBuilder,StringBuffer设计与实现</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-08T19:00:54+08:00"
-              content="2020-11-08" >
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/11/08/AQS-api-explain/" itemprop="url">
-              
-                <span itemprop="name">AQS(AbstractQueuedSynchronizer) API分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-11-08T01:18:02+08:00"
-              content="2020-11-08" >
-          11-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>hazelcast是一个分布式系统，并且提供了AP和CP模型，本文研究Hazelcast在分布式系统设计中的通用问题。</p>
+<table>
+<thead>
+<tr>
+<th>分布式系统的抽象</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统体系结构</td>
+<td>系统体系结构是什么？<br />静态和动态视图是什么？<br />系统接口是什么？</td>
+</tr>
+<tr>
+<td>进程</td>
+<td>进程模型是什么？<br />有哪些核心进程？<br />系统参与者有哪些？<br />进程可能奔溃？<br />进程如何工作完成系统功能？</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>系统间如何通信？<br />系统对外如何通信？<br />同步还是异步？<br />传递保证是什么？</td>
+</tr>
+<tr>
+<td>命名</td>
+<td>如何找到资源？</td>
+</tr>
+<tr>
+<td>协调</td>
+<td>进程间如何同步和协作？<br />如何互斥？<br />如何达成共识？<br /></td>
+</tr>
+<tr>
+<td>一致性和复制</td>
+<td>一致性级别是什么？<br />复制过程是什么？(写入，副本更新，读取过程是什么？) <br />数据分区过程是什么？</td>
+</tr>
+<tr>
+<td>容错性</td>
+<td>如何检查故障？<br />故障恢复过程是什么？<br />网络分区怎么处理？<br />系统成员变动如何处理？<br />分布式提交过程是什么？</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>系统间通信安全如何保证？<br />系统安全如何保证？</td>
+</tr>
+</tbody></table>
+<h2 id="系统体系结构-Architecture"><a href="#系统体系结构-Architecture" class="headerlink" title="系统体系结构(Architecture)"></a>系统体系结构(Architecture)</h2><h2 id="进程-Process"><a href="#进程-Process" class="headerlink" title="进程(Process)"></a>进程(Process)</h2><h2 id="通信-Communication"><a href="#通信-Communication" class="headerlink" title="通信(Communication)"></a>通信(Communication)</h2><h2 id="命名-Naming"><a href="#命名-Naming" class="headerlink" title="命名(Naming)"></a>命名(Naming)</h2><h2 id="协调-Coordination"><a href="#协调-Coordination" class="headerlink" title="协调(Coordination)"></a>协调(Coordination)</h2><h2 id="一致性和复制-Consistency-and-Replication"><a href="#一致性和复制-Consistency-and-Replication" class="headerlink" title="一致性和复制(Consistency and Replication)"></a>一致性和复制(Consistency and Replication)</h2><h2 id="容错性-Fault-tolerance"><a href="#容错性-Fault-tolerance" class="headerlink" title="容错性(Fault tolerance)"></a>容错性(Fault tolerance)</h2><h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>安全通道，访问控制，安全管理</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%B3%9B%E5%9E%8B/" rel="tag"># 分布式系统泛型</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/04/24/distributed-systems-research-paradigm/" rel="next" title="分布式系统研究泛型模板">
+                <i class="fa fa-chevron-left"></i> 分布式系统研究泛型模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/categories/JDK-Source-Code/">&lt;i class&#x3D;&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/categories/JDK-Source-Code/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -399,6 +497,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -419,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,6 +609,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统体系结构-Architecture"><span class="nav-number">1.</span> <span class="nav-text">系统体系结构(Architecture)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程-Process"><span class="nav-number">2.</span> <span class="nav-text">进程(Process)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信-Communication"><span class="nav-number">3.</span> <span class="nav-text">通信(Communication)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名-Naming"><span class="nav-number">4.</span> <span class="nav-text">命名(Naming)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协调-Coordination"><span class="nav-number">5.</span> <span class="nav-text">协调(Coordination)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一致性和复制-Consistency-and-Replication"><span class="nav-number">6.</span> <span class="nav-text">一致性和复制(Consistency and Replication)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容错性-Fault-tolerance"><span class="nav-number">7.</span> <span class="nav-text">容错性(Fault tolerance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安全"><span class="nav-number">8.</span> <span class="nav-text">安全</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +758,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

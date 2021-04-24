@@ -88,13 +88,13 @@
 
 <meta name="description" content="概述世界上很多种分布式系统，如分布式文件系统，分布式KV，Google三驾马车，dynamo，newsql，分布式应用系统(微服务与SOA)，WWW等等，每种分布式系统种类不同，但是面临的问题类似，这里总结研究这些系统面临的共同话题，以便于研究新系统时候能够举一反三。泛型出自《分布式系统原理与泛型》这本书。当我们面临一个新的分布式系统时候，通过这些角度思考，能对系统有更深理解。 总览   分布式系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分布式研究泛型">
+<meta property="og:title" content="分布式系统研究泛型模板">
 <meta property="og:url" content="http://yoursite.com/2021/04/24/distributed-systems-research-paradigm/index.html">
 <meta property="og:site_name" content="小知了的博客">
 <meta property="og:description" content="概述世界上很多种分布式系统，如分布式文件系统，分布式KV，Google三驾马车，dynamo，newsql，分布式应用系统(微服务与SOA)，WWW等等，每种分布式系统种类不同，但是面临的问题类似，这里总结研究这些系统面临的共同话题，以便于研究新系统时候能够举一反三。泛型出自《分布式系统原理与泛型》这本书。当我们面临一个新的分布式系统时候，通过这些角度思考，能对系统有更深理解。 总览   分布式系">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-23T19:19:51.000Z">
-<meta property="article:modified_time" content="2021-04-24T08:48:53.589Z">
+<meta property="article:modified_time" content="2021-04-24T09:51:24.473Z">
 <meta property="article:author" content="LiLi">
 <meta property="article:tag" content="分布式系统泛型">
 <meta name="twitter:card" content="summary">
@@ -133,7 +133,7 @@
 
 
 
-  <title>分布式研究泛型 | 小知了的博客</title>
+  <title>分布式系统研究泛型模板 | 小知了的博客</title>
   
 
 
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分布式研究泛型</h1>
+          <h1 class="post-title" itemprop="name headline">分布式系统研究泛型模板</h1>
         
 
         <div class="post-meta">
@@ -415,7 +415,7 @@
 </tr>
 <tr>
 <td>协调</td>
-<td>进程间如何同步和协作？<br />如何互斥？</td>
+<td>进程间如何同步和协作？<br />如何互斥？<br />如何达成共识？<br /></td>
 </tr>
 <tr>
 <td>一致性和复制</td>
@@ -423,7 +423,7 @@
 </tr>
 <tr>
 <td>容错性</td>
-<td>如何检查故障？<br />故障恢复过程是什么？<br />网络分区怎么处理？<br />系统成员变动如何处理？</td>
+<td>如何检查故障？<br />故障恢复过程是什么？<br />网络分区怎么处理？<br />系统成员变动如何处理？<br />分布式提交过程是什么？</td>
 </tr>
 <tr>
 <td>安全</td>
@@ -482,6 +482,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/24/hazelcast-imdg-research/" rel="prev" title="Hazelcast内存网格系统研究">
+                Hazelcast内存网格系统研究 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -562,7 +566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
