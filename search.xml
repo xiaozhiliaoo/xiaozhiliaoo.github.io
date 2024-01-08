@@ -23,36 +23,6 @@
       </tags>
   </entry>
   <entry>
-    <title>惊奇的工程算法简介</title>
-    <url>/2021/01/03/Algorithm-Engineering/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要介绍比较经典/常用的工程算法，理解这些算法非常有意义，对于程序优化有很有帮助，会发出惊奇的感慨。这里算法以工程为出发点，而非严谨意义上的数学证明算法。</p>
-<h1 id="工程算法分类"><a href="#工程算法分类" class="headerlink" title="工程算法分类"></a>工程算法分类</h1><p>算法主要分为以下几类：</p>
-<h2 id="单机系统"><a href="#单机系统" class="headerlink" title="单机系统"></a>单机系统</h2><ol>
-<li>Membership:   HashSet.constains, BitSet.get, Bloom Filter，Counting Bloom Filter</li>
-<li>Cardinality:   HashSet.size, BitSet.cardinality, Linear counter，Log Log，HyperLogLog</li>
-<li>Frequency: HashMap.put, HashMultiset.count, Count Sketch，Count-Min Sketch</li>
-<li>Hash算法和一致性Hash算法</li>
-<li>时间轮算法：Hashed and Hierarchical Timing Wheel</li>
-<li>唯一ID生成器：snowflake，</li>
-<li>负载均衡算法：Round robin，Weighted round robin</li>
-<li>限流算法：Token Bucket，Leaky Bucket，Fixed Window，Sliding Log，Sliding Window</li>
-<li>缓存淘汰算法：LFU，LRU，FIFO</li>
-</ol>
-<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><ol>
-<li>共识算法：ZAB，Paxos，Raft，Viewstamped Replication，PBFT，Atomic Broadcast</li>
-<li>选举算法：Bully，Ring</li>
-<li>快照算法：Chandy Lamport，Lightweight Asynchronous Snapshots</li>
-</ol>
-]]></content>
-      <categories>
-        <category>算法</category>
-        <category>工程算法</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AQS(AbstractQueuedSynchronizer) API分析</title>
     <url>/2020/11/08/AQS-api-explain/</url>
     <content><![CDATA[<h1 id="AQS概述"><a href="#AQS概述" class="headerlink" title="AQS概述"></a>AQS概述</h1><p>AbstractQueuedSynchronizer是Java用于替代 <strong>Synchronized+内置等待通知(wait/notify)+内置条件队列</strong>的抽象队列同步器，该同步器管理锁，条件变量(状态变量)，条件谓词三元关系，从而技术上实现了锁，条件队列，等待通知，阻塞等同步语义。在JUC中广泛使用，其中有ReentrantLock，ReentrantReadWriteLock，Semaphore，CountDownLatch，ThreadPoolExecutor#Worker，而这些基石又组成了部分并发集合，可见其重要性，该同步器比内置的伸缩性和容错性更好，并且功能比内置的更加强大，文章主要分析AQS API设计，以及如何使用该类实现自定义的锁和同步器。</p>
@@ -130,6 +100,36 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>惊奇的工程算法简介</title>
+    <url>/2021/01/03/Algorithm-Engineering/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要介绍比较经典/常用的工程算法，理解这些算法非常有意义，对于程序优化有很有帮助，会发出惊奇的感慨。这里算法以工程为出发点，而非严谨意义上的数学证明算法。</p>
+<h1 id="工程算法分类"><a href="#工程算法分类" class="headerlink" title="工程算法分类"></a>工程算法分类</h1><p>算法主要分为以下几类：</p>
+<h2 id="单机系统"><a href="#单机系统" class="headerlink" title="单机系统"></a>单机系统</h2><ol>
+<li>Membership:   HashSet.constains, BitSet.get, Bloom Filter，Counting Bloom Filter</li>
+<li>Cardinality:   HashSet.size, BitSet.cardinality, Linear counter，Log Log，HyperLogLog</li>
+<li>Frequency: HashMap.put, HashMultiset.count, Count Sketch，Count-Min Sketch</li>
+<li>Hash算法和一致性Hash算法</li>
+<li>时间轮算法：Hashed and Hierarchical Timing Wheel</li>
+<li>唯一ID生成器：snowflake，</li>
+<li>负载均衡算法：Round robin，Weighted round robin</li>
+<li>限流算法：Token Bucket，Leaky Bucket，Fixed Window，Sliding Log，Sliding Window</li>
+<li>缓存淘汰算法：LFU，LRU，FIFO</li>
+</ol>
+<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><ol>
+<li>共识算法：ZAB，Paxos，Raft，Viewstamped Replication，PBFT，Atomic Broadcast</li>
+<li>选举算法：Bully，Ring</li>
+<li>快照算法：Chandy Lamport，Lightweight Asynchronous Snapshots</li>
+</ol>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>工程算法</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -435,44 +435,6 @@
       </tags>
   </entry>
   <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合框架(1)-接口定义类型</title>
     <url>/2020/11/09/JCF-HighLevel/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>集合框架是任何语言的技术体现，是语言的综合使用的类库，大部分工作可以用集合完成，但是单独的看每一个集合实现类难以对集合框架产生一个宏观认识，所以需要从高层角度来看集合技术，本系列将分析集合框架的设计与实现。</p>
@@ -529,36 +491,41 @@
       </tags>
   </entry>
   <entry>
-    <title>CRUD Boy和API Caller的怪象</title>
-    <url>/2021/01/01/Think-CRUDBoy-APICaller/</url>
-    <content><![CDATA[<p>CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。</p>
-<h1 id="CRUD-Boy"><a href="#CRUD-Boy" class="headerlink" title="CRUD Boy"></a>CRUD Boy</h1><p>​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级之处在于程序开发仅仅是对数据库数据的事务脚本操作，但是业务系统设计，在小型项目中CRUD可以Hold住复杂度，但是当业务系统复杂起来时候，事务脚本将带来维护性和扩展性问题，此时系统的各种业务逻辑和组件将会变得非常复杂且无趣。解决这个办法在于<strong>良好的业务抽象</strong>和概念<strong>一致性的业务接口</strong>，此时CRUD将不再是事务脚本，而更类似于OOD，而随着业务演进，可能会拆分微服务，这时候如果没有从CRUD泥潭出来，新建的微服务还是会重复事务脚本的老路。而业界有更好的业务设计方法，是<strong>领域驱动设计</strong>，将业务设计和技术设计结合起来，可以借鉴其思想，有句话说的比较好DDD is OOD done right.</p>
-<p>​       同时CRUD代码也不是没有技术含量的，CRUD代码也需要扩展性，维护性，可读性，文档注释，可测试性，不断重构达到整洁代码的水平，而这些任意一个工程实践，都会对既有团队带来编码习惯带来改变和编程水平的提高。所以CRUD没有技术含量，是更多把CRUD当做业务需求翻译机，产品说加你就加，而不是业务需求的解释器，用技术语言来设计业务。</p>
-<p>​       </p>
-<h1 id="API-Caller"><a href="#API-Caller" class="headerlink" title="API Caller"></a>API Caller</h1><p>API Caller是只会简单用类库和调第三方接口，没有完全理解调用方。这种透明性对业务开发进度有帮助，但是对于个人技术成长却是弊大于利。比较典型的例子是你用别人封装好的Redis接口查数据，会错以为自己会Redis，用厂商提供好的mq接口开发，发送几条消息，消费几条消息就认为自己用过mq，从而在实际工作中变成了只会调用API。在Java类库中，NIO代码冗余且复杂，学习NIO API本身就是对NIO的学习，但是写完就忘，下次还要重新学习，但是下次的学习或许没有从更深概念理解NIO，而是重新学了一遍NIO API使用代码，这样比较浪费时间。</p>
-<p>对于高质量的程序，绝大部分是注重API设计质量的，这不仅关系到API使用，还有API的理解性上，好的API本身就会抽象最核心的概念给开发者，模块间通信也会精心设计API。在JAVA世界中，集合框架和并发包可以说是对API契约和设计的经典案例，任何学习API设计的都可以从此开始研究，光看集合提供的接口，就能够收获非常多的概念和抽象。同时高质量API的文档也能够加深对技术的理解。当然API的实现也很重要，但是重要程度不如API本身。关于这方面可以参考：<a href="https://xiaozhiliaoo.github.io/2020/11/09/JCF-HighLevel/" target="_blank" rel="noopener">集合接口</a></p>
-<p>我们以Guava Cache来分析从API中能获得什么？</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoadingCache的父接口Cache也包含非常多的方法，这里不做探讨。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadingCache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Cache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;, <span class="title">Function</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123; </span><br><span class="line">      <span class="function">V <span class="title">get</span><span class="params">(K key)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">      <span class="function">V <span class="title">getUnchecked</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="function">ImmutableMap&lt;K, V&gt; <span class="title">getAll</span><span class="params">(Iterable&lt;? extends K&gt; keys)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Loads a new value for key &#123;<span class="doctag">@code</span> key&#125;, possibly asynchronously. While the new value is loading</span></span><br><span class="line"><span class="comment">       * the previous value (if any) will continue to be returned by &#123;<span class="doctag">@code</span> get(key)&#125; unless it is</span></span><br><span class="line"><span class="comment">       * evicted. If the new value is loaded successfully it will replace the previous value in the</span></span><br><span class="line"><span class="comment">       * cache; if an exception is thrown while refreshing the previous value will remain, &lt;i&gt;and the</span></span><br><span class="line"><span class="comment">       * exception will be logged (using &#123;<span class="doctag">@link</span> java.util.logging.Logger&#125;) and swallowed&lt;/i&gt;.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Caches loaded by a &#123;<span class="doctag">@link</span> CacheLoader&#125; will call &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; if the cache</span></span><br><span class="line"><span class="comment">       * currently contains a value for &#123;<span class="doctag">@code</span> key&#125;, and &#123;<span class="doctag">@link</span> CacheLoader#load&#125; otherwise. Loading is</span></span><br><span class="line"><span class="comment">       * asynchronous only if &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; was overridden with an asynchronous</span></span><br><span class="line"><span class="comment">       * implementation.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Returns without doing anything if another thread is currently loading the value for &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">       * key&#125;. If the cache loader associated with this cache performs refresh asynchronously then this</span></span><br><span class="line"><span class="comment">       * method may return before refresh completes.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@since</span> 11.0</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Returns a view of the entries stored in this cache as a thread-safe map. Modifications made to</span></span><br><span class="line"><span class="comment">       * the map directly affect the cache.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Iterators from the returned map are at least &lt;i&gt;weakly consistent&lt;/i&gt;: they are safe for</span></span><br><span class="line"><span class="comment">       * concurrent use, but if the cache is modified (including by eviction) after the iterator is</span></span><br><span class="line"><span class="comment">       * created, it is undefined which of the changes (if any) will be reflected in that iterator.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function">ConcurrentMap&lt;K, V&gt; <span class="title">asMap</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>先看<strong>get</strong>方法，抛出了ExecutionException异常，这个异常定义在并发包java.util.concurrent下，所以可以猜测get时候会不会和并发，多线程执行有关.否则不可能无缘无故抛出这么个异常。事实证明猜测是对的，Guava对于<a href="https://github.com/google/guava/wiki/CachesExplained#interruption" target="_blank" rel="noopener">Interruption</a>的处理很多设计决策。</p>
-<p><strong>getUnchecked</strong>同样是获取v方法，没有抛出任何异常，方法名是获取非受检异常，可以看出获取key的时候，一定会报错，但是提供了更加灵活的异常处理机制，而这些知识，就需要对受检异常和非受检异常有清晰的认识才能设计出这样的API，否则是不会想到这一层的。</p>
-<p><strong>getAll</strong>这个接口设计很有意思，传参是Iterable，足够看到其通用和扩展性，但是返回确是不可变的Map，看到这里，是不是觉得比较有趣呢？可以质疑为什么不用List接口呢？当然使用的时候传入Key List是可以的，但是如果你不理解Iterable的接口，你这段代码很有可能需要百度demo才能写出来，下次遇到同样的问题还是没有任何进步，成为了API Caller。</p>
-<p><strong>refresh</strong>从方法签名看不出什么，但是API文档注释非常详细，足够了解了。</p>
-<p><strong>asMap</strong> 是缓存的视图，但是修改缓存视图会导致底层缓存被修改，并且用的是并发的Map接口，此时几乎可以得出结论，缓存大概率会并发读写的，所以benchmark时候，并发读写能力一定是一个点。此时你对ConcurrentMap操作时候就需要清晰地了解ConcurrentMap的特性，并发修改时候遍历等问题。如果你希望业务层缓存只能用来读，而缓存层做缓存更新的话，你可以将asMap包装成不可变的Map. 当转换成Map时候，疑问在于关于Cache的契约是否就会被打破了？比如get时候load数据。</p>
-<p>可以看到，还没有看LoadingCache的实现，我们就可以很多，看完核心接口，在辅以文档，可以说对Cache Design和Decision有最基本的认识了，缓存和高性能有着千丝万缕的关系，需要深入到边边角角，既能从高层知道如何设计一个Cache，也能从底层知道如何实现一个Cache，否则在工程中可能因为一个参数配置就会导致性能问题。虽然以上方法在使用起来非常简单，但是合理的理解其设计和抽象对使用产生很大帮助，对不同API也能触类旁通，也可以提高自己设计API的水平，从此脱离API Caller的窘境，成为一名API Designer. </p>
-<p>API Caller还有一个非常典型的例子是线程池的使用。API Caller还有特点不喜欢看API文档，甚至不知道哪里看API文档。</p>
-<p>个人比较喜欢的学习技术方法是：无论如何先看一遍官方文档，学有余力则看一遍API文档，很感兴趣则可以入手源码。</p>
-<h1 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h1><p>粘贴复制本身其实没有什么问题，可以提供编程效率，但是由于复制带来的<strong>代码重复</strong>问题较为严重。因为这是时空级别的重复，虽然重复的概念很简单，但是衍生带来的，维护性，可读性，耦合性，内聚性问题，牵一发而不知道影响面，会极大降低代码仓库质量和Bug数量。如果说技术债最严重的问题，我觉得是重复代码问题。通过良好的抽象和封装，以及子函数，状态聚合，行为聚合等编程手段，会减少重复问题。</p>
-<h1 id="技术方案与实现的不一致性"><a href="#技术方案与实现的不一致性" class="headerlink" title="技术方案与实现的不一致性"></a>技术方案与实现的不一致性</h1><p>技术方案更偏向于架构，而实现更偏向于代码。有些技术方案涉及到编程(比如redis使用)，有些则无需（比如nginx负载均衡和容器化）这两者在某些程度并不是一致的。有些时候技术方案提出者并不是实现者，即使是，也有可能出现方案很牛逼，但是编码能力有限会导致的实现不好的现象。这点有一个例子，比如架构上引入缓存作为一个高层次的组件，但是缓存具体选型和实现上，则会出现分歧，用ConcurrentHashMap还是Guava Cache呢？这两者对于代码实现的复杂度不同。在实现的时候，又会面临如何封装，代码包组织，如何抽象的编程等非常细节问题，如果使用了Guava Cache，则会不会沦为API Caller的窘境呢？</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>crud boy，api caller，copy paste在开发业务时候会带来巨大便利，但是使用和理解不好也会造成非常多技术债和坑，这对个人成长帮助有限，会带来<strong>我不断在学习</strong>的假象，实际难逃轮回，凡所有相，皆是虚妄，若见诸相非相，即见如来。多花些时间研究API(包括优质和劣质)是有帮助的，要对业内“<strong>忘记了，百度下就能知道了</strong>”如此言论保持怀疑，他会使你真正成为API Caller的。你我都在路上！</p>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
 ]]></content>
       <categories>
-        <category>杂谈</category>
+        <category>JVM</category>
       </categories>
       <tags>
-        <tag>代码设计杂谈</tag>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -594,179 +561,36 @@
       </tags>
   </entry>
   <entry>
-    <title>RSMA模型:软件系统模型的探索(2)</title>
-    <url>/2023/07/15/application-thinking/</url>
-    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>在做应用系统时候，会遇到很多问题，比如接口响应慢，排查然后解决问题，具体解决有：代码优化，索引优化，慢查询告警，运维层面的监控，告警，通过排查问题，我们对系统有了更深入了解，对整个链路越来越熟悉，并在解决过程中提高了技术能力。但是有时候我们真的解决问题了吗？接口从5s优化到100ms，是否解决了接口慢的问题呢？是的，至少表面来看问题解决了，但是我们怎么能保证的说：系统没问题了。我们希望有一个完美系统，让自己系统来和”完美系统“进行比较，从而发现系统问题，从而不断优化系统。完美的理论是存在的，但是完美的系统存在脑海中，并且谁也没见过。我觉得完美系统应该是一系列目标，比如<strong>可靠性</strong>，系统在完成功能很可靠，系统在宕机，硬件故障，软件错误，人为故障时候可以可靠运行，还比如<strong>可扩展性</strong>，当遇到性能问题时候，可以横向或者纵向扩展，再比如<strong>可维护性</strong>，小到代码，中到架构，大到系统方方面面可维护性，这些都可以定义系统的目标（非业务层面）。</p>
-<p>那么接口慢可以反应哪些问题呢？</p>
-<ol>
-<li><p>可靠性：系统对用户使用造成问题，用户可能离开，使得用户觉得系统不可靠。系统发生错误。</p>
-</li>
-<li><p>可扩展性：接口慢，是性能问题，性能问题垂直扩展还是水平，还是代码，存储层问题呢？</p>
-</li>
-<li><p>可维护性：有监控吗？有告警吗？排查问题工具是否容易使用呢？是否有全链路traceid一眼看到链路耗时呢？</p>
-</li>
-</ol>
-<p>接口慢也侧面反映了，系统没有预期的目标。</p>
-<h1 id="RSMA模型"><a href="#RSMA模型" class="headerlink" title="RSMA模型"></a>RSMA模型</h1><p>RSMA（Reliable，Scalable，Maintainable，Automate）模型是将系统属性和目标分解为三部分：可靠性，可扩展性，可维护性，到达这些目标更好的方式是：自动化。</p>
-<p>可靠性包含：硬件故障，软件错误，人为失误。有些时候，系统看似可靠，实际上不是，需要明确可靠性在不同层面的真正含义。</p>
-<p>可扩展性包含：负载，性能。性能问题是可扩展的核心。虽然没了资源（内存/CPU/带宽）可以加，但是为什么每次不是自动化过程呢？虽然没有见过自动扩展的系统，但是可以作为设计的目标。</p>
-<p>可维护性包含：可运维，简单化，易演化。</p>
-<p>自动化包含：实现上面目标最好是自动化的。其次是手动化的。</p>
-<p>RSMA模型认为：系统首要是拥有目标，然后在解决问题，演化，调优中不断接近目标。解决问题完成定义是达到目标。所有问题都可以定义一个目标，而这些目标最终会成为可靠性，可扩展性，可维护性三者之一。实现三者方式应该是自动化的。</p>
-<h1 id="一些观点"><a href="#一些观点" class="headerlink" title="一些观点"></a>一些观点</h1><ol>
-<li>很多系统缺乏明确目标，解决问题方案偏临时，不能从整体上来拆解问题。任何问题都可以追溯一个目标。</li>
-<li>一个系统的长期目标是业务方向，中期目标是系统目标，短期目标是业务需求。</li>
-<li>系统会出现多种问题，定义<strong>问题解决</strong>了标志应该是：解决该问题达到了系统的目标。那么系统没问题也应该是达到了系统的目标。否则接口从5s优化到100ms，解决了很多技术问题，但是怎么定义解决呢？用户觉得快也是目标，但是快拆解目标是<strong>可扩展性</strong>。</li>
-<li>系统的目标是：RSMA，应该牢记系统的目标，并且拆解可落地方案。业务系统，存储系统，中间件系统的目标均可以是上述三个。</li>
-<li>系统的目标是系统层面的属性，是应用系统设计目标，影响了系统的方方面面，而非某个特定的技术，是各个组件合力贡献的能力。目标也不是个体事情，开发，运维，测试，是多人协同的实现属性。</li>
-<li>COSEA是还原论，将系统拆分，而RSM是系统论，将系统组合。</li>
-<li>实际和理论割裂很严重，系统没资源了，连自动加资源能力都没有，每次都要手动加，包括内存资源，产生这些问题原因在哪里？所谓的自动垂直扩展，自动水平扩展，自动弹性扩展没见过。</li>
-</ol>
+    <title>CRUD Boy和API Caller的怪象</title>
+    <url>/2021/01/01/Think-CRUDBoy-APICaller/</url>
+    <content><![CDATA[<p>CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。</p>
+<h1 id="CRUD-Boy"><a href="#CRUD-Boy" class="headerlink" title="CRUD Boy"></a>CRUD Boy</h1><p>​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级之处在于程序开发仅仅是对数据库数据的事务脚本操作，但是业务系统设计，在小型项目中CRUD可以Hold住复杂度，但是当业务系统复杂起来时候，事务脚本将带来维护性和扩展性问题，此时系统的各种业务逻辑和组件将会变得非常复杂且无趣。解决这个办法在于<strong>良好的业务抽象</strong>和概念<strong>一致性的业务接口</strong>，此时CRUD将不再是事务脚本，而更类似于OOD，而随着业务演进，可能会拆分微服务，这时候如果没有从CRUD泥潭出来，新建的微服务还是会重复事务脚本的老路。而业界有更好的业务设计方法，是<strong>领域驱动设计</strong>，将业务设计和技术设计结合起来，可以借鉴其思想，有句话说的比较好DDD is OOD done right.</p>
+<p>​       同时CRUD代码也不是没有技术含量的，CRUD代码也需要扩展性，维护性，可读性，文档注释，可测试性，不断重构达到整洁代码的水平，而这些任意一个工程实践，都会对既有团队带来编码习惯带来改变和编程水平的提高。所以CRUD没有技术含量，是更多把CRUD当做业务需求翻译机，产品说加你就加，而不是业务需求的解释器，用技术语言来设计业务。</p>
+<p>​       </p>
+<h1 id="API-Caller"><a href="#API-Caller" class="headerlink" title="API Caller"></a>API Caller</h1><p>API Caller是只会简单用类库和调第三方接口，没有完全理解调用方。这种透明性对业务开发进度有帮助，但是对于个人技术成长却是弊大于利。比较典型的例子是你用别人封装好的Redis接口查数据，会错以为自己会Redis，用厂商提供好的mq接口开发，发送几条消息，消费几条消息就认为自己用过mq，从而在实际工作中变成了只会调用API。在Java类库中，NIO代码冗余且复杂，学习NIO API本身就是对NIO的学习，但是写完就忘，下次还要重新学习，但是下次的学习或许没有从更深概念理解NIO，而是重新学了一遍NIO API使用代码，这样比较浪费时间。</p>
+<p>对于高质量的程序，绝大部分是注重API设计质量的，这不仅关系到API使用，还有API的理解性上，好的API本身就会抽象最核心的概念给开发者，模块间通信也会精心设计API。在JAVA世界中，集合框架和并发包可以说是对API契约和设计的经典案例，任何学习API设计的都可以从此开始研究，光看集合提供的接口，就能够收获非常多的概念和抽象。同时高质量API的文档也能够加深对技术的理解。当然API的实现也很重要，但是重要程度不如API本身。关于这方面可以参考：<a href="https://xiaozhiliaoo.github.io/2020/11/09/JCF-HighLevel/" target="_blank" rel="noopener">集合接口</a></p>
+<p>我们以Guava Cache来分析从API中能获得什么？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//LoadingCache的父接口Cache也包含非常多的方法，这里不做探讨。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadingCache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Cache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;, <span class="title">Function</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123; </span><br><span class="line">      <span class="function">V <span class="title">get</span><span class="params">(K key)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">      <span class="function">V <span class="title">getUnchecked</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="function">ImmutableMap&lt;K, V&gt; <span class="title">getAll</span><span class="params">(Iterable&lt;? extends K&gt; keys)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Loads a new value for key &#123;<span class="doctag">@code</span> key&#125;, possibly asynchronously. While the new value is loading</span></span><br><span class="line"><span class="comment">       * the previous value (if any) will continue to be returned by &#123;<span class="doctag">@code</span> get(key)&#125; unless it is</span></span><br><span class="line"><span class="comment">       * evicted. If the new value is loaded successfully it will replace the previous value in the</span></span><br><span class="line"><span class="comment">       * cache; if an exception is thrown while refreshing the previous value will remain, &lt;i&gt;and the</span></span><br><span class="line"><span class="comment">       * exception will be logged (using &#123;<span class="doctag">@link</span> java.util.logging.Logger&#125;) and swallowed&lt;/i&gt;.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Caches loaded by a &#123;<span class="doctag">@link</span> CacheLoader&#125; will call &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; if the cache</span></span><br><span class="line"><span class="comment">       * currently contains a value for &#123;<span class="doctag">@code</span> key&#125;, and &#123;<span class="doctag">@link</span> CacheLoader#load&#125; otherwise. Loading is</span></span><br><span class="line"><span class="comment">       * asynchronous only if &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; was overridden with an asynchronous</span></span><br><span class="line"><span class="comment">       * implementation.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Returns without doing anything if another thread is currently loading the value for &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">       * key&#125;. If the cache loader associated with this cache performs refresh asynchronously then this</span></span><br><span class="line"><span class="comment">       * method may return before refresh completes.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@since</span> 11.0</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Returns a view of the entries stored in this cache as a thread-safe map. Modifications made to</span></span><br><span class="line"><span class="comment">       * the map directly affect the cache.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Iterators from the returned map are at least &lt;i&gt;weakly consistent&lt;/i&gt;: they are safe for</span></span><br><span class="line"><span class="comment">       * concurrent use, but if the cache is modified (including by eviction) after the iterator is</span></span><br><span class="line"><span class="comment">       * created, it is undefined which of the changes (if any) will be reflected in that iterator.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function">ConcurrentMap&lt;K, V&gt; <span class="title">asMap</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>先看<strong>get</strong>方法，抛出了ExecutionException异常，这个异常定义在并发包java.util.concurrent下，所以可以猜测get时候会不会和并发，多线程执行有关.否则不可能无缘无故抛出这么个异常。事实证明猜测是对的，Guava对于<a href="https://github.com/google/guava/wiki/CachesExplained#interruption" target="_blank" rel="noopener">Interruption</a>的处理很多设计决策。</p>
+<p><strong>getUnchecked</strong>同样是获取v方法，没有抛出任何异常，方法名是获取非受检异常，可以看出获取key的时候，一定会报错，但是提供了更加灵活的异常处理机制，而这些知识，就需要对受检异常和非受检异常有清晰的认识才能设计出这样的API，否则是不会想到这一层的。</p>
+<p><strong>getAll</strong>这个接口设计很有意思，传参是Iterable，足够看到其通用和扩展性，但是返回确是不可变的Map，看到这里，是不是觉得比较有趣呢？可以质疑为什么不用List接口呢？当然使用的时候传入Key List是可以的，但是如果你不理解Iterable的接口，你这段代码很有可能需要百度demo才能写出来，下次遇到同样的问题还是没有任何进步，成为了API Caller。</p>
+<p><strong>refresh</strong>从方法签名看不出什么，但是API文档注释非常详细，足够了解了。</p>
+<p><strong>asMap</strong> 是缓存的视图，但是修改缓存视图会导致底层缓存被修改，并且用的是并发的Map接口，此时几乎可以得出结论，缓存大概率会并发读写的，所以benchmark时候，并发读写能力一定是一个点。此时你对ConcurrentMap操作时候就需要清晰地了解ConcurrentMap的特性，并发修改时候遍历等问题。如果你希望业务层缓存只能用来读，而缓存层做缓存更新的话，你可以将asMap包装成不可变的Map. 当转换成Map时候，疑问在于关于Cache的契约是否就会被打破了？比如get时候load数据。</p>
+<p>可以看到，还没有看LoadingCache的实现，我们就可以很多，看完核心接口，在辅以文档，可以说对Cache Design和Decision有最基本的认识了，缓存和高性能有着千丝万缕的关系，需要深入到边边角角，既能从高层知道如何设计一个Cache，也能从底层知道如何实现一个Cache，否则在工程中可能因为一个参数配置就会导致性能问题。虽然以上方法在使用起来非常简单，但是合理的理解其设计和抽象对使用产生很大帮助，对不同API也能触类旁通，也可以提高自己设计API的水平，从此脱离API Caller的窘境，成为一名API Designer. </p>
+<p>API Caller还有一个非常典型的例子是线程池的使用。API Caller还有特点不喜欢看API文档，甚至不知道哪里看API文档。</p>
+<p>个人比较喜欢的学习技术方法是：无论如何先看一遍官方文档，学有余力则看一遍API文档，很感兴趣则可以入手源码。</p>
+<h1 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h1><p>粘贴复制本身其实没有什么问题，可以提供编程效率，但是由于复制带来的<strong>代码重复</strong>问题较为严重。因为这是时空级别的重复，虽然重复的概念很简单，但是衍生带来的，维护性，可读性，耦合性，内聚性问题，牵一发而不知道影响面，会极大降低代码仓库质量和Bug数量。如果说技术债最严重的问题，我觉得是重复代码问题。通过良好的抽象和封装，以及子函数，状态聚合，行为聚合等编程手段，会减少重复问题。</p>
+<h1 id="技术方案与实现的不一致性"><a href="#技术方案与实现的不一致性" class="headerlink" title="技术方案与实现的不一致性"></a>技术方案与实现的不一致性</h1><p>技术方案更偏向于架构，而实现更偏向于代码。有些技术方案涉及到编程(比如redis使用)，有些则无需（比如nginx负载均衡和容器化）这两者在某些程度并不是一致的。有些时候技术方案提出者并不是实现者，即使是，也有可能出现方案很牛逼，但是编码能力有限会导致的实现不好的现象。这点有一个例子，比如架构上引入缓存作为一个高层次的组件，但是缓存具体选型和实现上，则会出现分歧，用ConcurrentHashMap还是Guava Cache呢？这两者对于代码实现的复杂度不同。在实现的时候，又会面临如何封装，代码包组织，如何抽象的编程等非常细节问题，如果使用了Guava Cache，则会不会沦为API Caller的窘境呢？</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>crud boy，api caller，copy paste在开发业务时候会带来巨大便利，但是使用和理解不好也会造成非常多技术债和坑，这对个人成长帮助有限，会带来<strong>我不断在学习</strong>的假象，实际难逃轮回，凡所有相，皆是虚妄，若见诸相非相，即见如来。多花些时间研究API(包括优质和劣质)是有帮助的，要对业内“<strong>忘记了，百度下就能知道了</strong>”如此言论保持怀疑，他会使你真正成为API Caller的。你我都在路上！</p>
 ]]></content>
       <categories>
-        <category>模型</category>
-        <category>软件模型</category>
+        <category>杂谈</category>
       </categories>
       <tags>
-        <tag>软件系统模型</tag>
-        <tag>RSM模型</tag>
-        <tag>创造</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>买房犯的7个错误</title>
-    <url>/2023/03/01/buy-house-mistake/</url>
-    <content><![CDATA[<h1 id="合同看的不够仔细"><a href="#合同看的不够仔细" class="headerlink" title="合同看的不够仔细"></a>合同看的不够仔细</h1><p>看关键点，责任和权利对等。</p>
-<h1 id="没有争取到有利于买方的合同"><a href="#没有争取到有利于买方的合同" class="headerlink" title="没有争取到有利于买方的合同"></a>没有争取到有利于买方的合同</h1><p>虽然谈了很多，细节确认了很多，但是其实并没有签一个买房合同</p>
-<h1 id="违约责任不明确"><a href="#违约责任不明确" class="headerlink" title="违约责任不明确"></a>违约责任不明确</h1><p>风险规避，首先要知道可能得风险。</p>
-<h1 id="价格谈的不够坚定"><a href="#价格谈的不够坚定" class="headerlink" title="价格谈的不够坚定"></a>价格谈的不够坚定</h1><p>心理战。</p>
-<h1 id="中介费还可以再低"><a href="#中介费还可以再低" class="headerlink" title="中介费还可以再低"></a>中介费还可以再低</h1><p>开口3%，谈到2.85%，实际2.5%。可以找小中介。</p>
-<h1 id="家居留什么没有仔细确认"><a href="#家居留什么没有仔细确认" class="headerlink" title="家居留什么没有仔细确认"></a>家居留什么没有仔细确认</h1><p>需要写到合同上。</p>
-<h1 id="首付交的太早"><a href="#首付交的太早" class="headerlink" title="首付交的太早"></a>首付交的太早</h1><p>等业主解完抵押在交，几十万存短期/余额宝也有不少利息。</p>
-<h1 id="其余整理"><a href="#其余整理" class="headerlink" title="其余整理"></a>其余整理</h1><p>交易方式：自行成交，中介成交，</p>
-<p>买房流程：市公积金，省公积金，全款</p>
-<p>谈价时间：和业主砍价，中介费，</p>
-<p>贷款手续费：可以不交，打贝壳中介。</p>
-<p>拆解合同思路：数字，违约事项。</p>
-<p>案例分析：</p>
-<p>买：全款，纯公积金，组合贷</p>
-<p>卖：徐乐</p>
-<p>商贷提前还款方式，时间，金额等。是否可以缩短期限，或者是缩短金额。一年内可以提前还。</p>
-<p>公积金贷款提前还款方式，时间，金额等，是否可以缩短期限，或者是缩短金额。半年内可以提前还。</p>
-<p>贝壳品质监督：10106188</p>
-<p><strong>梳理合同的专业术语</strong></p>
-<p>面签需要资料？</p>
-<p>客户：身份证，户口本，银行卡，收入证明，流水，公积金异地缴存证明跟明细，私章</p>
-<p>业主：夫妻双方身份证，户口本，结婚证，银行卡，房产证</p>
-<p>双方都需要带原件。</p>
-<p>过户需要资料？</p>
-<p>挂综合号，早点排队。</p>
-<p>买方（未婚）：上证人到场</p>
-<p>1.上证人身份证原件</p>
-<p>2.上证人户口本原件➕复印件（本人页）</p>
-<p>3.储蓄卡（刷税费）</p>
-<p>抽号前</p>
-<p>买方提前在i西安app下载打印住房查询（必须24小时以内的），并且把查询过程录屏保存</p>
-<p>或者在二楼55 56号窗口或者门口自助机打住房情况查询</p>
-<p>注意:查看客户户口本的证件号是否🈶变更，🈶变更要提供身份证变更证明原件</p>
-<p>查看户口本是否有撕页，撕页要盖派出所章子方可</p>
-<p>【买方是否符合以下身份的两点前即可在“29号窗口”抽优先号】</p>
-<p>老（80岁以上）、四级以上残疾、军人、退役军人、消防人员</p>
-<p>卖方产证一人：产证人到场</p>
-<p>1、产权人身份证</p>
-<p>2、房产证（➕房本复印件一份）</p>
-<p>3、契税票（房本满二不用带，房改房性质也不用带）</p>
-<p>4、银行卡（缴税）</p>
-<p>⚠️：产证人一人来，窗口问有无共有人，一定要说没有，不然无法正常过户</p>
-<p>卖方在2楼55 56 60窗口或者门口自助机打登记簿一份</p>
-<p>注意:业主房本通过继承、赠与、析产、判决、变更等取得的，还需要再二楼55 56 60打换证资料</p>
-<p>【上证人符合以下条件的两点前即可在“29号窗口”抽优先号】</p>
-<p>老（80岁以上）、四级以上残疾、军人、退役军人、消防人员</p>
-<p>三方无责解约最具杀伤力。</p>
-<p>先签中介合同，在签买卖合同。防止到了后面容易妥协。</p>
-<p>限购 限售</p>
-<p>他项权利证</p>
-<p>抵押贷款</p>
-<p>居住权</p>
-<p>违约责任：</p>
-<p>甲：房屋权利，逾期交付</p>
-<p>乙：逾期付款，逾期产权转移</p>
-<p>多接触几个中介，小，大可以多认识下。</p>
-<p>网签需要资料：</p>
-<p>刷首付第一次去了房管局二楼，没有光大银行，所以去了西安分行。</p>
-<p>面签需要资料：</p>
-<p>过户：可以提前排队。综合号，72号，排到了下午3点半，跑腿可以排队，买方房屋报告：24小时以内的。</p>
-<p>过户需要资料</p>
-<p>合同签订时间</p>
-<p>解抵押提交一次性还清时间（申请解压时间）</p>
-<p>注销抵押登记时间（撤压时间）</p>
-<p>定金时间</p>
-<p>首付时间：可以不是面签当天。</p>
-<p>网签时间</p>
-<p>资金监管账户开通时间</p>
-<p>物业交割时间</p>
-<p>银行提交资料时间（面签时间）</p>
-<p>银行放款时间</p>
-<p>缴税时间</p>
-<p>房屋交付时间</p>
-<p>网签时间</p>
-<p>迁户口时间</p>
-<p>贷款需要首付凭证</p>
-<p><strong>我的购房时间点：</strong></p>
-<p>合同签订时间 2023-02-27</p>
-<p>备案时间：2023-03-13</p>
-<p>购审时间：2023-03-03</p>
-<p>面签时间：2023-03-13</p>
-<p>资金监管协议时间：2023-03-13</p>
-<p>业主申请撤压时间：2023-03-13</p>
-<p>首付时间：2023-03-15</p>
-<p>业主撤押时间：2023-04-04</p>
-<p>银行贷款资料提交时间：2023-04-09（以为提交了，实际上缺资料，银行经理也没说，管家也没说，拖到了04-14号）</p>
-<p>实际提交时间：2023-04-14</p>
-<p>银行放款时间：2023-04-25</p>
-<p>过户时间：2023-04-27</p>
-<p>领到房产证时间：2023-05-05</p>
-<p>业主全款到账时间：2023-05-05</p>
-<p>交房时间：2023-05-07</p>
-<p>首付：将钱存入资金监管账户。</p>
-<p>首付时间：</p>
-<p>买卖合同：面签当天。</p>
-<p>网签合同：签订资金监管协议30天内。</p>
-<p>资金监管合同：资金监管协议90天内。</p>
-<p>面签当日是可以抵押没有解完的，没有解完就要首付。</p>
-<p>中介不会教你如何签合同，只想让你签完，不要和业主有争论。</p>
-<p>直系亲属：没有，可以12358价格举报，问下是不是强制收费。</p>
-<p>合同低于2.85%出不来，贝壳规定，哪条规定，谁制定的，书面在哪里。致电贝壳服务监督电话：10106188</p>
-<p>先签居间服务合同，在签买卖合同。先谈中介费，贷款，在谈买卖合同。不要到了最后一步，被别人牵着鼻子走。这一步往往买家会退让。</p>
-<p>谈价格技巧。</p>
-<p>小红书和实际操作以及学会威胁别人。</p>
-<p>可谈的几个点 </p>
-<p>选个好中介 多做对比，可以不要中介</p>
-<p>贷款服务费：自愿选择实际上是强制消费</p>
-<p>中介费 </p>
-<p>个税</p>
-<p>合同最重要的是流程以及时间节点 以及违约责任</p>
-<p>开发程序去梳理下来 可视化</p>
-<p>举报贝壳平台 贷款服务费 费率最低不让写 不让出合同 贝壳起到什么作用了。</p>
-<p>买房不出个税 由卖房去 再去谈价格 去谈判空间 国家法律是空文</p>
-<p>抓住一切谈判空间去谈。争取利益。</p>
-<p>钱的地方可以谈 定金 首付 中介费 解抵押 税费 贷款服务费 签证费。整个流程也是钱流转过程。80块谁出？</p>
-<p>心理价位不要告诉别人。</p>
-<p>别人的话写在合同里面 不要担心麻烦 比如说家具家电问题 说了什么 都要写进去 不要不写 一个空调都谈不下来</p>
-<p>买卖流程 </p>
-<p>底线2个点。</p>
-<p>心里底价永远不要说。</p>
-<p>业主生气了 不签约了 ？？？ 中介话术太多了。因为这个 谁给陪？不配就闭嘴。</p>
-<p>和业主聊什么？小区了解细节啊 环境啊 等等</p>
-<p>1 成交价 2 税费 3 中介费 4 贷款服务费，影响你付出的就这四个点了。</p>
-<p>中介核心问题：多接触几个，把核心问题抛出去，看看他的态度。</p>
-]]></content>
-      <categories>
-        <category>买房</category>
-        <category>买房的坑</category>
-      </categories>
-      <tags>
-        <tag>house</tag>
+        <tag>代码设计杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -966,6 +790,46 @@
       </tags>
   </entry>
   <entry>
+    <title>RSMA模型:软件系统模型的探索(2)</title>
+    <url>/2023/07/15/application-thinking/</url>
+    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>在做应用系统时候，会遇到很多问题，比如接口响应慢，排查然后解决问题，具体解决有：代码优化，索引优化，慢查询告警，运维层面的监控，告警，通过排查问题，我们对系统有了更深入了解，对整个链路越来越熟悉，并在解决过程中提高了技术能力。但是有时候我们真的解决问题了吗？接口从5s优化到100ms，是否解决了接口慢的问题呢？是的，至少表面来看问题解决了，但是我们怎么能保证的说：系统没问题了。我们希望有一个完美系统，让自己系统来和”完美系统“进行比较，从而发现系统问题，从而不断优化系统。完美的理论是存在的，但是完美的系统存在脑海中，并且谁也没见过。我觉得完美系统应该是一系列目标，比如<strong>可靠性</strong>，系统在完成功能很可靠，系统在宕机，硬件故障，软件错误，人为故障时候可以可靠运行，还比如<strong>可扩展性</strong>，当遇到性能问题时候，可以横向或者纵向扩展，再比如<strong>可维护性</strong>，小到代码，中到架构，大到系统方方面面可维护性，这些都可以定义系统的目标（非业务层面）。</p>
+<p>那么接口慢可以反应哪些问题呢？</p>
+<ol>
+<li><p>可靠性：系统对用户使用造成问题，用户可能离开，使得用户觉得系统不可靠。系统发生错误。</p>
+</li>
+<li><p>可扩展性：接口慢，是性能问题，性能问题垂直扩展还是水平，还是代码，存储层问题呢？</p>
+</li>
+<li><p>可维护性：有监控吗？有告警吗？排查问题工具是否容易使用呢？是否有全链路traceid一眼看到链路耗时呢？</p>
+</li>
+</ol>
+<p>接口慢也侧面反映了，系统没有预期的目标。</p>
+<h1 id="RSMA模型"><a href="#RSMA模型" class="headerlink" title="RSMA模型"></a>RSMA模型</h1><p>RSMA（Reliable，Scalable，Maintainable，Automate）模型是将系统属性和目标分解为三部分：可靠性，可扩展性，可维护性，到达这些目标更好的方式是：自动化。</p>
+<p>可靠性包含：硬件故障，软件错误，人为失误。有些时候，系统看似可靠，实际上不是，需要明确可靠性在不同层面的真正含义。</p>
+<p>可扩展性包含：负载，性能。性能问题是可扩展的核心。虽然没了资源（内存/CPU/带宽）可以加，但是为什么每次不是自动化过程呢？虽然没有见过自动扩展的系统，但是可以作为设计的目标。</p>
+<p>可维护性包含：可运维，简单化，易演化。</p>
+<p>自动化包含：实现上面目标最好是自动化的。其次是手动化的。</p>
+<p>RSMA模型认为：系统首要是拥有目标，然后在解决问题，演化，调优中不断接近目标。解决问题完成定义是达到目标。所有问题都可以定义一个目标，而这些目标最终会成为可靠性，可扩展性，可维护性三者之一。实现三者方式应该是自动化的。</p>
+<h1 id="一些观点"><a href="#一些观点" class="headerlink" title="一些观点"></a>一些观点</h1><ol>
+<li>很多系统缺乏明确目标，解决问题方案偏临时，不能从整体上来拆解问题。任何问题都可以追溯一个目标。</li>
+<li>一个系统的长期目标是业务方向，中期目标是系统目标，短期目标是业务需求。</li>
+<li>系统会出现多种问题，定义<strong>问题解决</strong>了标志应该是：解决该问题达到了系统的目标。那么系统没问题也应该是达到了系统的目标。否则接口从5s优化到100ms，解决了很多技术问题，但是怎么定义解决呢？用户觉得快也是目标，但是快拆解目标是<strong>可扩展性</strong>。</li>
+<li>系统的目标是：RSMA，应该牢记系统的目标，并且拆解可落地方案。业务系统，存储系统，中间件系统的目标均可以是上述三个。</li>
+<li>系统的目标是系统层面的属性，是应用系统设计目标，影响了系统的方方面面，而非某个特定的技术，是各个组件合力贡献的能力。目标也不是个体事情，开发，运维，测试，是多人协同的实现属性。</li>
+<li>COSEA是还原论，将系统拆分，而RSM是系统论，将系统组合。</li>
+<li>实际和理论割裂很严重，系统没资源了，连自动加资源能力都没有，每次都要手动加，包括内存资源，产生这些问题原因在哪里？所谓的自动垂直扩展，自动水平扩展，自动弹性扩展没见过。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>模型</category>
+        <category>软件模型</category>
+      </categories>
+      <tags>
+        <tag>软件系统模型</tag>
+        <tag>RSM模型</tag>
+        <tag>创造</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>聊聊数据同步(Redis和MySQL数据同步)</title>
     <url>/2022/09/24/data-synchronization-thinking/</url>
     <content><![CDATA[<p>数据同步问题是应用层非常值得研究的一个设计问题，也是为数不多值得研究的数据问题。虽然在实践中各种方案会运行的很好，但是这些方案背后有哪些假设，以及问题的模型是什么，这个点并没有得到充分理解，所以本文以经验之谈分析了下数据同步的设计问题，案例分析以及结论。</p>
@@ -1091,6 +955,217 @@
       <tags>
         <tag>数据同步</tag>
         <tag>MySQL和Redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>买房犯的7个错误</title>
+    <url>/2023/03/01/buy-house-mistake/</url>
+    <content><![CDATA[<h1 id="合同看的不够仔细"><a href="#合同看的不够仔细" class="headerlink" title="合同看的不够仔细"></a>合同看的不够仔细</h1><p>看关键点，责任和权利对等。</p>
+<h1 id="没有争取到有利于买方的合同"><a href="#没有争取到有利于买方的合同" class="headerlink" title="没有争取到有利于买方的合同"></a>没有争取到有利于买方的合同</h1><p>虽然谈了很多，细节确认了很多，但是其实并没有签一个买房合同</p>
+<h1 id="违约责任不明确"><a href="#违约责任不明确" class="headerlink" title="违约责任不明确"></a>违约责任不明确</h1><p>风险规避，首先要知道可能得风险。</p>
+<h1 id="价格谈的不够坚定"><a href="#价格谈的不够坚定" class="headerlink" title="价格谈的不够坚定"></a>价格谈的不够坚定</h1><p>心理战。</p>
+<h1 id="中介费还可以再低"><a href="#中介费还可以再低" class="headerlink" title="中介费还可以再低"></a>中介费还可以再低</h1><p>开口3%，谈到2.85%，实际2.5%。可以找小中介。</p>
+<h1 id="家居留什么没有仔细确认"><a href="#家居留什么没有仔细确认" class="headerlink" title="家居留什么没有仔细确认"></a>家居留什么没有仔细确认</h1><p>需要写到合同上。</p>
+<h1 id="首付交的太早"><a href="#首付交的太早" class="headerlink" title="首付交的太早"></a>首付交的太早</h1><p>等业主解完抵押在交，几十万存短期/余额宝也有不少利息。</p>
+<h1 id="其余整理"><a href="#其余整理" class="headerlink" title="其余整理"></a>其余整理</h1><p>交易方式：自行成交，中介成交，</p>
+<p>买房流程：市公积金，省公积金，全款</p>
+<p>谈价时间：和业主砍价，中介费，</p>
+<p>贷款手续费：可以不交，打贝壳中介。</p>
+<p>拆解合同思路：数字，违约事项。</p>
+<p>案例分析：</p>
+<p>买：全款，纯公积金，组合贷</p>
+<p>卖：徐乐</p>
+<p>商贷提前还款方式，时间，金额等。是否可以缩短期限，或者是缩短金额。一年内可以提前还。</p>
+<p>公积金贷款提前还款方式，时间，金额等，是否可以缩短期限，或者是缩短金额。半年内可以提前还。</p>
+<p>贝壳品质监督：10106188</p>
+<p><strong>梳理合同的专业术语</strong></p>
+<p>面签需要资料？</p>
+<p>客户：身份证，户口本，银行卡，收入证明，流水，公积金异地缴存证明跟明细，私章</p>
+<p>业主：夫妻双方身份证，户口本，结婚证，银行卡，房产证</p>
+<p>双方都需要带原件。</p>
+<p>过户需要资料？</p>
+<p>挂综合号，早点排队。</p>
+<p>买方（未婚）：上证人到场</p>
+<p>1.上证人身份证原件</p>
+<p>2.上证人户口本原件➕复印件（本人页）</p>
+<p>3.储蓄卡（刷税费）</p>
+<p>抽号前</p>
+<p>买方提前在i西安app下载打印住房查询（必须24小时以内的），并且把查询过程录屏保存</p>
+<p>或者在二楼55 56号窗口或者门口自助机打住房情况查询</p>
+<p>注意:查看客户户口本的证件号是否🈶变更，🈶变更要提供身份证变更证明原件</p>
+<p>查看户口本是否有撕页，撕页要盖派出所章子方可</p>
+<p>【买方是否符合以下身份的两点前即可在“29号窗口”抽优先号】</p>
+<p>老（80岁以上）、四级以上残疾、军人、退役军人、消防人员</p>
+<p>卖方产证一人：产证人到场</p>
+<p>1、产权人身份证</p>
+<p>2、房产证（➕房本复印件一份）</p>
+<p>3、契税票（房本满二不用带，房改房性质也不用带）</p>
+<p>4、银行卡（缴税）</p>
+<p>⚠️：产证人一人来，窗口问有无共有人，一定要说没有，不然无法正常过户</p>
+<p>卖方在2楼55 56 60窗口或者门口自助机打登记簿一份</p>
+<p>注意:业主房本通过继承、赠与、析产、判决、变更等取得的，还需要再二楼55 56 60打换证资料</p>
+<p>【上证人符合以下条件的两点前即可在“29号窗口”抽优先号】</p>
+<p>老（80岁以上）、四级以上残疾、军人、退役军人、消防人员</p>
+<p>三方无责解约最具杀伤力。</p>
+<p>先签中介合同，在签买卖合同。防止到了后面容易妥协。</p>
+<p>限购 限售</p>
+<p>他项权利证</p>
+<p>抵押贷款</p>
+<p>居住权</p>
+<p>违约责任：</p>
+<p>甲：房屋权利，逾期交付</p>
+<p>乙：逾期付款，逾期产权转移</p>
+<p>多接触几个中介，小，大可以多认识下。</p>
+<p>网签需要资料：</p>
+<p>刷首付第一次去了房管局二楼，没有光大银行，所以去了西安分行。</p>
+<p>面签需要资料：</p>
+<p>过户：可以提前排队。综合号，72号，排到了下午3点半，跑腿可以排队，买方房屋报告：24小时以内的。</p>
+<p>过户需要资料</p>
+<p>合同签订时间</p>
+<p>解抵押提交一次性还清时间（申请解压时间）</p>
+<p>注销抵押登记时间（撤压时间）</p>
+<p>定金时间</p>
+<p>首付时间：可以不是面签当天。</p>
+<p>网签时间</p>
+<p>资金监管账户开通时间</p>
+<p>物业交割时间</p>
+<p>银行提交资料时间（面签时间）</p>
+<p>银行放款时间</p>
+<p>缴税时间</p>
+<p>房屋交付时间</p>
+<p>网签时间</p>
+<p>迁户口时间</p>
+<p>贷款需要首付凭证</p>
+<p><strong>我的购房时间点：</strong></p>
+<p>合同签订时间 2023-02-27</p>
+<p>备案时间：2023-03-13</p>
+<p>购审时间：2023-03-03</p>
+<p>面签时间：2023-03-13</p>
+<p>资金监管协议时间：2023-03-13</p>
+<p>业主申请撤压时间：2023-03-13</p>
+<p>首付时间：2023-03-15</p>
+<p>业主撤押时间：2023-04-04</p>
+<p>银行贷款资料提交时间：2023-04-09（以为提交了，实际上缺资料，银行经理也没说，管家也没说，拖到了04-14号）</p>
+<p>实际提交时间：2023-04-14</p>
+<p>银行放款时间：2023-04-25</p>
+<p>过户时间：2023-04-27</p>
+<p>领到房产证时间：2023-05-05</p>
+<p>业主全款到账时间：2023-05-05</p>
+<p>交房时间：2023-05-07</p>
+<p>首付：将钱存入资金监管账户。</p>
+<p>首付时间：</p>
+<p>买卖合同：面签当天。</p>
+<p>网签合同：签订资金监管协议30天内。</p>
+<p>资金监管合同：资金监管协议90天内。</p>
+<p>面签当日是可以抵押没有解完的，没有解完就要首付。</p>
+<p>中介不会教你如何签合同，只想让你签完，不要和业主有争论。</p>
+<p>直系亲属：没有，可以12358价格举报，问下是不是强制收费。</p>
+<p>合同低于2.85%出不来，贝壳规定，哪条规定，谁制定的，书面在哪里。致电贝壳服务监督电话：10106188</p>
+<p>先签居间服务合同，在签买卖合同。先谈中介费，贷款，在谈买卖合同。不要到了最后一步，被别人牵着鼻子走。这一步往往买家会退让。</p>
+<p>谈价格技巧。</p>
+<p>小红书和实际操作以及学会威胁别人。</p>
+<p>可谈的几个点 </p>
+<p>选个好中介 多做对比，可以不要中介</p>
+<p>贷款服务费：自愿选择实际上是强制消费</p>
+<p>中介费 </p>
+<p>个税</p>
+<p>合同最重要的是流程以及时间节点 以及违约责任</p>
+<p>开发程序去梳理下来 可视化</p>
+<p>举报贝壳平台 贷款服务费 费率最低不让写 不让出合同 贝壳起到什么作用了。</p>
+<p>买房不出个税 由卖房去 再去谈价格 去谈判空间 国家法律是空文</p>
+<p>抓住一切谈判空间去谈。争取利益。</p>
+<p>钱的地方可以谈 定金 首付 中介费 解抵押 税费 贷款服务费 签证费。整个流程也是钱流转过程。80块谁出？</p>
+<p>心理价位不要告诉别人。</p>
+<p>别人的话写在合同里面 不要担心麻烦 比如说家具家电问题 说了什么 都要写进去 不要不写 一个空调都谈不下来</p>
+<p>买卖流程 </p>
+<p>底线2个点。</p>
+<p>心里底价永远不要说。</p>
+<p>业主生气了 不签约了 ？？？ 中介话术太多了。因为这个 谁给陪？不配就闭嘴。</p>
+<p>和业主聊什么？小区了解细节啊 环境啊 等等</p>
+<p>1 成交价 2 税费 3 中介费 4 贷款服务费，影响你付出的就这四个点了。</p>
+<p>中介核心问题：多接触几个，把核心问题抛出去，看看他的态度。</p>
+]]></content>
+      <categories>
+        <category>买房</category>
+        <category>买房的坑</category>
+      </categories>
+      <tags>
+        <tag>house</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式系统研究泛型模板</title>
+    <url>/2021/04/24/distributed-systems-research-paradigm/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>世界上很多种分布式系统，如分布式文件系统，分布式KV，Google三驾马车，dynamo，newsql，分布式应用系统(微服务与SOA)，WWW等等，每种分布式系统种类不同，但是面临的问题类似，这里总结研究这些系统面临的共同话题，以便于研究新系统时候能够举一反三。泛型出自《分布式系统原理与泛型》这本书。当我们面临一个新的分布式系统时候，通过这些角度思考，能对系统有更深理解。</p>
+<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><table>
+<thead>
+<tr>
+<th>分布式系统的抽象</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统体系结构</td>
+<td>系统体系结构是什么？<br />静态和动态视图是什么？<br />系统接口是什么？</td>
+</tr>
+<tr>
+<td>进程</td>
+<td>进程模型是什么？<br />有哪些核心进程？<br />系统参与者有哪些？<br />进程可能奔溃？<br />进程如何工作完成系统功能？</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>系统间如何通信？<br />系统对外如何通信？<br />同步还是异步？<br />传递保证是什么？</td>
+</tr>
+<tr>
+<td>命名</td>
+<td>如何找到资源？</td>
+</tr>
+<tr>
+<td>协调</td>
+<td>进程间如何同步和协作？<br />如何互斥？<br />如何达成共识？<br /></td>
+</tr>
+<tr>
+<td>一致性和复制</td>
+<td>一致性级别是什么？<br />复制过程是什么？(写入，副本更新，读取过程是什么？) <br />数据分区过程是什么？</td>
+</tr>
+<tr>
+<td>容错性</td>
+<td>如何检查故障？<br />故障恢复过程是什么？<br />网络分区怎么处理？<br />系统成员变动如何处理？<br />分布式提交过程是什么？</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>系统间通信安全如何保证？<br />系统安全如何保证？</td>
+</tr>
+</tbody></table>
+<h2 id="系统体系结构-Architecture"><a href="#系统体系结构-Architecture" class="headerlink" title="系统体系结构(Architecture)"></a>系统体系结构(Architecture)</h2><p>系统结构：集中式，非集中式，混合式</p>
+<p>系统风格：分层架构，面向对象和SOA架构，面向资源架构，发布订阅架构</p>
+<h2 id="进程-Process"><a href="#进程-Process" class="headerlink" title="进程(Process)"></a>进程(Process)</h2><p>进程模型有多线程，单线程进程，有限状态机等内容</p>
+<h2 id="通信-Communication"><a href="#通信-Communication" class="headerlink" title="通信(Communication)"></a>通信(Communication)</h2><p>rpc</p>
+<p>面向消息：AMQP</p>
+<p>面向流</p>
+<p>多播通信（应用层基于树的多播，flooding 多播，gossip data dissemination（传播））</p>
+<h2 id="命名-Naming"><a href="#命名-Naming" class="headerlink" title="命名(Naming)"></a>命名(Naming)</h2><p>名称，标识，地址，找到资源的方法</p>
+<p>无层次命名：DHT，home-base，等级划分</p>
+<p>结构化命名：NFS</p>
+<p>基于属性命名：LDAP</p>
+<h2 id="协调-Coordination"><a href="#协调-Coordination" class="headerlink" title="协调(Coordination)"></a>协调(Coordination)</h2><p>时钟同步：物理时钟</p>
+<p>逻辑时钟：Lamport逻辑时钟，向量时钟</p>
+<p>互斥：集中，非集中，分布式，令牌环</p>
+<p>选举</p>
+<h2 id="一致性和复制-Consistency-and-Replication"><a href="#一致性和复制-Consistency-and-Replication" class="headerlink" title="一致性和复制(Consistency and Replication)"></a>一致性和复制(Consistency and Replication)</h2><p>一致性协议，最终一致性，单调读，单调写，读写一致性，写读一致性，强最终一致性，线性一致性，顺序一致性，因果一致性等内容</p>
+<p>复制：主从复制，多主复制，无主复制</p>
+<h2 id="容错性-Fault-tolerance"><a href="#容错性-Fault-tolerance" class="headerlink" title="容错性(Fault tolerance)"></a>容错性(Fault tolerance)</h2><p>故障类型，进程恢复，可靠通信，组通信（原子多播），分布式提交，恢复，故障检测</p>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>安全通道，访问控制，安全管理</p>
+<h1 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h1><p>《分布式系统原理与泛型》第二版和第三版</p>
+<p>《分布式系统概念与设计》</p>
+<p>《数据库系统内幕》</p>
+<p>《数据密集型应用系统设计》</p>
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+      </categories>
+      <tags>
+        <tag>分布式系统泛型</tag>
       </tags>
   </entry>
   <entry>
@@ -1352,81 +1427,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分布式系统研究泛型模板</title>
-    <url>/2021/04/24/distributed-systems-research-paradigm/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>世界上很多种分布式系统，如分布式文件系统，分布式KV，Google三驾马车，dynamo，newsql，分布式应用系统(微服务与SOA)，WWW等等，每种分布式系统种类不同，但是面临的问题类似，这里总结研究这些系统面临的共同话题，以便于研究新系统时候能够举一反三。泛型出自《分布式系统原理与泛型》这本书。当我们面临一个新的分布式系统时候，通过这些角度思考，能对系统有更深理解。</p>
-<h1 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h1><table>
-<thead>
-<tr>
-<th>分布式系统的抽象</th>
-<th>问题</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>系统体系结构</td>
-<td>系统体系结构是什么？<br />静态和动态视图是什么？<br />系统接口是什么？</td>
-</tr>
-<tr>
-<td>进程</td>
-<td>进程模型是什么？<br />有哪些核心进程？<br />系统参与者有哪些？<br />进程可能奔溃？<br />进程如何工作完成系统功能？</td>
-</tr>
-<tr>
-<td>通信</td>
-<td>系统间如何通信？<br />系统对外如何通信？<br />同步还是异步？<br />传递保证是什么？</td>
-</tr>
-<tr>
-<td>命名</td>
-<td>如何找到资源？</td>
-</tr>
-<tr>
-<td>协调</td>
-<td>进程间如何同步和协作？<br />如何互斥？<br />如何达成共识？<br /></td>
-</tr>
-<tr>
-<td>一致性和复制</td>
-<td>一致性级别是什么？<br />复制过程是什么？(写入，副本更新，读取过程是什么？) <br />数据分区过程是什么？</td>
-</tr>
-<tr>
-<td>容错性</td>
-<td>如何检查故障？<br />故障恢复过程是什么？<br />网络分区怎么处理？<br />系统成员变动如何处理？<br />分布式提交过程是什么？</td>
-</tr>
-<tr>
-<td>安全</td>
-<td>系统间通信安全如何保证？<br />系统安全如何保证？</td>
-</tr>
-</tbody></table>
-<h2 id="系统体系结构-Architecture"><a href="#系统体系结构-Architecture" class="headerlink" title="系统体系结构(Architecture)"></a>系统体系结构(Architecture)</h2><p>系统结构：集中式，非集中式，混合式</p>
-<p>系统风格：分层架构，面向对象和SOA架构，面向资源架构，发布订阅架构</p>
-<h2 id="进程-Process"><a href="#进程-Process" class="headerlink" title="进程(Process)"></a>进程(Process)</h2><p>进程模型有多线程，单线程进程，有限状态机等内容</p>
-<h2 id="通信-Communication"><a href="#通信-Communication" class="headerlink" title="通信(Communication)"></a>通信(Communication)</h2><p>rpc</p>
-<p>面向消息：AMQP</p>
-<p>面向流</p>
-<p>多播通信（应用层基于树的多播，flooding 多播，gossip data dissemination（传播））</p>
-<h2 id="命名-Naming"><a href="#命名-Naming" class="headerlink" title="命名(Naming)"></a>命名(Naming)</h2><p>名称，标识，地址，找到资源的方法</p>
-<p>无层次命名：DHT，home-base，等级划分</p>
-<p>结构化命名：NFS</p>
-<p>基于属性命名：LDAP</p>
-<h2 id="协调-Coordination"><a href="#协调-Coordination" class="headerlink" title="协调(Coordination)"></a>协调(Coordination)</h2><p>时钟同步：物理时钟</p>
-<p>逻辑时钟：Lamport逻辑时钟，向量时钟</p>
-<p>互斥：集中，非集中，分布式，令牌环</p>
-<p>选举</p>
-<h2 id="一致性和复制-Consistency-and-Replication"><a href="#一致性和复制-Consistency-and-Replication" class="headerlink" title="一致性和复制(Consistency and Replication)"></a>一致性和复制(Consistency and Replication)</h2><p>一致性协议，最终一致性，单调读，单调写，读写一致性，写读一致性，强最终一致性，线性一致性，顺序一致性，因果一致性等内容</p>
-<p>复制：主从复制，多主复制，无主复制</p>
-<h2 id="容错性-Fault-tolerance"><a href="#容错性-Fault-tolerance" class="headerlink" title="容错性(Fault tolerance)"></a>容错性(Fault tolerance)</h2><p>故障类型，进程恢复，可靠通信，组通信（原子多播），分布式提交，恢复，故障检测</p>
-<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>安全通道，访问控制，安全管理</p>
-<h1 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h1><p>《分布式系统原理与泛型》第二版和第三版</p>
-<p>《分布式系统概念与设计》</p>
-<p>《数据库系统内幕》</p>
-<p>《数据密集型应用系统设计》</p>
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-      </categories>
-      <tags>
-        <tag>分布式系统泛型</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分布式事务解决方案</title>
     <url>/2022/01/01/distributed-transaction/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分布式事务划分为两个角度，1是存储层，也即数据库角度的分布式事务，多实现于分布式数据库事务 2是业务层，偏向于服务化系统以及业务系统的分布式事务。</p>
@@ -1480,52 +1480,6 @@
       </categories>
       <tags>
         <tag>分布式事务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>elasticsearch(2)-query的match和term区别</title>
-    <url>/2021/08/29/elasticsearch-series2-match-term/</url>
-    <content><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>match query在索引和查询时分词，term query在索引时候分词，在查询时候不分词。</p>
-<p>match query是全文搜索，term query是词项搜索。</p>
-<p>match query不是精确搜索，想要精确搜索，使用term keyword query.</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test&#x2F;_doc&#x2F;1</span><br><span class="line">&#123;</span><br><span class="line">  &quot;content&quot;:&quot;Hello World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="match-query"><a href="#match-query" class="headerlink" title="match query"></a>match query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。es的standard分词器会将Hello World索引数据时候，会分解成hello，world.</p>
-<p>而match query会将content进行分词为hello，world。所以可以搜到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。match query会将内容进行分词为hello，world，所以可以查到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。match query keyword会将match query转换为term query，keyword搜索并不会分词，所以搜索不到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。match query会分词，将match query转换为term query</p>
-<h1 id="term-query"><a href="#term-query" class="headerlink" title="term query"></a>term query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。term query不会分词，hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。term query不会分词，数据在content被分成了hello，world.hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回，没有hello world，索引时候Hello World分解成hello，world两个词.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。精确匹配。term query的精确匹配用keyword。</p>
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-        <category>搜索</category>
-        <category>elasticsearch</category>
-      </categories>
-      <tags>
-        <tag>分布式系统泛型</tag>
-        <tag>elasticsearch</tag>
       </tags>
   </entry>
   <entry>
@@ -1592,14 +1546,60 @@
       </tags>
   </entry>
   <entry>
+    <title>elasticsearch(2)-query的match和term区别</title>
+    <url>/2021/08/29/elasticsearch-series2-match-term/</url>
+    <content><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>match query在索引和查询时分词，term query在索引时候分词，在查询时候不分词。</p>
+<p>match query是全文搜索，term query是词项搜索。</p>
+<p>match query不是精确搜索，想要精确搜索，使用term keyword query.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test&#x2F;_doc&#x2F;1</span><br><span class="line">&#123;</span><br><span class="line">  &quot;content&quot;:&quot;Hello World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="match-query"><a href="#match-query" class="headerlink" title="match query"></a>match query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。es的standard分词器会将Hello World索引数据时候，会分解成hello，world.</p>
+<p>而match query会将content进行分词为hello，world。所以可以搜到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。match query会将内容进行分词为hello，world，所以可以查到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。match query keyword会将match query转换为term query，keyword搜索并不会分词，所以搜索不到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。match query会分词，将match query转换为term query</p>
+<h1 id="term-query"><a href="#term-query" class="headerlink" title="term query"></a>term query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。term query不会分词，hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。term query不会分词，数据在content被分成了hello，world.hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回，没有hello world，索引时候Hello World分解成hello，world两个词.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。精确匹配。term query的精确匹配用keyword。</p>
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+        <category>搜索</category>
+        <category>elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>分布式系统泛型</tag>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>向量检索Faiss实战</title>
     <url>/2024/01/07/faiss-practice/</url>
     <content><![CDATA[<h1 id="faiss简介"><a href="#faiss简介" class="headerlink" title="faiss简介"></a>faiss简介</h1><p><code>Faiss is a library for efficient similarity search and clustering of dense vectors。</code></p>
 <p>官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。</p>
 <p>Faiss主要组件包括：</p>
 <ol>
-<li>索引结构： <strong>IVF</strong>(Inverted File)、<strong>IVFPQ</strong>(Inverted File with Product Quantization)、<strong>HNSW</strong>(Hierarchical Navigable Small World)</li>
-<li>向量编码：<strong>PQ</strong>(Product Quantization)、<strong>OPQ</strong>(Optimized Product Quantization)。编码可以将高维向量映射到低维空间中，同时保持距离的相似性。</li>
+<li>索引结构：<strong>Flat</strong>（暴力搜索) 、<strong>IVF</strong>(Inverted File)、<strong>IVFPQ</strong>(Inverted File with Product Quantization)、<strong>HNSW</strong>(Hierarchical Navigable Small World)，索引结构可以加速相似性搜索，降低查询时间。</li>
+<li>向量编码：<strong>PQ</strong>(Product Quantization)、<strong>OPQ</strong>(Optimized Product Quantization)。编码可以将高维向量映射到低维空间中，同时保持距离的相似性，有助于减少内存占用和计算量。</li>
 <li>相似性度量：欧氏距离、内积、Jaccard 相似度等。</li>
 </ol>
 <p>Faiss的核心API有：</p>
@@ -1714,6 +1714,74 @@
       </tags>
   </entry>
   <entry>
+    <title>Java应用组成集群的方式探索</title>
+    <url>/2021/12/20/java-application-cluster/</url>
+    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要讨论<strong>分布式业务系统</strong>(有别于分布式存储系统)中的组建集群方式，系统高可用的方式是节点冗余，而节点冗余本身并不需要保证节点互相通信，常用的方式是节点注册到注册中心，也即节点是无状态的，这是最简单的分布式模型，集群模式是在此模型上加了稍许复杂度，但是对于业务系统想要组成集群的话，需要集群间通信。本文主要探讨分布式业务系统组成集群的方法，而不是探讨集群模式下的具体功能设计(如分片，Workqueue，Sactter/Gather, Scale out等功能)。这里<strong>集群定义</strong>我认为需要<strong>满足两个基本条件</strong>：</p>
+<ol>
+<li><strong>必须有membership change的能力。</strong>节点增加，移除，宕机对集群可感知。</li>
+<li><strong>必须有协调机制。</strong>这里可以认为是Leader Select或者Primary Select能力，当然Amazon的Dynamo是通过Gossip实现的P2P系统并没有Leader节点。</li>
+</ol>
+<p>满足上述集群定义则系统会满足：</p>
+<p><strong>高可用 -&gt;  复制(Replication)  -&gt;  一致性(Consistency)  -&gt;  共识(Consensus)</strong></p>
+<p>系统间通信方式有rpc，mq，系统体系结构有单机，多机（主从，对等，集群），而Java应用组成集群方式总结如下：</p>
+<ol>
+<li>借助单机/分布式存储：etcd/zookeeper/nacos/consul/<a href="https://github.com/ha/doozerd" target="_blank" rel="noopener">doozerd</a>/mysql/<a href="https://moosefs.com/" target="_blank" rel="noopener">MFS</a>/NFS</li>
+<li>借助中间件/框架：Hazelcast，Akka，<a href="https://www.serf.io/" target="_blank" rel="noopener">Serf</a>(Gossip)，<a href="http://www.jgroups.org/overview.html" target="_blank" rel="noopener"><strong>JGroups</strong></a> , <a href="https://www.erlang.org/doc/reference_manual/distributed.html" target="_blank" rel="noopener"><strong>Erlang/OTP(非Java)</strong></a></li>
+<li>借助协议：raft，gossip，zab，paxos。需要利用开源实现来构建系统。</li>
+</ol>
+<h1 id="借助存储"><a href="#借助存储" class="headerlink" title="借助存储"></a>借助存储</h1><p>借助存储，一般会采用etcd/zk这种方式较多，可以非常方便实现Leader选举，任务分发，任务调度，分布式锁，分布式队列等功能，并且membership change可以检测到。当然用Redis也可以实现类似功能，但是redis实现membership change需要额外开发，本身并不支持。</p>
+<h1 id="借助中间件-框架"><a href="#借助中间件-框架" class="headerlink" title="借助中间件/框架"></a>借助中间件/框架</h1><p>Hazelcast也可以实现Leader选举，分布式弹性计算，分布式内存Map/List/Set等功能，应用系统借助嵌入式hazelcast便可以方便集成。或者Hazelcast竞品<a href="https://atomix.io/docs/latest/getting-started/" target="_blank" rel="noopener">Atomix</a>, <a href="https://ignite.apache.org/" target="_blank" rel="noopener">Apache Ignite</a></p>
+<p>Akka的<a href="https://doc.akka.io/docs/akka/current/typed/cluster.html" target="_blank" rel="noopener">Cluster</a>，<a href="https://doc.akka.io/docs/akka/current/typed/cluster-singleton.html" target="_blank" rel="noopener">Cluster Singleton</a>, <a href="https://doc.akka.io/docs/akka/current/typed/cluster-sharding.html" target="_blank" rel="noopener">Cluster Sharding</a>，<a href="https://doc.akka.io/docs/akka/current/typed/distributed-data.html" target="_blank" rel="noopener">Distributed Data</a>功能非常强大，非常适合节点组建集群，用于解决集群单例，分片等问题。</p>
+<p>JGroups是Java的组通信框架，也可以实现集群成员变更，其官方有基于<a href="http://www.jgroups.org/hsqldbr.html" target="_blank" rel="noopener"><strong>HSQLDB+JGroup</strong></a>的例子，<a href="http://www.jgroups.org/taskdistribution.html" target="_blank" rel="noopener"><strong>任务分发系统</strong></a>,  <a href="http://www.jgroups.org/replcache.html" target="_blank" rel="noopener"><strong>ReplicationCache</strong></a>。</p>
+<h1 id="借助协议"><a href="#借助协议" class="headerlink" title="借助协议"></a>借助协议</h1><p>借助协议实现较为复杂，但是灵活性最大。需要引入协议的实现库，并且自己构建业务系统，常用的Raft Plus的方式，Raft+业务系统，当然可以实现Raft协议本身的功能，比如选举，集群成员变更，具体取决于协议的实现，比如协议是否实现节点通信以及日志存储等功能，如etcd-raft用起来比较难，但是既然用了etcd-raft，为什么不直接用etcd呢？其他存储层Raft Plus方案还有，raft+redis=<a href="https://github.com/RedisLabs/redisraft" target="_blank" rel="noopener">redisraft</a>，raft+rocksdb=tikv，raft+sqllite=<a href="https://github.com/rqlite/rqlite" target="_blank" rel="noopener">rqlite</a>，<a href="https://github.com/hashicorp/raft" target="_blank" rel="noopener">hashicorp-raft</a>+boltdb=consul，mysql+paxos= MGR，这里只是参考，相比较存储层，在业务层用raft会简单一些。这里推荐Java的raft实现蚂蚁金服的<a href="https://www.sofastack.tech/projects/sofa-jraft/overview/" target="_blank" rel="noopener">sofa-jraft</a>。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文探讨了业务层组建集群方式，业务层组建集群相比较存储层组建集群要简单，因为存储层往往需要分布式事务+数据复制带来一致性的这些语义，而业务层相对来说弱化了这些语义，由下层基础设施保证。我认为相比较而言业务层组建集群方式以下更优：借助存储方案是etcd/zk(curator)，借助中间件/框架是Akka和Hazelcast，借助协议是Raft Plus.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li>hazelcast和ignite对比：<a href="https://hazelcast.com/resources/hazelcast-vs-gridgain/" target="_blank" rel="noopener">https://hazelcast.com/resources/hazelcast-vs-gridgain/</a></li>
+<li>《分布式系统设计》- Brendan Burns <a href="https://github.com/brendandburns/designing-distributed-systems" target="_blank" rel="noopener">designing-distributed-systems</a></li>
+<li>《云计算架构设计模式》- Microsoft <a href="https://docs.microsoft.com/zh-cn/azure/architecture/patterns/" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/azure/architecture/patterns/</a></li>
+<li>《Akka应用模式-分布式应用程序设计实践指南》- Michael Nash</li>
+<li>《高伸缩性系统 Erlang/OTP大型分布式容错设计》- Francesco Cesar</li>
+<li>分布式系统研究泛型模板 <a href="https://xiaozhiliaoo.github.io/2021/04/24/distributed-systems-research-paradigm/" target="_blank" rel="noopener">https://xiaozhiliaoo.github.io/2021/04/24/distributed-systems-research-paradigm/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+        <category>应用集群</category>
+      </categories>
+      <tags>
+        <tag>distributed system</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java类库封装的三步</title>
+    <url>/2023/07/09/java-library-encapsulation/</url>
+    <content><![CDATA[<p>我觉得最重要的要有<strong>一致性</strong>的理念，也就是灵魂。当然也可以在实现完之后提炼一个理念。</p>
+<p>总共分为三步：1. 提炼出一个设计理念 2. 设计实现  3.测试</p>
+<h1 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h1><p>比如有：使用简单，配置灵活，扩展性好，测试完备，具备内部监控。</p>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><h2 id="1-通用实现的结构"><a href="#1-通用实现的结构" class="headerlink" title="1.通用实现的结构"></a>1.通用实现的结构</h2><p>需要给业务层提供通用类库，该以怎么样的方式提供？通常有以下几种方式：</p>
+<ol>
+<li>类似于apache common，JDK这种模式，应用层调用库。</li>
+<li>类似于IOC/框架模式/模板(XXXTemplate)/策略(回调)模式，框架调用应用层代码。典型的如JDBCTemplate或SPI模式。</li>
+<li>类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置，业务层直接使用。</li>
+<li>类似于Spring boot stater+auto-configuration这种模式。</li>
+</ol>
+<h2 id="2-通过JMX暴露操作和属性"><a href="#2-通过JMX暴露操作和属性" class="headerlink" title="2.通过JMX暴露操作和属性"></a>2.通过JMX暴露操作和属性</h2><p>使用Spring的@ManagedResource或者注册到MBeanServer中。</p>
+<p>或者纯JDK的注册到MBeanServer。</p>
+<h2 id="3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互"><a href="#3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互" class="headerlink" title="3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互"></a>3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互</h2><ol>
+<li>通过Springboot Actuator  <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/info/InfoContributor.html" target="_blank" rel="noopener">InfoContributor</a> 接口来暴露endpoint info信息。</li>
+<li>通过自定义的Endpoint来内部信息。</li>
+</ol>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>没有测试的类库质量会较低。</p>
+]]></content>
+      <categories>
+        <category>Java类库设计</category>
+      </categories>
+      <tags>
+        <tag>组件设计</tag>
+        <tag>框架设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>guava-retry源码分析</title>
     <url>/2020/08/15/guava-retry-code-analysis/</url>
     <content><![CDATA[<p>guava-retry是扩展guava的一个重试库。</p>
@@ -1777,45 +1845,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java应用组成集群的方式探索</title>
-    <url>/2021/12/20/java-application-cluster/</url>
-    <content><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>本文主要讨论<strong>分布式业务系统</strong>(有别于分布式存储系统)中的组建集群方式，系统高可用的方式是节点冗余，而节点冗余本身并不需要保证节点互相通信，常用的方式是节点注册到注册中心，也即节点是无状态的，这是最简单的分布式模型，集群模式是在此模型上加了稍许复杂度，但是对于业务系统想要组成集群的话，需要集群间通信。本文主要探讨分布式业务系统组成集群的方法，而不是探讨集群模式下的具体功能设计(如分片，Workqueue，Sactter/Gather, Scale out等功能)。这里<strong>集群定义</strong>我认为需要<strong>满足两个基本条件</strong>：</p>
-<ol>
-<li><strong>必须有membership change的能力。</strong>节点增加，移除，宕机对集群可感知。</li>
-<li><strong>必须有协调机制。</strong>这里可以认为是Leader Select或者Primary Select能力，当然Amazon的Dynamo是通过Gossip实现的P2P系统并没有Leader节点。</li>
-</ol>
-<p>满足上述集群定义则系统会满足：</p>
-<p><strong>高可用 -&gt;  复制(Replication)  -&gt;  一致性(Consistency)  -&gt;  共识(Consensus)</strong></p>
-<p>系统间通信方式有rpc，mq，系统体系结构有单机，多机（主从，对等，集群），而Java应用组成集群方式总结如下：</p>
-<ol>
-<li>借助单机/分布式存储：etcd/zookeeper/nacos/consul/<a href="https://github.com/ha/doozerd" target="_blank" rel="noopener">doozerd</a>/mysql/<a href="https://moosefs.com/" target="_blank" rel="noopener">MFS</a>/NFS</li>
-<li>借助中间件/框架：Hazelcast，Akka，<a href="https://www.serf.io/" target="_blank" rel="noopener">Serf</a>(Gossip)，<a href="http://www.jgroups.org/overview.html" target="_blank" rel="noopener"><strong>JGroups</strong></a> , <a href="https://www.erlang.org/doc/reference_manual/distributed.html" target="_blank" rel="noopener"><strong>Erlang/OTP(非Java)</strong></a></li>
-<li>借助协议：raft，gossip，zab，paxos。需要利用开源实现来构建系统。</li>
-</ol>
-<h1 id="借助存储"><a href="#借助存储" class="headerlink" title="借助存储"></a>借助存储</h1><p>借助存储，一般会采用etcd/zk这种方式较多，可以非常方便实现Leader选举，任务分发，任务调度，分布式锁，分布式队列等功能，并且membership change可以检测到。当然用Redis也可以实现类似功能，但是redis实现membership change需要额外开发，本身并不支持。</p>
-<h1 id="借助中间件-框架"><a href="#借助中间件-框架" class="headerlink" title="借助中间件/框架"></a>借助中间件/框架</h1><p>Hazelcast也可以实现Leader选举，分布式弹性计算，分布式内存Map/List/Set等功能，应用系统借助嵌入式hazelcast便可以方便集成。或者Hazelcast竞品<a href="https://atomix.io/docs/latest/getting-started/" target="_blank" rel="noopener">Atomix</a>, <a href="https://ignite.apache.org/" target="_blank" rel="noopener">Apache Ignite</a></p>
-<p>Akka的<a href="https://doc.akka.io/docs/akka/current/typed/cluster.html" target="_blank" rel="noopener">Cluster</a>，<a href="https://doc.akka.io/docs/akka/current/typed/cluster-singleton.html" target="_blank" rel="noopener">Cluster Singleton</a>, <a href="https://doc.akka.io/docs/akka/current/typed/cluster-sharding.html" target="_blank" rel="noopener">Cluster Sharding</a>，<a href="https://doc.akka.io/docs/akka/current/typed/distributed-data.html" target="_blank" rel="noopener">Distributed Data</a>功能非常强大，非常适合节点组建集群，用于解决集群单例，分片等问题。</p>
-<p>JGroups是Java的组通信框架，也可以实现集群成员变更，其官方有基于<a href="http://www.jgroups.org/hsqldbr.html" target="_blank" rel="noopener"><strong>HSQLDB+JGroup</strong></a>的例子，<a href="http://www.jgroups.org/taskdistribution.html" target="_blank" rel="noopener"><strong>任务分发系统</strong></a>,  <a href="http://www.jgroups.org/replcache.html" target="_blank" rel="noopener"><strong>ReplicationCache</strong></a>。</p>
-<h1 id="借助协议"><a href="#借助协议" class="headerlink" title="借助协议"></a>借助协议</h1><p>借助协议实现较为复杂，但是灵活性最大。需要引入协议的实现库，并且自己构建业务系统，常用的Raft Plus的方式，Raft+业务系统，当然可以实现Raft协议本身的功能，比如选举，集群成员变更，具体取决于协议的实现，比如协议是否实现节点通信以及日志存储等功能，如etcd-raft用起来比较难，但是既然用了etcd-raft，为什么不直接用etcd呢？其他存储层Raft Plus方案还有，raft+redis=<a href="https://github.com/RedisLabs/redisraft" target="_blank" rel="noopener">redisraft</a>，raft+rocksdb=tikv，raft+sqllite=<a href="https://github.com/rqlite/rqlite" target="_blank" rel="noopener">rqlite</a>，<a href="https://github.com/hashicorp/raft" target="_blank" rel="noopener">hashicorp-raft</a>+boltdb=consul，mysql+paxos= MGR，这里只是参考，相比较存储层，在业务层用raft会简单一些。这里推荐Java的raft实现蚂蚁金服的<a href="https://www.sofastack.tech/projects/sofa-jraft/overview/" target="_blank" rel="noopener">sofa-jraft</a>。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本文探讨了业务层组建集群方式，业务层组建集群相比较存储层组建集群要简单，因为存储层往往需要分布式事务+数据复制带来一致性的这些语义，而业务层相对来说弱化了这些语义，由下层基础设施保证。我认为相比较而言业务层组建集群方式以下更优：借助存储方案是etcd/zk(curator)，借助中间件/框架是Akka和Hazelcast，借助协议是Raft Plus.</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
-<li>hazelcast和ignite对比：<a href="https://hazelcast.com/resources/hazelcast-vs-gridgain/" target="_blank" rel="noopener">https://hazelcast.com/resources/hazelcast-vs-gridgain/</a></li>
-<li>《分布式系统设计》- Brendan Burns <a href="https://github.com/brendandburns/designing-distributed-systems" target="_blank" rel="noopener">designing-distributed-systems</a></li>
-<li>《云计算架构设计模式》- Microsoft <a href="https://docs.microsoft.com/zh-cn/azure/architecture/patterns/" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/azure/architecture/patterns/</a></li>
-<li>《Akka应用模式-分布式应用程序设计实践指南》- Michael Nash</li>
-<li>《高伸缩性系统 Erlang/OTP大型分布式容错设计》- Francesco Cesar</li>
-<li>分布式系统研究泛型模板 <a href="https://xiaozhiliaoo.github.io/2021/04/24/distributed-systems-research-paradigm/" target="_blank" rel="noopener">https://xiaozhiliaoo.github.io/2021/04/24/distributed-systems-research-paradigm/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-        <category>应用集群</category>
-      </categories>
-      <tags>
-        <tag>distributed system</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java应用层实现MySQL读写分离</title>
     <url>/2022/07/02/java-impl-rw-separate/</url>
     <content><![CDATA[<h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><p>实现读写分离一般有4种机制：</p>
@@ -1857,35 +1886,6 @@
       <tags>
         <tag>读写分离</tag>
         <tag>应用设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java类库封装的三步</title>
-    <url>/2023/07/09/java-library-encapsulation/</url>
-    <content><![CDATA[<p>我觉得最重要的要有<strong>一致性</strong>的理念，也就是灵魂。当然也可以在实现完之后提炼一个理念。</p>
-<p>总共分为三步：1. 提炼出一个设计理念 2. 设计实现  3.测试</p>
-<h1 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h1><p>比如有：使用简单，配置灵活，扩展性好，测试完备，具备内部监控。</p>
-<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><h2 id="1-通用实现的结构"><a href="#1-通用实现的结构" class="headerlink" title="1.通用实现的结构"></a>1.通用实现的结构</h2><p>需要给业务层提供通用类库，该以怎么样的方式提供？通常有以下几种方式：</p>
-<ol>
-<li>类似于apache common，JDK这种模式，应用层调用库。</li>
-<li>类似于IOC/框架模式/模板(XXXTemplate)/策略(回调)模式，框架调用应用层代码。典型的如JDBCTemplate或SPI模式。</li>
-<li>类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置，业务层直接使用。</li>
-<li>类似于Spring boot stater+auto-configuration这种模式。</li>
-</ol>
-<h2 id="2-通过JMX暴露操作和属性"><a href="#2-通过JMX暴露操作和属性" class="headerlink" title="2.通过JMX暴露操作和属性"></a>2.通过JMX暴露操作和属性</h2><p>使用Spring的@ManagedResource或者注册到MBeanServer中。</p>
-<p>或者纯JDK的注册到MBeanServer。</p>
-<h2 id="3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互"><a href="#3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互" class="headerlink" title="3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互"></a>3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互</h2><ol>
-<li>通过Springboot Actuator  <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/info/InfoContributor.html" target="_blank" rel="noopener">InfoContributor</a> 接口来暴露endpoint info信息。</li>
-<li>通过自定义的Endpoint来内部信息。</li>
-</ol>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>没有测试的类库质量会较低。</p>
-]]></content>
-      <categories>
-        <category>Java类库设计</category>
-      </categories>
-      <tags>
-        <tag>组件设计</tag>
-        <tag>框架设计</tag>
       </tags>
   </entry>
   <entry>
@@ -1948,6 +1948,59 @@
       </categories>
       <tags>
         <tag>kafka</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面向对象设计的启发60条黄金法则</title>
+    <url>/2020/09/01/ood-heuristics-translate/</url>
+    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
+<ol>
+<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
+<li>所有数据应该隐藏在类内。</li>
+<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
+<li>最小化类的消息规范。</li>
+<li>实现所有客户端可理解的最小接口。</li>
+<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
+<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
+<li>一个类应该捕获有且只有一个关键抽象。</li>
+<li>保存数据和行为在同一地方。</li>
+<li>拆分不相关信息到另一个类。</li>
+<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
+<li>将对象视为一类服务而不是一类数据。</li>
+<li>设计面向对象服务时使用它们的状态决定行为。</li>
+<li>使用不可变对象，也叫信使。</li>
+<li>设计时，尽可能水平得，统一得分配系统智能。</li>
+<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
+<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
+<li>todo</li>
+<li>尽可能对真实世界建模。</li>
+<li>从设计中消除不相关的类</li>
+<li>减少系统无关的类。</li>
+<li>todo</li>
+<li>最小化类和其他类的协作者。</li>
+<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
+<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
+<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
+<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
+<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
+<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
+<li>继承应该只被用作对层次体系建模。</li>
+<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
+<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
+<li>理论上，继承层次应该很深，越深越好。</li>
+<li>todo</li>
+<li>对于实现继承结构，所有抽象类必须是基类。</li>
+<li>在实现继承时，所有基类应该是抽象类。</li>
+<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
+<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
+<li></li>
+</ol>
+]]></content>
+      <categories>
+        <category>翻译</category>
+      </categories>
+      <tags>
+        <tag>OOD</tag>
       </tags>
   </entry>
   <entry>
@@ -2264,59 +2317,6 @@
       </categories>
       <tags>
         <tag>高级架构师案例分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面向对象设计的启发60条黄金法则</title>
-    <url>/2020/09/01/ood-heuristics-translate/</url>
-    <content><![CDATA[<p>本文翻译内容来自<a href="http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf" target="_blank" rel="noopener">http://www.cs.uno.edu/~jaime/Courses/4210/heuristics.pdf</a> ，主要是面向对象设计的启发。而这些checklist来自Arthur J. Riel的书Object-Oriented Design Heuristics总结的checklist,中文出版书叫面向对象启示录,非常棒的一本书。中文也有相关checklist的翻译，<a href="https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html" target="_blank" rel="noopener">https://www.cnblogs.com/dxz/archive/2006/07/06/443860.html</a> ，但是我没有参考这个，结合了自己的理解尽可能客观的翻译原文。虽然有些地方很生硬，但是作为提高设计水平也值得尝试。</p>
-<ol>
-<li>不要重复自己！不要重复自己！不要重复自己！（我已经重复了）</li>
-<li>所有数据应该隐藏在类内。</li>
-<li>类的使用者必须依赖于公共接口，但是类不应该依赖于使用它的客户端。</li>
-<li>最小化类的消息规范。</li>
-<li>实现所有客户端可理解的最小接口。</li>
-<li>不要在一个类的公共接口展现实现细节，比如支持的功能。</li>
-<li>不要将用户不需要的或者不感兴趣特性的聚集在公共接口。</li>
-<li>一个类应该捕获有且只有一个关键抽象。</li>
-<li>保存数据和行为在同一地方。</li>
-<li>拆分不相关信息到另一个类。</li>
-<li>不要向对象请求它的状态，或者显示设置状态。向对象请求为你做事。</li>
-<li>将对象视为一类服务而不是一类数据。</li>
-<li>设计面向对象服务时使用它们的状态决定行为。</li>
-<li>使用不可变对象，也叫信使。</li>
-<li>设计时，尽可能水平得，统一得分配系统智能。</li>
-<li>系统中不要创建上帝对象，对那些名字包含Driver, Manager, System, or Subsystem的类保持怀疑。</li>
-<li>小心那些在公共接口中有很多访问器方法的类，拥有这些意味着相关数据和行为没有保持在一处。</li>
-<li>todo</li>
-<li>尽可能对真实世界建模。</li>
-<li>从设计中消除不相关的类</li>
-<li>减少系统无关的类。</li>
-<li>todo</li>
-<li>最小化类和其他类的协作者。</li>
-<li>最小化类和协作者之间的消息传递。（这是一种叫动态解耦的解耦形式）</li>
-<li>最小化类和协作者之间的协作数量，比如不同的消息传递。</li>
-<li>如果一个类包含另一个类的对象，包含类应该传递消息给被包含对象，包含关系应始终暗示使用关系。</li>
-<li>在一个类内定义的大多数方法大多数情况下应该使用数据成员变量。当这个启发被打破时候意味着差的内聚性。</li>
-<li>类不应该包含  开发者能够短期记忆记住的类的实例变量，这个数字一般是6.</li>
-<li>一个类必须知道它包含什么，但是永远不应该知道谁包含它。</li>
-<li>继承应该只被用作对层次体系建模。</li>
-<li>派生类必须根据定义了解其基类，但基类不应知道任何关于它们的派生类的信息。</li>
-<li>所以数据在基类中应该私有，不要使用受保护的数据，指定受保护查询当希望数据隐藏其表现。</li>
-<li>理论上，继承层次应该很深，越深越好。</li>
-<li>todo</li>
-<li>对于实现继承结构，所有抽象类必须是基类。</li>
-<li>在实现继承时，所有基类应该是抽象类。</li>
-<li>如果两个或以上类仅仅共享数据（非公共行为），应该让他们共同继承包含数据和方法的公共基类。</li>
-<li>如果两个或以上类仅仅共享接口（而非实现），仅当它们将被多态使用时，它们应该继承自Java接口或公共基类。</li>
-<li></li>
-</ol>
-]]></content>
-      <categories>
-        <category>翻译</category>
-      </categories>
-      <tags>
-        <tag>OOD</tag>
       </tags>
   </entry>
   <entry>
@@ -2798,6 +2798,44 @@
       </tags>
   </entry>
   <entry>
+    <title>COSEA模型:软件系统模型的探索(1)</title>
+    <url>/2022/10/30/system-research-template/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>系统研究，首先需要还原论，然后是系统论。<strong>还原论</strong>把系统进行拆解，对每一部分进行深入研究，相对静态，<strong>系统论</strong>将每一部分进行整合，形成整体，与外部进行交互，相对动态。如<strong>《庄子 · 养生主第三》庖丁解牛所言：“臣之所好者，道也，进乎技矣。始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行”</strong>。研究递进层次和生物学类似，从细胞（源码）-&gt;组织（包）-&gt;器官（功能）-&gt;系统（模块）-&gt;人体（软件）-&gt; 生态（生态圈）。本文主要探讨了对软件系统的研究模型，模型对技术选型，体系化认知，以及更进一步学习技术有帮助。</p>
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p><img src="/images/System-Reasearch.png" alt="任务结构"></p>
+<p><strong>COSEA</strong>模型是软件系统模型，全称 C：Config配置，O：Operation运维，S：System系统，E：Ecosystem生态，A：Admin管理。</p>
+<p>模型回答了一个核心问题：<strong>如何研究软件系统？</strong></p>
+<p>模型给出的答案是：从配置C，运维O，系统S，生态E，管理A这五个角度研究软件系统。</p>
+<p>黄色方框是五个最重要的因素，层级较高，蓝色方框是对五个因素的分解。总而言之：<strong>配置和运维影响系统，而系统会产生生态和管理</strong>。字母<strong>顺序</strong>也暗含了，先配置，后运维（安装），然后系统跑起来，然后产生管理和生态。</p>
+<h2 id="Config-配置"><a href="#Config-配置" class="headerlink" title="Config:配置"></a>Config:配置</h2><p>服务器配置，客户端配置等，理解配置对于<strong>理解</strong>系统，以及系统<strong>调优</strong>非常重要，很多系统概念都在配置中体现，系统的<strong>权衡</strong>也在配置中体现，需要精通最<strong>常用</strong>的配置。很多时候，调优的一大部分其实是改配置。配置分为<strong>操作系统层</strong>的<strong>CPU（线程数），内存（虚拟内存），网络，磁盘</strong>，以及<strong>系统层</strong>的优化。系统层和操作系统层互相影响。借助操作系统实现系统本身的，操作系统配置非常重要。系统层配置也通过<strong>分形原则</strong>到达了操作系统层。通用配置有：压缩算法选择，磁盘读取/写入，缓存，线程。</p>
+<h2 id="Operation-运维"><a href="#Operation-运维" class="headerlink" title="Operation:运维"></a>Operation:运维</h2><p>运维包括维护，安装，备份，硬件，安全，部署。包括常用命令，线上配置等。</p>
+<h2 id="System-系统"><a href="#System-系统" class="headerlink" title="System:系统"></a>System:系统</h2><p>系统是软件本身，包括<strong>架构</strong>和<strong>功能</strong>，架构包括设计和实现，功能有读写功能，以及业务代码编写等。系统架构回答的基本问题是：<strong>读写流程是什么？以及启动流程？</strong>功能和架构相互影响的是单机和分布式。<strong>单机特性</strong>有：数据模型，存储模型，读写性能，启动流程等，<strong>分布式特性</strong>有：<strong>用户视角</strong>：读/写(增删改查)路径，启动/关闭过程，<strong>系统视角</strong>：一致性模型，复制，分区，共识，容错。复制，共识，分区等等细节都会在用户读写路径视角展现。而系统视角具有通用性的，可以和其他系统进行<strong>类比</strong>，也可以更深一步分析（CAP，PACELC等）。系统核心是：<strong>内部实现，外部交互，系统属性</strong>。总结如下：</p>
+<ul>
+<li>内部实现，外部交互，系统属性。</li>
+<li>单机特性（对标数据库）<ul>
+<li>数据模型，存储模型，查询模型（读写性能）</li>
+</ul>
+</li>
+<li>分布式特性（对标分布式系统）<ul>
+<li>用户视角：读写路径，启动/关闭。</li>
+<li>系统视角：复制和一致性，容错，分区，共识。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Ecosystem-生态"><a href="#Ecosystem-生态" class="headerlink" title="Ecosystem:生态"></a>Ecosystem:生态</h2><p>生态是围绕该软件的工具链，培训，开源社区，公司，客户，基金会，出版书籍，论文，创始人履历等等。</p>
+<h2 id="Admin-管理"><a href="#Admin-管理" class="headerlink" title="Admin:管理"></a>Admin:管理</h2><p>管理主要是监控，包括管理控制台，主要判断系统是否健康，以及内部状态统计等。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不同角色关注系统点不一样，想要全面了解系统，以上所有点均需要学习，不求甚解，对系统形成完整认识。本文虽然在讲系统，但是抽象层次还是较低，不够通用，但较为实用。</p>
+]]></content>
+      <categories>
+        <category>模型</category>
+        <category>软件模型</category>
+      </categories>
+      <tags>
+        <tag>软件系统模型</tag>
+        <tag>创造</tag>
+        <tag>COSEA策略</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>持续集成之实践单元测试</title>
     <url>/2020/12/02/unit-test/</url>
     <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
@@ -2875,44 +2913,6 @@
       </categories>
       <tags>
         <tag>单元测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>COSEA模型:软件系统模型的探索(1)</title>
-    <url>/2022/10/30/system-research-template/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>系统研究，首先需要还原论，然后是系统论。<strong>还原论</strong>把系统进行拆解，对每一部分进行深入研究，相对静态，<strong>系统论</strong>将每一部分进行整合，形成整体，与外部进行交互，相对动态。如<strong>《庄子 · 养生主第三》庖丁解牛所言：“臣之所好者，道也，进乎技矣。始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行”</strong>。研究递进层次和生物学类似，从细胞（源码）-&gt;组织（包）-&gt;器官（功能）-&gt;系统（模块）-&gt;人体（软件）-&gt; 生态（生态圈）。本文主要探讨了对软件系统的研究模型，模型对技术选型，体系化认知，以及更进一步学习技术有帮助。</p>
-<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p><img src="/images/System-Reasearch.png" alt="任务结构"></p>
-<p><strong>COSEA</strong>模型是软件系统模型，全称 C：Config配置，O：Operation运维，S：System系统，E：Ecosystem生态，A：Admin管理。</p>
-<p>模型回答了一个核心问题：<strong>如何研究软件系统？</strong></p>
-<p>模型给出的答案是：从配置C，运维O，系统S，生态E，管理A这五个角度研究软件系统。</p>
-<p>黄色方框是五个最重要的因素，层级较高，蓝色方框是对五个因素的分解。总而言之：<strong>配置和运维影响系统，而系统会产生生态和管理</strong>。字母<strong>顺序</strong>也暗含了，先配置，后运维（安装），然后系统跑起来，然后产生管理和生态。</p>
-<h2 id="Config-配置"><a href="#Config-配置" class="headerlink" title="Config:配置"></a>Config:配置</h2><p>服务器配置，客户端配置等，理解配置对于<strong>理解</strong>系统，以及系统<strong>调优</strong>非常重要，很多系统概念都在配置中体现，系统的<strong>权衡</strong>也在配置中体现，需要精通最<strong>常用</strong>的配置。很多时候，调优的一大部分其实是改配置。配置分为<strong>操作系统层</strong>的<strong>CPU（线程数），内存（虚拟内存），网络，磁盘</strong>，以及<strong>系统层</strong>的优化。系统层和操作系统层互相影响。借助操作系统实现系统本身的，操作系统配置非常重要。系统层配置也通过<strong>分形原则</strong>到达了操作系统层。通用配置有：压缩算法选择，磁盘读取/写入，缓存，线程。</p>
-<h2 id="Operation-运维"><a href="#Operation-运维" class="headerlink" title="Operation:运维"></a>Operation:运维</h2><p>运维包括维护，安装，备份，硬件，安全，部署。包括常用命令，线上配置等。</p>
-<h2 id="System-系统"><a href="#System-系统" class="headerlink" title="System:系统"></a>System:系统</h2><p>系统是软件本身，包括<strong>架构</strong>和<strong>功能</strong>，架构包括设计和实现，功能有读写功能，以及业务代码编写等。系统架构回答的基本问题是：<strong>读写流程是什么？以及启动流程？</strong>功能和架构相互影响的是单机和分布式。<strong>单机特性</strong>有：数据模型，存储模型，读写性能，启动流程等，<strong>分布式特性</strong>有：<strong>用户视角</strong>：读/写(增删改查)路径，启动/关闭过程，<strong>系统视角</strong>：一致性模型，复制，分区，共识，容错。复制，共识，分区等等细节都会在用户读写路径视角展现。而系统视角具有通用性的，可以和其他系统进行<strong>类比</strong>，也可以更深一步分析（CAP，PACELC等）。系统核心是：<strong>内部实现，外部交互，系统属性</strong>。总结如下：</p>
-<ul>
-<li>内部实现，外部交互，系统属性。</li>
-<li>单机特性（对标数据库）<ul>
-<li>数据模型，存储模型，查询模型（读写性能）</li>
-</ul>
-</li>
-<li>分布式特性（对标分布式系统）<ul>
-<li>用户视角：读写路径，启动/关闭。</li>
-<li>系统视角：复制和一致性，容错，分区，共识。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Ecosystem-生态"><a href="#Ecosystem-生态" class="headerlink" title="Ecosystem:生态"></a>Ecosystem:生态</h2><p>生态是围绕该软件的工具链，培训，开源社区，公司，客户，基金会，出版书籍，论文，创始人履历等等。</p>
-<h2 id="Admin-管理"><a href="#Admin-管理" class="headerlink" title="Admin:管理"></a>Admin:管理</h2><p>管理主要是监控，包括管理控制台，主要判断系统是否健康，以及内部状态统计等。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不同角色关注系统点不一样，想要全面了解系统，以上所有点均需要学习，不求甚解，对系统形成完整认识。本文虽然在讲系统，但是抽象层次还是较低，不够通用，但较为实用。</p>
-]]></content>
-      <categories>
-        <category>模型</category>
-        <category>软件模型</category>
-      </categories>
-      <tags>
-        <tag>软件系统模型</tag>
-        <tag>创造</tag>
-        <tag>COSEA策略</tag>
       </tags>
   </entry>
   <entry>

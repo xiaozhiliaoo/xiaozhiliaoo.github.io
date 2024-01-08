@@ -97,14 +97,14 @@
 
 
 
-<meta name="description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构： IVF(Inverted File)、IVFPQ(Inverted File w">
+<meta name="description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构：Flat（暴力搜索) 、IVF(Inverted File)、IVFPQ(Inve">
 <meta property="og:type" content="article">
 <meta property="og:title" content="向量检索Faiss实战">
 <meta property="og:url" content="http://yoursite.com/2024/01/07/faiss-practice/index.html">
 <meta property="og:site_name" content="小知了的博客">
-<meta property="og:description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构： IVF(Inverted File)、IVFPQ(Inverted File w">
+<meta property="og:description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构：Flat（暴力搜索) 、IVF(Inverted File)、IVFPQ(Inve">
 <meta property="article:published_time" content="2024-01-07T07:25:06.000Z">
-<meta property="article:modified_time" content="2024-01-08T09:06:08.076Z">
+<meta property="article:modified_time" content="2024-01-08T09:11:15.006Z">
 <meta property="article:author" content="简单">
 <meta property="article:tag" content="facebook faiss">
 <meta property="article:tag" content="openai">
@@ -424,8 +424,8 @@
 <p>官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。</p>
 <p>Faiss主要组件包括：</p>
 <ol>
-<li>索引结构： <strong>IVF</strong>(Inverted File)、<strong>IVFPQ</strong>(Inverted File with Product Quantization)、<strong>HNSW</strong>(Hierarchical Navigable Small World)</li>
-<li>向量编码：<strong>PQ</strong>(Product Quantization)、<strong>OPQ</strong>(Optimized Product Quantization)。编码可以将高维向量映射到低维空间中，同时保持距离的相似性。</li>
+<li>索引结构：<strong>Flat</strong>（暴力搜索) 、<strong>IVF</strong>(Inverted File)、<strong>IVFPQ</strong>(Inverted File with Product Quantization)、<strong>HNSW</strong>(Hierarchical Navigable Small World)，索引结构可以加速相似性搜索，降低查询时间。</li>
+<li>向量编码：<strong>PQ</strong>(Product Quantization)、<strong>OPQ</strong>(Optimized Product Quantization)。编码可以将高维向量映射到低维空间中，同时保持距离的相似性，有助于减少内存占用和计算量。</li>
 <li>相似性度量：欧氏距离、内积、Jaccard 相似度等。</li>
 </ol>
 <p>Faiss的核心API有：</p>
