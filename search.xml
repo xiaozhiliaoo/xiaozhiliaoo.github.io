@@ -103,36 +103,6 @@
       </tags>
   </entry>
   <entry>
-    <title>惊奇的工程算法简介</title>
-    <url>/2021/01/03/Algorithm-Engineering/</url>
-    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要介绍比较经典/常用的工程算法，理解这些算法非常有意义，对于程序优化有很有帮助，会发出惊奇的感慨。这里算法以工程为出发点，而非严谨意义上的数学证明算法。</p>
-<h1 id="工程算法分类"><a href="#工程算法分类" class="headerlink" title="工程算法分类"></a>工程算法分类</h1><p>算法主要分为以下几类：</p>
-<h2 id="单机系统"><a href="#单机系统" class="headerlink" title="单机系统"></a>单机系统</h2><ol>
-<li>Membership:   HashSet.constains, BitSet.get, Bloom Filter，Counting Bloom Filter</li>
-<li>Cardinality:   HashSet.size, BitSet.cardinality, Linear counter，Log Log，HyperLogLog</li>
-<li>Frequency: HashMap.put, HashMultiset.count, Count Sketch，Count-Min Sketch</li>
-<li>Hash算法和一致性Hash算法</li>
-<li>时间轮算法：Hashed and Hierarchical Timing Wheel</li>
-<li>唯一ID生成器：snowflake，</li>
-<li>负载均衡算法：Round robin，Weighted round robin</li>
-<li>限流算法：Token Bucket，Leaky Bucket，Fixed Window，Sliding Log，Sliding Window</li>
-<li>缓存淘汰算法：LFU，LRU，FIFO</li>
-</ol>
-<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><ol>
-<li>共识算法：ZAB，Paxos，Raft，Viewstamped Replication，PBFT，Atomic Broadcast</li>
-<li>选举算法：Bully，Ring</li>
-<li>快照算法：Chandy Lamport，Lightweight Asynchronous Snapshots</li>
-</ol>
-]]></content>
-      <categories>
-        <category>算法</category>
-        <category>工程算法</category>
-      </categories>
-      <tags>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CompletionService设计与实现</title>
     <url>/2020/11/13/CompletionService-Design-And-Implementation/</url>
     <content><![CDATA[<h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>使用ExecutorService时候，我们只是向其中不断提交任务，然后通过Future获取get任务结果，但是有时候get需要等待，虽然可行，但是比较繁琐，可以有更好的方式，比如CompletionService实现了将完成的任务放在完成队列中，使得获取任务结果可以向队列一样通过take和poll任务结果，这样比ExecutorService更加方便。CompletionService通过ExecutorCompletionService实现，这两个实现均非常简单。</p>
@@ -171,6 +141,36 @@
       </categories>
       <tags>
         <tag>java.util.concurrent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>惊奇的工程算法简介</title>
+    <url>/2021/01/03/Algorithm-Engineering/</url>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本系列主要介绍比较经典/常用的工程算法，理解这些算法非常有意义，对于程序优化有很有帮助，会发出惊奇的感慨。这里算法以工程为出发点，而非严谨意义上的数学证明算法。</p>
+<h1 id="工程算法分类"><a href="#工程算法分类" class="headerlink" title="工程算法分类"></a>工程算法分类</h1><p>算法主要分为以下几类：</p>
+<h2 id="单机系统"><a href="#单机系统" class="headerlink" title="单机系统"></a>单机系统</h2><ol>
+<li>Membership:   HashSet.constains, BitSet.get, Bloom Filter，Counting Bloom Filter</li>
+<li>Cardinality:   HashSet.size, BitSet.cardinality, Linear counter，Log Log，HyperLogLog</li>
+<li>Frequency: HashMap.put, HashMultiset.count, Count Sketch，Count-Min Sketch</li>
+<li>Hash算法和一致性Hash算法</li>
+<li>时间轮算法：Hashed and Hierarchical Timing Wheel</li>
+<li>唯一ID生成器：snowflake，</li>
+<li>负载均衡算法：Round robin，Weighted round robin</li>
+<li>限流算法：Token Bucket，Leaky Bucket，Fixed Window，Sliding Log，Sliding Window</li>
+<li>缓存淘汰算法：LFU，LRU，FIFO</li>
+</ol>
+<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><ol>
+<li>共识算法：ZAB，Paxos，Raft，Viewstamped Replication，PBFT，Atomic Broadcast</li>
+<li>选举算法：Bully，Ring</li>
+<li>快照算法：Chandy Lamport，Lightweight Asynchronous Snapshots</li>
+</ol>
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>工程算法</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -319,6 +319,44 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java.lang.OutOfMemoryError内存溢出</title>
+    <url>/2020/08/16/OOM/</url>
+    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
+<p>内存，GC，</p>
+<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
+<p>Java内存区域分为这么几个区域</p>
+<p>堆区：老年代，新生代</p>
+<p>非堆：metaspace</p>
+<p>FullGC之后空间不足，内存没有回收。</p>
+<p>Java OOM情况有以下几种，</p>
+<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
+<p>举例：</p>
+<p>解决方案：</p>
+<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
+<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
+<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
+<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
+<p>1 应用加载类太多了</p>
+<p>2 classloader内存泄漏</p>
+<p>元空间不足，java8之后才会有</p>
+<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
+<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
+<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
+<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
+<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
+<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+      <tags>
+        <tag>内存溢出</tag>
+        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -488,44 +526,6 @@
       <tags>
         <tag>java.util.*</tag>
         <tag>java collection framework</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java.lang.OutOfMemoryError内存溢出</title>
-    <url>/2020/08/16/OOM/</url>
-    <content><![CDATA[<p>对这个问题的深入理解，取决于对GC，内存本身的理解。终极问题。</p>
-<p>内存，GC，</p>
-<p>内存溢出指的是程序需要内存超出系统所有的内存，如果是正常情况调大jvm内存即可，如果是</p>
-<p>Java内存区域分为这么几个区域</p>
-<p>堆区：老年代，新生代</p>
-<p>非堆：metaspace</p>
-<p>FullGC之后空间不足，内存没有回收。</p>
-<p>Java OOM情况有以下几种，</p>
-<h3 id="java-heap-space"><a href="#java-heap-space" class="headerlink" title="java heap space"></a>java heap space</h3><p>原因：1 应用需要更多对空间  2    内存泄漏（类加载器内存泄露，ThreadLocal 不remove内存泄漏，和线程池一起使用会泄漏）</p>
-<p>举例：</p>
-<p>解决方案：</p>
-<p>这种情况属于fullgc之后，堆空间不足，内存泄漏是内存溢出的一个原因，但是内存泄漏不一定导致内存溢出。</p>
-<h3 id="GC-Overhead-limit-exceeded"><a href="#GC-Overhead-limit-exceeded" class="headerlink" title="GC Overhead limit exceeded"></a>GC Overhead limit exceeded</h3><p>频繁FullGC导致该错误</p>
-<h3 id="Permgen-space"><a href="#Permgen-space" class="headerlink" title="Permgen space"></a>Permgen space</h3><p>Java7 持久代空间不足</p>
-<h3 id="Metaspace"><a href="#Metaspace" class="headerlink" title="Metaspace"></a>Metaspace</h3><p>Java8</p>
-<p>1 应用加载类太多了</p>
-<p>2 classloader内存泄漏</p>
-<p>元空间不足，java8之后才会有</p>
-<h3 id="Unable-to-create-new-native-thread"><a href="#Unable-to-create-new-native-thread" class="headerlink" title="Unable to create new native thread"></a>Unable to create new native thread</h3><p>本地线程创建数量超过操作系统的线程数</p>
-<h3 id="Out-of-swap-space？"><a href="#Out-of-swap-space？" class="headerlink" title="Out of swap space？"></a>Out of swap space？</h3><p>交换区</p>
-<h3 id="Compressed-class-space"><a href="#Compressed-class-space" class="headerlink" title="Compressed class space"></a>Compressed class space</h3><h3 id="Requested-array-size-exceeds-VM-limit"><a href="#Requested-array-size-exceeds-VM-limit" class="headerlink" title="Requested array size exceeds VM limit"></a>Requested array size exceeds VM limit</h3><h3 id="reason-stack-trace-with-native-method"><a href="#reason-stack-trace-with-native-method" class="headerlink" title="reason stack_trace_with_native_method"></a>reason stack_trace_with_native_method</h3><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
-<li>Oracle官网 <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/memleaks002.html#CIHHJDJE" target="_blank" rel="noopener">Understand the OutOfMemoryError Exception</a></li>
-<li>Plumbr The 8 symptoms that surface <a href="https://plumbr.io/outofmemoryerror" target="_blank" rel="noopener">outofmemoryerror</a></li>
-<li>Wikipedia <a href="https://en.wikipedia.org/wiki/Out_of_memory" target="_blank" rel="noopener">Out of memory</a></li>
-<li>Ponnam Parhar的slide  <a href="https://www.slideshare.net/PoonamBajaj5/get-rid-of-outofmemoryerror-messages" target="_blank" rel="noopener">Slides</a>  <a href="https://www.youtube.com/watch?v=iixQAYnBnJw" target="_blank" rel="noopener">Video</a></li>
-</ol>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-      <tags>
-        <tag>内存溢出</tag>
-        <tag>内存泄露</tag>
       </tags>
   </entry>
   <entry>
@@ -1251,237 +1251,6 @@
       </tags>
   </entry>
   <entry>
-    <title>分布式事务解决方案</title>
-    <url>/2022/01/01/distributed-transaction/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分布式事务划分为两个角度，1是存储层，也即数据库角度的分布式事务，多实现于分布式数据库事务 2是业务层，偏向于服务化系统以及业务系统的分布式事务。</p>
-<h1 id="存储层"><a href="#存储层" class="headerlink" title="存储层"></a>存储层</h1><p><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/spanner-osdi2012.pdf" target="_blank" rel="noopener">spanner</a>，<a href="https://en.wikipedia.org/wiki/X/Open_XA" target="_blank" rel="noopener">XA</a>(<a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol" target="_blank" rel="noopener">2pc</a>)，，<a href="https://en.wikipedia.org/wiki/Three-phase_commit_protocol" target="_blank" rel="noopener">3pc</a>，<a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36726.pdf" target="_blank" rel="noopener">percolator</a>(2pc)，<a href="http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf" target="_blank" rel="noopener">calvin</a>，<a href="https://omid.incubator.apache.org/" target="_blank" rel="noopener">apache omid</a></p>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>数据模型</th>
-<th>并发控制方案</th>
-<th>隔离级别支持</th>
-<th>限制</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>XA</td>
-<td>不限</td>
-<td>两阶段锁（悲观）</td>
-<td>所有隔离级别</td>
-<td>加读锁导致性能下降</td>
-</tr>
-<tr>
-<td>Percolator</td>
-<td>Key-Value</td>
-<td>加锁(悲观) &amp; MVCC</td>
-<td>SI</td>
-<td></td>
-</tr>
-<tr>
-<td>Omid</td>
-<td>Key-Value</td>
-<td>冲突检测(乐观) &amp; MVCC</td>
-<td>SI</td>
-<td></td>
-</tr>
-<tr>
-<td>Calvin</td>
-<td>不限</td>
-<td>确定性数据库</td>
-<td>Serializable</td>
-<td>仅适用于One-Shot事务</td>
-</tr>
-</tbody></table>
-<h1 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h1><p>解决思路有：XA(异构系统)，TCC，Saga，基于本地消息的分布式事务，基于事务消息的分布式事务</p>
-<p>具体的产品有：seata， hmily， byetcc， easytransaction,XA-JTA(atomikos,bitronix,narayana) ,JOTM, BTM, MSDTC</p>
-<h2 id="同构与异构系统"><a href="#同构与异构系统" class="headerlink" title="同构与异构系统"></a>同构与异构系统</h2><p>同构：MySQL Cluster NDB，VoltDB</p>
-<p>异构：MySQL和MQ，MySQL和Redis</p>
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-      </categories>
-      <tags>
-        <tag>分布式事务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>elasticsearch(1)-集群,节点与分片，理解查找过程</title>
-    <url>/2021/08/29/elasticsearch-series1-common/</url>
-    <content><![CDATA[<h1 id="单机多节点集群"><a href="#单机多节点集群" class="headerlink" title="单机多节点集群"></a>单机多节点集群</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node0 -E cluster.name&#x3D;geektime -E path.data&#x3D;node0_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node1 -E cluster.name&#x3D;geektime -E path.data&#x3D;node1_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node2 -E cluster.name&#x3D;geektime -E path.data&#x3D;node2_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node3 -E cluster.name&#x3D;geektime -E path.data&#x3D;node3_data -d</span><br></pre></td></tr></table></figure>
-
-
-
-<p>可以通过<code>GET /_cat/nodes?v</code>查看node0是主节点。</p>
-<h1 id="创建索引与分片"><a href="#创建索引与分片" class="headerlink" title="创建索引与分片"></a>创建索引与分片</h1><p>es在一个有4个节点的集群上创建一个索引，并且索引里面只包含了一个文档，那么这份文档的存储和节点分布是什么样呢？</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test</span><br><span class="line">&#123;</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;number_of_shards&quot;: 3,</span><br><span class="line">    &quot;number_of_replicas&quot;: 2</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>实际在4个节点总共有9个分片，3个主分片，6个副本分片。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_doc</span><br><span class="line">&#123;</span><br><span class="line">  &quot;company&quot;:&quot;baidu&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;, </span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;company&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;baidu&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看索引在节点的分配</span><br><span class="line">GET &#x2F;_cat&#x2F;shards?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
-
-<p>显示结果如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">index shard prirep state   docs store ip        node</span><br><span class="line">test  1     r      STARTED    0  230b 127.0.0.1 node2</span><br><span class="line">test  1     p      STARTED    0  230b 127.0.0.1 node3</span><br><span class="line">test  1     r      STARTED    0  230b 127.0.0.1 node0</span><br><span class="line">test  2     r      STARTED    0  230b 127.0.0.1 node1</span><br><span class="line">test  2     r      STARTED    0  230b 127.0.0.1 node2</span><br><span class="line">test  2     p      STARTED    0  230b 127.0.0.1 node0</span><br><span class="line">test  0     r      STARTED    1 3.4kb 127.0.0.1 node1</span><br><span class="line">test  0     p      STARTED    1 3.4kb 127.0.0.1 node2</span><br><span class="line">test  0     r      STARTED    1 3.4kb 127.0.0.1 node3</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="/images/shard-legend.png"/>
-
-
-
-<p>可以看到创建一个索引的时候，被分配到4个node，node0是主节点leader节点(图片有星号)，node2~node4是非leader节点。而company=baidu文档被创建时候，被分片到node1，node2，node3上面（docs=1），<strong>每一个文档被分配到一个分片</strong>，node2是primary shard，而node1，node3是replica shard. 而在搜索company=baidu时候，打开profile api，会发现数据查找经历了3个shard，分别是</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;id&quot; : &quot;[S_H7_aQZQT6N1Xvak3Y5Gg][test][1]&quot;</span><br><span class="line">&quot;id&quot; : &quot;[Y6x8KA6XQzaa4ebI2QKrZg][test][0]&quot;</span><br><span class="line">&quot;id&quot; : &quot;[Y6x8KA6XQzaa4ebI2QKrZg][test][2]&quot;</span><br></pre></td></tr></table></figure>
-
-<p>根据<code>GET /_nodes/_all/nodes</code> 可以获取到节点名字</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node0：uvCcgxEFT82xFtQAv9aydA</span><br><span class="line">node1：Y6x8KA6XQzaa4ebI2QKrZg</span><br><span class="line">node2：S_H7_aQZQT6N1Xvak3Y5Gg</span><br><span class="line">node3：BdHl3TItTv6B4BHm1DuwMA</span><br></pre></td></tr></table></figure>
-
-<p>可以得知，查找company=baidu时候，一定会查找三个分片（也就是<strong>number_of_shards</strong>的个数，primary和replica都有可能），profile api显示经历了1次node2[1]和2次node1[0]，node1[2]，恰好查找了三个分片0,1,2。但是文档存储在node1[0]，node2[0]，node3[0]，所以数据最终在node1[0]分片(<strong>replica shard</strong>)上找到了要查找的文档，在node1[2]，node2[1]并没有找到文档。每次重新执行的查找的时候，profile api也会动态变化，查询的节点和分片也会随之变化。（疑问：如果有50个节点，一个索引创建了3个分片(number_of_shards=3)，那么怎么知道需要遍历分片在哪里呢？而不是所有节点遍历一遍，也就是es怎么知道遍历哪些节点呢？所以es一定存了分片和）</p>
-<h1 id="索引常用DSL"><a href="#索引常用DSL" class="headerlink" title="索引常用DSL"></a>索引常用DSL</h1><h2 id="查看节点详情"><a href="#查看节点详情" class="headerlink" title="查看节点详情"></a>查看节点详情</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_nodes</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="查看索引映射和配置"><a href="#查看索引映射和配置" class="headerlink" title="查看索引映射和配置"></a>查看索引映射和配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET test</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="查看索引大小"><a href="#查看索引大小" class="headerlink" title="查看索引大小"></a>查看索引大小</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_cat&#x2F;indices?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="查看segment"><a href="#查看segment" class="headerlink" title="查看segment"></a>查看segment</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_cat&#x2F;segments?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-        <category>搜索</category>
-        <category>elasticsearch</category>
-      </categories>
-      <tags>
-        <tag>分布式系统泛型</tag>
-        <tag>elasticsearch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>elasticsearch(2)-query的match和term区别</title>
-    <url>/2021/08/29/elasticsearch-series2-match-term/</url>
-    <content><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>match query在索引和查询时分词，term query在索引时候分词，在查询时候不分词。</p>
-<p>match query是全文搜索，term query是词项搜索。</p>
-<p>match query不是精确搜索，想要精确搜索，使用term keyword query.</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test&#x2F;_doc&#x2F;1</span><br><span class="line">&#123;</span><br><span class="line">  &quot;content&quot;:&quot;Hello World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="match-query"><a href="#match-query" class="headerlink" title="match query"></a>match query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。es的standard分词器会将Hello World索引数据时候，会分解成hello，world.</p>
-<p>而match query会将content进行分词为hello，world。所以可以搜到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。match query会将内容进行分词为hello，world，所以可以查到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。match query keyword会将match query转换为term query，keyword搜索并不会分词，所以搜索不到。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。match query会分词，将match query转换为term query</p>
-<h1 id="term-query"><a href="#term-query" class="headerlink" title="term query"></a>term query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。term query不会分词，hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回。term query不会分词，数据在content被分成了hello，world.hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>无结果返回，没有hello world，索引时候Hello World分解成hello，world两个词.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>有结果返回。精确匹配。term query的精确匹配用keyword。</p>
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-        <category>搜索</category>
-        <category>elasticsearch</category>
-      </categories>
-      <tags>
-        <tag>分布式系统泛型</tag>
-        <tag>elasticsearch</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RSMA模型:软件系统模型的探索(2)</title>
-    <url>/2023/07/15/application-thinking/</url>
-    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>在做应用系统时候，会遇到很多问题，比如接口响应慢，排查然后解决问题，具体解决有：代码优化，索引优化，慢查询告警，运维层面的监控，告警，通过排查问题，我们对系统有了更深入了解，对整个链路越来越熟悉，并在解决过程中提高了技术能力。但是有时候我们真的解决问题了吗？接口从5s优化到100ms，是否解决了接口慢的问题呢？是的，至少表面来看问题解决了，但是我们怎么能保证的说：系统没问题了。我们希望有一个完美系统，让自己系统来和”完美系统“进行比较，从而发现系统问题，从而不断优化系统。完美的理论是存在的，但是完美的系统存在脑海中，并且谁也没见过。我觉得完美系统应该是一系列目标，比如<strong>可靠性</strong>，系统在完成功能很可靠，系统在宕机，硬件故障，软件错误，人为故障时候可以可靠运行，还比如<strong>可扩展性</strong>，当遇到性能问题时候，可以横向或者纵向扩展，再比如<strong>可维护性</strong>，小到代码，中到架构，大到系统方方面面可维护性，这些都可以定义系统的目标（非业务层面）。</p>
-<p>那么接口慢可以反应哪些问题呢？</p>
-<ol>
-<li><p>可靠性：系统对用户使用造成问题，用户可能离开，使得用户觉得系统不可靠。系统发生错误。</p>
-</li>
-<li><p>可扩展性：接口慢，是性能问题，性能问题垂直扩展还是水平，还是代码，存储层问题呢？</p>
-</li>
-<li><p>可维护性：有监控吗？有告警吗？排查问题工具是否容易使用呢？是否有全链路traceid一眼看到链路耗时呢？</p>
-</li>
-</ol>
-<p>接口慢也侧面反映了，系统没有预期的目标。</p>
-<h1 id="RSMA模型"><a href="#RSMA模型" class="headerlink" title="RSMA模型"></a>RSMA模型</h1><p>RSMA（Reliable，Scalable，Maintainable，Automate）模型是将系统属性和目标分解为三部分：可靠性，可扩展性，可维护性，到达这些目标更好的方式是：自动化。</p>
-<p>可靠性包含：硬件故障，软件错误，人为失误。有些时候，系统看似可靠，实际上不是，需要明确可靠性在不同层面的真正含义。</p>
-<p>可扩展性包含：负载，性能。性能问题是可扩展的核心。虽然没了资源（内存/CPU/带宽）可以加，但是为什么每次不是自动化过程呢？虽然没有见过自动扩展的系统，但是可以作为设计的目标。</p>
-<p>可维护性包含：可运维，简单化，易演化。</p>
-<p>自动化包含：实现上面目标最好是自动化的。其次是手动化的。</p>
-<p>RSMA模型认为：系统首要是拥有目标，然后在解决问题，演化，调优中不断接近目标。解决问题完成定义是达到目标。所有问题都可以定义一个目标，而这些目标最终会成为可靠性，可扩展性，可维护性三者之一。实现三者方式应该是自动化的。</p>
-<h1 id="一些观点"><a href="#一些观点" class="headerlink" title="一些观点"></a>一些观点</h1><ol>
-<li>很多系统缺乏明确目标，解决问题方案偏临时，不能从整体上来拆解问题。任何问题都可以追溯一个目标。</li>
-<li>一个系统的长期目标是业务方向，中期目标是系统目标，短期目标是业务需求。</li>
-<li>系统会出现多种问题，定义<strong>问题解决</strong>了标志应该是：解决该问题达到了系统的目标。那么系统没问题也应该是达到了系统的目标。否则接口从5s优化到100ms，解决了很多技术问题，但是怎么定义解决呢？用户觉得快也是目标，但是快拆解目标是<strong>可扩展性</strong>。</li>
-<li>系统的目标是：RSMA，应该牢记系统的目标，并且拆解可落地方案。业务系统，存储系统，中间件系统的目标均可以是上述三个。</li>
-<li>系统的目标是系统层面的属性，是应用系统设计目标，影响了系统的方方面面，而非某个特定的技术，是各个组件合力贡献的能力。目标也不是个体事情，开发，运维，测试，是多人协同的实现属性。</li>
-<li>COSEA是还原论，将系统拆分，而RSM是系统论，将系统组合。</li>
-<li>实际和理论割裂很严重，系统没资源了，连自动加资源能力都没有，每次都要手动加，包括内存资源，产生这些问题原因在哪里？所谓的自动垂直扩展，自动水平扩展，自动弹性扩展没见过。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>模型</category>
-        <category>软件模型</category>
-      </categories>
-      <tags>
-        <tag>软件系统模型</tag>
-        <tag>RSM模型</tag>
-        <tag>创造</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>elasticsearch(4) - 常用聚合查询</title>
-    <url>/2021/08/30/elasticsearch-series4-aggregation-search/</url>
-    <content><![CDATA[<h1 id="bool和nested查询（订单结算查询）"><a href="#bool和nested查询（订单结算查询）" class="headerlink" title="bool和nested查询（订单结算查询）"></a>bool和nested查询（订单结算查询）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"1"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharer"</span>,</span><br><span class="line">            <span class="attr">"query"</span>: &#123;</span><br><span class="line">              <span class="attr">"term"</span>: &#123;</span><br><span class="line">                <span class="attr">"sharer.sharerId"</span>: &#123;</span><br><span class="line">                  <span class="attr">"value"</span>: <span class="string">"24"</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">201103</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202202</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"categoryId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"1"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">201103</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202202</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"sort"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"orderId"</span>: &#123;</span><br><span class="line">        <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"term"</span>: &#123;</span><br><span class="line">        <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"from"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"size"</span>: <span class="number">20</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Composite聚合和嵌套聚合（费用统计）"><a href="#Composite聚合和嵌套聚合（费用统计）" class="headerlink" title="Composite聚合和嵌套聚合（费用统计）"></a>Composite聚合和嵌套聚合（费用统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"terms"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: [</span><br><span class="line">              <span class="string">"16861"</span>,</span><br><span class="line">              <span class="string">"25590"</span></span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"sharerTerm"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"202003"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"compositeData"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"sharerId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"beginTerm"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerTerm"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"amortizesNest"</span>: &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharerAmortizes"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">            <span class="attr">"amortizes.term"</span>: &#123;</span><br><span class="line">              <span class="attr">"filter"</span>: &#123;</span><br><span class="line">                <span class="attr">"term"</span>: &#123;</span><br><span class="line">                  <span class="attr">"sharerAmortizes.term"</span>: <span class="number">202002</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                <span class="attr">"amortizes.amount"</span>: &#123;</span><br><span class="line">                  <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                    <span class="attr">"field"</span>: <span class="string">"sharerAmortizes.amount"</span></span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="Compsite聚合和sum统计（支付摊期统计）"><a href="#Compsite聚合和sum统计（支付摊期统计）" class="headerlink" title="Compsite聚合和sum统计（支付摊期统计）"></a>Compsite聚合和sum统计（支付摊期统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0&amp;request_cache=true</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202110</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202110</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202110</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"110872"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"buckets"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"term"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"earningSum"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"earningSum"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.1"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.1"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.2"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.2"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.3"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.3"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.4"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.4"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.5"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.5"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"courseEarning"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"courseEarning"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"cost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"cost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"selfCost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"selfCost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"allCost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"allCost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryTaxedFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryTaxedFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"sharerSettles"</span>: &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharerSettles"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">            <span class="attr">"sharerSettles.sharerId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerSettles.sharerId"</span>,</span><br><span class="line">                <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">                <span class="attr">"shard_size"</span>: <span class="number">1000</span>,</span><br><span class="line">                <span class="attr">"collect_mode"</span>: <span class="string">"breadth_first"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                <span class="attr">"sharerSettles.rate"</span>: &#123;</span><br><span class="line">                  <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                    <span class="attr">"field"</span>: <span class="string">"sharerSettles.rate_key"</span>,</span><br><span class="line">                    <span class="attr">"size"</span>: <span class="number">100</span>,</span><br><span class="line">                    <span class="attr">"shard_size"</span>: <span class="number">100</span>,</span><br><span class="line">                    <span class="attr">"collect_mode"</span>: <span class="string">"breadth_first"</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                    <span class="attr">"sharerSettles.shareSum"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.shareSum"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.share"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.share"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.cost"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.cost"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.shareCost"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.shareCost"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.taxedEarning"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.taxedEarning"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.earning"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.earning"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.rate"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.rate"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="composite聚合（支付方式统计）"><a href="#composite聚合（支付方式统计）" class="headerlink" title="composite聚合（支付方式统计）"></a>composite聚合（支付方式统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0&amp;request_cache=true</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202010</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202011</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202010</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202011</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"buckets"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"term"</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"asc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"payFrom"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"payFrom"</span>,</span><br><span class="line">                <span class="attr">"missing_bucket"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"asc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"courseEarning"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"courseEarning"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.1"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.1"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.2"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.2"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.3"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.3"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.4"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.4"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.5"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.5"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"poundage"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"poundage"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"agentFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"agentFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryTaxedFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryTaxedFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>分布式系统</category>
-        <category>搜索</category>
-        <category>elasticsearch</category>
-      </categories>
-      <tags>
-        <tag>elasticsearch</tag>
-        <tag>聚合查询</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>买房犯的7个错误</title>
     <url>/2023/03/01/buy-house-mistake/</url>
     <content><![CDATA[<h1 id="合同看的不够仔细"><a href="#合同看的不够仔细" class="headerlink" title="合同看的不够仔细"></a>合同看的不够仔细</h1><p>看关键点，责任和权利对等。</p>
@@ -1615,6 +1384,238 @@
       </categories>
       <tags>
         <tag>house</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式事务解决方案</title>
+    <url>/2022/01/01/distributed-transaction/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>分布式事务划分为两个角度，1是存储层，也即数据库角度的分布式事务，多实现于分布式数据库事务 2是业务层，偏向于服务化系统以及业务系统的分布式事务。</p>
+<h1 id="存储层"><a href="#存储层" class="headerlink" title="存储层"></a>存储层</h1><p><a href="https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/spanner-osdi2012.pdf" target="_blank" rel="noopener">spanner</a>，<a href="https://en.wikipedia.org/wiki/X/Open_XA" target="_blank" rel="noopener">XA</a>(<a href="https://en.wikipedia.org/wiki/Two-phase_commit_protocol" target="_blank" rel="noopener">2pc</a>)，，<a href="https://en.wikipedia.org/wiki/Three-phase_commit_protocol" target="_blank" rel="noopener">3pc</a>，<a href="https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36726.pdf" target="_blank" rel="noopener">percolator</a>(2pc)，<a href="http://cs.yale.edu/homes/thomson/publications/calvin-sigmod12.pdf" target="_blank" rel="noopener">calvin</a>，<a href="https://omid.incubator.apache.org/" target="_blank" rel="noopener">apache omid</a></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>数据模型</th>
+<th>并发控制方案</th>
+<th>隔离级别支持</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>XA</td>
+<td>不限</td>
+<td>两阶段锁（悲观）</td>
+<td>所有隔离级别</td>
+<td>加读锁导致性能下降</td>
+</tr>
+<tr>
+<td>Percolator</td>
+<td>Key-Value</td>
+<td>加锁(悲观) &amp; MVCC</td>
+<td>SI</td>
+<td></td>
+</tr>
+<tr>
+<td>Omid</td>
+<td>Key-Value</td>
+<td>冲突检测(乐观) &amp; MVCC</td>
+<td>SI</td>
+<td></td>
+</tr>
+<tr>
+<td>Calvin</td>
+<td>不限</td>
+<td>确定性数据库</td>
+<td>Serializable</td>
+<td>仅适用于One-Shot事务</td>
+</tr>
+</tbody></table>
+<h1 id="业务层"><a href="#业务层" class="headerlink" title="业务层"></a>业务层</h1><p>解决思路有：XA(异构系统)，TCC，Saga，基于本地消息的分布式事务，基于事务消息的分布式事务</p>
+<p>具体的产品有：seata， hmily， byetcc， easytransaction,XA-JTA(atomikos,bitronix,narayana) ,JOTM, BTM, MSDTC</p>
+<h2 id="同构与异构系统"><a href="#同构与异构系统" class="headerlink" title="同构与异构系统"></a>同构与异构系统</h2><p>同构：MySQL Cluster NDB，VoltDB</p>
+<p>异构：MySQL和MQ，MySQL和Redis</p>
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+      </categories>
+      <tags>
+        <tag>分布式事务</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RSMA模型:软件系统模型的探索(2)</title>
+    <url>/2023/07/15/application-thinking/</url>
+    <content><![CDATA[<h1 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h1><p>在做应用系统时候，会遇到很多问题，比如接口响应慢，排查然后解决问题，具体解决有：代码优化，索引优化，慢查询告警，运维层面的监控，告警，通过排查问题，我们对系统有了更深入了解，对整个链路越来越熟悉，并在解决过程中提高了技术能力。但是有时候我们真的解决问题了吗？接口从5s优化到100ms，是否解决了接口慢的问题呢？是的，至少表面来看问题解决了，但是我们怎么能保证的说：系统没问题了。我们希望有一个完美系统，让自己系统来和”完美系统“进行比较，从而发现系统问题，从而不断优化系统。完美的理论是存在的，但是完美的系统存在脑海中，并且谁也没见过。我觉得完美系统应该是一系列目标，比如<strong>可靠性</strong>，系统在完成功能很可靠，系统在宕机，硬件故障，软件错误，人为故障时候可以可靠运行，还比如<strong>可扩展性</strong>，当遇到性能问题时候，可以横向或者纵向扩展，再比如<strong>可维护性</strong>，小到代码，中到架构，大到系统方方面面可维护性，这些都可以定义系统的目标（非业务层面）。</p>
+<p>那么接口慢可以反应哪些问题呢？</p>
+<ol>
+<li><p>可靠性：系统对用户使用造成问题，用户可能离开，使得用户觉得系统不可靠。系统发生错误。</p>
+</li>
+<li><p>可扩展性：接口慢，是性能问题，性能问题垂直扩展还是水平，还是代码，存储层问题呢？</p>
+</li>
+<li><p>可维护性：有监控吗？有告警吗？排查问题工具是否容易使用呢？是否有全链路traceid一眼看到链路耗时呢？</p>
+</li>
+</ol>
+<p>接口慢也侧面反映了，系统没有预期的目标。</p>
+<h1 id="RSMA模型"><a href="#RSMA模型" class="headerlink" title="RSMA模型"></a>RSMA模型</h1><p>RSMA（Reliable，Scalable，Maintainable，Automate）模型是将系统属性和目标分解为三部分：可靠性，可扩展性，可维护性，到达这些目标更好的方式是：自动化。</p>
+<p>可靠性包含：硬件故障，软件错误，人为失误。有些时候，系统看似可靠，实际上不是，需要明确可靠性在不同层面的真正含义。</p>
+<p>可扩展性包含：负载，性能。性能问题是可扩展的核心。虽然没了资源（内存/CPU/带宽）可以加，但是为什么每次不是自动化过程呢？虽然没有见过自动扩展的系统，但是可以作为设计的目标。</p>
+<p>可维护性包含：可运维，简单化，易演化。</p>
+<p>自动化包含：实现上面目标最好是自动化的。其次是手动化的。</p>
+<p>RSMA模型认为：系统首要是拥有目标，然后在解决问题，演化，调优中不断接近目标。解决问题完成定义是达到目标。所有问题都可以定义一个目标，而这些目标最终会成为可靠性，可扩展性，可维护性三者之一。实现三者方式应该是自动化的。</p>
+<h1 id="一些观点"><a href="#一些观点" class="headerlink" title="一些观点"></a>一些观点</h1><ol>
+<li>很多系统缺乏明确目标，解决问题方案偏临时，不能从整体上来拆解问题。任何问题都可以追溯一个目标。</li>
+<li>一个系统的长期目标是业务方向，中期目标是系统目标，短期目标是业务需求。</li>
+<li>系统会出现多种问题，定义<strong>问题解决</strong>了标志应该是：解决该问题达到了系统的目标。那么系统没问题也应该是达到了系统的目标。否则接口从5s优化到100ms，解决了很多技术问题，但是怎么定义解决呢？用户觉得快也是目标，但是快拆解目标是<strong>可扩展性</strong>。</li>
+<li>系统的目标是：RSMA，应该牢记系统的目标，并且拆解可落地方案。业务系统，存储系统，中间件系统的目标均可以是上述三个。</li>
+<li>系统的目标是系统层面的属性，是应用系统设计目标，影响了系统的方方面面，而非某个特定的技术，是各个组件合力贡献的能力。目标也不是个体事情，开发，运维，测试，是多人协同的实现属性。</li>
+<li>COSEA是还原论，将系统拆分，而RSM是系统论，将系统组合。</li>
+<li>实际和理论割裂很严重，系统没资源了，连自动加资源能力都没有，每次都要手动加，包括内存资源，产生这些问题原因在哪里？所谓的自动垂直扩展，自动水平扩展，自动弹性扩展没见过。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>模型</category>
+        <category>软件模型</category>
+      </categories>
+      <tags>
+        <tag>软件系统模型</tag>
+        <tag>RSM模型</tag>
+        <tag>创造</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>elasticsearch(1)-集群,节点与分片，理解查找过程</title>
+    <url>/2021/08/29/elasticsearch-series1-common/</url>
+    <content><![CDATA[<h1 id="单机多节点集群"><a href="#单机多节点集群" class="headerlink" title="单机多节点集群"></a>单机多节点集群</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node0 -E cluster.name&#x3D;geektime -E path.data&#x3D;node0_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node1 -E cluster.name&#x3D;geektime -E path.data&#x3D;node1_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node2 -E cluster.name&#x3D;geektime -E path.data&#x3D;node2_data -d</span><br><span class="line">.&#x2F;elasticsearch -E node.name&#x3D;node3 -E cluster.name&#x3D;geektime -E path.data&#x3D;node3_data -d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以通过<code>GET /_cat/nodes?v</code>查看node0是主节点。</p>
+<h1 id="创建索引与分片"><a href="#创建索引与分片" class="headerlink" title="创建索引与分片"></a>创建索引与分片</h1><p>es在一个有4个节点的集群上创建一个索引，并且索引里面只包含了一个文档，那么这份文档的存储和节点分布是什么样呢？</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test</span><br><span class="line">&#123;</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;number_of_shards&quot;: 3,</span><br><span class="line">    &quot;number_of_replicas&quot;: 2</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实际在4个节点总共有9个分片，3个主分片，6个副本分片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_doc</span><br><span class="line">&#123;</span><br><span class="line">  &quot;company&quot;:&quot;baidu&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;, </span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;company&quot;: &#123;</span><br><span class="line">        &quot;value&quot;: &quot;baidu&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">查看索引在节点的分配</span><br><span class="line">GET &#x2F;_cat&#x2F;shards?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
+
+<p>显示结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">index shard prirep state   docs store ip        node</span><br><span class="line">test  1     r      STARTED    0  230b 127.0.0.1 node2</span><br><span class="line">test  1     p      STARTED    0  230b 127.0.0.1 node3</span><br><span class="line">test  1     r      STARTED    0  230b 127.0.0.1 node0</span><br><span class="line">test  2     r      STARTED    0  230b 127.0.0.1 node1</span><br><span class="line">test  2     r      STARTED    0  230b 127.0.0.1 node2</span><br><span class="line">test  2     p      STARTED    0  230b 127.0.0.1 node0</span><br><span class="line">test  0     r      STARTED    1 3.4kb 127.0.0.1 node1</span><br><span class="line">test  0     p      STARTED    1 3.4kb 127.0.0.1 node2</span><br><span class="line">test  0     r      STARTED    1 3.4kb 127.0.0.1 node3</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/images/shard-legend.png"/>
+
+
+
+<p>可以看到创建一个索引的时候，被分配到4个node，node0是主节点leader节点(图片有星号)，node2~node4是非leader节点。而company=baidu文档被创建时候，被分片到node1，node2，node3上面（docs=1），<strong>每一个文档被分配到一个分片</strong>，node2是primary shard，而node1，node3是replica shard. 而在搜索company=baidu时候，打开profile api，会发现数据查找经历了3个shard，分别是</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot;id&quot; : &quot;[S_H7_aQZQT6N1Xvak3Y5Gg][test][1]&quot;</span><br><span class="line">&quot;id&quot; : &quot;[Y6x8KA6XQzaa4ebI2QKrZg][test][0]&quot;</span><br><span class="line">&quot;id&quot; : &quot;[Y6x8KA6XQzaa4ebI2QKrZg][test][2]&quot;</span><br></pre></td></tr></table></figure>
+
+<p>根据<code>GET /_nodes/_all/nodes</code> 可以获取到节点名字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node0：uvCcgxEFT82xFtQAv9aydA</span><br><span class="line">node1：Y6x8KA6XQzaa4ebI2QKrZg</span><br><span class="line">node2：S_H7_aQZQT6N1Xvak3Y5Gg</span><br><span class="line">node3：BdHl3TItTv6B4BHm1DuwMA</span><br></pre></td></tr></table></figure>
+
+<p>可以得知，查找company=baidu时候，一定会查找三个分片（也就是<strong>number_of_shards</strong>的个数，primary和replica都有可能），profile api显示经历了1次node2[1]和2次node1[0]，node1[2]，恰好查找了三个分片0,1,2。但是文档存储在node1[0]，node2[0]，node3[0]，所以数据最终在node1[0]分片(<strong>replica shard</strong>)上找到了要查找的文档，在node1[2]，node2[1]并没有找到文档。每次重新执行的查找的时候，profile api也会动态变化，查询的节点和分片也会随之变化。（疑问：如果有50个节点，一个索引创建了3个分片(number_of_shards=3)，那么怎么知道需要遍历分片在哪里呢？而不是所有节点遍历一遍，也就是es怎么知道遍历哪些节点呢？所以es一定存了分片和）</p>
+<h1 id="索引常用DSL"><a href="#索引常用DSL" class="headerlink" title="索引常用DSL"></a>索引常用DSL</h1><h2 id="查看节点详情"><a href="#查看节点详情" class="headerlink" title="查看节点详情"></a>查看节点详情</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_nodes</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看索引映射和配置"><a href="#查看索引映射和配置" class="headerlink" title="查看索引映射和配置"></a>查看索引映射和配置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET test</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看索引大小"><a href="#查看索引大小" class="headerlink" title="查看索引大小"></a>查看索引大小</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_cat&#x2F;indices?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看segment"><a href="#查看segment" class="headerlink" title="查看segment"></a>查看segment</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GET &#x2F;_cat&#x2F;segments?v&amp;index&#x3D;test</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+        <category>搜索</category>
+        <category>elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>分布式系统泛型</tag>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>elasticsearch(4) - 常用Composite聚合查询</title>
+    <url>/2021/08/30/elasticsearch-series4-aggregation-search/</url>
+    <content><![CDATA[<p>es常见的聚合查询有composite，现在案例主要是composite聚合例子。</p>
+<h1 id="Bool和Nested查询（订单结算查询）"><a href="#Bool和Nested查询（订单结算查询）" class="headerlink" title="Bool和Nested查询（订单结算查询）"></a>Bool和Nested查询（订单结算查询）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"1"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharer"</span>,</span><br><span class="line">            <span class="attr">"query"</span>: &#123;</span><br><span class="line">              <span class="attr">"term"</span>: &#123;</span><br><span class="line">                <span class="attr">"sharer.sharerId"</span>: &#123;</span><br><span class="line">                  <span class="attr">"value"</span>: <span class="string">"24"</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">201103</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202202</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"categoryId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"1"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">201103</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202202</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"sort"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"orderId"</span>: &#123;</span><br><span class="line">        <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"term"</span>: &#123;</span><br><span class="line">        <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">"from"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"size"</span>: <span class="number">20</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Composite聚合和嵌套聚合（费用统计）"><a href="#Composite聚合和嵌套聚合（费用统计）" class="headerlink" title="Composite聚合和嵌套聚合（费用统计）"></a>Composite聚合和嵌套聚合（费用统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"terms"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: [</span><br><span class="line">              <span class="string">"16861"</span>,</span><br><span class="line">              <span class="string">"25590"</span></span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"sharerTerm"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"202003"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"compositeData"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"sharerId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"beginTerm"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerTerm"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"amortizesNest"</span>: &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharerAmortizes"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">            <span class="attr">"amortizes.term"</span>: &#123;</span><br><span class="line">              <span class="attr">"filter"</span>: &#123;</span><br><span class="line">                <span class="attr">"term"</span>: &#123;</span><br><span class="line">                  <span class="attr">"sharerAmortizes.term"</span>: <span class="number">202002</span></span><br><span class="line">                &#125;</span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                <span class="attr">"amortizes.amount"</span>: &#123;</span><br><span class="line">                  <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                    <span class="attr">"field"</span>: <span class="string">"sharerAmortizes.amount"</span></span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="Compsite聚合和Sum统计（支付摊期统计）"><a href="#Compsite聚合和Sum统计（支付摊期统计）" class="headerlink" title="Compsite聚合和Sum统计（支付摊期统计）"></a>Compsite聚合和Sum统计（支付摊期统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0&amp;request_cache=true</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202110</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202110</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202110</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"term"</span>: &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"value"</span>: <span class="string">"110872"</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"buckets"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"term"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"earningSum"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"earningSum"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.1"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.1"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.2"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.2"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.3"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.3"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.4"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.4"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.5"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.5"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"courseEarning"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"courseEarning"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"cost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"cost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"selfCost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"selfCost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"allCost"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"allCost"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryTaxedFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryTaxedFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"sharerSettles"</span>: &#123;</span><br><span class="line">          <span class="attr">"nested"</span>: &#123;</span><br><span class="line">            <span class="attr">"path"</span>: <span class="string">"sharerSettles"</span></span><br><span class="line">          &#125;,</span><br><span class="line">          <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">            <span class="attr">"sharerSettles.sharerId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"sharerSettles.sharerId"</span>,</span><br><span class="line">                <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">                <span class="attr">"shard_size"</span>: <span class="number">1000</span>,</span><br><span class="line">                <span class="attr">"collect_mode"</span>: <span class="string">"breadth_first"</span></span><br><span class="line">              &#125;,</span><br><span class="line">              <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                <span class="attr">"sharerSettles.rate"</span>: &#123;</span><br><span class="line">                  <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                    <span class="attr">"field"</span>: <span class="string">"sharerSettles.rate_key"</span>,</span><br><span class="line">                    <span class="attr">"size"</span>: <span class="number">100</span>,</span><br><span class="line">                    <span class="attr">"shard_size"</span>: <span class="number">100</span>,</span><br><span class="line">                    <span class="attr">"collect_mode"</span>: <span class="string">"breadth_first"</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">                    <span class="attr">"sharerSettles.shareSum"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.shareSum"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.share"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.share"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.cost"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.cost"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.shareCost"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.shareCost"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.taxedEarning"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.taxedEarning"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.earning"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.earning"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">"sharerSettles.rate"</span>: &#123;</span><br><span class="line">                      <span class="attr">"sum"</span>: &#123;</span><br><span class="line">                        <span class="attr">"field"</span>: <span class="string">"sharerSettles.rate"</span></span><br><span class="line">                      &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Composite聚合（支付方式统计）"><a href="#Composite聚合（支付方式统计）" class="headerlink" title="Composite聚合（支付方式统计）"></a>Composite聚合（支付方式统计）</h1><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">GET /order/_search?size=0&amp;request_cache=true</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"query"</span>: &#123;</span><br><span class="line">    <span class="attr">"bool"</span>: &#123;</span><br><span class="line">      <span class="attr">"must"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"payMonth"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202010</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202011</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">"range"</span>: &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"gte"</span>: <span class="number">202010</span>,</span><br><span class="line">              <span class="attr">"lte"</span>: <span class="number">202011</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">    <span class="attr">"buckets"</span>: &#123;</span><br><span class="line">      <span class="attr">"composite"</span>: &#123;</span><br><span class="line">        <span class="attr">"size"</span>: <span class="number">1000</span>,</span><br><span class="line">        <span class="attr">"sources"</span>: [</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"courseId"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"courseId"</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"desc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"term"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"term"</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"asc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="attr">"payFrom"</span>: &#123;</span><br><span class="line">              <span class="attr">"terms"</span>: &#123;</span><br><span class="line">                <span class="attr">"field"</span>: <span class="string">"payFrom"</span>,</span><br><span class="line">                <span class="attr">"missing_bucket"</span>: <span class="literal">true</span>,</span><br><span class="line">                <span class="attr">"order"</span>: <span class="string">"asc"</span></span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">"aggs"</span>: &#123;</span><br><span class="line">        <span class="attr">"courseEarning"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"courseEarning"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.1"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.1"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.2"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.2"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.3"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.3"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.4"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.4"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"goodsEarning.5"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"goodsEarning.5"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"poundage"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"poundage"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"agentFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"agentFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryTaxedFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryTaxedFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"deliveryFee"</span>: &#123;</span><br><span class="line">          <span class="attr">"sum"</span>: &#123;</span><br><span class="line">            <span class="attr">"field"</span>: <span class="string">"deliveryFee"</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+        <category>搜索</category>
+        <category>elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>elasticsearch</tag>
+        <tag>聚合查询</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>elasticsearch(2)-query的match和term区别</title>
+    <url>/2021/08/29/elasticsearch-series2-match-term/</url>
+    <content><![CDATA[<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>match query在索引和查询时分词，term query在索引时候分词，在查询时候不分词。</p>
+<p>match query是全文搜索，term query是词项搜索。</p>
+<p>match query不是精确搜索，想要精确搜索，使用term keyword query.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DELETE test</span><br><span class="line">PUT test&#x2F;_doc&#x2F;1</span><br><span class="line">&#123;</span><br><span class="line">  &quot;content&quot;:&quot;Hello World&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="match-query"><a href="#match-query" class="headerlink" title="match query"></a>match query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。es的standard分词器会将Hello World索引数据时候，会分解成hello，world.</p>
+<p>而match query会将content进行分词为hello，world。所以可以搜到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。match query会将内容进行分词为hello，world，所以可以查到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。match query keyword会将match query转换为term query，keyword搜索并不会分词，所以搜索不到。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。match query会分词，将match query转换为term query</p>
+<h1 id="term-query"><a href="#term-query" class="headerlink" title="term query"></a>term query</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。term query不会分词，hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回。term query不会分词，数据在content被分成了hello，world.hello world查询不到，因为index时候Hello World被转换成hello，world.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;hello world&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无结果返回，没有hello world，索引时候Hello World分解成hello，world两个词.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">POST test&#x2F;_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;profile&quot;: &quot;true&quot;,</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;term&quot;: &#123;</span><br><span class="line">      &quot;content.keyword&quot;: &quot;Hello World&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有结果返回。精确匹配。term query的精确匹配用keyword。</p>
+]]></content>
+      <categories>
+        <category>分布式系统</category>
+        <category>搜索</category>
+        <category>elasticsearch</category>
+      </categories>
+      <tags>
+        <tag>分布式系统泛型</tag>
+        <tag>elasticsearch</tag>
       </tags>
   </entry>
   <entry>
@@ -1902,6 +1903,62 @@
       </tags>
   </entry>
   <entry>
+    <title>Java类库封装的三步</title>
+    <url>/2023/07/09/java-library-encapsulation/</url>
+    <content><![CDATA[<p>我觉得最重要的要有<strong>一致性</strong>的理念，也就是灵魂。当然也可以在实现完之后提炼一个理念。</p>
+<p>总共分为三步：1. 提炼出一个设计理念 2. 设计实现  3.测试</p>
+<h1 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h1><p>比如有：使用简单，配置灵活，扩展性好，测试完备，具备内部监控。</p>
+<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><h2 id="1-通用实现的结构"><a href="#1-通用实现的结构" class="headerlink" title="1.通用实现的结构"></a>1.通用实现的结构</h2><p>需要给业务层提供通用类库，该以怎么样的方式提供？通常有以下几种方式：</p>
+<ol>
+<li>类似于apache common，JDK这种模式，应用层调用库。</li>
+<li>类似于IOC/框架模式/模板(XXXTemplate)/策略(回调)模式，框架调用应用层代码。典型的如JDBCTemplate或SPI模式。</li>
+<li>类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置，业务层直接使用。</li>
+<li>类似于Spring boot stater+auto-configuration这种模式。</li>
+</ol>
+<h2 id="2-通过JMX暴露操作和属性"><a href="#2-通过JMX暴露操作和属性" class="headerlink" title="2.通过JMX暴露操作和属性"></a>2.通过JMX暴露操作和属性</h2><p>使用Spring的@ManagedResource或者注册到MBeanServer中。</p>
+<p>或者纯JDK的注册到MBeanServer。</p>
+<h2 id="3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互"><a href="#3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互" class="headerlink" title="3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互"></a>3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互</h2><ol>
+<li>通过Springboot Actuator  <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/info/InfoContributor.html" target="_blank" rel="noopener">InfoContributor</a> 接口来暴露endpoint info信息。</li>
+<li>通过自定义的Endpoint来内部信息。</li>
+</ol>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>没有测试的类库质量会较低。</p>
+]]></content>
+      <categories>
+        <category>Java类库设计</category>
+      </categories>
+      <tags>
+        <tag>组件设计</tag>
+        <tag>框架设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kafka监控概览</title>
+    <url>/2022/10/30/kafka-manager-explain/</url>
+    <content><![CDATA[<h1 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h1><h2 id="kafka集群和broker"><a href="#kafka集群和broker" class="headerlink" title="kafka集群和broker"></a>kafka集群和broker</h2><h2 id="Borker"><a href="#Borker" class="headerlink" title="Borker"></a>Borker</h2><h2 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h2><h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h2><h3 id="JMX-type-producer-metrics"><a href="#JMX-type-producer-metrics" class="headerlink" title="JMX type=producer-metrics"></a>JMX type=producer-metrics</h3><p>record-error-rate</p>
+<p>record-retry-rate</p>
+<p>request-latency-avg</p>
+<p>outgoing-byte-rate</p>
+<p>record-send-rate</p>
+<p>request-rate</p>
+<p>request-size-avg</p>
+<p>batch-size-avg</p>
+<p>record-size-avg</p>
+<p>records-per-request-avg</p>
+<p>record-queue-time-avg</p>
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><h3 id="JMX-type-consumer-fetch-manager-metrics"><a href="#JMX-type-consumer-fetch-manager-metrics" class="headerlink" title="JMX type=consumer-fetch-manager-metrics"></a>JMX type=consumer-fetch-manager-metrics</h3><p>fetch-latency-avg</p>
+<p>records-lag-max</p>
+<p>bytes-consumed-rate</p>
+<p>records-consumed-rate</p>
+<p>fetch-rate</p>
+<p>fetch-size-avg</p>
+<p>records-per-request-avg</p>
+<h3 id="JMX-type-consumer-coordinator-metrics"><a href="#JMX-type-consumer-coordinator-metrics" class="headerlink" title="JMX type=consumer-coordinator-metrics"></a>JMX type=consumer-coordinator-metrics</h3><p>sync-time-avg</p>
+<p>sync-rate</p>
+<p>commit-latency-avg</p>
+<p>assigned-partitions</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Java应用层实现MySQL读写分离</title>
     <url>/2022/07/02/java-impl-rw-separate/</url>
     <content><![CDATA[<h1 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h1><p>实现读写分离一般有4种机制：</p>
@@ -1944,33 +2001,6 @@
         <tag>读写分离</tag>
         <tag>应用设计</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Kafka监控概览</title>
-    <url>/2022/10/30/kafka-manager-explain/</url>
-    <content><![CDATA[<h1 id="Broker"><a href="#Broker" class="headerlink" title="Broker"></a>Broker</h1><h2 id="kafka集群和broker"><a href="#kafka集群和broker" class="headerlink" title="kafka集群和broker"></a>kafka集群和broker</h2><h2 id="Borker"><a href="#Borker" class="headerlink" title="Borker"></a>Borker</h2><h2 id="Topic"><a href="#Topic" class="headerlink" title="Topic"></a>Topic</h2><h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="生产者"><a href="#生产者" class="headerlink" title="生产者"></a>生产者</h2><h3 id="JMX-type-producer-metrics"><a href="#JMX-type-producer-metrics" class="headerlink" title="JMX type=producer-metrics"></a>JMX type=producer-metrics</h3><p>record-error-rate</p>
-<p>record-retry-rate</p>
-<p>request-latency-avg</p>
-<p>outgoing-byte-rate</p>
-<p>record-send-rate</p>
-<p>request-rate</p>
-<p>request-size-avg</p>
-<p>batch-size-avg</p>
-<p>record-size-avg</p>
-<p>records-per-request-avg</p>
-<p>record-queue-time-avg</p>
-<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><h3 id="JMX-type-consumer-fetch-manager-metrics"><a href="#JMX-type-consumer-fetch-manager-metrics" class="headerlink" title="JMX type=consumer-fetch-manager-metrics"></a>JMX type=consumer-fetch-manager-metrics</h3><p>fetch-latency-avg</p>
-<p>records-lag-max</p>
-<p>bytes-consumed-rate</p>
-<p>records-consumed-rate</p>
-<p>fetch-rate</p>
-<p>fetch-size-avg</p>
-<p>records-per-request-avg</p>
-<h3 id="JMX-type-consumer-coordinator-metrics"><a href="#JMX-type-consumer-coordinator-metrics" class="headerlink" title="JMX type=consumer-coordinator-metrics"></a>JMX type=consumer-coordinator-metrics</h3><p>sync-time-avg</p>
-<p>sync-rate</p>
-<p>commit-latency-avg</p>
-<p>assigned-partitions</p>
-]]></content>
   </entry>
   <entry>
     <title>项目，Kafka消费组和Topic关系</title>
@@ -2058,129 +2088,6 @@
       </categories>
       <tags>
         <tag>OOD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>软考-高级架构师历年论文汇总</title>
-    <url>/2021/10/07/ruankao-architect-paper/</url>
-    <content><![CDATA[<table>
-<thead>
-<tr>
-<th>年份</th>
-<th>1试题一</th>
-<th>2试题二</th>
-<th>3试题三</th>
-<th>4试题四</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>2020</td>
-<td>论数据分片技术及其应用</td>
-<td>论云原生架构及其应用</td>
-<td>论软件测试中缺陷管理以及应用</td>
-<td>论企业集成架构设计以及应用</td>
-</tr>
-<tr>
-<td>2019</td>
-<td>论负载均衡技术在Web系统中的应用</td>
-<td>论数据湖技术及其应用</td>
-<td>论软件系统架构评估及其应用</td>
-<td>论软件设计方法以及应用</td>
-</tr>
-<tr>
-<td>2018</td>
-<td>论软件开发过程RUP以及应用</td>
-<td>论软件体系结构的演化</td>
-<td>论面向服务架构设计与应用</td>
-<td><strong>论NoSQL数据库技术以及应用</strong></td>
-</tr>
-<tr>
-<td>2017</td>
-<td>论软件系统建模方法以及应用</td>
-<td><strong>论软件架构风格</strong></td>
-<td>论无服务器架构以及应用</td>
-<td>论软件质量保证及其应用</td>
-</tr>
-<tr>
-<td>2016</td>
-<td><strong>论软件系统架构评估</strong></td>
-<td><strong>论软件设计模式以及应用</strong></td>
-<td>论数据访问层设计技术以及应用</td>
-<td>论微服务架构及其应用</td>
-</tr>
-<tr>
-<td>2015</td>
-<td>论应用服务器基础软件</td>
-<td>论软件系统架构风格</td>
-<td><strong>论面向服务的架构及其应用</strong></td>
-<td><strong>论企业集成平台的技术以及应用</strong></td>
-</tr>
-<tr>
-<td>2014</td>
-<td>论软件需求管理</td>
-<td>论非功能性需求对企业应用架构设计的影响</td>
-<td><strong>论软件的可靠性设计</strong></td>
-<td>论网络安全体系设计</td>
-</tr>
-<tr>
-<td>2013</td>
-<td>论软件架构建模技术与应用</td>
-<td><strong>论企业应用系统的分层架构风格</strong></td>
-<td>论软件可靠性设计技术以及应用</td>
-<td>论分布式存储系统架构设计</td>
-</tr>
-<tr>
-<td>2012</td>
-<td>论企业信息化规划的实施与应用</td>
-<td>论决策支持系统的开发与应用</td>
-<td>论企业应用系统的数据持久层架构设计</td>
-<td>论基于架构的软件设计方法(ABSD)以及应用</td>
-</tr>
-<tr>
-<td>2011</td>
-<td>论模型驱动架构在系统开发中的应用</td>
-<td>论企业集成平台的架构设计</td>
-<td>论企业架构管理与应用</td>
-<td>论软件需求获取技术以及应用</td>
-</tr>
-<tr>
-<td>2010</td>
-<td>论软件的静态演化和动态演化及其应用</td>
-<td>论数据挖掘技术的应用</td>
-<td>论大规模分布式系统缓存设计策略</td>
-<td>论软件可靠性评价</td>
-</tr>
-<tr>
-<td>2009</td>
-<td>论基于DSSA的软件架构设计与应用</td>
-<td>论信息系统建模方法</td>
-<td>论基于REST服务的Web应用系统设计</td>
-<td>论软件可靠性设计与应用</td>
-</tr>
-</tbody></table>
-<p><strong>往年考题需要针对几个类型去练习</strong>：</p>
-<p>1 架构风格</p>
-<p>2 面向服务的架构</p>
-<p>3 架构评估</p>
-<p>4 企业应用集成</p>
-<p>5 软件可靠性设计</p>
-<p>6 多层架构</p>
-<p>7 设计模式</p>
-<p><strong>时间规划</strong></p>
-<p>2021-10-10  软件架构风格</p>
-<p>2021-11-16  设计模式</p>
-<p>2021-11-17  面向服务的架构</p>
-<p>2021-11-23 企业应用集成</p>
-<p>2021-11-24 多层架构</p>
-<p>2021-11-30 架构评估</p>
-<p>2021-11-31 软件可靠性设计</p>
-]]></content>
-      <categories>
-        <category>考试</category>
-        <category>软考</category>
-      </categories>
-      <tags>
-        <tag>高级架构师论文</tag>
       </tags>
   </entry>
   <entry>
@@ -2539,35 +2446,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java类库封装的三步</title>
-    <url>/2023/07/09/java-library-encapsulation/</url>
-    <content><![CDATA[<p>我觉得最重要的要有<strong>一致性</strong>的理念，也就是灵魂。当然也可以在实现完之后提炼一个理念。</p>
-<p>总共分为三步：1. 提炼出一个设计理念 2. 设计实现  3.测试</p>
-<h1 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h1><p>比如有：使用简单，配置灵活，扩展性好，测试完备，具备内部监控。</p>
-<h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><h2 id="1-通用实现的结构"><a href="#1-通用实现的结构" class="headerlink" title="1.通用实现的结构"></a>1.通用实现的结构</h2><p>需要给业务层提供通用类库，该以怎么样的方式提供？通常有以下几种方式：</p>
-<ol>
-<li>类似于apache common，JDK这种模式，应用层调用库。</li>
-<li>类似于IOC/框架模式/模板(XXXTemplate)/策略(回调)模式，框架调用应用层代码。典型的如JDBCTemplate或SPI模式。</li>
-<li>类似于普通Spring模式，提供库，并且暴露配置且提供默认配置，由应用层自定义设置，业务层直接使用。</li>
-<li>类似于Spring boot stater+auto-configuration这种模式。</li>
-</ol>
-<h2 id="2-通过JMX暴露操作和属性"><a href="#2-通过JMX暴露操作和属性" class="headerlink" title="2.通过JMX暴露操作和属性"></a>2.通过JMX暴露操作和属性</h2><p>使用Spring的@ManagedResource或者注册到MBeanServer中。</p>
-<p>或者纯JDK的注册到MBeanServer。</p>
-<h2 id="3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互"><a href="#3-通过自定义Spring-Boot-Actuator-endpoint和InfoContributor监控和交互" class="headerlink" title="3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互"></a>3.通过自定义Spring Boot Actuator endpoint和InfoContributor监控和交互</h2><ol>
-<li>通过Springboot Actuator  <a href="https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/actuate/info/InfoContributor.html" target="_blank" rel="noopener">InfoContributor</a> 接口来暴露endpoint info信息。</li>
-<li>通过自定义的Endpoint来内部信息。</li>
-</ol>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>没有测试的类库质量会较低。</p>
-]]></content>
-      <categories>
-        <category>Java类库设计</category>
-      </categories>
-      <tags>
-        <tag>组件设计</tag>
-        <tag>框架设计</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>软考-高级架构师历年案例分析</title>
     <url>/2021/10/09/ruankao-architect-case-analysis/</url>
     <content><![CDATA[<table>
@@ -2881,6 +2759,184 @@
       </categories>
       <tags>
         <tag>高级架构师案例分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL表情况概览</title>
+    <url>/2023/01/19/slow-sql-optimization/</url>
+    <content><![CDATA[<h1 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show table status like &#39;%table_x&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> SELECT</span><br><span class="line">    table_name,</span><br><span class="line">    engine,</span><br><span class="line">    row_format,</span><br><span class="line">    table_rows,</span><br><span class="line">    avg_row_length AS avg_row,</span><br><span class="line">    ROUND((data_length + index_length) &#x2F; 1024 &#x2F; 1024,</span><br><span class="line">            2) AS total_mb,</span><br><span class="line">    ROUND((data_length) &#x2F; 1024 &#x2F; 1024, 2) AS data_mb,</span><br><span class="line">    ROUND((index_length) &#x2F; 1024 &#x2F; 1024, 2) AS index_mb</span><br><span class="line">FROM</span><br><span class="line">    information_schema.tables</span><br><span class="line">WHERE</span><br><span class="line">    table_schema &#x3D; &#39;xxx&#39;</span><br><span class="line">AND table_name &#x3D; &#39;yyy&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show index from table_x;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">desc table_x;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show create table table_x;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT xxx)&#x2F;COUNT(*) AS xxx_selectivity,COUNT(*) AS total  FROM table_x;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-extra-information" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-extra-information</a></p>
+<p>order优化：<a href="https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html</a></p>
+<p>groupby优化：<a href="https://dev.mysql.com/doc/refman/8.0/en/group-by-optimization.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/group-by-optimization.html</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>SQL</category>
+      </categories>
+      <tags>
+        <tag>SQL优化</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>COSEA模型:软件系统模型的探索(1)</title>
+    <url>/2022/10/30/system-research-template/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>系统研究，首先需要还原论，然后是系统论。<strong>还原论</strong>把系统进行拆解，对每一部分进行深入研究，相对静态，<strong>系统论</strong>将每一部分进行整合，形成整体，与外部进行交互，相对动态。如<strong>《庄子 · 养生主第三》庖丁解牛所言：“臣之所好者，道也，进乎技矣。始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行”</strong>。研究递进层次和生物学类似，从细胞（源码）-&gt;组织（包）-&gt;器官（功能）-&gt;系统（模块）-&gt;人体（软件）-&gt; 生态（生态圈）。本文主要探讨了对软件系统的研究模型，模型对技术选型，体系化认知，以及更进一步学习技术有帮助。</p>
+<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p><img src="/images/System-Reasearch.png" alt="任务结构"></p>
+<p><strong>COSEA</strong>模型是软件系统模型，全称 C：Config配置，O：Operation运维，S：System系统，E：Ecosystem生态，A：Admin管理。</p>
+<p>模型回答了一个核心问题：<strong>如何研究软件系统？</strong></p>
+<p>模型给出的答案是：从配置C，运维O，系统S，生态E，管理A这五个角度研究软件系统。</p>
+<p>黄色方框是五个最重要的因素，层级较高，蓝色方框是对五个因素的分解。总而言之：<strong>配置和运维影响系统，而系统会产生生态和管理</strong>。字母<strong>顺序</strong>也暗含了，先配置，后运维（安装），然后系统跑起来，然后产生管理和生态。</p>
+<h2 id="Config-配置"><a href="#Config-配置" class="headerlink" title="Config:配置"></a>Config:配置</h2><p>服务器配置，客户端配置等，理解配置对于<strong>理解</strong>系统，以及系统<strong>调优</strong>非常重要，很多系统概念都在配置中体现，系统的<strong>权衡</strong>也在配置中体现，需要精通最<strong>常用</strong>的配置。很多时候，调优的一大部分其实是改配置。配置分为<strong>操作系统层</strong>的<strong>CPU（线程数），内存（虚拟内存），网络，磁盘</strong>，以及<strong>系统层</strong>的优化。系统层和操作系统层互相影响。借助操作系统实现系统本身的，操作系统配置非常重要。系统层配置也通过<strong>分形原则</strong>到达了操作系统层。通用配置有：压缩算法选择，磁盘读取/写入，缓存，线程。</p>
+<h2 id="Operation-运维"><a href="#Operation-运维" class="headerlink" title="Operation:运维"></a>Operation:运维</h2><p>运维包括维护，安装，备份，硬件，安全，部署。包括常用命令，线上配置等。</p>
+<h2 id="System-系统"><a href="#System-系统" class="headerlink" title="System:系统"></a>System:系统</h2><p>系统是软件本身，包括<strong>架构</strong>和<strong>功能</strong>，架构包括设计和实现，功能有读写功能，以及业务代码编写等。系统架构回答的基本问题是：<strong>读写流程是什么？以及启动流程？</strong>功能和架构相互影响的是单机和分布式。<strong>单机特性</strong>有：数据模型，存储模型，读写性能，启动流程等，<strong>分布式特性</strong>有：<strong>用户视角</strong>：读/写(增删改查)路径，启动/关闭过程，<strong>系统视角</strong>：一致性模型，复制，分区，共识，容错。复制，共识，分区等等细节都会在用户读写路径视角展现。而系统视角具有通用性的，可以和其他系统进行<strong>类比</strong>，也可以更深一步分析（CAP，PACELC等）。系统核心是：<strong>内部实现，外部交互，系统属性</strong>。总结如下：</p>
+<ul>
+<li>内部实现，外部交互，系统属性。</li>
+<li>单机特性（对标数据库）<ul>
+<li>数据模型，存储模型，查询模型（读写性能）</li>
+</ul>
+</li>
+<li>分布式特性（对标分布式系统）<ul>
+<li>用户视角：读写路径，启动/关闭。</li>
+<li>系统视角：复制和一致性，容错，分区，共识。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Ecosystem-生态"><a href="#Ecosystem-生态" class="headerlink" title="Ecosystem:生态"></a>Ecosystem:生态</h2><p>生态是围绕该软件的工具链，培训，开源社区，公司，客户，基金会，出版书籍，论文，创始人履历等等。</p>
+<h2 id="Admin-管理"><a href="#Admin-管理" class="headerlink" title="Admin:管理"></a>Admin:管理</h2><p>管理主要是监控，包括管理控制台，主要判断系统是否健康，以及内部状态统计等。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不同角色关注系统点不一样，想要全面了解系统，以上所有点均需要学习，不求甚解，对系统形成完整认识。本文虽然在讲系统，但是抽象层次还是较低，不够通用，但较为实用。</p>
+]]></content>
+      <categories>
+        <category>模型</category>
+        <category>软件模型</category>
+      </categories>
+      <tags>
+        <tag>软件系统模型</tag>
+        <tag>创造</tag>
+        <tag>COSEA策略</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>持续集成之实践单元测试</title>
+    <url>/2020/12/02/unit-test/</url>
+    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
+<p><strong>Design</strong>：如果我的代码很难测试，那么对客户端来说设计不佳。</p>
+<p><strong>Cohesive</strong>：如果需要为一个类编写很多测试，就会意识到内聚性不足。</p>
+<p><strong>Loosely Couped</strong>：如果我的测试有很多无关的依赖，那么一定是耦合过多了。 </p>
+<p><strong>Encapsulated</strong>：如果我的测试依赖于实现细节，那么肯定是封装出现了问题。</p>
+<p><strong>Assertive</strong>：如果测试结果在被测对象以外对象中体现，我的对象可能不够自主。</p>
+<p><strong>Nonredundant</strong>：如果我一遍一遍编写同样的测试，那肯定出现了冗余。</p>
+<p>一个常规的CI流程如下：</p>
+<img src="/images/CI.png" style="zoom:80%;" />
+
+<p>从编译源码-》持续集成数据库-》持续测试-》持续审查-》持续部署-》持续反馈，我们在编译源码和持续部署做的很好，但是在改进质量并降低风险的<strong>持续测试</strong>和<strong>持续审查</strong>做的不好，导致软件质量差，代码烂，重复率高。本文主要对持续测试中的单元测试作为实战基础来讲解一个例子，因为这是一个起点，虽然单独通过<strong>持续审查</strong>也能提高质量，但是由于业务压力和人员变更使得代码变乱，光靠审查无法为迭代的业务提供持续的重构保证，也无法自动化基础设施。</p>
+<h1 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h1><h2 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h2><p>单元测试框架<a href="https://junit.org/junit5/" target="_blank" rel="noopener">junit5</a>，mock框架<a href="https://site.mockito.org/" target="_blank" rel="noopener">mockito</a>，断言框架<a href="https://joel-costigliola.github.io/assertj/" target="_blank" rel="noopener">assertj</a> </p>
+<h2 id="案例一-使用Mock取代依赖"><a href="#案例一-使用Mock取代依赖" class="headerlink" title="案例一:使用Mock取代依赖"></a>案例一:使用Mock取代依赖</h2><p>以下这段代码即调用了Redis，也调用了第三方接口，还调用了数据库，是一个比较综合的案例，我们来一起看看如何将他变成方便测试的代码，并且保证如何通过单元测试达到覆盖率。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceImpl</span> <span class="keyword">implements</span> <span class="title">TaskCenterWithdrawService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine remote;<span class="comment">//调用第三方</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;<span class="comment">//关联DB</span></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startWithdraw</span><span class="params">(String coinSymbol, String walletSymbol, String appId,</span></span></span><br><span class="line"><span class="function"><span class="params">                              TransactionWithdrawCrypto twc)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        TransactionWithdrawCrypto withdrawCrypto = withdrawService.selectByIdAndLock(twc.getId());<span class="comment">//查询数据库</span></span><br><span class="line">        String payload = generateWithdrawRequest(coinSymbol, walletSymbol, withdrawCrypto);<span class="comment">//构造请求参数，里面查询静态方法</span></span><br><span class="line">        String result = remote.startWithdraw(appId, payload);<span class="comment">//调用第三方接口返回结果</span></span><br><span class="line">        WalletResponseCode responseCode = WalletResponseCode.ofCode(result);</span><br><span class="line">        <span class="keyword">switch</span> (responseCode) &#123;</span><br><span class="line">            <span class="keyword">case</span> SUCCESS:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> WITHDRAW_ADDR_ERROR:</span><br><span class="line">            <span class="keyword">case</span> WITHDRAW_CANNOT_TO_SELF: &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    withdrawService.cancelWithdraw();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    log.error(<span class="string">"startWithdrawRequest cancel withdrawCrypto id : &#123;&#125; error "</span>,</span><br><span class="line">                              withdrawCrypto.getId(), e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;   </span><br><span class="line">            <span class="keyword">default</span>:                </span><br><span class="line">                cancelWithdrawIfAdminConfiged(withdrawCrypto.getId(), responseCode);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">          </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">generateWithdrawRequest</span><span class="params">(String coinSymbol, String walletSymbol,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       TransactionWithdrawCrypto c)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//......里面查询了redis</span></span><br><span class="line">    ConfigCoinSymbol c = CoinSymbolUtils.getSaaSInfo(coinSymbol);</span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">    <span class="keyword">return</span> ....;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们看到这个代码，需要思考测试什么才能证明代码没有错呢？既当什么情况下，你期望发生什么。来看看我们得期望：</p>
+<p>1   当第三方接口返回成功时候，该方法结束。</p>
+<p>2   当第三方接口返回WITHDRAW_ADDR_ERROR或者WITHDRAW_CANNOT_TO_SELF，我们需要调用cancelWithdraw，</p>
+<p>3   当第三方接口返回其他情况时候，调用cancelWithdrawIfAdminConfiged方法。</p>
+<p>4   当传入不同币种的时候，generateWithdrawRequest产生不同的请求。</p>
+<p>我们仅仅需要验证这些就够了，因为TaskCenterWithdrawServiceImpl得协作者的产生的行为仅仅如此，至于协作者行为的可靠性，需要协作者自身去验证，而不是在该测试中验证。</p>
+<h3 id="第一步-依赖注入解耦"><a href="#第一步-依赖注入解耦" class="headerlink" title="第一步 依赖注入解耦"></a>第一步 依赖注入解耦</h3><p>spring字段注入导致单元测试困难，因为你无法实例化类中的对象，所以在TaskCenterWithdrawServiceImpl中将字段注入改成构造器注入或者属性注入。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceImpl</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine httpEncryptDecryptEngine;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHttpEncryptDecryptEngine</span><span class="params">(HttpEncryptDecryptEngine httpEncryptDecryptEngine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.httpEncryptDecryptEngine = httpEncryptDecryptEngine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWithdrawService</span><span class="params">(WithdrawService withdrawService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.withdrawService = withdrawService;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="第二步-静态方法抽离接口"><a href="#第二步-静态方法抽离接口" class="headerlink" title="第二步 静态方法抽离接口"></a>第二步 静态方法抽离接口</h3><p>不是所有静态方法都需要抽离成接口，由于项目中CoinSymbolUtils.getSaaSInfo调用了数据库和redis，所以此时你无法真实调用数据库和redis，因为在脱离spring环境你无法创建这两个对象，所以抽离成接口可以mock改接口。如果是普通的工具类，让他执行即可。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CoinSymbolOperator</span> </span>&#123;</span><br><span class="line">    <span class="function">ConfigCoinSymbol <span class="title">getSaaSInfoAll</span><span class="params">(String coinSymbol)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之前工具类实现该接口，并且调用之前静态方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoinSymbolUtils</span> <span class="keyword">implements</span>  <span class="title">CoinSymbolOperator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> ConfigCoinSymbol <span class="title">getSaaSInfoAll</span><span class="params">(String coinSymbol)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getSaaSInfo(coinSymbol);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第三步-测试mock对象"><a href="#第三步-测试mock对象" class="headerlink" title="第三步 测试mock对象"></a>第三步 测试mock对象</h3><p>mock对象我们使用的是<strong>mockito</strong>框架。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceMockTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//待测试的类</span></span><br><span class="line">    <span class="keyword">private</span> TaskCenterWithdrawServiceImpl taskCenterWithdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine httpEncryptDecryptEngine;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> CoinSymbolOperator coinSymbolOperator;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建TaskCenterWithdrawService对象</span></span><br><span class="line">    httpEncryptDecryptEngine = mock(HttpEncryptDecryptEngine<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    withdrawService = mock(WithdrawService<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    <span class="comment">//mock静态方法拆离的接口在这里需要注入到TaskCenterWithdrawService中</span></span><br><span class="line">    coinSymbolOperator = mock(CoinSymbolOperator<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    taskCenterWithdrawService = <span class="keyword">new</span> <span class="keyword">new</span> TaskCenterWithdrawServiceImpl();</span><br><span class="line">    taskCenterWithdrawService.setHttpEncryptDecryptEngine(httpEncryptDecryptEngine);</span><br><span class="line">    taskCenterWithdrawService.setWithdrawService(withdrawService);</span><br><span class="line">    taskCenterWithdrawService.setCoinSymbolOperator(coinSymbolOperator);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第四步-编写测试方法"><a href="#第四步-编写测试方法" class="headerlink" title="第四步 编写测试方法"></a>第四步 编写测试方法</h3><p>测试方法必须要写assertions和你要验证的东西，否则这个单元测试没有意义。这个测试没有用到<strong>assertj</strong>  ，而是使用了<strong>mockito</strong>自带的verify方法验证。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startWithdraw</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="comment">//given willReturn 短语帮助我们构造期望的输入和输出，含义是当满足xxx条件时候，发生什么，期望什么结果。</span></span><br><span class="line">    <span class="comment">//当给getWalletUid传入任意int和string时候，调用cryptoAddressService.getWalletUid，期望返回123</span></span><br><span class="line">    given(cryptoAddressService.getWalletUid(anyInt(), anyString())).willReturn(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造期望的返回值</span></span><br><span class="line">    TransactionWithdrawCrypto transactionWithdrawCrypto = <span class="keyword">new</span> TransactionWithdrawCrypto();</span><br><span class="line">    transactionWithdrawCrypto.setAddressFrom(<span class="string">"alibaba"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setFee(<span class="keyword">new</span> BigDecimal(<span class="string">"456.777"</span>));</span><br><span class="line">    transactionWithdrawCrypto.setSymbol(<span class="string">"USDT"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setAddressTo(<span class="string">"baidu"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setUid(<span class="number">111111111</span>);</span><br><span class="line"></span><br><span class="line">    transactionWithdrawCrypto.setAmount(<span class="keyword">new</span> BigDecimal(<span class="string">"123.444"</span>));</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(withdrawService.selectByIdAndLock(anyInt())).willReturn(transactionWithdrawCrypto);</span><br><span class="line"></span><br><span class="line">    ConfigCoinSymbol ccs = <span class="keyword">new</span> ConfigCoinSymbol();</span><br><span class="line">    ccs.setTokenBase(<span class="string">"BTC"</span>);</span><br><span class="line">    ccs.setContractAddress(<span class="string">"BTC_ContractAddress"</span>);</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(coinSymbolOperator.from(<span class="string">"USDT"</span>)).willReturn(ccs);</span><br><span class="line"></span><br><span class="line">    Map&lt;String,String&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    result.put(<span class="string">"code"</span>, WalletResponseCode.SUCCESS.getCode());</span><br><span class="line">    result.put(<span class="string">"message"</span>, WalletResponseCode.SUCCESS.getMessage());</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(httpEncryptDecryptEngine.startWithdraw(anyString(), anyString())).willReturn(JSON.toJSONString(result));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//和given，willReturn一样的效果</span></span><br><span class="line">    <span class="comment">//when(httpEncryptDecryptEngine.startWithdraw(anyString(), anyString())).thenReturn("111111111");</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这一步是将之前mock的对象和数据以及构造期望输入和输出串联起来执行。</span></span><br><span class="line">    taskCenterWithdrawService.startWithdraw(<span class="string">"USDT"</span>, <span class="string">"BTC"</span>, <span class="string">"aaaa"</span>, <span class="keyword">new</span> TransactionWithdrawCrypto());</span><br><span class="line"></span><br><span class="line">    <span class="comment">//由于该方法是void所以需要验证方法是否被调用.比如断言getWalletUid是否被调用，比如第三方接口返回值不同调用不同的方法</span></span><br><span class="line">    <span class="comment">//来使得代码覆盖率比较高</span></span><br><span class="line">    verify(<span class="keyword">this</span>.cryptoAddressService).getWalletUid(<span class="number">111111111</span>, <span class="string">"BTC"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="案例二：关联数据库的单元测试"><a href="#案例二：关联数据库的单元测试" class="headerlink" title="案例二：关联数据库的单元测试"></a>案例二：关联数据库的单元测试</h2><p>有些测试必须关联数据库或者第三方接口，此时不得不接受使用外部资源这一现实。这时候测试关联数据库的必须保证测试前数据库状态和测试后状态一致。我们来建立一个test fixture来验证一个CRUD的正确性。在每个方法执行前用@BeforeEach中建立Account对象，在integrateTestDataBaseCRUD中测试CRUD方法，在每个方法结束后用@AfterEach清除数据库对象，使得测试前后数据库状态幂等。我曾经遇到一个必须使用第三方资源场景是 本地代码必须调用第三方接口来验证程序，以及在集成测试时候，也主要验证第三方接口，程序本身逻辑很少。这时候就必须使用外部依赖来完成单元测试。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AccountService accountService;</span><br><span class="line">    <span class="keyword">private</span> Account account;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeEach</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        account = Account.builder().</span><br><span class="line">                balance(<span class="keyword">new</span> BigDecimal(<span class="string">"67.88"</span>)).</span><br><span class="line">                type(<span class="number">111</span>).</span><br><span class="line">                uid(<span class="number">445</span>).</span><br><span class="line">                tag(<span class="string">"33"</span>).</span><br><span class="line">                build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">integrateTestDataBaseCRUD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        accountService.insert(account);</span><br><span class="line">        <span class="keyword">long</span> id = account.getId();</span><br><span class="line">        Account accountFind = accountService.get(id);</span><br><span class="line">        accountFind.setBalance(<span class="keyword">new</span> BigDecimal(<span class="string">"366334"</span>));</span><br><span class="line">        accountService.update(accountFind);</span><br><span class="line">        Account accountUpdate = accountService.get(id);</span><br><span class="line">        accountService.delete(id);</span><br><span class="line">        Account accountDelete = accountService.get(id);</span><br><span class="line"></span><br><span class="line">        assertAll(<span class="string">"test"</span>, () -&gt; &#123;</span><br><span class="line">            assertEquals(accountFind.getBalance().stripTrailingZeros().toPlainString(),</span><br><span class="line">                    accountUpdate.getBalance().stripTrailingZeros().toPlainString());</span><br><span class="line">        &#125;);</span><br><span class="line">        assertNull(accountDelete);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterEach</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        accountService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们可以看到上述两个案例都是先写代码后写单元测试，这样可能导致单元测试很难测试代码，给遗留系统添加单元测试也很繁琐，所以需要从设计层面改进代码，使之更加容易测试和验证。更优秀的做法是实践TDD，这样代码天然可测试。</p>
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p><strong>1 单元测试的价值在哪里？</strong> 1  保证代码质量，当然质量保证不仅仅靠单元测试。当你看到队友提交了一些代码，确发现单元测试覆盖率降低了，就知道他的提交可能带来代码质量下降。 2  代码可测试性往往带来灵活的设计。  3  你不仅仅在写单元测试，而是实践自动化测试，实践着CI </p>
+<p><strong>2  遗留系统很多没有单元测试，我需要补吗？</strong>1  当你修改老代码的时候，加一个单元测试。 2 依赖最多的，访问最多的需要补充。 3 试图在遗留系统上加单元测试很困难，并且使之成为自动化测试，但是需要尝试，新的代码尝试TDD。</p>
+<p><strong>3  我觉得有些情况需要读取数据库，看到数据落库心里才踏实，这时候写单元测试需要连数据库吗？</strong>单元测试不连库，连库的叫集成测试，单元测试验证是逻辑，数据库只是细节实现，你的代码可以脱离SSM，MySQL….. 在实践中你会真正理解解耦的。你的踏实和自信应该建立在独立性和不依赖外界细节上，而不是数据归属地到底是哪里。如果一些测试必须要用数据库，请使用test fixture。保证单元测试前和单元测试后数据库状态一致。</p>
+<p><strong>4  什么时候用Mock或者Stub？</strong> 能不用就不用，最简单的方式验证你的代码是否正确。</p>
+<p><strong>5  DAO层的实体对象需要手动new吗？</strong> 取决于你验证的是什么。随着积累会建立实体对象的测试仓库。</p>
+<p><strong>6  单元测试能检测什么类型bug？</strong> 测不出与数据库交互和第三方接口的BUG，这不是单元测试职责，但是你可以在单元测试中调用第三方，然后发布时候@Disable该测试即可。</p>
+<p><strong>7 为什么不用junit自带的断言，而是第三方断言？</strong> junit断言可读性不好，而且需要自己写断言逻辑，assertXXX，而assertj里面assertThat可以方便断言和真正验证的东西相匹配。</p>
+<p><strong>8 先写测试还是先写代码？</strong> 先写测试的系统天然适合自动化测试，先写代码在写测试，极大可能不写测试了。</p>
+<p>这些只是个人观点，实践过程有更好的方法或者理解，可以推翻。单元测试价值不应该被夸大，但也不该被忽视。它是能提高设计和质量的重要工具，因为相信，所以看见。</p>
+<h1 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h1><ul>
+<li>《测试驱动开发》</li>
+<li>《持续集成-软件质量改进和风险降低之道》</li>
+</ul>
+]]></content>
+      <categories>
+        <category>持续集成</category>
+        <category>单元测试</category>
+      </categories>
+      <tags>
+        <tag>单元测试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么使用消息队列？</title>
+    <url>/2024/03/02/why-choose-mq/</url>
+    <content><![CDATA[<h1 id="必言利"><a href="#必言利" class="headerlink" title="必言利"></a>必言利</h1><p>消息队列作为核心中间件被广泛使用于应用系统，可是我们为什么要使用它呢？</p>
+<p>当然是它能带来好处，一般所认为好处有：</p>
+<ol>
+<li>提高系统稳定性。A，B系统不一定同时在线，或系统故障，或系统属性，所以需要临时数据存储地方，比如邮箱系统。</li>
+<li>提高系统伸缩性。这个是分布式系统带来的能力，分布式的消息队列也能带来这些能力。</li>
+<li>异步化处理。同步处理太慢，或者没办法同步处理（对方系统不在线）时候，异步化处理能保证系统最终处理。消息队列可以异步化处理，但是异步化不是消息队列。</li>
+<li>削峰填谷。在流量大的时候，通过消息队列暂时处理请求，让系统慢慢处理。</li>
+<li>系统间信息传递。比如ETL，作为系统间的桥梁进行数据交换。</li>
+<li>解耦。A系统发送N个消息给B系统，C系统，B要发系统给C，A等等，那么会导致系统耦合性很高，不如发送给一个中间节点，让接收方来订阅消息。</li>
+</ol>
+<p>上面6条均是消息队列所带来的好处，但是不够言简意赅，因为有些是功能带来的，有些是队列本身带来的，有些互为因果，我觉得根本在于：</p>
+<ol>
+<li><strong>系统层面</strong>来看，它解决了系统处理速度的不同。</li>
+<li><strong>数据层面</strong>来看，它解决了动态数据管理问题。</li>
+</ol>
+<h1 id="系统层面"><a href="#系统层面" class="headerlink" title="系统层面"></a>系统层面</h1><p>消息队列是一种有界缓冲区（Bounded buffer），用来处理系统间速度不一致。正是因为速度不一样，某个系统/操作明显很慢，所以需要缓冲区来进行处理。比如异步化处理时候，或者削峰填谷，均是系统间速度差异导致的问题，理想情况系统产生数据直接完美存入数据库，但是数据库处理能力跟不上。请求量过大，系统本身也可能处理不了，所以需要外部系统暂时存下，等后续有时间再处理。解耦只要引入第三方系统，都能解耦，所以不是消息队列带来的，而是消息队列对解耦处理的更好，比如发布订阅机制。</p>
+<p>这里强调系统间速度，而不是单一系统速度，比如MySQL写入慢，暂时存在Redis，这是单一系统问题，不是系统间的速度问题。</p>
+<h1 id="数据层面"><a href="#数据层面" class="headerlink" title="数据层面"></a>数据层面</h1><p>消息队列管理动态数据，数据库管理静态数据。从数据角度来看，所有系统最终都会产生数据，数据量可大可小，小的时候数据系统能承受，数据太大，数据系统承受不了，流动的数据过多，欲要静止而不可，动静转换，均是数据形态。动转静，静转动，消息队列均可。ETL本身也是管理动态数据的方法。</p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>消息队列能带来很多好处，有时候需要的并不是消息队列，而是需要判断当前系统的问题。在如今各种开源软件功能越来越全面时候，一个KV系统做的和消息系统类似，甚至提供了比消息系统更多的功能，系统间的边界越来越模糊，消息队列的<strong>简单选择考量因素</strong>却被淹没在很多似是而非的言论中，在我看来，<strong>系统层面系统间的速度问题</strong>和<strong>数据层面动态管理问题</strong>是我要选择消息队列的重要考量因素，当明白了关键问题后，对待各种具体产品可以做到游刃有余。</p>
+]]></content>
+      <categories>
+        <category>技术选型</category>
+        <category>消息队列</category>
+      </categories>
+      <tags>
+        <tag>消息队列</tag>
       </tags>
   </entry>
   <entry>
@@ -5579,181 +5635,126 @@
       </tags>
   </entry>
   <entry>
-    <title>MySQL表情况概览</title>
-    <url>/2023/01/19/slow-sql-optimization/</url>
-    <content><![CDATA[<h1 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show table status like &#39;%table_x&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> SELECT</span><br><span class="line">    table_name,</span><br><span class="line">    engine,</span><br><span class="line">    row_format,</span><br><span class="line">    table_rows,</span><br><span class="line">    avg_row_length AS avg_row,</span><br><span class="line">    ROUND((data_length + index_length) &#x2F; 1024 &#x2F; 1024,</span><br><span class="line">            2) AS total_mb,</span><br><span class="line">    ROUND((data_length) &#x2F; 1024 &#x2F; 1024, 2) AS data_mb,</span><br><span class="line">    ROUND((index_length) &#x2F; 1024 &#x2F; 1024, 2) AS index_mb</span><br><span class="line">FROM</span><br><span class="line">    information_schema.tables</span><br><span class="line">WHERE</span><br><span class="line">    table_schema &#x3D; &#39;xxx&#39;</span><br><span class="line">AND table_name &#x3D; &#39;yyy&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show index from table_x;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">desc table_x;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">show create table table_x;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT xxx)&#x2F;COUNT(*) AS xxx_selectivity,COUNT(*) AS total  FROM table_x;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-extra-information" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/explain-output.html#explain-extra-information</a></p>
-<p>order优化：<a href="https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html</a></p>
-<p>groupby优化：<a href="https://dev.mysql.com/doc/refman/8.0/en/group-by-optimization.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/group-by-optimization.html</a></p>
+    <title>软考-高级架构师历年论文汇总</title>
+    <url>/2021/10/07/ruankao-architect-paper/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>年份</th>
+<th>1试题一</th>
+<th>2试题二</th>
+<th>3试题三</th>
+<th>4试题四</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2020</td>
+<td>论数据分片技术及其应用</td>
+<td>论云原生架构及其应用</td>
+<td>论软件测试中缺陷管理以及应用</td>
+<td>论企业集成架构设计以及应用</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>论负载均衡技术在Web系统中的应用</td>
+<td>论数据湖技术及其应用</td>
+<td>论软件系统架构评估及其应用</td>
+<td>论软件设计方法以及应用</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>论软件开发过程RUP以及应用</td>
+<td>论软件体系结构的演化</td>
+<td>论面向服务架构设计与应用</td>
+<td><strong>论NoSQL数据库技术以及应用</strong></td>
+</tr>
+<tr>
+<td>2017</td>
+<td>论软件系统建模方法以及应用</td>
+<td><strong>论软件架构风格</strong></td>
+<td>论无服务器架构以及应用</td>
+<td>论软件质量保证及其应用</td>
+</tr>
+<tr>
+<td>2016</td>
+<td><strong>论软件系统架构评估</strong></td>
+<td><strong>论软件设计模式以及应用</strong></td>
+<td>论数据访问层设计技术以及应用</td>
+<td>论微服务架构及其应用</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>论应用服务器基础软件</td>
+<td>论软件系统架构风格</td>
+<td><strong>论面向服务的架构及其应用</strong></td>
+<td><strong>论企业集成平台的技术以及应用</strong></td>
+</tr>
+<tr>
+<td>2014</td>
+<td>论软件需求管理</td>
+<td>论非功能性需求对企业应用架构设计的影响</td>
+<td><strong>论软件的可靠性设计</strong></td>
+<td>论网络安全体系设计</td>
+</tr>
+<tr>
+<td>2013</td>
+<td>论软件架构建模技术与应用</td>
+<td><strong>论企业应用系统的分层架构风格</strong></td>
+<td>论软件可靠性设计技术以及应用</td>
+<td>论分布式存储系统架构设计</td>
+</tr>
+<tr>
+<td>2012</td>
+<td>论企业信息化规划的实施与应用</td>
+<td>论决策支持系统的开发与应用</td>
+<td>论企业应用系统的数据持久层架构设计</td>
+<td>论基于架构的软件设计方法(ABSD)以及应用</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>论模型驱动架构在系统开发中的应用</td>
+<td>论企业集成平台的架构设计</td>
+<td>论企业架构管理与应用</td>
+<td>论软件需求获取技术以及应用</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>论软件的静态演化和动态演化及其应用</td>
+<td>论数据挖掘技术的应用</td>
+<td>论大规模分布式系统缓存设计策略</td>
+<td>论软件可靠性评价</td>
+</tr>
+<tr>
+<td>2009</td>
+<td>论基于DSSA的软件架构设计与应用</td>
+<td>论信息系统建模方法</td>
+<td>论基于REST服务的Web应用系统设计</td>
+<td>论软件可靠性设计与应用</td>
+</tr>
+</tbody></table>
+<p><strong>往年考题需要针对几个类型去练习</strong>：</p>
+<p>1 架构风格</p>
+<p>2 面向服务的架构</p>
+<p>3 架构评估</p>
+<p>4 企业应用集成</p>
+<p>5 软件可靠性设计</p>
+<p>6 多层架构</p>
+<p>7 设计模式</p>
+<p><strong>时间规划</strong></p>
+<p>2021-10-10  软件架构风格</p>
+<p>2021-11-16  设计模式</p>
+<p>2021-11-17  面向服务的架构</p>
+<p>2021-11-23 企业应用集成</p>
+<p>2021-11-24 多层架构</p>
+<p>2021-11-30 架构评估</p>
+<p>2021-11-31 软件可靠性设计</p>
 ]]></content>
       <categories>
-        <category>数据库</category>
-        <category>SQL</category>
+        <category>考试</category>
+        <category>软考</category>
       </categories>
       <tags>
-        <tag>SQL优化</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>持续集成之实践单元测试</title>
-    <url>/2020/12/02/unit-test/</url>
-    <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><strong>单元测试</strong>是保证质量，降低风险的一种重要工具。但是独立的单元测试本身意义不大，但是整合在CI使之成为<strong>自动化测试</strong>中就会体现其价值，这是一个价值流的传递过程，每一个过程传递软件质量和风险的信息。高质量的代码是<strong>CLEAN</strong>的并且<strong>易测试</strong>的，C(Cohesive内聚)，L(Loosely Couped松散耦合) E(Encapsulated 封装) Assertive(自主) Nonredundant(无冗余)，但是单元测试又是怎么影响这些特性的呢？</p>
-<p><strong>Design</strong>：如果我的代码很难测试，那么对客户端来说设计不佳。</p>
-<p><strong>Cohesive</strong>：如果需要为一个类编写很多测试，就会意识到内聚性不足。</p>
-<p><strong>Loosely Couped</strong>：如果我的测试有很多无关的依赖，那么一定是耦合过多了。 </p>
-<p><strong>Encapsulated</strong>：如果我的测试依赖于实现细节，那么肯定是封装出现了问题。</p>
-<p><strong>Assertive</strong>：如果测试结果在被测对象以外对象中体现，我的对象可能不够自主。</p>
-<p><strong>Nonredundant</strong>：如果我一遍一遍编写同样的测试，那肯定出现了冗余。</p>
-<p>一个常规的CI流程如下：</p>
-<img src="/images/CI.png" style="zoom:80%;" />
-
-<p>从编译源码-》持续集成数据库-》持续测试-》持续审查-》持续部署-》持续反馈，我们在编译源码和持续部署做的很好，但是在改进质量并降低风险的<strong>持续测试</strong>和<strong>持续审查</strong>做的不好，导致软件质量差，代码烂，重复率高。本文主要对持续测试中的单元测试作为实战基础来讲解一个例子，因为这是一个起点，虽然单独通过<strong>持续审查</strong>也能提高质量，但是由于业务压力和人员变更使得代码变乱，光靠审查无法为迭代的业务提供持续的重构保证，也无法自动化基础设施。</p>
-<h1 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h1><h2 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h2><p>单元测试框架<a href="https://junit.org/junit5/" target="_blank" rel="noopener">junit5</a>，mock框架<a href="https://site.mockito.org/" target="_blank" rel="noopener">mockito</a>，断言框架<a href="https://joel-costigliola.github.io/assertj/" target="_blank" rel="noopener">assertj</a> </p>
-<h2 id="案例一-使用Mock取代依赖"><a href="#案例一-使用Mock取代依赖" class="headerlink" title="案例一:使用Mock取代依赖"></a>案例一:使用Mock取代依赖</h2><p>以下这段代码即调用了Redis，也调用了第三方接口，还调用了数据库，是一个比较综合的案例，我们来一起看看如何将他变成方便测试的代码，并且保证如何通过单元测试达到覆盖率。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceImpl</span> <span class="keyword">implements</span> <span class="title">TaskCenterWithdrawService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine remote;<span class="comment">//调用第三方</span></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;<span class="comment">//关联DB</span></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startWithdraw</span><span class="params">(String coinSymbol, String walletSymbol, String appId,</span></span></span><br><span class="line"><span class="function"><span class="params">                              TransactionWithdrawCrypto twc)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        TransactionWithdrawCrypto withdrawCrypto = withdrawService.selectByIdAndLock(twc.getId());<span class="comment">//查询数据库</span></span><br><span class="line">        String payload = generateWithdrawRequest(coinSymbol, walletSymbol, withdrawCrypto);<span class="comment">//构造请求参数，里面查询静态方法</span></span><br><span class="line">        String result = remote.startWithdraw(appId, payload);<span class="comment">//调用第三方接口返回结果</span></span><br><span class="line">        WalletResponseCode responseCode = WalletResponseCode.ofCode(result);</span><br><span class="line">        <span class="keyword">switch</span> (responseCode) &#123;</span><br><span class="line">            <span class="keyword">case</span> SUCCESS:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> WITHDRAW_ADDR_ERROR:</span><br><span class="line">            <span class="keyword">case</span> WITHDRAW_CANNOT_TO_SELF: &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    withdrawService.cancelWithdraw();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    log.error(<span class="string">"startWithdrawRequest cancel withdrawCrypto id : &#123;&#125; error "</span>,</span><br><span class="line">                              withdrawCrypto.getId(), e);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;   </span><br><span class="line">            <span class="keyword">default</span>:                </span><br><span class="line">                cancelWithdrawIfAdminConfiged(withdrawCrypto.getId(), responseCode);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">          </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">generateWithdrawRequest</span><span class="params">(String coinSymbol, String walletSymbol,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       TransactionWithdrawCrypto c)</span> </span>&#123;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">//......里面查询了redis</span></span><br><span class="line">    ConfigCoinSymbol c = CoinSymbolUtils.getSaaSInfo(coinSymbol);</span><br><span class="line">    <span class="comment">//......</span></span><br><span class="line">    <span class="keyword">return</span> ....;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们看到这个代码，需要思考测试什么才能证明代码没有错呢？既当什么情况下，你期望发生什么。来看看我们得期望：</p>
-<p>1   当第三方接口返回成功时候，该方法结束。</p>
-<p>2   当第三方接口返回WITHDRAW_ADDR_ERROR或者WITHDRAW_CANNOT_TO_SELF，我们需要调用cancelWithdraw，</p>
-<p>3   当第三方接口返回其他情况时候，调用cancelWithdrawIfAdminConfiged方法。</p>
-<p>4   当传入不同币种的时候，generateWithdrawRequest产生不同的请求。</p>
-<p>我们仅仅需要验证这些就够了，因为TaskCenterWithdrawServiceImpl得协作者的产生的行为仅仅如此，至于协作者行为的可靠性，需要协作者自身去验证，而不是在该测试中验证。</p>
-<h3 id="第一步-依赖注入解耦"><a href="#第一步-依赖注入解耦" class="headerlink" title="第一步 依赖注入解耦"></a>第一步 依赖注入解耦</h3><p>spring字段注入导致单元测试困难，因为你无法实例化类中的对象，所以在TaskCenterWithdrawServiceImpl中将字段注入改成构造器注入或者属性注入。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceImpl</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine httpEncryptDecryptEngine;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHttpEncryptDecryptEngine</span><span class="params">(HttpEncryptDecryptEngine httpEncryptDecryptEngine)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.httpEncryptDecryptEngine = httpEncryptDecryptEngine;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWithdrawService</span><span class="params">(WithdrawService withdrawService)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.withdrawService = withdrawService;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="第二步-静态方法抽离接口"><a href="#第二步-静态方法抽离接口" class="headerlink" title="第二步 静态方法抽离接口"></a>第二步 静态方法抽离接口</h3><p>不是所有静态方法都需要抽离成接口，由于项目中CoinSymbolUtils.getSaaSInfo调用了数据库和redis，所以此时你无法真实调用数据库和redis，因为在脱离spring环境你无法创建这两个对象，所以抽离成接口可以mock改接口。如果是普通的工具类，让他执行即可。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CoinSymbolOperator</span> </span>&#123;</span><br><span class="line">    <span class="function">ConfigCoinSymbol <span class="title">getSaaSInfoAll</span><span class="params">(String coinSymbol)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>之前工具类实现该接口，并且调用之前静态方法。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoinSymbolUtils</span> <span class="keyword">implements</span>  <span class="title">CoinSymbolOperator</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> ConfigCoinSymbol <span class="title">getSaaSInfoAll</span><span class="params">(String coinSymbol)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getSaaSInfo(coinSymbol);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="第三步-测试mock对象"><a href="#第三步-测试mock对象" class="headerlink" title="第三步 测试mock对象"></a>第三步 测试mock对象</h3><p>mock对象我们使用的是<strong>mockito</strong>框架。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskCenterWithdrawServiceMockTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">//待测试的类</span></span><br><span class="line">    <span class="keyword">private</span> TaskCenterWithdrawServiceImpl taskCenterWithdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HttpEncryptDecryptEngine httpEncryptDecryptEngine;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WithdrawService withdrawService;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> CoinSymbolOperator coinSymbolOperator;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Before</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建TaskCenterWithdrawService对象</span></span><br><span class="line">    httpEncryptDecryptEngine = mock(HttpEncryptDecryptEngine<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    withdrawService = mock(WithdrawService<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    <span class="comment">//mock静态方法拆离的接口在这里需要注入到TaskCenterWithdrawService中</span></span><br><span class="line">    coinSymbolOperator = mock(CoinSymbolOperator<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    taskCenterWithdrawService = <span class="keyword">new</span> <span class="keyword">new</span> TaskCenterWithdrawServiceImpl();</span><br><span class="line">    taskCenterWithdrawService.setHttpEncryptDecryptEngine(httpEncryptDecryptEngine);</span><br><span class="line">    taskCenterWithdrawService.setWithdrawService(withdrawService);</span><br><span class="line">    taskCenterWithdrawService.setCoinSymbolOperator(coinSymbolOperator);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="第四步-编写测试方法"><a href="#第四步-编写测试方法" class="headerlink" title="第四步 编写测试方法"></a>第四步 编写测试方法</h3><p>测试方法必须要写assertions和你要验证的东西，否则这个单元测试没有意义。这个测试没有用到<strong>assertj</strong>  ，而是使用了<strong>mockito</strong>自带的verify方法验证。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startWithdraw</span><span class="params">()</span> </span>&#123; </span><br><span class="line">    <span class="comment">//given willReturn 短语帮助我们构造期望的输入和输出，含义是当满足xxx条件时候，发生什么，期望什么结果。</span></span><br><span class="line">    <span class="comment">//当给getWalletUid传入任意int和string时候，调用cryptoAddressService.getWalletUid，期望返回123</span></span><br><span class="line">    given(cryptoAddressService.getWalletUid(anyInt(), anyString())).willReturn(<span class="number">123</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造期望的返回值</span></span><br><span class="line">    TransactionWithdrawCrypto transactionWithdrawCrypto = <span class="keyword">new</span> TransactionWithdrawCrypto();</span><br><span class="line">    transactionWithdrawCrypto.setAddressFrom(<span class="string">"alibaba"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setFee(<span class="keyword">new</span> BigDecimal(<span class="string">"456.777"</span>));</span><br><span class="line">    transactionWithdrawCrypto.setSymbol(<span class="string">"USDT"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setAddressTo(<span class="string">"baidu"</span>);</span><br><span class="line">    transactionWithdrawCrypto.setUid(<span class="number">111111111</span>);</span><br><span class="line"></span><br><span class="line">    transactionWithdrawCrypto.setAmount(<span class="keyword">new</span> BigDecimal(<span class="string">"123.444"</span>));</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(withdrawService.selectByIdAndLock(anyInt())).willReturn(transactionWithdrawCrypto);</span><br><span class="line"></span><br><span class="line">    ConfigCoinSymbol ccs = <span class="keyword">new</span> ConfigCoinSymbol();</span><br><span class="line">    ccs.setTokenBase(<span class="string">"BTC"</span>);</span><br><span class="line">    ccs.setContractAddress(<span class="string">"BTC_ContractAddress"</span>);</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(coinSymbolOperator.from(<span class="string">"USDT"</span>)).willReturn(ccs);</span><br><span class="line"></span><br><span class="line">    Map&lt;String,String&gt; result = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    result.put(<span class="string">"code"</span>, WalletResponseCode.SUCCESS.getCode());</span><br><span class="line">    result.put(<span class="string">"message"</span>, WalletResponseCode.SUCCESS.getMessage());</span><br><span class="line">    <span class="comment">//构造期望输入和输出</span></span><br><span class="line">    given(httpEncryptDecryptEngine.startWithdraw(anyString(), anyString())).willReturn(JSON.toJSONString(result));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//和given，willReturn一样的效果</span></span><br><span class="line">    <span class="comment">//when(httpEncryptDecryptEngine.startWithdraw(anyString(), anyString())).thenReturn("111111111");</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//这一步是将之前mock的对象和数据以及构造期望输入和输出串联起来执行。</span></span><br><span class="line">    taskCenterWithdrawService.startWithdraw(<span class="string">"USDT"</span>, <span class="string">"BTC"</span>, <span class="string">"aaaa"</span>, <span class="keyword">new</span> TransactionWithdrawCrypto());</span><br><span class="line"></span><br><span class="line">    <span class="comment">//由于该方法是void所以需要验证方法是否被调用.比如断言getWalletUid是否被调用，比如第三方接口返回值不同调用不同的方法</span></span><br><span class="line">    <span class="comment">//来使得代码覆盖率比较高</span></span><br><span class="line">    verify(<span class="keyword">this</span>.cryptoAddressService).getWalletUid(<span class="number">111111111</span>, <span class="string">"BTC"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="案例二：关联数据库的单元测试"><a href="#案例二：关联数据库的单元测试" class="headerlink" title="案例二：关联数据库的单元测试"></a>案例二：关联数据库的单元测试</h2><p>有些测试必须关联数据库或者第三方接口，此时不得不接受使用外部资源这一现实。这时候测试关联数据库的必须保证测试前数据库状态和测试后状态一致。我们来建立一个test fixture来验证一个CRUD的正确性。在每个方法执行前用@BeforeEach中建立Account对象，在integrateTestDataBaseCRUD中测试CRUD方法，在每个方法结束后用@AfterEach清除数据库对象，使得测试前后数据库状态幂等。我曾经遇到一个必须使用第三方资源场景是 本地代码必须调用第三方接口来验证程序，以及在集成测试时候，也主要验证第三方接口，程序本身逻辑很少。这时候就必须使用外部依赖来完成单元测试。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AccountServiceTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AccountService accountService;</span><br><span class="line">    <span class="keyword">private</span> Account account;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeEach</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        account = Account.builder().</span><br><span class="line">                balance(<span class="keyword">new</span> BigDecimal(<span class="string">"67.88"</span>)).</span><br><span class="line">                type(<span class="number">111</span>).</span><br><span class="line">                uid(<span class="number">445</span>).</span><br><span class="line">                tag(<span class="string">"33"</span>).</span><br><span class="line">                build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">integrateTestDataBaseCRUD</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        accountService.insert(account);</span><br><span class="line">        <span class="keyword">long</span> id = account.getId();</span><br><span class="line">        Account accountFind = accountService.get(id);</span><br><span class="line">        accountFind.setBalance(<span class="keyword">new</span> BigDecimal(<span class="string">"366334"</span>));</span><br><span class="line">        accountService.update(accountFind);</span><br><span class="line">        Account accountUpdate = accountService.get(id);</span><br><span class="line">        accountService.delete(id);</span><br><span class="line">        Account accountDelete = accountService.get(id);</span><br><span class="line"></span><br><span class="line">        assertAll(<span class="string">"test"</span>, () -&gt; &#123;</span><br><span class="line">            assertEquals(accountFind.getBalance().stripTrailingZeros().toPlainString(),</span><br><span class="line">                    accountUpdate.getBalance().stripTrailingZeros().toPlainString());</span><br><span class="line">        &#125;);</span><br><span class="line">        assertNull(accountDelete);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterEach</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">tearDown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        accountService.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们可以看到上述两个案例都是先写代码后写单元测试，这样可能导致单元测试很难测试代码，给遗留系统添加单元测试也很繁琐，所以需要从设计层面改进代码，使之更加容易测试和验证。更优秀的做法是实践TDD，这样代码天然可测试。</p>
-<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><p><strong>1 单元测试的价值在哪里？</strong> 1  保证代码质量，当然质量保证不仅仅靠单元测试。当你看到队友提交了一些代码，确发现单元测试覆盖率降低了，就知道他的提交可能带来代码质量下降。 2  代码可测试性往往带来灵活的设计。  3  你不仅仅在写单元测试，而是实践自动化测试，实践着CI </p>
-<p><strong>2  遗留系统很多没有单元测试，我需要补吗？</strong>1  当你修改老代码的时候，加一个单元测试。 2 依赖最多的，访问最多的需要补充。 3 试图在遗留系统上加单元测试很困难，并且使之成为自动化测试，但是需要尝试，新的代码尝试TDD。</p>
-<p><strong>3  我觉得有些情况需要读取数据库，看到数据落库心里才踏实，这时候写单元测试需要连数据库吗？</strong>单元测试不连库，连库的叫集成测试，单元测试验证是逻辑，数据库只是细节实现，你的代码可以脱离SSM，MySQL….. 在实践中你会真正理解解耦的。你的踏实和自信应该建立在独立性和不依赖外界细节上，而不是数据归属地到底是哪里。如果一些测试必须要用数据库，请使用test fixture。保证单元测试前和单元测试后数据库状态一致。</p>
-<p><strong>4  什么时候用Mock或者Stub？</strong> 能不用就不用，最简单的方式验证你的代码是否正确。</p>
-<p><strong>5  DAO层的实体对象需要手动new吗？</strong> 取决于你验证的是什么。随着积累会建立实体对象的测试仓库。</p>
-<p><strong>6  单元测试能检测什么类型bug？</strong> 测不出与数据库交互和第三方接口的BUG，这不是单元测试职责，但是你可以在单元测试中调用第三方，然后发布时候@Disable该测试即可。</p>
-<p><strong>7 为什么不用junit自带的断言，而是第三方断言？</strong> junit断言可读性不好，而且需要自己写断言逻辑，assertXXX，而assertj里面assertThat可以方便断言和真正验证的东西相匹配。</p>
-<p><strong>8 先写测试还是先写代码？</strong> 先写测试的系统天然适合自动化测试，先写代码在写测试，极大可能不写测试了。</p>
-<p>这些只是个人观点，实践过程有更好的方法或者理解，可以推翻。单元测试价值不应该被夸大，但也不该被忽视。它是能提高设计和质量的重要工具，因为相信，所以看见。</p>
-<h1 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h1><ul>
-<li>《测试驱动开发》</li>
-<li>《持续集成-软件质量改进和风险降低之道》</li>
-</ul>
-]]></content>
-      <categories>
-        <category>持续集成</category>
-        <category>单元测试</category>
-      </categories>
-      <tags>
-        <tag>单元测试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么使用消息队列？</title>
-    <url>/2024/03/02/why-choose-mq/</url>
-    <content><![CDATA[<h1 id="必言利"><a href="#必言利" class="headerlink" title="必言利"></a>必言利</h1><p>消息队列作为核心中间件被广泛使用于应用系统，可是我们为什么要使用它呢？</p>
-<p>当然是它能带来好处，一般所认为好处有：</p>
-<ol>
-<li>提高系统稳定性。A，B系统不一定同时在线，或系统故障，或系统属性，所以需要临时数据存储地方，比如邮箱系统。</li>
-<li>提高系统伸缩性。这个是分布式系统带来的能力，分布式的消息队列也能带来这些能力。</li>
-<li>异步化处理。同步处理太慢，或者没办法同步处理（对方系统不在线）时候，异步化处理能保证系统最终处理。消息队列可以异步化处理，但是异步化不是消息队列。</li>
-<li>削峰填谷。在流量大的时候，通过消息队列暂时处理请求，让系统慢慢处理。</li>
-<li>系统间信息传递。比如ETL，作为系统间的桥梁进行数据交换。</li>
-<li>解耦。A系统发送N个消息给B系统，C系统，B要发系统给C，A等等，那么会导致系统耦合性很高，不如发送给一个中间节点，让接收方来订阅消息。</li>
-</ol>
-<p>上面6条均是消息队列所带来的好处，但是不够言简意赅，因为有些是功能带来的，有些是队列本身带来的，有些互为因果，我觉得根本在于：</p>
-<ol>
-<li><strong>系统层面</strong>来看，它解决了系统处理速度的不同。</li>
-<li><strong>数据层面</strong>来看，它解决了动态数据管理问题。</li>
-</ol>
-<h1 id="系统层面"><a href="#系统层面" class="headerlink" title="系统层面"></a>系统层面</h1><p>消息队列是一种有界缓冲区（Bounded buffer），用来处理系统间速度不一致。正是因为速度不一样，某个系统/操作明显很慢，所以需要缓冲区来进行处理。比如异步化处理时候，或者削峰填谷，均是系统间速度差异导致的问题，理想情况系统产生数据直接完美存入数据库，但是数据库处理能力跟不上。请求量过大，系统本身也可能处理不了，所以需要外部系统暂时存下，等后续有时间再处理。解耦只要引入第三方系统，都能解耦，所以不是消息队列带来的，而是消息队列对解耦处理的更好，比如发布订阅机制。</p>
-<p>这里强调系统间速度，而不是单一系统速度，比如MySQL写入慢，暂时存在Redis，这是单一系统问题，不是系统间的速度问题。</p>
-<h1 id="数据层面"><a href="#数据层面" class="headerlink" title="数据层面"></a>数据层面</h1><p>消息队列管理动态数据，数据库管理静态数据。从数据角度来看，所有系统最终都会产生数据，数据量可大可小，小的时候数据系统能承受，数据太大，数据系统承受不了，流动的数据过多，欲要静止而不可，动静转换，均是数据形态。动转静，静转动，消息队列均可。ETL本身也是管理动态数据的方法。</p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>消息队列能带来很多好处，有时候需要的并不是消息队列，而是需要判断当前系统的问题。在如今各种开源软件功能越来越全面时候，一个KV系统做的和消息系统类似，甚至提供了比消息系统更多的功能，系统间的边界越来越模糊，消息队列的<strong>简单选择考量因素</strong>却被淹没在很多似是而非的言论中，在我看来，<strong>系统层面系统间的速度问题</strong>和<strong>数据层面动态管理问题</strong>是我要选择消息队列的重要考量因素，当明白了关键问题后，对待各种具体产品可以做到游刃有余。</p>
-]]></content>
-      <categories>
-        <category>技术选型</category>
-        <category>消息队列</category>
-      </categories>
-      <tags>
-        <tag>消息队列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>COSEA模型:软件系统模型的探索(1)</title>
-    <url>/2022/10/30/system-research-template/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>系统研究，首先需要还原论，然后是系统论。<strong>还原论</strong>把系统进行拆解，对每一部分进行深入研究，相对静态，<strong>系统论</strong>将每一部分进行整合，形成整体，与外部进行交互，相对动态。如<strong>《庄子 · 养生主第三》庖丁解牛所言：“臣之所好者，道也，进乎技矣。始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。方今之时，臣以神遇而不以目视，官知止而神欲行”</strong>。研究递进层次和生物学类似，从细胞（源码）-&gt;组织（包）-&gt;器官（功能）-&gt;系统（模块）-&gt;人体（软件）-&gt; 生态（生态圈）。本文主要探讨了对软件系统的研究模型，模型对技术选型，体系化认知，以及更进一步学习技术有帮助。</p>
-<h1 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h1><p><img src="/images/System-Reasearch.png" alt="任务结构"></p>
-<p><strong>COSEA</strong>模型是软件系统模型，全称 C：Config配置，O：Operation运维，S：System系统，E：Ecosystem生态，A：Admin管理。</p>
-<p>模型回答了一个核心问题：<strong>如何研究软件系统？</strong></p>
-<p>模型给出的答案是：从配置C，运维O，系统S，生态E，管理A这五个角度研究软件系统。</p>
-<p>黄色方框是五个最重要的因素，层级较高，蓝色方框是对五个因素的分解。总而言之：<strong>配置和运维影响系统，而系统会产生生态和管理</strong>。字母<strong>顺序</strong>也暗含了，先配置，后运维（安装），然后系统跑起来，然后产生管理和生态。</p>
-<h2 id="Config-配置"><a href="#Config-配置" class="headerlink" title="Config:配置"></a>Config:配置</h2><p>服务器配置，客户端配置等，理解配置对于<strong>理解</strong>系统，以及系统<strong>调优</strong>非常重要，很多系统概念都在配置中体现，系统的<strong>权衡</strong>也在配置中体现，需要精通最<strong>常用</strong>的配置。很多时候，调优的一大部分其实是改配置。配置分为<strong>操作系统层</strong>的<strong>CPU（线程数），内存（虚拟内存），网络，磁盘</strong>，以及<strong>系统层</strong>的优化。系统层和操作系统层互相影响。借助操作系统实现系统本身的，操作系统配置非常重要。系统层配置也通过<strong>分形原则</strong>到达了操作系统层。通用配置有：压缩算法选择，磁盘读取/写入，缓存，线程。</p>
-<h2 id="Operation-运维"><a href="#Operation-运维" class="headerlink" title="Operation:运维"></a>Operation:运维</h2><p>运维包括维护，安装，备份，硬件，安全，部署。包括常用命令，线上配置等。</p>
-<h2 id="System-系统"><a href="#System-系统" class="headerlink" title="System:系统"></a>System:系统</h2><p>系统是软件本身，包括<strong>架构</strong>和<strong>功能</strong>，架构包括设计和实现，功能有读写功能，以及业务代码编写等。系统架构回答的基本问题是：<strong>读写流程是什么？以及启动流程？</strong>功能和架构相互影响的是单机和分布式。<strong>单机特性</strong>有：数据模型，存储模型，读写性能，启动流程等，<strong>分布式特性</strong>有：<strong>用户视角</strong>：读/写(增删改查)路径，启动/关闭过程，<strong>系统视角</strong>：一致性模型，复制，分区，共识，容错。复制，共识，分区等等细节都会在用户读写路径视角展现。而系统视角具有通用性的，可以和其他系统进行<strong>类比</strong>，也可以更深一步分析（CAP，PACELC等）。系统核心是：<strong>内部实现，外部交互，系统属性</strong>。总结如下：</p>
-<ul>
-<li>内部实现，外部交互，系统属性。</li>
-<li>单机特性（对标数据库）<ul>
-<li>数据模型，存储模型，查询模型（读写性能）</li>
-</ul>
-</li>
-<li>分布式特性（对标分布式系统）<ul>
-<li>用户视角：读写路径，启动/关闭。</li>
-<li>系统视角：复制和一致性，容错，分区，共识。</li>
-</ul>
-</li>
-</ul>
-<h2 id="Ecosystem-生态"><a href="#Ecosystem-生态" class="headerlink" title="Ecosystem:生态"></a>Ecosystem:生态</h2><p>生态是围绕该软件的工具链，培训，开源社区，公司，客户，基金会，出版书籍，论文，创始人履历等等。</p>
-<h2 id="Admin-管理"><a href="#Admin-管理" class="headerlink" title="Admin:管理"></a>Admin:管理</h2><p>管理主要是监控，包括管理控制台，主要判断系统是否健康，以及内部状态统计等。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>不同角色关注系统点不一样，想要全面了解系统，以上所有点均需要学习，不求甚解，对系统形成完整认识。本文虽然在讲系统，但是抽象层次还是较低，不够通用，但较为实用。</p>
-]]></content>
-      <categories>
-        <category>模型</category>
-        <category>软件模型</category>
-      </categories>
-      <tags>
-        <tag>软件系统模型</tag>
-        <tag>创造</tag>
-        <tag>COSEA策略</tag>
+        <tag>高级架构师论文</tag>
       </tags>
   </entry>
 </search>
