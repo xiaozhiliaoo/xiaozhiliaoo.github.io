@@ -1,0 +1,4777 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入访问密码') !== 'helloworld'){
+            while(true) {
+                alert('密码错误！请关闭网页！');
+            }
+            history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content=",," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="绪论突发奇想，想对买过技术书单进行汇总。看看自己都买过哪些书，哪些看了，哪些没看。以后买的书也会进行汇总。 总结了我最喜欢的十本书，它的顺序和书可能在变，但是是对我个人启发较多的十本书。  分布式系统原理与范型 第二版 &#x2F; 分布式系统概念与设计 第五版 Effective Java 第三版 Java并发编程实战 高性能的MySQL第三版 Spring系列: Expert One on one J2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的技术书单">
+<meta property="og:url" content="http://yoursite.com/reading-list/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="绪论突发奇想，想对买过技术书单进行汇总。看看自己都买过哪些书，哪些看了，哪些没看。以后买的书也会进行汇总。 总结了我最喜欢的十本书，它的顺序和书可能在变，但是是对我个人启发较多的十本书。  分布式系统原理与范型 第二版 &#x2F; 分布式系统概念与设计 第五版 Effective Java 第三版 Java并发编程实战 高性能的MySQL第三版 Spring系列: Expert One on one J2">
+<meta property="article:published_time" content="2020-12-05T19:05:18.000Z">
+<meta property="article:modified_time" content="2024-07-05T17:23:28.054Z">
+<meta property="article:author" content="简单">
+<meta property="article:tag" content="我的技术书单">
+<meta property="article:tag" content="Book">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/reading-list/"/>
+
+
+
+
+
+  <title>我的技术书单 | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神仙本是凡人做，只怕凡人心不坚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readinglist">
+          <a href="/reading-list/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读清单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline">我的技术书单</h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>突发奇想，想对买过技术书单进行汇总。看看自己都买过哪些书，哪些看了，哪些没看。以后买的书也会进行汇总。</p>
+<p>总结了我最喜欢的十本书，它的顺序和书可能在变，但是是对我个人启发较多的十本书。</p>
+<ol>
+<li>分布式系统原理与范型 第二版 / 分布式系统概念与设计 第五版</li>
+<li>Effective Java 第三版</li>
+<li>Java并发编程实战</li>
+<li>高性能的MySQL第三版</li>
+<li>Spring系列: Expert One on one J2EE Development Without EJB/Expert One on one J2EE Design And Implement/Spring框架高级编程</li>
+<li>面向对象分析与设计 第三版</li>
+<li>UML和模式应用 第三版</li>
+<li>设计模式-可复用面向对象软件的基础</li>
+<li>Streaming System</li>
+<li>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</li>
+</ol>
+<h1 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h1><p><a href="https://xiaozhiliaoo.github.io/reading-note/" target="_blank" rel="noopener">读书笔记-<strong>reading note</strong></a></p>
+<h1 id="书单汇总-共507本"><a href="#书单汇总-共507本" class="headerlink" title="书单汇总(共507本)"></a>书单汇总(共507本)</h1><p>最近统计时间：2023-01-12 总数<strong>507</strong>本。增加60本。</p>
+<p>最近统计时间：2022-03-31 总数<strong>507</strong>本。增加60本。</p>
+<p>最近统计时间：2021-12-12   总数<strong>447</strong>本。增加60本。</p>
+<p>最近统计时间：2021-08-26   总数<strong>387</strong>本。增加42本。</p>
+<p>最近统计时间：2021-07-14   总数<strong>345</strong>本。  增加25本。</p>
+<p>最近统计时间：2021-05-02  总数<strong>320</strong>本。 </p>
+<p>书单会以分类展示，并且写明作者，很多书的作者非常知名，阅读情况 会包含阅读时间(严重缺失)和阅读进度，阅读进度分为6级进行打分，<strong>0</strong>  没有读过，<strong>1</strong>  阅读25%  <strong>2</strong>, 50%  <strong>3</strong>, 75%  <strong>4</strong>,100%  <strong>5</strong>  读过多次 ， 书名加粗的是个人觉得非常好的经典书，值得多次阅读。汇总不好的一点是没有时间维度，后期读书时候会在阅读情况中加上。</p>
+<h2 id="计算机科学-37"><a href="#计算机科学-37" class="headerlink" title="计算机科学(37)"></a>计算机科学(37)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>操作系统概念第九版</td>
+<td>Abraham Silberschatz</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>程序设计语言:设计与实现第四版</td>
+<td>Terrence W. Pratt</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>数据库系统概念第五版</td>
+<td>Abraham Silberschatz</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Solaris内核结构第二版</td>
+<td>Richard McDougall</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Linux内核设计与实现-第三版</td>
+<td>Robert Love</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>现代操作系统 英文第四版</td>
+<td>Abdrew S. Tanenbaum</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>现代操作系统 中文第四版</td>
+<td>Abdrew S. Tanenbaum</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>编译原理 英文第二版</td>
+<td>Alfred V.Aho</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>分布式计算-原理，算法与实践</td>
+<td>Ajay Kshemkalyani</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>分布式数据库系统及其应用第三版</td>
+<td>徐俊刚</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>计算机网络 英文第五版</td>
+<td>Abdrew S. Tanenbaum</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>计算机组成与汇编语言原理 英文版</td>
+<td>Patricj Juola</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>算法第四版</td>
+<td>Robert Sedgewick</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>程序设计语言-实践之路第三版</td>
+<td>Michael L. Soctt</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>计算机网络-第五版</td>
+<td>Abdrew S. Tanenbaum</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>软件工程-面向对象和传统的方法第八版</td>
+<td>Stephen R. Schach</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>分布式系统原理与范型 第二版</strong></td>
+<td>Abdrew S. Tanenbaum</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>多处理器编程的艺术 修订版</td>
+<td>Nir Shavit</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>数据结构 Java版第四版</td>
+<td>叶核亚</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>数据结构与算法</td>
+<td>张铭</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>算法设计与分析 第四版</td>
+<td>王晓东</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>计算机组成与设计</td>
+<td>David A. Patterson等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>操作系统-精髓与设计原理</td>
+<td>William Stallings</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>计算机程序的构造和解释</td>
+<td>Harold Abelson</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>编译原理第二版</td>
+<td>Alfred V. Aho</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>分布式系统概念与设计</td>
+<td>George Coulouris</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>数据结构与算法 Java语言描述</td>
+<td>Mark Allen Weiss</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>设计原本</td>
+<td>Frederick P. Brooks</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>数据库系统公司概念 第六版</td>
+<td>Abraham Silberschazta</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>深入理解计算机系统</td>
+<td>Randal Bryant</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>程序设计语言概念-第九版</td>
+<td>Robert W.Sebesta</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>云计算与分布式系统</td>
+<td>Kai Hwang等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>算法心得（第二版）</td>
+<td>Henry.S Warren</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>算法设计指南(第二版)</td>
+<td>Steven S.Skiena</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>分布式数据系统原理(第三版)</td>
+<td>M.Tamer Ozsu</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>计算机网络 系统方法 第五版</td>
+<td>Larry L. Peterson / Bruce S. Davie</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>计算之魂</td>
+<td>吴军</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="语言-61"><a href="#语言-61" class="headerlink" title="语言(61)"></a>语言(61)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Beginnig Java Object从概念到代码第二版</td>
+<td>Jacquie Barker</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>深入理解java虚拟机第二版</td>
+<td>Bill Venners</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Java脚本编程</td>
+<td>Dejan Bosanac</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>七周七语言</td>
+<td>Bruce Tate</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Scala编程第三版</td>
+<td>Martin Odersky</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Perl语言入门</td>
+<td>Pandal L. Schwartz</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>编程语言实现模式</td>
+<td>Terence Parr</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Practical Java</td>
+<td>Peter Haggar</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>分布式Java应用基础与实践</td>
+<td>林昊</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>深入浅出NodeJS</td>
+<td>朴灵</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>七周七并发</td>
+<td>Paul Butcher</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Java加密与解密的艺术 第二版</td>
+<td>梁栋</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Living Clojure</td>
+<td>Carin Meier</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>领域特定语言</td>
+<td>Martin Fowler</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>精通正则表达式</td>
+<td>Jeffrey Friedl</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>ANTLR4权威指南</td>
+<td>Terence Parr</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Java并发编程从入门到精通</td>
+<td>张振华</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Go程序设计语言 英文版</td>
+<td>Alan A. Donovan</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Lua设计与实现</td>
+<td>codedump</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>Effective Java 第二版</strong></td>
+<td>Joshua Bloch</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>Effective Java 第三版</strong></td>
+<td>Joshua Bloch</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Java并发编程的艺术</td>
+<td>方腾飞</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>虚拟机设计与实现-以JVM为例</td>
+<td>李晓峰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Java多线程编程实战指南-设计模式-第二版</td>
+<td>黄文海</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Java并发实现原理-JDK源码剖析</td>
+<td>余春龙</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>Java并发编程实战</strong></td>
+<td>Brian Goetz</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong>深入理解Java虚拟机第二版</strong></td>
+<td>周志明</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td><strong>深入理解Java虚拟机第三版</strong></td>
+<td>周志明</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Java并发设计模式</td>
+<td>Doug Lea</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>实战Java高并发程序设计</td>
+<td>葛一鸣</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>精通Lambda表达式</td>
+<td>Maurice Naftalin</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Java编程思想第四版</td>
+<td>Bruce Eckel</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>函数式编程思维</td>
+<td>Neal Ford</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Java解惑</td>
+<td>Joshua Bloch</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Java性能优化权威指南</td>
+<td>Charlie Hunt</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Java技术手册</td>
+<td>Benjamin J. Evans</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>Java虚拟机规范（JavaSE8）</td>
+<td>Tim Lindholm等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Java性能权威指南</td>
+<td>Scott Oaks</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>Java虚拟机并发编程</td>
+<td>Venkat Subramaniam</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td>Java编程方法论-响应式rxjava</td>
+<td>知秋</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Java编程方法论-spring-reactor</td>
+<td>知秋</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Spring响应式编程</td>
+<td></td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>RxJava反应式编程</td>
+<td>张卫滨翻译</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Java8函数式编程</td>
+<td>Richard Warbuton</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Rxjava2.x实战</td>
+<td>沈哲</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Java9模块化开发：核心原则与实践</td>
+<td>Sander Mark</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>ECMAScript 2018快速入门</td>
+<td>黄灯桥</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Java网络编程</td>
+<td>Elliotte Rusty Harold)]</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>Java程序性能优化</td>
+<td>葛一鸣</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>Go语言高级编程</td>
+<td>柴树杉</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>Go语言底层原理剖析</td>
+<td>郑建勋</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>深入学习Go语言</td>
+<td>李晓钧</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>C语言程序设计-现代方法</td>
+<td>K.N.King</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>Go程序设计语言</td>
+<td>Alan Donovan</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>Rust权威指南</td>
+<td>Steve Klabnik / Carol Nichols</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>C++ Primer 中文版（第五版）</td>
+<td>Stanley B. Lippman</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>C++ Primer 习题集</td>
+<td>Stanley B. Lippman</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>latex入门</td>
+<td>刘海洋</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>Koltin实战</td>
+<td>Dmitry Jemerov</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>60</td>
+<td>Grovvy程序设计</td>
+<td>Venkat Subramaniam</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td><strong>Effective Java 第三版英文版</strong></td>
+<td>Joshua Bloch</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="数据库-47"><a href="#数据库-47" class="headerlink" title="数据库(47)"></a>数据库(47)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>高性能的MySQL第三版</td>
+<td>Perter Zaitsev等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>高可用的MySQL第二版</td>
+<td>Charles Bell</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>深入理解MySQL核心技术</td>
+<td>Sasha Pachev</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>HBase权威指南</td>
+<td>Lars George</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>海量数据库解决方案</td>
+<td>韩.李华植</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>数据库事务处理的艺术</td>
+<td>李海翔</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Effective MySQL之深入解析复制技术</td>
+<td>Ronald Bradford</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Effective MySQL之SQL语句最优化</td>
+<td>Ronald Bradford</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>MySQL技术内幕：InnoDB存储引擎</td>
+<td>姜承尧</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>数据库系统内幕</td>
+<td>Alex Petrov</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>数据密集型应用系统设计</td>
+<td>Martin Kleppmann</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>NoSQL精粹</td>
+<td>Martin Flower</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>数据库索引设计与优化</td>
+<td>Michael Leach等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Cassandra权威指南第二版</td>
+<td>Jeff Carpenter</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Greenplum:从大数据战略到实现</td>
+<td>冯雷</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Clickhouse原理解析与应用实践</td>
+<td>朱凯</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>MySQL技术内幕：SQL编程</td>
+<td>姜承尧</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Druid实时大数据分析</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>图数据库</td>
+<td>Ian Robinson</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>企业级大数据平台构建：架构与实现</td>
+<td>朱凯</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Apache Kylin权威指南</td>
+<td>Apache Kylin核心团队</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>数据仓储-第四版</td>
+<td>Inmon W.H</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>大数据平台基础架构指南</td>
+<td>刘旭辉</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>MySQL管理之道（第二版）性能调优，高可用与监控</td>
+<td>贺春旸</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Hikaricp数据库连接池实战</td>
+<td>朱政科</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>精通LevelDB</td>
+<td>廖环宇</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>数据库重构</td>
+<td>Scott W. Ambler</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>MySQL是怎样运行的？</td>
+<td>小孩子4919</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>解读NoSQL</td>
+<td>Dan McCreary</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>大数据挑战与NoSQL数据技术</td>
+<td>陆嘉恒</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>分布式数据库原理 架构与实践</td>
+<td>李海翔</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>分布式数据库系统原理 第三版</td>
+<td><a href="https://cs.uwaterloo.ca/~tozsu/" target="_blank" rel="noopener">M. Tamer Özsu</a> <a href="http://www-sop.inria.fr/members/Patrick.Valduriez/" target="_blank" rel="noopener">Patrick Valduriez</a></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>七周七数据库</td>
+<td>Eric Redmond</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>对象存储实战指南</td>
+<td>罗庆超</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>数据分析之图算法：基于spark和neo4j</td>
+<td>Mark Needham</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>分布式对象存储 原理 架构以及Go语言实现</td>
+<td>胡世杰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>云数据库架构</td>
+<td>朱明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>大数据日知录</td>
+<td>张俊林</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>云原生数据库 原理与最佳实践</td>
+<td>阿里巴巴</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td>postgresql指南</td>
+<td>【日】铃木启修</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>数据库系统实现</td>
+<td>Hector Garcia-Molina</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Design Data Intensive Application</td>
+<td>Martin Kleppmann</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>分布式数据库系统：大数据时代新型数据库技术</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>分布式 云计算 大数据</td>
+<td>林伟伟</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>寻路大数据</td>
+<td>Michael Manoochehri</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>大数据技术与应用：数据密集型计算和模型</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>数据库系统，设计 实现与管理 基础篇</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="分布式与中间件-110"><a href="#分布式与中间件-110" class="headerlink" title="分布式与中间件(110)"></a>分布式与中间件(110)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Rabbitmq实战指南</td>
+<td>朱忠华</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Lucene实战第二版</td>
+<td>Michael McCandless</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Docker实战</td>
+<td>Jeff Nickoloff</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>深入剖析Nginx</td>
+<td>高群凯</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Http权威指南</td>
+<td>David Gourley等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Http/2基础教程</td>
+<td>Stephen Ludin</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Docker进阶与实战</td>
+<td>华为</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Etcd技术内幕</td>
+<td>百丽燊<strong>shēn</strong></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>分布式数据库架构基于MyCat中间件</td>
+<td>周继锋等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Web容量规划的艺术</td>
+<td>John Allspaw</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Mongodb实战第一版</td>
+<td>Kyle Banker</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>从Paxos到Zookeeper</td>
+<td>倪超</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Rabbitmq实战</td>
+<td>Alvaro Videla</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Netty实战</td>
+<td>Morman Maurer</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Kafka权威指南</td>
+<td>Neha Narkhede</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Elsaticsearch服务器开发第二版</td>
+<td>Rafa Kuc</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>分布式服务框架原理与实践</td>
+<td>李林锋</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>大型网站系统与Java中间件实践</td>
+<td>曾宪杰</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Kubernetes in Action</td>
+<td>Marko Luksa</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Java RESTful Web Service实战第二版</td>
+<td>韩陆</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Zookeeper 分布式过程协同技术详解</td>
+<td>Flavio Junqueira</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>深入分析Java Web技术内幕 修订版</td>
+<td>许令波</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Redis实战</td>
+<td>Josiah L. Carlson</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>Redis设计与实现</td>
+<td>黄健宏</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>大规模分布式系统架构与设计实战</td>
+<td>彭渊</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>大规模分布式存储系统原理解析和架构实战</td>
+<td>杨传辉</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>分布式消息中间件实践</td>
+<td>倪伟</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>深入分布式缓存-从原理到实践</td>
+<td>于君泽等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>分布式系统应用设计</td>
+<td>Brendan Burns</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>企业集成模式-设计构建及部署消息传递解决方案</td>
+<td>Gregor Hohpe</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>NoSQL数据库技术实战</td>
+<td>皮雄军</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>反应式设计模式</td>
+<td>何品等翻译</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Redis5设计与源码分析</td>
+<td>陈雷</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Redis深度历险</td>
+<td>钱文品</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Akka入门和实践</td>
+<td>Jason Goodwin</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Akka实战：快速构建高可用分布式应用</td>
+<td>杜云飞</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>响应式架构消息模式Actor实现与Scala应用集成</td>
+<td>Vaughn Vernon</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Apache Kafka实战</td>
+<td>胡夕</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>深入理解Apache kafka核心设计与实践原理</td>
+<td>朱忠华</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td>Apache kafka源码剖析</td>
+<td>徐郡明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>实战Gradle</td>
+<td>Benjamin Muschko</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Elasticssearch源码解析与优化实战</td>
+<td>张超</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>深入理解Elasticsearch第三版</td>
+<td>波哈维</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Elasticssearch实战</td>
+<td>Radu Gheorghe</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>离线和实时大数据开发实战</td>
+<td>朱松岭</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Springboot解密</td>
+<td>王福强</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>Hbase实战</td>
+<td>Nick Dimiduk</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td>尽在双十一</td>
+<td>双十一团队</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>大型系统应用架构实战部署，容灾性能优化</td>
+<td>李彦超</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td>Storm分布式实时计算模式</td>
+<td>P.Taylor Goetz</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td>Spark核心技术与高级应用</td>
+<td>于俊</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td>Hadoop技术内幕</td>
+<td>董西成</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td>RocketMq技术内幕</td>
+<td>丁威</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td>大数据之路阿里巴巴大数据实践</td>
+<td>阿里巴巴数据技术及产品部</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>大数据技术体系详解 原理架构与实践</td>
+<td>董西成</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td>深度剖析HadoopHDFS</td>
+<td>林意群</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>数据仓储工具箱：维度建模指南</td>
+<td>Ralph Kimball</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>深入理解Flink：实时大数据处理实践</td>
+<td>余海峰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>分布式实时处理系统：原理，架构与实现</td>
+<td>卢誉声</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>60</td>
+<td>分布式一致性算法开发实战</td>
+<td>赵辰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td>KafkaStream实战</td>
+<td>William Bejeck</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>akka应用模式：分布式应用程序设计实践指南</td>
+<td>Michael Nash</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>63</td>
+<td>flink基础教程</td>
+<td>Tzoumas</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>64</td>
+<td>akka实战（akka in action）</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>65</td>
+<td>Hadoop技术内幕：深入解析YARN架构设计与实现原理</td>
+<td>董西成</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>66</td>
+<td>Hadoop技术内幕：深入解析Hadoop Common和HDFS架构设计ui实现原理</td>
+<td>蔡斌</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td>大数据基础编程：实践和案例教程-第二版</td>
+<td>林子雨</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td>大数据实训案例：电信用户行为分析</td>
+<td>林子雨</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>69</td>
+<td>大数据实训案例：电影推荐系统Scala版</td>
+<td>林子雨</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td>疯狂VirtualBox实战讲学录</td>
+<td>小耗子</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>71</td>
+<td>走进搜索引擎（第二版）</td>
+<td>潘学峰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>72</td>
+<td>gRPC与云原生应用开发 以Go和Java为例</td>
+<td>Kasun Indrasiri</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>73</td>
+<td>深入理解RPC框架原理与实现</td>
+<td>华钟明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>74</td>
+<td>分布式事务之Seata</td>
+<td>姜宇</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>75</td>
+<td>分布式缓存 原理架构及Go语言实现</td>
+<td>胡世杰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>76</td>
+<td>深入理解分布式事务：原理与实践</td>
+<td>冰河</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>77</td>
+<td>分布式系统与一致性</td>
+<td>陈东明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>78</td>
+<td>分布式系统设计实践</td>
+<td>李庆旭</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>79</td>
+<td>日志管理与分析权威指南</td>
+<td>Anton A. Chuvakin</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>80</td>
+<td>搜索引擎：信息检索实践</td>
+<td>W.Bruce Croft</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>81</td>
+<td>搜索引擎-原理技术与系统（第二版）</td>
+<td>李晓明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>82</td>
+<td>自制搜索引擎</td>
+<td>[日]山田浩之</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>83</td>
+<td>这就是搜索引擎：核心技术详解</td>
+<td>张俊林</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>84</td>
+<td>解密搜索引擎技术实战 : Lucene&amp;Java精华版（第3版）</td>
+<td>罗刚</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>85</td>
+<td>信息检索导论（修订版）</td>
+<td>Prabhakar Raghavan</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>86</td>
+<td>自己动手写Java虚拟机</td>
+<td>张秀宏</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>87</td>
+<td>深入理解分布式系统</td>
+<td>唐伟志</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>88</td>
+<td>HBase应用架构</td>
+<td>Jean-Marc Spaggiari</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>89</td>
+<td>深入解析apache pulsar</td>
+<td>林琳</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>90</td>
+<td>深入集群-大型数据中心资源调度与管理</td>
+<td>李雨前</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>91</td>
+<td>ceph企业级分布式存储 原理与工程实践</td>
+<td>龚向宇</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>92</td>
+<td>Linux开源网络全栈详解</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>93</td>
+<td>分布式操作系统原理与实践</td>
+<td>Doreen L. Galli</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>94</td>
+<td>NoSQL权威指南</td>
+<td>[美] 乔·塞科</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>95</td>
+<td>Ceph分布式存储学习指南</td>
+<td>[(芬兰)卡伦·辛格</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>96</td>
+<td>大数据系统构建：可扩展实时数据系统构建原理与最佳实践</td>
+<td>Nathan Marz</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>97</td>
+<td>流式架构 kafka和mapr streams数据流处理</td>
+<td>Ted Dunning</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>98</td>
+<td>流式系统 Streaming System</td>
+<td>Tyler Akidau / Slava Chernyak / Reuven Lax</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td>Hadoop应用架构</td>
+<td>Mark Grover</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td>Hadoop权威指南 第四版</td>
+<td>Tom white</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td>基于Apache Flink的流处理： 流式应用基础、实现及操作</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td>Spark权威指南</td>
+<td>Bill Chambers</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>103</td>
+<td>数据中台：基于Google Facebook和微博实践</td>
+<td>詹盈</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td>Hive编程指南</td>
+<td>Edward Capriolo</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td>MapReduce设计模式</td>
+<td>Donald Miner</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td>Spark快速大数据分析</td>
+<td>Holden Karau</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>107</td>
+<td>OpenTSDB技术内幕</td>
+<td>百里燊</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>108</td>
+<td>NoSQL实践指南</td>
+<td>Dan Sullivan</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td>Mesos实战</td>
+<td>Roger Ignazio</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td>MongoDB权威指南 第二版</td>
+<td>Kristina Chodorow</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="框架-21"><a href="#框架-21" class="headerlink" title="框架(21)"></a>框架(21)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>重新定义SpringCloud实战</td>
+<td>许进等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Spring实现第四版</td>
+<td>Craig Walls</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>J2EE核心模式第二版</td>
+<td>Deepak Alur</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>精通Spring4.0企业应用开发实战</td>
+<td>陈雄华等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Java WebSocket编程</td>
+<td>Danny Coward</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Spring框架高级编程</td>
+<td>Rod Johnson等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mybatis技术内幕</td>
+<td>徐郡明</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>Spring技术内幕第二版</td>
+<td>计文柯</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Spring源码深度解析第二版</td>
+<td>郝佳</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>深入理解SpringMVC源代码</td>
+<td>王耀</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Expert One on one J2EE Development Without EJB</strong></td>
+<td>Rod Johnson等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>Expert One on one J2EE Design And Implement</strong></td>
+<td>Rod Johnson</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>软件框架设计的艺术</td>
+<td>Jaroslav Tulach</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>.NET设计规范，约定，惯用法与模式</td>
+<td>Krzysztof Cwalina</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>iBatis实战</td>
+<td>Clinton Begin</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>GraphQL实战写给全栈工程师们</td>
+<td>王北南</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>SpringData实战</td>
+<td></td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>深入浅出MyBatis技术原理与实战</td>
+<td>杨开振</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Apache ShardingSphere实战</td>
+<td>郑天民</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Webassembly实战</td>
+<td>C. Gerard Gallant</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>反应式应用开发</td>
+<td>Duncan DeVore</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="架构-59"><a href="#架构-59" class="headerlink" title="架构(59)"></a>架构(59)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th align="left">书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td align="left">从0开始学架构</td>
+<td>李运华</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td align="left">大型网站技术架构-核心原理与案例分析</td>
+<td>李智慧</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td align="left">软考：软件设计师教程</td>
+<td>诸华</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td align="left">大数据技术原理与应用第二版</td>
+<td>林子雨</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td align="left">企业IT架构转型之道</td>
+<td>钟华</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td align="left">Kubernates权威指南纪念版</td>
+<td>垄正等</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td align="left">构建实时机器学习系统</td>
+<td>彭江森</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td align="left">云系统管理-大规模分布式系统设计与运营</td>
+<td>Thomas A.Limoncelli</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td align="left">恰如其分的软件架构</td>
+<td>George Fairbanks</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td align="left">软件架构设计</td>
+<td>温昱</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td align="left">软件架构设计-第二版</td>
+<td>温昱</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td align="left">进化：运维技术变革与实践探索</td>
+<td>赵成</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td align="left">企业应用架构模式</td>
+<td>Martin Flower</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td align="left">Paas程序设计</td>
+<td>Lucas Carlson</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td align="left">让云落地 云计算服务模式</td>
+<td>Michael Kavis</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td align="left">架构之美</td>
+<td>Diomidis Spinellis</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td align="left">软件构架编档</td>
+<td>Paul Clements等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td align="left">IT架构思维</td>
+<td>Peter Beijer等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td align="left">架构整洁之道</td>
+<td>Robert C.Martin</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td align="left">云计算架构设计模式</td>
+<td>Alex Homer等</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td align="left">简单之美 软件开发实践者的思考</td>
+<td>倪健</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td align="left">架构即未来</td>
+<td>Martin L.Abbott</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td align="left">高扩展性网站的50条原则</td>
+<td>Martin L.Abbott</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td align="left">持续集成-软件质量改进的风险降低之道</td>
+<td>Paul M. Duvall</td>
+<td>2</td>
+<td><a href="https://xiaozhiliaoo.github.io/2020/11/28/CI-Book-Reading/" target="_blank" rel="noopener">notes</a></td>
+</tr>
+<tr>
+<td>25</td>
+<td align="left">持续交付-发布可靠软件的系统方法</td>
+<td>Jez Humble</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td align="left">演进式架构</td>
+<td>Neal Ford</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td align="left">Tomcat架构解析</td>
+<td>刘光瑞</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td align="left">白帽子讲Web安全</td>
+<td>吴翰清</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td align="left">深入浅出大型网站架构设计</td>
+<td>李力非</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td align="left">程序员必读软件架构</td>
+<td>Simon Brown</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td align="left">代码之美</td>
+<td>Oram Wilson</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td align="left">Prometheus云原生监控</td>
+<td>朱政科-阿里巴巴</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td align="left">Apache SkyWalking实战</td>
+<td>吴晟</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td align="left">Cloud Foundry：从数字化战略到实现</td>
+<td>冯雷</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td align="left">逆流而上：阿里巴巴技术成长之路</td>
+<td>阿里巴巴成长编委会</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td align="left">淘宝技术这十年</td>
+<td>子柳</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td align="left">架构解密：从分布式到微服务</td>
+<td>leader Us</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td align="left">亿级流量网站架构核心技术</td>
+<td>张开涛</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td align="left">分布式服务架构：原理，设计与实战</td>
+<td>李艳鹏</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td align="left">微服务治理 体系 结构及实践</td>
+<td>李鑫</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td align="left">微服务之道:度量驱动开发</td>
+<td>范亚敏</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td align="left">数字化转型的道与术</td>
+<td>钟华</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td align="left">业务架构  业务架构，应用架构，数据架构</td>
+<td>温昱</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td align="left">大型网站性能优化实战</td>
+<td>周涛明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td align="left">大型网站技术架构演进与性能优化</td>
+<td>许令波</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td align="left">架构修炼之道：亿级网关，平台开放</td>
+<td>王新栋</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td align="left">分布式一致性算法开发实战</td>
+<td>赵辰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td align="left">大数据技术原理与应用第三版</td>
+<td>林子雨</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td align="left">代码里的世界观：通往架构师之路</td>
+<td>余叶</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td align="left">软件架构</td>
+<td>沙巴纳</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td align="left">前端工程化：体系设计与实践</td>
+<td>周俊鹏</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td align="left">可伸缩架构 第二版</td>
+<td>张若飞</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td align="left">凤凰架构</td>
+<td>周志明</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td align="left">AWS云计算实战</td>
+<td>安德烈亚斯·威蒂格</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td align="left">大数据技术架构-核心原理与应用实践</td>
+<td>李智慧-极客时间专栏</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td align="left">企业数字化基石-阿里巴巴云计算基础设施实践</td>
+<td>阿里巴巴</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td align="left">阿里云原生架构实践</td>
+<td>阿里巴巴</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td align="left">云原生架构：从技术演进到最佳实践</td>
+<td>贺阮云</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td align="left">分布式架构原理与实践</td>
+<td>崔浩</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="软件工程-71"><a href="#软件工程-71" class="headerlink" title="软件工程(71)"></a>软件工程(71)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>超越软件架构</td>
+<td>Luke Hohmann</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>重构与模式</td>
+<td>Joshua Kerievsky</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Contributing To Eclipse</td>
+<td>Erich Gamma&amp;Kent Beck</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>软件工艺</td>
+<td>Pete McBreen</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>程序员修炼之道从小工到专家</td>
+<td>Andrew Hunt</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>面向对象分析与设计第二版</strong></td>
+<td>Grady Booch</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>面向对象分析与设计第三版</strong></td>
+<td>Grady Booch</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>人月神话</td>
+<td>Frederick P. Brooks</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>敏捷中国史话</td>
+<td>熊节</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>软件开发本质论</td>
+<td>Ron Jeffries</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>大教堂与集市</td>
+<td>Eric Raymond</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>快速软件开发</td>
+<td>Steve McConnell</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>程序开发心理学</td>
+<td>Gerald Weinberg</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>个体软件工程</td>
+<td>Watts S. Humphrey</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>走出软件工坊</td>
+<td>阿朱</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>UNIX编程艺术</td>
+<td>Eric S.Raymond</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>解析极限编程-拥抱变化第一版</td>
+<td>Kent Beck</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>敏捷软件开发-原则，模式-实践</td>
+<td>Robert C.Martin</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>实现模式</strong></td>
+<td>Kent Beck</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>面向模式的软件架构 资源管理模式</td>
+<td>Michael Kircher</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>编程珠玑第二版</td>
+<td>Jon Bentley</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>数据库访问模式</td>
+<td>Clifton Nock</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>反模式-危机中的软件，架构和项目的重构</td>
+<td>William Brown</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>面向对象项目的解决方案</td>
+<td>Grady Booch</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>软件构架实践</td>
+<td>Len Bass</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>面向模式的软件架构-模式系统第一卷</td>
+<td>Frank Buschmann</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>发布! 软件的设计与部署-第一版</td>
+<td>Michael T. Mygard</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>发布! 软件的设计与部署-第二版</td>
+<td>Michael T. Mygard</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>构建之法-现代软件工程0第三版</td>
+<td>邹欣</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>混沌工程Netflix系统稳定性之道</td>
+<td>Casey Rosenthal等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>设计模式-可复用面向对象软件的基础</td>
+<td>GOF4</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>精益软件度量</td>
+<td>张松</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>测试驱动开发-英文版</td>
+<td>Kent Beck</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Xunit测试模式</td>
+<td>Gerard Meszaros</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Google软件测试之道</td>
+<td>James Whittaker</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>UML用户指南</td>
+<td>Grady Booch</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>敏捷革命</td>
+<td>Jeff Sutherland</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>看板方法-科技企业渐进变革成功之道</td>
+<td>David J. Anderson</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>敏捷迭代开发-管理者指南</td>
+<td>Craig Larman</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td><strong>UML和模式应用第三版</strong></td>
+<td>Craig Larman</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>面向对象编程导论 第三版</td>
+<td>Timothy A. Budd</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>编写有效用例</td>
+<td>Alistair Cockburn</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>代码大全第二版</td>
+<td>Steve McConnell</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>统一软件开发过程</td>
+<td>Ivar Jacobson</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>用户故事与敏捷方法</td>
+<td>Mike Cohn</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>面向快速交付的软件开发</td>
+<td>翟宏宝</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>有效的单元测试</td>
+<td>Lasse Koskela</td>
+<td>0</td>
+<td>2020-12-15</td>
+</tr>
+<tr>
+<td>48</td>
+<td>构建高质量软件-程序开发人员测试指南</td>
+<td>Alexander Tarlinder</td>
+<td>0</td>
+<td>2020-12-22</td>
+</tr>
+<tr>
+<td>49</td>
+<td>程序员应该知道的97件事</td>
+<td>Kevlin Henney</td>
+<td>0</td>
+<td>2020-12-22</td>
+</tr>
+<tr>
+<td>50</td>
+<td>软件架构师应该知道的97件事</td>
+<td>Richard Monson-Haefel</td>
+<td>0</td>
+<td>2020-12-22</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Cucumber行为驱动开发指南</td>
+<td>Matt Waynne等</td>
+<td>0</td>
+<td>2020-12-22</td>
+</tr>
+<tr>
+<td>52</td>
+<td>实例化需求</td>
+<td>Gojko Adzic</td>
+<td>0</td>
+<td>2020-12-21</td>
+</tr>
+<tr>
+<td>53</td>
+<td>驯服烂代码</td>
+<td>伍斌</td>
+<td>0</td>
+<td>2020-12-28</td>
+</tr>
+<tr>
+<td>54</td>
+<td>软件工程通史1930-2019</td>
+<td>Capers Jones</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td>人件(原书第三版)</td>
+<td>Tom DeMarco Timothy Lister</td>
+<td>0</td>
+<td>2021-05-02</td>
+</tr>
+<tr>
+<td>56</td>
+<td>软件困局：为什么聪明的程序员写出糟糕的代码</td>
+<td>Adam Barr</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td>项目百态：深入理解软件项目行为模式</td>
+<td>金明翻译</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>硝烟中的Scrum和XP-我们如何实施Scrum</td>
+<td>Henrik Kniberg</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td>敏捷整洁之道</td>
+<td>Robert C. Martin</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>60</td>
+<td>精益软件开发管理之道</td>
+<td>Mary  Poppendieck</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td>敏捷软件开发工具-精益开发方法</td>
+<td>Mary  Poppendieck</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td>活文档 与代码共同演进</td>
+<td>Cyrille Matraire</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>63</td>
+<td>凤凰项目 一个IT运维的传奇故事-修订版</td>
+<td>Gene Kim</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>64</td>
+<td>产品研发管理：构建世界一流的产品研发管理体系（第二版）</td>
+<td>周辉</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>65</td>
+<td>敏捷技能修炼：敏捷软件开发与设计的最佳实践</td>
+<td>Alan Shalloway / Scott Bain / Ken Pugh / Amir Kolsky</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>66</td>
+<td>Scrum敏捷软件开发</td>
+<td>Mike Cohn</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td>敏捷软件开发时间：估算与计划</td>
+<td>Mike Cohn</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td>SCRUM敏捷项目管理</td>
+<td>Ken Schwaber</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>69</td>
+<td>这就是软件工程师</td>
+<td>丁丛丛 靳冉</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td>30天软件开发：告别瀑布拥抱敏捷</td>
+<td>Ken Schwaber,Jeff Sutherland</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>71</td>
+<td>Vim实用技巧 第二版</td>
+<td>Drew Neil</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="设计-27"><a href="#设计-27" class="headerlink" title="设计(27)"></a>设计(27)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><strong>重构-第一版</strong></td>
+<td>Martin Flower</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>微服务设计</td>
+<td>Sam Newman</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>UML和OOAD快速入门</td>
+<td>邱郁惠</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>软件设计之道：那些值得借鉴的实践案例</td>
+<td>麦思博</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>分析模式</td>
+<td>Martin Fowler</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>生产微服务</td>
+<td>Susan J.Fowler</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>修改代码的艺术-构建易维护代码的9条最佳实践</td>
+<td>David Scott Bernstein</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>修改代码的艺术</td>
+<td>Michael Feathers</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>遗留系统重建实战</td>
+<td>Chris Birchall</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Junit实战第二版</td>
+<td>Peter Tahchiev</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>软件设计哲学</td>
+<td>John Ousterhout</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>领域驱动设计全面解析与实战</td>
+<td>彭晨阳</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>软件工程-实践者的研究方法-第八版</td>
+<td>Roger S.Pressman</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>实现领域驱动设计</td>
+<td>Vaughn Vernon</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>编程格调</td>
+<td>Brian W.Kernighan</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>对象设计：角色，责任和协作</td>
+<td>Rebecca Wirfs-Brock</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>OOD启思录</strong></td>
+<td>Arthur J. Riel</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>软件设计重构</td>
+<td>Tushar Sharma等</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>领域驱动设计精粹</td>
+<td>Vaughn Vernon</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>设计模式的艺术</td>
+<td>刘伟</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>代码精进之路-从码农到工匠</td>
+<td>张建飞</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>领域驱动设计</td>
+<td>Eric Evans</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>特征驱动开发方法原理与实践</td>
+<td>Stephen R. Palmer</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td>浮现式设计：专业软件开发的演进本质</td>
+<td>Scott L.Bain</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>微服务设计模式和最佳实践</td>
+<td>Vinicius Feitosa Pacheco</td>
+<td>0</td>
+<td>2020-12-22</td>
+</tr>
+<tr>
+<td>26</td>
+<td>微服务架构设计模式</td>
+<td>Chris Richardson</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>软件预构的艺术</td>
+<td>Ken Pugh</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="考试与考证-16"><a href="#考试与考证-16" class="headerlink" title="考试与考证(16)"></a>考试与考证(16)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>软考:系统架构设计师 2009-2016试题分析</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>软件体系架构：原理方法与实践</td>
+<td>张友生</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>产品经理认证NPDP知识体系指南</td>
+<td>(美)产品开发与管理协会</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>软考：信息系统项目管理师教程</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>软考：信息系统项目管理师考试论文执导</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>软考：信息系统项目管理师案例分析指南</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>7</td>
+<td>软考:系统架构设计师 2013-2018试题分析</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>8</td>
+<td>软考:系统架构设计师教程</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>软考:系统架构设计师全程指导</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>10</td>
+<td>软考：系统架构设计师考试32小时通关</td>
+<td>全国计算机专业技术资格考试办公室</td>
+<td>0</td>
+</tr>
+<tr>
+<td>11</td>
+<td>软考：系统架构设计师教程</td>
+<td>希赛教育</td>
+<td>0</td>
+</tr>
+<tr>
+<td>12</td>
+<td>项目管理知识体系指南 第六版</td>
+<td>[美]项目管理协会</td>
+<td>0</td>
+</tr>
+<tr>
+<td>13</td>
+<td>敏捷实践指南</td>
+<td>[美]项目管理协会</td>
+<td>0</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Head First PMP 第三版</td>
+<td>格林 / 斯泰曼</td>
+<td>0</td>
+</tr>
+<tr>
+<td>15</td>
+<td>敏捷项目管理(第二版):快速交付创新产品</td>
+<td>Jim,Highsmith</td>
+<td>0</td>
+</tr>
+<tr>
+<td>16</td>
+<td>汪博士解读PMP 第五版</td>
+<td>汪博士</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id="产品-16"><a href="#产品-16" class="headerlink" title="产品(16)"></a>产品(16)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>产品设计与开发第五版</td>
+<td>Karl T.Ullrich</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>疯传</td>
+<td>Jonah Berger</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>人人都是产品经理-第二版</td>
+<td>苏杰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>你的灯还亮着吗？</td>
+<td>Gerald M.Weinberg</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>淘宝产品十年事</td>
+<td>苏杰</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>俞军 产品方法论</td>
+<td>俞军</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>支付平台架构-业务，规划，设计与实现</td>
+<td>曹兵强</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>电商产品经理宝典</td>
+<td>刘志远</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>电商产品经理：基于人货场内容的产品设计攻略</td>
+<td>王伟</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>业务中台产品搭建指南</td>
+<td>高晖</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>增长黑客</td>
+<td>肖恩·埃利斯 （Sean Ellis)</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>数据产品经理修炼手册-从零基础到大数据产品实践</td>
+<td>梁旭鹏</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>数据产品经理必须课：从零经验到令人惊艳</td>
+<td>李鑫</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>数据驱动：从方法到实践</td>
+<td>桑文锋</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>支付方法论</td>
+<td>王伟</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>云计算时代 本质，计算，创新，战略</td>
+<td>刘黎明</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="系统-13"><a href="#系统-13" class="headerlink" title="系统(13)"></a>系统(13)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Linux系统编程手册-上</td>
+<td>Michael Kerrisk</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Linux系统编程手册-下</td>
+<td>Michael Kerrisk</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>系统性能优化第二版</td>
+<td>Mike Loukides</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>性能之巅</td>
+<td>Brendan Gregg</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Linux大棚命令百篇上：文件和文本篇</td>
+<td>大棚</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Linux大棚命令百篇下：网络和系统篇</td>
+<td>大棚</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Linux就该这么学</td>
+<td>刘遄</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>UNIX环境高级编程 第三版</td>
+<td>W.Richard Stevens</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Linux系统编程 第二版</td>
+<td>Robert Love</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>UNIX网络编程卷2：进程间通信</td>
+<td>W.Richard Stevens</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>UNIX网络编程卷2：套接字联网API</td>
+<td>W.Richard Stevens</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>深入理解Linux内核 第三版</td>
+<td>西斯特</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Unix/Linux编程实践教程</td>
+<td>Bruce Molay</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="区块链-7"><a href="#区块链-7" class="headerlink" title="区块链(7)"></a>区块链(7)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>以太坊技术详解与实战</td>
+<td>闫莺等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>EOS区块链应用开发指南</td>
+<td>家男</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>虚拟货币革命</td>
+<td>野口悠纪雄</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>区块链革命：比特币底层技术如何改变货币，商业和世界</td>
+<td>Don Tapscott</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>区块链原理，设计与应用</td>
+<td>杨保华</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>区块链100问</td>
+<td>赵何娟</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>区块链 新经济蓝图及导读</td>
+<td>梅兰妮</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="其他-22"><a href="#其他-22" class="headerlink" title="其他(22)"></a>其他(22)</h2><table>
+<thead>
+<tr>
+<th>编号</th>
+<th>书名</th>
+<th>作者</th>
+<th>阅读情况</th>
+<th>读书笔记</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>金领简历</td>
+<td>Gayle Laakmann McDowell</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>IEEE计算机先驱奖(1980-2014)</td>
+<td>崔林</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>图灵和ACM图灵奖品(1966-2011)</td>
+<td>吴鹤龄</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>黑客与画家</td>
+<td>Paul Graham</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>延长万物之尺</td>
+<td>保罗.汉弗莱斯</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Effective Debugging</td>
+<td>Diomidis Spinellis</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>跨越鸿沟</td>
+<td>Geoffrey Moore</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>微软团队成功墨诀</td>
+<td>麦卡锡</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>开源软件之道</td>
+<td>蔡俊杰</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>计算机英语教程双色版</td>
+<td>张强华</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>设计领导力</td>
+<td>Richard Banfield</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>开源软件与专有软件的竞争</td>
+<td>王广凤</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>程序员代码面试指南第二版</td>
+<td>左程云</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>剑指Offer 第二版</td>
+<td>何海涛</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>OKR工作法-谷歌等顶级公司高绩效秘籍</td>
+<td>沃特克</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>程序员的成长课</td>
+<td>安晓辉等</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Java程序员面试算法宝典</td>
+<td>猿媛之家</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>程序员面试金典 第六版</td>
+<td>盖尔-拉克曼</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>开源法则</td>
+<td>何宝宏博士</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>计算机英语 第五版</td>
+<td>刘艺</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>研究是一门艺术 第四版</td>
+<td>Wayne C. Booth</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>程序员的英语</td>
+<td>[韩]朴栽浒</td>
+<td>0</td>
+<td></td>
+</tr>
+</tbody></table>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="简单" />
+            
+              <p class="site-author-name" itemprop="name">简单</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaozhiliaoo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiaozhiliaoo@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCC_iEedYpLIqEi9BY7PDvaQ" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.cn/injobs/in/li-li-41165799" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/2216564802" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#读后感"><span class="nav-number">2.</span> <span class="nav-text">读后感</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#书单汇总-共507本"><span class="nav-number">3.</span> <span class="nav-text">书单汇总(共507本)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机科学-37"><span class="nav-number">3.1.</span> <span class="nav-text">计算机科学(37)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言-61"><span class="nav-number">3.2.</span> <span class="nav-text">语言(61)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库-47"><span class="nav-number">3.3.</span> <span class="nav-text">数据库(47)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式与中间件-110"><span class="nav-number">3.4.</span> <span class="nav-text">分布式与中间件(110)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架-21"><span class="nav-number">3.5.</span> <span class="nav-text">框架(21)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构-59"><span class="nav-number">3.6.</span> <span class="nav-text">架构(59)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件工程-71"><span class="nav-number">3.7.</span> <span class="nav-text">软件工程(71)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计-27"><span class="nav-number">3.8.</span> <span class="nav-text">设计(27)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#考试与考证-16"><span class="nav-number">3.9.</span> <span class="nav-text">考试与考证(16)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品-16"><span class="nav-number">3.10.</span> <span class="nav-text">产品(16)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统-13"><span class="nav-number">3.11.</span> <span class="nav-text">系统(13)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区块链-7"><span class="nav-number">3.12.</span> <span class="nav-text">区块链(7)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他-22"><span class="nav-number">3.13.</span> <span class="nav-text">其他(22)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">简单</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问人数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'cb11b8b7bc132e255809',
+      clientSecret: '278f02fc92231dea3c9b12f3ba0abcfdb3e4092e',
+      repo: 'xiaozhiliaoo-blog-comment',
+      owner: 'xiaozhiliaoo',
+      admin: ['xiaozhiliaoo'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入访问密码') !== 'helloworld'){
+            while(true) {
+                alert('密码错误！请关闭网页！');
+            }
+            history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="facebook faiss,openai,embedding," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构：Flat（暴力搜索) 、IVF(Inverted File)、IVFPQ(Inve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="向量检索Faiss实战">
+<meta property="og:url" content="http://yoursite.com/2024/01/07/faiss-practice/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="faiss简介Faiss is a library for efficient similarity search and clustering of dense vectors。 官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。 Faiss主要组件包括：  索引结构：Flat（暴力搜索) 、IVF(Inverted File)、IVFPQ(Inve">
+<meta property="article:published_time" content="2024-01-07T07:25:06.000Z">
+<meta property="article:modified_time" content="2024-07-05T17:23:28.029Z">
+<meta property="article:author" content="简单">
+<meta property="article:tag" content="facebook faiss">
+<meta property="article:tag" content="openai">
+<meta property="article:tag" content="embedding">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2024/01/07/faiss-practice/"/>
+
+
+
+
+
+  <title>向量检索Faiss实战 | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神仙本是凡人做，只怕凡人心不坚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readinglist">
+          <a href="/reading-list/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读清单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/07/faiss-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="简单">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">向量检索Faiss实战</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2024-01-07T15:25:06+08:00">
+                2024-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/llm/" itemprop="url" rel="index">
+                    <span itemprop="name">llm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">浏览</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="faiss简介"><a href="#faiss简介" class="headerlink" title="faiss简介"></a>faiss简介</h1><p><code>Faiss is a library for efficient similarity search and clustering of dense vectors。</code></p>
+<p>官方介绍: Faiss是一个用于高效相似性搜索和密集向量聚类的库。也就是用来实现高效的向量检索。</p>
+<p>Faiss主要组件包括：</p>
+<ol>
+<li>索引结构：<strong>Flat</strong>（暴力搜索) 、<strong>IVF</strong>(Inverted File)、<strong>IVFPQ</strong>(Inverted File with Product Quantization)、<strong>HNSW</strong>(Hierarchical Navigable Small World)，索引结构可以加速相似性搜索，降低查询时间。</li>
+<li>向量编码：<strong>PQ</strong>(Product Quantization)、<strong>OPQ</strong>(Optimized Product Quantization)。编码可以将高维向量映射到低维空间中，同时保持距离的相似性，有助于减少内存占用和计算量。</li>
+<li>相似性度量：欧氏距离、内积、Jaccard 相似度等。</li>
+</ol>
+<p>Faiss的核心API有：</p>
+<ol>
+<li><p><strong>IndexFactory(d int, description string, metric int)</strong>：用来创建索引，通过维度，索引方法描述，相似性度量来创建索引。</p>
+</li>
+<li><p><strong>Ntotal()</strong> 索引向量的数量。</p>
+</li>
+<li><p><strong>Train(x []float32)</strong>  用一组具有代表性的向量训练索引。</p>
+</li>
+<li><p><strong>Add(x []float32)</strong>，用于创建向量检索集。</p>
+</li>
+<li><p><strong>Search(x []float32, k int64) (distances []float32, labels []int64, err error)</strong>，x向量在k紧邻进行检索，返回每个查询向量的 k 个最近邻的 ID 以及相应的距离。</p>
+</li>
+</ol>
+<p>如何理解<strong>Add</strong>和<strong>Search</strong>方法呢？<strong>Add</strong>是添加向量，<strong>Search</strong>从向量中检索。比如一篇文章拆分成5个片段，此时调用Add方法生成了5个向量，查询的内容会生成一个查询向量，那么<strong>Search</strong>中<strong>k=2</strong>会返回最近的两个近邻，也就是返回5个向量中的2个向量，那么返回值<strong>distances</strong>是查询向量到返回<strong>2</strong>个向量的距离，返回值<strong>labels</strong>是返回的向量在5个片段中的位置，此时就可以知道返回了那些段。</p>
+<p>Faiss的主要流程是：</p>
+<ol>
+<li>初始化索引结构，指定相似性度量方法(metric)和编码方法(description)。使用<strong>IndexFactory</strong>。</li>
+<li>将原始向量数据添加到索引中。使用<strong>Add</strong>。</li>
+<li>对查询向量进行编码，并在索引中搜索与查询向量相似的向量。使用<strong>Search</strong>。</li>
+<li>获取搜索结果，并根据需要进行后处理。</li>
+</ol>
+<h1 id="文档向量化检索设计"><a href="#文档向量化检索设计" class="headerlink" title="文档向量化检索设计"></a>文档向量化检索设计</h1><p>如果我们要实现一篇文档的向量化检索该如何设计呢？可以使用mysql和内存缓存作为文档的向量存储，方案可以先将<strong>文档拆分</strong>，然后存储到数据库中，表设计如下：</p>
+<p>mysql存储拆分后的文档—— primary_id，edoc_part_content，project_id，embedding</p>
+<p>内存缓存存储向量位置到文档主键ID——键：project_id+Ntotal()   值：primary_id</p>
+<p>服务启动初始化时候从mysql加载doc表，获取到所有的文档，然后通过Add方法加载到检索集中，每加一次，调用<strong>Ntotal</strong>方法获取当前向量总数，也就是当前向量数组的位置下标，存入内存缓存中，</p>
+<p>查询时候，生成查询向量后，调用<strong>Search</strong>方法，获取到检索集位置，然后获取从内存缓存中获取mysql中的主键id，去mysql查询到文档的内容。</p>
+<h1 id="Faiss配置指南"><a href="#Faiss配置指南" class="headerlink" title="Faiss配置指南"></a>Faiss配置指南</h1><h2 id="相似性计算方法"><a href="#相似性计算方法" class="headerlink" title="相似性计算方法"></a>相似性计算方法</h2><p>相似性计算主要有余弦，L1，L2等计算方法。</p>
+<p><code>InnerProduct</code>内积/余弦相似度</p>
+<p><code>L1</code> <a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/hy592070616/article/details/121569933%3Fspm%3D1001.2014.3001.5501">曼哈顿距离</a></p>
+<p><code>L2</code>    欧氏距离</p>
+<p><code>Linf</code> 无穷范数</p>
+<p><code>Lp</code>    p范数</p>
+<p><code>Canberra</code>    <a href="https://zhuanlan.zhihu.com/p/440130486?utm_id=0" target="_blank" rel="noopener">BC相异度</a></p>
+<p><code>BrayCurtis</code>  <a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/hy592070616/article/details/122271656">兰氏距离/堪培拉距离</a></p>
+<p><code>JensenShannon</code>  <a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/hy592070616/article/details/122387046%3Fspm%3D1001.2014.3001.5501">JS散度</a></p>
+<h2 id="索引方法"><a href="#索引方法" class="headerlink" title="索引方法"></a>索引方法</h2><p>索引描述主要是向量检索算法。主要有以下几个：</p>
+<p>Flat：最基础的索引结构，比较精确</p>
+<p>IVF：Inverted File 倒排文件</p>
+<p>PQ：Product Quantization 乘积量化</p>
+<p>PCA：Principal Component Analysis 主成分分析</p>
+<p>HNSW：Hierarchical Navigable Small World  分层的可导航小世界</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>相似性计算方法</strong></th>
+<th align="left"><strong>索引描述</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">InnerProduct</td>
+<td align="left">Flat</td>
+<td align="left">余弦相似度 暴力检索</td>
+</tr>
+<tr>
+<td align="left">InnerProduct</td>
+<td align="left">IVF100,Flat</td>
+<td align="left">余弦相似度   k-means聚类中心为100倒排（IVFx）暴力检索</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">Flat</td>
+<td align="left">欧式距离 暴力检索</td>
+</tr>
+<tr>
+<td align="left">InnerProduct</td>
+<td align="left">PQ16</td>
+<td align="left"><strong>余弦相似度 乘积量化</strong> 利用乘积量化的方法，改进了普通检索，将一个向量的维度切成x段，每段分别进行检索，每段向量的检索结果取交集后得出最后的TopK。因此速度很快，而且占用内存较小，召回率也相对较高</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">PCA32,IVF100,PQ16</td>
+<td align="left">欧式距离 将向量先降维成32维，再用IVF100 PQ16的方法构建索引</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left">PCA32,HNSW32</td>
+<td align="left">欧式距离 处理HNSW内存占用过大的问题</td>
+</tr>
+<tr>
+<td align="left">L2</td>
+<td align="left"><code>IVF100,PQ16</code></td>
+<td align="left">欧式距离 <strong>倒排乘积量化</strong>：工业界大量使用此方法，各项指标都均可以接受，利用乘积量化的方法，改进了IVF的k-means，将一个向量的维度切成x段，每段分别进行k-means再检索</td>
+</tr>
+<tr>
+<td align="left">其他</td>
+<td align="left">其他</td>
+<td align="left">大家自己枚举调优吧，采用下文测试方法测试是否成功</td>
+</tr>
+</tbody></table>
+<h1 id="GoLang代码例子"><a href="#GoLang代码例子" class="headerlink" title="GoLang代码例子"></a>GoLang代码例子</h1><p><strong>faiss</strong>本身用<strong>C++</strong>实现，这里使用<strong>go-faiss</strong>来实现例子，<strong>embeding</strong>获取通过<strong>openai</strong>的接口实现。</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> services</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"context"</span></span><br><span class="line">	<span class="string">"encoding/json"</span></span><br><span class="line">	<span class="string">"errors"</span></span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"log"</span></span><br><span class="line">	<span class="string">"math/rand"</span></span><br><span class="line"></span><br><span class="line">	gofaiss <span class="string">"github.com/DataIntelligenceCrew/go-faiss"</span></span><br><span class="line">	<span class="string">"github.com/sashabaranov/go-openai"</span></span><br><span class="line">	<span class="string">"github.com/spf13/cast"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	AuthToken = <span class="string">"openai的token"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> MetricTypeMap = <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">	<span class="string">"InnerProduct"</span>:  gofaiss.MetricInnerProduct,  <span class="comment">// 0</span></span><br><span class="line">	<span class="string">"L2"</span>:            gofaiss.MetricL2,            <span class="comment">// 1</span></span><br><span class="line">	<span class="string">"L1"</span>:            gofaiss.MetricL1,            <span class="comment">// 2</span></span><br><span class="line">	<span class="string">"Linf"</span>:          gofaiss.MetricLinf,          <span class="comment">// 3</span></span><br><span class="line">	<span class="string">"Lp"</span>:            gofaiss.MetricLp,            <span class="comment">// 4</span></span><br><span class="line">	<span class="string">"Canberra"</span>:      gofaiss.MetricCanberra,      <span class="comment">// 20</span></span><br><span class="line">	<span class="string">"BrayCurtis"</span>:    gofaiss.MetricBrayCurtis,    <span class="comment">// 21</span></span><br><span class="line">	<span class="string">"JensenShannon"</span>: gofaiss.MetricJensenShannon, <span class="comment">// 22</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> FaissReq <span class="keyword">struct</span> &#123;</span><br><span class="line">	IsDemo      <span class="keyword">bool</span>      <span class="string">`json:"is_demo"`</span></span><br><span class="line">	DBSize      <span class="keyword">int</span>       <span class="string">`json:"db_size"`</span></span><br><span class="line">	QuerySize   <span class="keyword">int</span>       <span class="string">`json:"query_size"`</span></span><br><span class="line">	KNearest    <span class="keyword">int64</span>     <span class="string">`json:"k_nearest"`</span></span><br><span class="line">	Question    <span class="keyword">string</span>    <span class="string">`json:"question"`</span></span><br><span class="line">	Model       <span class="keyword">string</span>    <span class="string">`json:"model"`</span></span><br><span class="line">	Embedding   []<span class="keyword">float32</span> <span class="string">`json:"embedding"`</span></span><br><span class="line">	Dimension   <span class="keyword">int</span>       <span class="string">`json:"dimension"`</span>   <span class="comment">// 维度</span></span><br><span class="line">	Description <span class="keyword">string</span>    <span class="string">`json:"description"`</span> <span class="comment">// 索引描述</span></span><br><span class="line">	Metric      <span class="keyword">string</span>    <span class="string">`json:"metric"`</span>      <span class="comment">// 相似性度量方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> FaissRsp <span class="keyword">struct</span> &#123;</span><br><span class="line">	IsTrained <span class="keyword">bool</span>  <span class="string">`json:"is_trained"`</span></span><br><span class="line">	Ntotal    <span class="keyword">int64</span> <span class="string">`json:"n_total"`</span></span><br><span class="line">	Dimension <span class="keyword">int</span>   <span class="string">`json:"dimension"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> EmbeddingReq <span class="keyword">struct</span> &#123;</span><br><span class="line">	Prompt <span class="keyword">string</span> <span class="string">`json:"prompt"`</span></span><br><span class="line">	Model  <span class="keyword">string</span> <span class="string">`json:"model"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> EmbeddingRsp <span class="keyword">struct</span> &#123;</span><br><span class="line">	Embedding []<span class="keyword">float32</span> <span class="string">`json:"embedding"`</span></span><br><span class="line">	Time      <span class="keyword">string</span>    <span class="string">`json:"time"`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">QueryFaiss</span><span class="params">(req FaissReq)</span> <span class="params">(rsp FaissRsp, err error)</span></span> &#123;</span><br><span class="line">	log.Printf(<span class="string">"all metrics is:%+v"</span>, MetricTypeMap)</span><br><span class="line">	<span class="keyword">if</span> req.IsDemo &#123;</span><br><span class="line">		d := req.Dimension  <span class="comment">// 向量维度</span></span><br><span class="line">		nb := req.DBSize    <span class="comment">// 全部数据大小</span></span><br><span class="line">		nq := req.QuerySize <span class="comment">// </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 所有数据的向量</span></span><br><span class="line">		xb := <span class="built_in">make</span>([]<span class="keyword">float32</span>, d*nb)</span><br><span class="line">		<span class="comment">// 查询数据的向量</span></span><br><span class="line">    xq := <span class="built_in">make</span>([]<span class="keyword">float32</span>, d*nq)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化全部数据</span></span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; nb; i++ &#123;</span><br><span class="line">			<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; d; j++ &#123;</span><br><span class="line">				xb[i*d+j] = rand.Float32()</span><br><span class="line">			&#125;</span><br><span class="line">			xb[i*d] += <span class="keyword">float32</span>(i) / <span class="number">1000</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化查询数据</span></span><br><span class="line">		<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; nq; i++ &#123;</span><br><span class="line">			<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; d; j++ &#123;</span><br><span class="line">				xq[i*d+j] = rand.Float32()</span><br><span class="line">			&#125;</span><br><span class="line">			xq[i*d] += <span class="keyword">float32</span>(i) / <span class="number">1000</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化Faiss</span></span><br><span class="line">		indexImpl, err := gofaiss.IndexFactory(d, req.Description, MetricTypeMap[req.Metric])</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"IndexFactory err:%+v"</span>, err)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">defer</span> indexImpl.Delete()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 训练全部数据</span></span><br><span class="line">		trainErr := indexImpl.Train(xb)</span><br><span class="line">		<span class="keyword">if</span> trainErr != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"Train err:%+v"</span>, trainErr)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line">    <span class="comment">// 将全部数据加入Faiss中</span></span><br><span class="line">		addErr := indexImpl.Add(xb)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"addErr err:%+v"</span>, addErr)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line">		k := <span class="keyword">int64</span>(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 合法性检查，用全部数据的前5*维度个</span></span><br><span class="line">		dist, ids, err := indexImpl.Search(xb[:<span class="number">5</span>*d], k)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"Search err:%+v"</span>, err)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line">		log.Printf(<span class="string">"Search dist:%+v,ids:%+v"</span>, dist, ids)</span><br><span class="line"></span><br><span class="line">		fmt.Println(<span class="string">"ids="</span>)</span><br><span class="line">		<span class="keyword">for</span> i := <span class="keyword">int64</span>(<span class="number">0</span>); i &lt; <span class="number">5</span>; i++ &#123;</span><br><span class="line">			<span class="keyword">for</span> j := <span class="keyword">int64</span>(<span class="number">0</span>); j &lt; k; j++ &#123;</span><br><span class="line">				fmt.Printf(<span class="string">"%5d "</span>, ids[i*k+j])</span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Println()</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Println(<span class="string">"dist="</span>)</span><br><span class="line">		<span class="keyword">for</span> i := <span class="keyword">int64</span>(<span class="number">0</span>); i &lt; <span class="number">5</span>; i++ &#123;</span><br><span class="line">			<span class="keyword">for</span> j := <span class="keyword">int64</span>(<span class="number">0</span>); j &lt; k; j++ &#123;</span><br><span class="line">				fmt.Printf(<span class="string">"%7.6g "</span>, dist[i*k+j])</span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Println()</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 通过查询数据xq进行向量检索</span></span><br><span class="line">		ps, err := gofaiss.NewParameterSpace()</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"NewParameterSpace err:%+v"</span>, err)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">defer</span> ps.Delete()</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> err := ps.SetIndexParameter(indexImpl, <span class="string">"nprobe"</span>, <span class="number">10</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"SetIndexParameter err:%+v"</span>, err)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		_, ids, err = indexImpl.Search(xq, k)</span><br><span class="line">		<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">" indexImpl.Search Last err:%+v"</span>, err)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		fmt.Println(<span class="string">"ids (last 5 results)="</span>)</span><br><span class="line">		<span class="keyword">for</span> i := <span class="keyword">int64</span>(nq) - <span class="number">5</span>; i &lt; <span class="keyword">int64</span>(nq); i++ &#123;</span><br><span class="line">			<span class="keyword">for</span> j := <span class="keyword">int64</span>(<span class="number">0</span>); j &lt; k; j++ &#123;</span><br><span class="line">				fmt.Printf(<span class="string">"%5d "</span>, ids[i*k+j])</span><br><span class="line">			&#125;</span><br><span class="line">			fmt.Println()</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> FaissRsp&#123;&#125;, <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	indexImpl, err := gofaiss.IndexFactory(req.Dimension, req.Description, MetricTypeMap[req.Metric])</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Printf(<span class="string">"IndexFactory error:%+v,req:%+v"</span>, err, req)</span><br><span class="line">		<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> embeddingArray []<span class="keyword">float32</span></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(req.Question) != <span class="number">0</span> &#123;</span><br><span class="line">		embedding, embeddingErr := Embedding(context.Background(), EmbeddingReq&#123;Prompt: req.Question, Model: req.Model&#125;)</span><br><span class="line">		<span class="keyword">if</span> embeddingErr != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Printf(<span class="string">"Embedding err:%+v"</span>, embeddingErr)</span><br><span class="line">			<span class="keyword">return</span> FaissRsp&#123;&#125;, embeddingErr</span><br><span class="line">		&#125;</span><br><span class="line">		embeddingArray = embedding.Embedding</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		embeddingArray = req.Embedding</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	log.Printf(<span class="string">"embedding is:%s"</span>, jsonString(embeddingArray))</span><br><span class="line"></span><br><span class="line">	err = indexImpl.Train(embeddingArray)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Printf(<span class="string">"indexImpl.Train error:%+v,req:%+v"</span>, err, req)</span><br><span class="line">		<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">	&#125;</span><br><span class="line">	err = indexImpl.Add(embeddingArray)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Printf(<span class="string">"indexImpl.Add error:%+v,req:%+v"</span>, err, req)</span><br><span class="line">		<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	dist, ids, err := indexImpl.Search(embeddingArray, req.KNearest)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Printf(<span class="string">"Search err:%+v"</span>, err)</span><br><span class="line">		<span class="keyword">return</span> FaissRsp&#123;&#125;, err</span><br><span class="line">	&#125;</span><br><span class="line">	log.Printf(<span class="string">"Search dist:%s,\n ids:%s"</span>, jsonString(dist), jsonInt64String(ids))</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> FaissRsp&#123;IsTrained: indexImpl.IsTrained(), Ntotal: indexImpl.Ntotal(), Dimension: indexImpl.D()&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">jsonString</span><span class="params">(data []<span class="keyword">float32</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	marshal, _ := json.Marshal(data)</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(marshal)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">jsonInt64String</span><span class="params">(data []<span class="keyword">int64</span>)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	marshal, _ := json.Marshal(data)</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(marshal)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Embedding 根据openai获取embedding</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Embedding</span><span class="params">(ctx context.Context, req EmbeddingReq)</span> <span class="params">(rsp EmbeddingRsp, err error)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> model openai.EmbeddingModel</span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(req.Model) == <span class="number">0</span> &#123;</span><br><span class="line">		model = openai.AdaEmbeddingV2</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		model = openai.EmbeddingModel(cast.ToInt(req.Model))</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cfg := openai.DefaultConfig(AuthToken)</span><br><span class="line">	cfg.BaseURL = <span class="string">"https://api.aiproxy.io/v1"</span></span><br><span class="line">	client := openai.NewClientWithConfig(cfg)</span><br><span class="line">	resp, err := client.CreateEmbeddings(ctx, openai.EmbeddingRequest&#123;</span><br><span class="line">		Input: req.Prompt,</span><br><span class="line">		Model: model,</span><br><span class="line">	&#125;)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Printf(<span class="string">"Embedding error: %v,question:%s,model:%s,resp:%+v"</span>, err, req.Prompt, model)</span><br><span class="line">		<span class="keyword">return</span> rsp, err</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> <span class="built_in">len</span>(resp.Data) &gt; <span class="number">0</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> EmbeddingRsp&#123;</span><br><span class="line">			Embedding: resp.Data[<span class="number">0</span>].Embedding,</span><br><span class="line">			Time:      <span class="string">""</span>,</span><br><span class="line">		&#125;, <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> rsp, errors.New(<span class="string">"没有Embeddings"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener">https://github.com/facebookresearch/faiss</a></p>
+<p><a href="https://github.com/DataIntelligenceCrew/go-faiss" target="_blank" rel="noopener">https://github.com/DataIntelligenceCrew/go-faiss</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/357414033" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/357414033</a></p>
+<p><a href="https://guangzhengli.com/blog/zh/vector-database/" target="_blank" rel="noopener">https://guangzhengli.com/blog/zh/vector-database/</a></p>
+<p><a href="https://faiss.ai/index.html" target="_blank" rel="noopener">https://faiss.ai/index.html</a></p>
+<p><a href="https://github.com/sashabaranov/go-openai/blob/master/embeddings.go" target="_blank" rel="noopener">https://github.com/sashabaranov/go-openai/blob/master/embeddings.go</a></p>
+<p><a href="https://platform.openai.com/docs/guides/embeddings" target="_blank" rel="noopener">https://platform.openai.com/docs/guides/embeddings</a></p>
+<p><a href="https://openai.com/blog/new-and-improved-embedding-model" target="_blank" rel="noopener">https://openai.com/blog/new-and-improved-embedding-model</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/facebook-faiss/" rel="tag"># facebook faiss</a>
+          
+            <a href="/tags/openai/" rel="tag"># openai</a>
+          
+            <a href="/tags/embedding/" rel="tag"># embedding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2023/07/15/application-thinking/" rel="next" title="RSMA模型:软件系统模型的探索(2)">
+                <i class="fa fa-chevron-left"></i> RSMA模型:软件系统模型的探索(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2024/03/02/why-choose-mq/" rel="prev" title="为什么使用消息队列？">
+                为什么使用消息队列？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="简单" />
+            
+              <p class="site-author-name" itemprop="name">简单</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaozhiliaoo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiaozhiliaoo@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCC_iEedYpLIqEi9BY7PDvaQ" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.cn/injobs/in/li-li-41165799" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/2216564802" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#faiss简介"><span class="nav-number">1.</span> <span class="nav-text">faiss简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档向量化检索设计"><span class="nav-number">2.</span> <span class="nav-text">文档向量化检索设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Faiss配置指南"><span class="nav-number">3.</span> <span class="nav-text">Faiss配置指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#相似性计算方法"><span class="nav-number">3.1.</span> <span class="nav-text">相似性计算方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引方法"><span class="nav-number">3.2.</span> <span class="nav-text">索引方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GoLang代码例子"><span class="nav-number">4.</span> <span class="nav-text">GoLang代码例子</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">简单</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问人数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'cb11b8b7bc132e255809',
+      clientSecret: '278f02fc92231dea3c9b12f3ba0abcfdb3e4092e',
+      repo: 'xiaozhiliaoo-blog-comment',
+      owner: 'xiaozhiliaoo',
+      admin: ['xiaozhiliaoo'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

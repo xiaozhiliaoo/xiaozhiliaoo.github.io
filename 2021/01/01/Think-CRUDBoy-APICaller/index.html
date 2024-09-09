@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入访问密码') !== 'helloworld'){
+            while(true) {
+                alert('密码错误！请关闭网页！');
+            }
+            history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="代码设计杂谈," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。 CRUD Boy​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRUD Boy和API Caller的怪象">
+<meta property="og:url" content="http://yoursite.com/2021/01/01/Think-CRUDBoy-APICaller/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。 CRUD Boy​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级">
+<meta property="article:published_time" content="2021-01-01T10:40:35.000Z">
+<meta property="article:modified_time" content="2024-07-05T17:23:28.026Z">
+<meta property="article:author" content="简单">
+<meta property="article:tag" content="代码设计杂谈">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/01/01/Think-CRUDBoy-APICaller/"/>
+
+
+
+
+
+  <title>CRUD Boy和API Caller的怪象 | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神仙本是凡人做，只怕凡人心不坚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readinglist">
+          <a href="/reading-list/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读清单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/01/Think-CRUDBoy-APICaller/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="简单">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CRUD Boy和API Caller的怪象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-01T18:40:35+08:00">
+                2021-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index">
+                    <span itemprop="name">杂谈</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">浏览</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CRUD，API Caller，Copy Paste 在业界被认为很低级工作，和low的技能(更多是自黑)。Spring作者Rod Johnson曾用一个比喻来说明问题，多瘤程序员: 学会一门技术但是留下来很多伤疤。经常认为和带着这样想法工作会降低个人生产力和对工作技术的敏感度。</p>
+<h1 id="CRUD-Boy"><a href="#CRUD-Boy" class="headerlink" title="CRUD Boy"></a>CRUD Boy</h1><p>​        CRUD指的是对存储层的增删改查和业务层的逻辑计算。毕竟业务逻辑就是存储和计算。低级之处在于程序开发仅仅是对数据库数据的事务脚本操作，但是业务系统设计，在小型项目中CRUD可以Hold住复杂度，但是当业务系统复杂起来时候，事务脚本将带来维护性和扩展性问题，此时系统的各种业务逻辑和组件将会变得非常复杂且无趣。解决这个办法在于<strong>良好的业务抽象</strong>和概念<strong>一致性的业务接口</strong>，此时CRUD将不再是事务脚本，而更类似于OOD，而随着业务演进，可能会拆分微服务，这时候如果没有从CRUD泥潭出来，新建的微服务还是会重复事务脚本的老路。而业界有更好的业务设计方法，是<strong>领域驱动设计</strong>，将业务设计和技术设计结合起来，可以借鉴其思想，有句话说的比较好DDD is OOD done right.</p>
+<p>​       同时CRUD代码也不是没有技术含量的，CRUD代码也需要扩展性，维护性，可读性，文档注释，可测试性，不断重构达到整洁代码的水平，而这些任意一个工程实践，都会对既有团队带来编码习惯带来改变和编程水平的提高。所以CRUD没有技术含量，是更多把CRUD当做业务需求翻译机，产品说加你就加，而不是业务需求的解释器，用技术语言来设计业务。</p>
+<p>​       </p>
+<h1 id="API-Caller"><a href="#API-Caller" class="headerlink" title="API Caller"></a>API Caller</h1><p>API Caller是只会简单用类库和调第三方接口，没有完全理解调用方。这种透明性对业务开发进度有帮助，但是对于个人技术成长却是弊大于利。比较典型的例子是你用别人封装好的Redis接口查数据，会错以为自己会Redis，用厂商提供好的mq接口开发，发送几条消息，消费几条消息就认为自己用过mq，从而在实际工作中变成了只会调用API。在Java类库中，NIO代码冗余且复杂，学习NIO API本身就是对NIO的学习，但是写完就忘，下次还要重新学习，但是下次的学习或许没有从更深概念理解NIO，而是重新学了一遍NIO API使用代码，这样比较浪费时间。</p>
+<p>对于高质量的程序，绝大部分是注重API设计质量的，这不仅关系到API使用，还有API的理解性上，好的API本身就会抽象最核心的概念给开发者，模块间通信也会精心设计API。在JAVA世界中，集合框架和并发包可以说是对API契约和设计的经典案例，任何学习API设计的都可以从此开始研究，光看集合提供的接口，就能够收获非常多的概念和抽象。同时高质量API的文档也能够加深对技术的理解。当然API的实现也很重要，但是重要程度不如API本身。关于这方面可以参考：<a href="https://xiaozhiliaoo.github.io/2020/11/09/JCF-HighLevel/" target="_blank" rel="noopener">集合接口</a></p>
+<p>我们以Guava Cache来分析从API中能获得什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//LoadingCache的父接口Cache也包含非常多的方法，这里不做探讨。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">LoadingCache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Cache</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt;, <span class="title">Function</span>&lt;<span class="title">K</span>, <span class="title">V</span>&gt; </span>&#123; </span><br><span class="line">      <span class="function">V <span class="title">get</span><span class="params">(K key)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">      <span class="function">V <span class="title">getUnchecked</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="function">ImmutableMap&lt;K, V&gt; <span class="title">getAll</span><span class="params">(Iterable&lt;? extends K&gt; keys)</span> <span class="keyword">throws</span> ExecutionException</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Loads a new value for key &#123;<span class="doctag">@code</span> key&#125;, possibly asynchronously. While the new value is loading</span></span><br><span class="line"><span class="comment">       * the previous value (if any) will continue to be returned by &#123;<span class="doctag">@code</span> get(key)&#125; unless it is</span></span><br><span class="line"><span class="comment">       * evicted. If the new value is loaded successfully it will replace the previous value in the</span></span><br><span class="line"><span class="comment">       * cache; if an exception is thrown while refreshing the previous value will remain, &lt;i&gt;and the</span></span><br><span class="line"><span class="comment">       * exception will be logged (using &#123;<span class="doctag">@link</span> java.util.logging.Logger&#125;) and swallowed&lt;/i&gt;.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Caches loaded by a &#123;<span class="doctag">@link</span> CacheLoader&#125; will call &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; if the cache</span></span><br><span class="line"><span class="comment">       * currently contains a value for &#123;<span class="doctag">@code</span> key&#125;, and &#123;<span class="doctag">@link</span> CacheLoader#load&#125; otherwise. Loading is</span></span><br><span class="line"><span class="comment">       * asynchronous only if &#123;<span class="doctag">@link</span> CacheLoader#reload&#125; was overridden with an asynchronous</span></span><br><span class="line"><span class="comment">       * implementation.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Returns without doing anything if another thread is currently loading the value for &#123;<span class="doctag">@code</span></span></span><br><span class="line"><span class="comment">       * key&#125;. If the cache loader associated with this cache performs refresh asynchronously then this</span></span><br><span class="line"><span class="comment">       * method may return before refresh completes.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * <span class="doctag">@since</span> 11.0</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">refresh</span><span class="params">(K key)</span></span>;</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * Returns a view of the entries stored in this cache as a thread-safe map. Modifications made to</span></span><br><span class="line"><span class="comment">       * the map directly affect the cache.</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       * &lt;p&gt;Iterators from the returned map are at least &lt;i&gt;weakly consistent&lt;/i&gt;: they are safe for</span></span><br><span class="line"><span class="comment">       * concurrent use, but if the cache is modified (including by eviction) after the iterator is</span></span><br><span class="line"><span class="comment">       * created, it is undefined which of the changes (if any) will be reflected in that iterator.</span></span><br><span class="line"><span class="comment">       */</span></span><br><span class="line">      <span class="function">ConcurrentMap&lt;K, V&gt; <span class="title">asMap</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>先看<strong>get</strong>方法，抛出了ExecutionException异常，这个异常定义在并发包java.util.concurrent下，所以可以猜测get时候会不会和并发，多线程执行有关.否则不可能无缘无故抛出这么个异常。事实证明猜测是对的，Guava对于<a href="https://github.com/google/guava/wiki/CachesExplained#interruption" target="_blank" rel="noopener">Interruption</a>的处理很多设计决策。</p>
+<p><strong>getUnchecked</strong>同样是获取v方法，没有抛出任何异常，方法名是获取非受检异常，可以看出获取key的时候，一定会报错，但是提供了更加灵活的异常处理机制，而这些知识，就需要对受检异常和非受检异常有清晰的认识才能设计出这样的API，否则是不会想到这一层的。</p>
+<p><strong>getAll</strong>这个接口设计很有意思，传参是Iterable，足够看到其通用和扩展性，但是返回确是不可变的Map，看到这里，是不是觉得比较有趣呢？可以质疑为什么不用List接口呢？当然使用的时候传入Key List是可以的，但是如果你不理解Iterable的接口，你这段代码很有可能需要百度demo才能写出来，下次遇到同样的问题还是没有任何进步，成为了API Caller。</p>
+<p><strong>refresh</strong>从方法签名看不出什么，但是API文档注释非常详细，足够了解了。</p>
+<p><strong>asMap</strong> 是缓存的视图，但是修改缓存视图会导致底层缓存被修改，并且用的是并发的Map接口，此时几乎可以得出结论，缓存大概率会并发读写的，所以benchmark时候，并发读写能力一定是一个点。此时你对ConcurrentMap操作时候就需要清晰地了解ConcurrentMap的特性，并发修改时候遍历等问题。如果你希望业务层缓存只能用来读，而缓存层做缓存更新的话，你可以将asMap包装成不可变的Map. 当转换成Map时候，疑问在于关于Cache的契约是否就会被打破了？比如get时候load数据。</p>
+<p>可以看到，还没有看LoadingCache的实现，我们就可以很多，看完核心接口，在辅以文档，可以说对Cache Design和Decision有最基本的认识了，缓存和高性能有着千丝万缕的关系，需要深入到边边角角，既能从高层知道如何设计一个Cache，也能从底层知道如何实现一个Cache，否则在工程中可能因为一个参数配置就会导致性能问题。虽然以上方法在使用起来非常简单，但是合理的理解其设计和抽象对使用产生很大帮助，对不同API也能触类旁通，也可以提高自己设计API的水平，从此脱离API Caller的窘境，成为一名API Designer. </p>
+<p>API Caller还有一个非常典型的例子是线程池的使用。API Caller还有特点不喜欢看API文档，甚至不知道哪里看API文档。</p>
+<p>个人比较喜欢的学习技术方法是：无论如何先看一遍官方文档，学有余力则看一遍API文档，很感兴趣则可以入手源码。</p>
+<h1 id="Copy-Paste"><a href="#Copy-Paste" class="headerlink" title="Copy Paste"></a>Copy Paste</h1><p>粘贴复制本身其实没有什么问题，可以提供编程效率，但是由于复制带来的<strong>代码重复</strong>问题较为严重。因为这是时空级别的重复，虽然重复的概念很简单，但是衍生带来的，维护性，可读性，耦合性，内聚性问题，牵一发而不知道影响面，会极大降低代码仓库质量和Bug数量。如果说技术债最严重的问题，我觉得是重复代码问题。通过良好的抽象和封装，以及子函数，状态聚合，行为聚合等编程手段，会减少重复问题。</p>
+<h1 id="技术方案与实现的不一致性"><a href="#技术方案与实现的不一致性" class="headerlink" title="技术方案与实现的不一致性"></a>技术方案与实现的不一致性</h1><p>技术方案更偏向于架构，而实现更偏向于代码。有些技术方案涉及到编程(比如redis使用)，有些则无需（比如nginx负载均衡和容器化）这两者在某些程度并不是一致的。有些时候技术方案提出者并不是实现者，即使是，也有可能出现方案很牛逼，但是编码能力有限会导致的实现不好的现象。这点有一个例子，比如架构上引入缓存作为一个高层次的组件，但是缓存具体选型和实现上，则会出现分歧，用ConcurrentHashMap还是Guava Cache呢？这两者对于代码实现的复杂度不同。在实现的时候，又会面临如何封装，代码包组织，如何抽象的编程等非常细节问题，如果使用了Guava Cache，则会不会沦为API Caller的窘境呢？</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>crud boy，api caller，copy paste在开发业务时候会带来巨大便利，但是使用和理解不好也会造成非常多技术债和坑，这对个人成长帮助有限，会带来<strong>我不断在学习</strong>的假象，实际难逃轮回，凡所有相，皆是虚妄，若见诸相非相，即见如来。多花些时间研究API(包括优质和劣质)是有帮助的，要对业内“<strong>忘记了，百度下就能知道了</strong>”如此言论保持怀疑，他会使你真正成为API Caller的。你我都在路上！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%9D%82%E8%B0%88/" rel="tag"># 代码设计杂谈</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/20/review-code-practice/" rel="next" title="从代码review到浅谈面向对象">
+                <i class="fa fa-chevron-left"></i> 从代码review到浅谈面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/03/Algorithm-Engineering/" rel="prev" title="惊奇的工程算法简介">
+                惊奇的工程算法简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="简单" />
+            
+              <p class="site-author-name" itemprop="name">简单</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaozhiliaoo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiaozhiliaoo@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCC_iEedYpLIqEi9BY7PDvaQ" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.cn/injobs/in/li-li-41165799" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/2216564802" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CRUD-Boy"><span class="nav-number">1.</span> <span class="nav-text">CRUD Boy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#API-Caller"><span class="nav-number">2.</span> <span class="nav-text">API Caller</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Copy-Paste"><span class="nav-number">3.</span> <span class="nav-text">Copy Paste</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技术方案与实现的不一致性"><span class="nav-number">4.</span> <span class="nav-text">技术方案与实现的不一致性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">简单</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问人数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'cb11b8b7bc132e255809',
+      clientSecret: '278f02fc92231dea3c9b12f3ba0abcfdb3e4092e',
+      repo: 'xiaozhiliaoo-blog-comment',
+      owner: 'xiaozhiliaoo',
+      admin: ['xiaozhiliaoo'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

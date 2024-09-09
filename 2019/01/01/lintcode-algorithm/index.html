@@ -1,0 +1,3880 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入访问密码') !== 'helloworld'){
+            while(true) {
+                alert('密码错误！请关闭网页！');
+            }
+            history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="lintcode,interview," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法功底的沉淀。每次迭代全部从头开始，并且记录以日期。 下面记录的必须在ide和lintcode上提交过，并且写过代码的。 解题七步曲：1 倾听问题，2样本确认， 3 动口不动手的暴力天然解， 4 动口也动手的最优解，5 路演你的思路，6 结构化的编码，7 单元测试      我的笔记：here  (复习时候，刷这个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lintcode解题记录">
+<meta property="og:url" content="http://yoursite.com/2019/01/01/lintcode-algorithm/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法功底的沉淀。每次迭代全部从头开始，并且记录以日期。 下面记录的必须在ide和lintcode上提交过，并且写过代码的。 解题七步曲：1 倾听问题，2样本确认， 3 动口不动手的暴力天然解， 4 动口也动手的最优解，5 路演你的思路，6 结构化的编码，7 单元测试      我的笔记：here  (复习时候，刷这个">
+<meta property="article:published_time" content="2019-01-01T15:59:02.000Z">
+<meta property="article:modified_time" content="2024-07-05T17:23:28.031Z">
+<meta property="article:author" content="简单">
+<meta property="article:tag" content="lintcode">
+<meta property="article:tag" content="interview">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/01/lintcode-algorithm/"/>
+
+
+
+
+
+  <title>lintcode解题记录 | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神仙本是凡人做，只怕凡人心不坚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readinglist">
+          <a href="/reading-list/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读清单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/01/lintcode-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="简单">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">lintcode解题记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-01T23:59:02+08:00">
+                2019-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/%E9%9D%A2%E8%AF%95%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">面试算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">浏览</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文章是一个系列，主要记录自己解算法题的一个记录，每道题会出一篇解题报告，作为自己算法功底的沉淀。每次迭代全部从头开始，并且记录以日期。</p>
+<p>下面记录的必须在ide和lintcode上提交过，并且写过代码的。</p>
+<p>解题七步曲：1 倾听问题，2样本确认， 3 动口不动手的暴力天然解， 4 动口也动手的最优解，5 路演你的思路，6 结构化的编码，7 单元测试     </p>
+<p>我的笔记：<a href="https://www.lintcode.com/note/?user__username=xiaozhiliaoo" target="_blank" rel="noopener">here</a>  (复习时候，刷这个效率更高)</p>
+<p>我AC的题目：<a href="https://www.lintcode.com/problem/?user_status=accepted" target="_blank" rel="noopener">here</a></p>
+<table>
+<thead>
+<tr>
+<th>No</th>
+<th>Problem</th>
+<th>Describe</th>
+<th>Type</th>
+<th>Diffculty</th>
+<th>Note</th>
+<th>Date1</th>
+<th>Date2</th>
+<th>Date3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="https://www.lintcode.com/problem/implement-strstr/description" target="_blank" rel="noopener">13-implement-strstr</a></td>
+<td>字符串查找</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.lintcode.com/problem/594/" target="_blank" rel="noopener">594-strstr-ii</a></td>
+<td>字符串查找 II</td>
+<td>hash,kmp</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.lintcode.com/problem/17/" target="_blank" rel="noopener">17-subsets</a></td>
+<td>子集(无重复)</td>
+<td>combination,dfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.lintcode.com/problem/18/" target="_blank" rel="noopener">18-subsets-ii</a></td>
+<td>子集 II(有重复)</td>
+<td>dfs,backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.lintcode.com/problem/1361/" target="_blank" rel="noopener">1361-text-justification</a></td>
+<td>文字并排</td>
+<td>simulation</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.lintcode.com/problem/38/" target="_blank" rel="noopener">38-search-a-2d-matrix-ii</a></td>
+<td>搜索二维矩阵 II</td>
+<td>sort-matrix</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.lintcode.com/problem/recover-rotated-sorted-array" target="_blank" rel="noopener">39-recover-rotated-sorted-array</a></td>
+<td>恢复旋转排序数组</td>
+<td>sort-array</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://www.lintcode.com/problem/573/" target="_blank" rel="noopener">573-build-post-office-ii</a></td>
+<td>邮局的建立 II</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.lintcode.com/problem/616/" target="_blank" rel="noopener">616-course-schedule-ii</a></td>
+<td>安排课程</td>
+<td>bfs,topological-sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://www.lintcode.com/problem/598/" target="_blank" rel="noopener">598-zombie-in-matrix</a></td>
+<td>僵尸矩阵</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://www.lintcode.com/problem/127/" target="_blank" rel="noopener">127-topological-sorting</a></td>
+<td>拓扑排序</td>
+<td>bfs or dfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://www.lintcode.com/problem/433/" target="_blank" rel="noopener">433-number-of-islands</a></td>
+<td>岛屿的个数</td>
+<td>bfs or union-find</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://www.lintcode.com/problem/number-of-big-islands/" target="_blank" rel="noopener">677-number-of-big-islands</a></td>
+<td>大岛的数量</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://www.lintcode.com/problem/109/" target="_blank" rel="noopener">109-triangle</a></td>
+<td>数字三角形</td>
+<td>dp，坐标型</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://www.lintcode.com/problem/110" target="_blank" rel="noopener">110-minimum-path-sum</a></td>
+<td>最小路径和</td>
+<td>dp</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://www.lintcode.com/problem/114/" target="_blank" rel="noopener">114-unique-paths</a></td>
+<td>不同的路径</td>
+<td>dp，坐标型号dp</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://www.lintcode.com/problem/99" target="_blank" rel="noopener">99-reorder-list</a></td>
+<td>重排链表</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/22</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://www.lintcode.com/problem/174/" target="_blank" rel="noopener">174-remove-nth-node-from-end-of-list</a></td>
+<td>删除链表中倒数第n个节点</td>
+<td>LinkedList</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://www.lintcode.com/problem/102/" target="_blank" rel="noopener">102-linked-list-cycle</a></td>
+<td>带环链表</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="https://www.lintcode.com/problem/103/" target="_blank" rel="noopener">103-linked-list-cycle-ii</a></td>
+<td>带环链表 返回环起点值</td>
+<td>LinkedList</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="https://www.lintcode.com/problem/104/" target="_blank" rel="noopener">104-merge-k-sorted-lists</a></td>
+<td>合并k个排序链表</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="https://www.lintcode.com/problem/105/" target="_blank" rel="noopener">105-copy-list-with-random-pointer</a></td>
+<td>复制带随机指针的链表</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="https://www.lintcode.com/problem/106/" target="_blank" rel="noopener">106-convert-sorted-list-to-binary-search-tree</a></td>
+<td>有序链表转换为二叉搜索树</td>
+<td>LinkedList</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="https://www.lintcode.com/problem/177/" target="_blank" rel="noopener">177-convert-sorted-array-to-binary-search-tree-with-minimal-height</a></td>
+<td>把排序数组转换为高度最小的二叉搜索树</td>
+<td>LinkedList</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/23</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td><a href="https://www.lintcode.com/problem/74/" target="_blank" rel="noopener">74 first-bad-version</a></td>
+<td>第一个错误的代码版本</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td><a href="https://www.lintcode.com/problem/1496/" target="_blank" rel="noopener">1496  implement-rand10-using-rand7</a></td>
+<td>用Rand7()实现Rand10()</td>
+<td>simulation</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td><a href="https://www.lintcode.com/problem/66/" target="_blank" rel="noopener">66  binary-tree-preorder-traversal</a></td>
+<td>二叉树的前序遍历</td>
+<td>Tree，recursion and iteration(Stack)</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td><a href="https://www.lintcode.com/problem/67/" target="_blank" rel="noopener">67  binary-tree-inorder-traversal</a></td>
+<td>二叉树的中序遍历</td>
+<td>Tree，recursion and iteration(Stack)</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td><a href="https://www.lintcode.com/problem/68/" target="_blank" rel="noopener">68  binary-tree-postorder-traversal</a></td>
+<td>二叉树的后序遍历</td>
+<td>Tree，recursion and iteration(Stack)</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td><a href="https://www.lintcode.com/problem/86/" target="_blank" rel="noopener">86  binary-search-tree-iterator</a></td>
+<td>二叉查找树迭代器</td>
+<td>Tree</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td><a href="https://www.lintcode.com/problem/97/" target="_blank" rel="noopener">97  maximum-depth-of-binary-tree</a></td>
+<td>二叉树的最大深度</td>
+<td>DC</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td><a href="https://www.lintcode.com/problem/93/" target="_blank" rel="noopener">93  balanced-binary-tree</a></td>
+<td>是否是平衡二叉树</td>
+<td>DC，Recursion</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/24</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td><a href="https://www.lintcode.com/problem/31/" target="_blank" rel="noopener">31  partition-array</a></td>
+<td>数组划分</td>
+<td>Array,Quick Sort，Two Pointer</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td><a href="https://www.lintcode.com/problem/94/" target="_blank" rel="noopener">94  binary-tree-maximum-path-sum</a></td>
+<td>二叉树中的最大路径和</td>
+<td>DC</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td><a href="https://www.lintcode.com/problem/88/" target="_blank" rel="noopener">88  lowest-common-ancestor-of-a-binary-tree</a></td>
+<td>最近公共祖先(LCA)</td>
+<td>DC,RE，LCA</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td><a href="https://www.lintcode.com/problem/69/" target="_blank" rel="noopener">69  binary-tree-level-order-traversal</a></td>
+<td>二叉树的层次遍历</td>
+<td>BFS,Queue</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td><a href="https://www.lintcode.com/problem/70/" target="_blank" rel="noopener">70  binary-tree-level-order-traversal-ii</a></td>
+<td>二叉树的层次遍历 II</td>
+<td>BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td><a href="https://www.lintcode.com/problem/95/" target="_blank" rel="noopener">95  validate-binary-search-tree</a></td>
+<td>验证二叉查找树</td>
+<td>traversal</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td><a href="https://www.lintcode.com/problem/85/" target="_blank" rel="noopener">85  insert-node-in-a-binary-search-tree</a></td>
+<td>在二叉查找树中插入节点</td>
+<td>BST，分治</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td><a href="https://www.lintcode.com/problem/86/" target="_blank" rel="noopener">86  binary-search-tree-iterator</a></td>
+<td>在二叉查找树中插入节点</td>
+<td>BST，分治</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td><a href="https://www.lintcode.com/problem/87/" target="_blank" rel="noopener">87  remove-node-in-binary-search-tree</a></td>
+<td>删除二叉查找树的节点</td>
+<td>BST，分治</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td><a href="https://www.lintcode.com/problem/11/" target="_blank" rel="noopener">11  search-range-in-binary-search-tree</a></td>
+<td>二叉查找树中搜索区间</td>
+<td>tree-traversal</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td><a href="https://www.lintcode.com/problem/12/" target="_blank" rel="noopener">12  min-stack</a></td>
+<td>最小栈</td>
+<td>stack，Simulation</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td><a href="https://www.lintcode.com/problem/40/" target="_blank" rel="noopener">40  implement-queue-by-two-stacks</a></td>
+<td>双栈实现队列</td>
+<td>stack，Simulation</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td><a href="https://www.lintcode.com/problem/494/" target="_blank" rel="noopener">494-implement-stack-by-two-queues</a></td>
+<td>双队列实现栈</td>
+<td>queue</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td><a href="https://www.lintcode.com/problem/130/" target="_blank" rel="noopener">130  heapify</a></td>
+<td>堆化</td>
+<td>heap</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/25</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td><a href="https://www.lintcode.com/problem/158/" target="_blank" rel="noopener">158  valid-anagram</a></td>
+<td>两个字符串是变位词</td>
+<td>string,map</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td><a href="https://www.lintcode.com/problem/122/" target="_blank" rel="noopener">122  largest-rectangle-in-histogram</a></td>
+<td>直方图最大矩形覆盖</td>
+<td>monotonic stack</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td><a href="https://www.lintcode.com/problem/126/" target="_blank" rel="noopener">126-max-tree</a></td>
+<td>最大树</td>
+<td>monotonic stack</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td><a href="https://www.lintcode.com/problem/134/" target="_blank" rel="noopener">134-lru  cache</a></td>
+<td>LRU缓存策略</td>
+<td>hash</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>50</td>
+<td><a href="https://www.lintcode.com/problem/24/" target="_blank" rel="noopener">24-lfu  cache</a></td>
+<td>LFU缓存</td>
+<td>hash</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>51</td>
+<td><a href="https://www.lintcode.com/problem/129/" target="_blank" rel="noopener">129-rehashing</a></td>
+<td>重哈希</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>52</td>
+<td><a href="https://www.lintcode.com/problem/171/" target="_blank" rel="noopener">171-anagrams</a></td>
+<td>变位词</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>53</td>
+<td><a href="https://www.lintcode.com/problem/138/" target="_blank" rel="noopener">138-subarray-sum</a></td>
+<td>子数组之和</td>
+<td>hash，前缀和</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>54</td>
+<td><a href="https://www.lintcode.com/problem/124/" target="_blank" rel="noopener">124-longest-consecutive-sequence</a></td>
+<td>最长连续序列</td>
+<td>hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/26</td>
+<td>2021/2/13</td>
+<td></td>
+</tr>
+<tr>
+<td>55</td>
+<td><a href="https://www.lintcode.com/problem/81/" target="_blank" rel="noopener">81-find-median-from-data-stream</a></td>
+<td>数据流中位数</td>
+<td>heap</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>56</td>
+<td><a href="https://www.lintcode.com/problem/132/" target="_blank" rel="noopener">132-word-search-ii</a></td>
+<td>单词搜索 II</td>
+<td>trie</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/26</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>57</td>
+<td><a href="https://www.lintcode.com/problem/442/" target="_blank" rel="noopener">442-implement-trie-prefix-tree</a></td>
+<td>实现 Trie（前缀树）</td>
+<td>trie</td>
+<td></td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td><a href="https://www.lintcode.com/problem/61/" target="_blank" rel="noopener">61-search-for-a-range</a></td>
+<td>搜索区间(对比<a href="https://www.lintcode.com/problem/138/" target="_blank" rel="noopener">138</a>)</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td>2021/2/13</td>
+<td></td>
+</tr>
+<tr>
+<td>59</td>
+<td><a href="https://www.lintcode.com/problem/60/" target="_blank" rel="noopener">60-search-insert-position</a></td>
+<td>搜索插入位置</td>
+<td>binarysearch</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>60</td>
+<td><a href="https://www.lintcode.com/problem/28/" target="_blank" rel="noopener">28-search-a-2d-matrix</a></td>
+<td>搜索二维矩阵</td>
+<td>binarysearch</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>61</td>
+<td><a href="https://www.lintcode.com/problem/75/" target="_blank" rel="noopener">75-find-peak-element</a></td>
+<td>寻找峰值</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>62</td>
+<td><a href="https://www.lintcode.com/problem/62/" target="_blank" rel="noopener">62-search-in-rotated-sorted-array(无重复)</a></td>
+<td>搜索旋转排序数组</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>63</td>
+<td><a href="https://www.lintcode.com/problem/63/" target="_blank" rel="noopener">63-search-in-rotated-sorted-array-ii(有重复)</a></td>
+<td>搜索旋转排序数组</td>
+<td>62 follow up</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>64</td>
+<td><a href="https://www.lintcode.com/problem/6/" target="_blank" rel="noopener">6-merge-two-sorted-arrays</a></td>
+<td>合并排序数组 II</td>
+<td>Two Pointers</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>65</td>
+<td><a href="https://www.lintcode.com/problem/64/" target="_blank" rel="noopener">64-merge-sorted-array</a></td>
+<td>合并排序数组</td>
+<td>Two Pointers</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>66</td>
+<td><a href="https://www.lintcode.com/problem/159/" target="_blank" rel="noopener">159-find-minimum-in-rotated-sorted-array</a></td>
+<td>寻找旋转排序数组中的最小值(无重复)</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>67</td>
+<td><a href="https://www.lintcode.com/problem/160/" target="_blank" rel="noopener">160-find-minimum-in-rotated-sorted-array-ii</a></td>
+<td>寻找旋转排序数组中的最小值(有重复)</td>
+<td>binarysearch</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>68</td>
+<td><a href="https://www.lintcode.com/problem/65/" target="_blank" rel="noopener">65-median-of-two-sorted-arrays</a></td>
+<td>两个排序数组的中位数</td>
+<td>binarysearch,FindKMax</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>69</td>
+<td><a href="https://www.lintcode.com/problem/8/" target="_blank" rel="noopener">8-rotate-string</a></td>
+<td>旋转字符串</td>
+<td>string，simulation，三步翻转法</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>70</td>
+<td><a href="https://www.lintcode.com/problem/53/" target="_blank" rel="noopener">53-reverse-words-in-a-string</a></td>
+<td>翻转字符串中的单词</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/27</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>71</td>
+<td><a href="https://www.lintcode.com/problem/241/" target="_blank" rel="noopener">241-string-to-integer</a></td>
+<td>转换字符串到整数</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>72</td>
+<td><a href="https://www.lintcode.com/problem/1510/" target="_blank" rel="noopener">1510-buddy-strings</a></td>
+<td>亲密字符串</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>73</td>
+<td><a href="https://www.lintcode.com/problem/415/" target="_blank" rel="noopener">415-valid-palindrome</a></td>
+<td>有效回文串</td>
+<td>string，双指针</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>74</td>
+<td><a href="https://www.lintcode.com/problem/767/" target="_blank" rel="noopener">767-reverse-array</a></td>
+<td>翻转数组</td>
+<td>string，reverse</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>75</td>
+<td><a href="https://www.lintcode.com/problem/1283/" target="_blank" rel="noopener">1283-reverse-string</a></td>
+<td>翻转字符串</td>
+<td>string，reverse</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>76</td>
+<td><a href="https://www.lintcode.com/problem/78/" target="_blank" rel="noopener">78-longest-common-prefix</a></td>
+<td>最长公共前缀 (LCP)</td>
+<td>string。Simulation</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>77</td>
+<td><a href="https://www.lintcode.com/problem/1263/" target="_blank" rel="noopener">1263-is-subsequence</a></td>
+<td>是子序列吗</td>
+<td>string，Simulation</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/28</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>78</td>
+<td><a href="https://www.lintcode.com/problem/384/" target="_blank" rel="noopener">384-longest-substring-without-repeating-characters</a></td>
+<td>最长无重复字符的子串</td>
+<td>string，two pointer</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td>2021/2/14</td>
+<td></td>
+</tr>
+<tr>
+<td>79</td>
+<td><a href="https://www.lintcode.com/problem/213/" target="_blank" rel="noopener">213-string-compression</a></td>
+<td>字符串压缩</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>80</td>
+<td><a href="https://www.lintcode.com/problem/1352/" target="_blank" rel="noopener">1352-compare-version-numbers</a></td>
+<td>比较版本号</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>81</td>
+<td><a href="https://www.lintcode.com/problem/1542/" target="_blank" rel="noopener">1542-nexttime-norepeat</a></td>
+<td>下一个不重复的时间</td>
+<td>string</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/29</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>82</td>
+<td><a href="https://www.lintcode.com/problem/192/" target="_blank" rel="noopener">192-wildcard-matching</a></td>
+<td>通配符匹配</td>
+<td>string，DFS</td>
+<td>Hard</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>83</td>
+<td><a href="https://www.lintcode.com/problem/98/" target="_blank" rel="noopener">98-sort-list（排序链表）</a></td>
+<td>链表排序(归并和快速)</td>
+<td>sort</td>
+<td>Medium</td>
+<td></td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>84</td>
+<td><a href="https://www.lintcode.com/problem/463/" target="_blank" rel="noopener">463-sort-integers</a></td>
+<td>整数排序</td>
+<td>sort【直接选择(选择)，冒泡排序(交换)，直接插入排序(插入)】</td>
+<td>Native</td>
+<td>简单排序</td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>85</td>
+<td><a href="https://www.lintcode.com/problem/464/" target="_blank" rel="noopener">464-sort-integers-ii </a></td>
+<td>整数排序2</td>
+<td>sort【堆排序(选择)，快排(交换)，归并排序(归并)】</td>
+<td>Medium</td>
+<td>分治排序</td>
+<td>2020/6/30</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>86</td>
+<td><a href="https://www.lintcode.com/problem/136/" target="_blank" rel="noopener">136-palindrome-partitioning</a></td>
+<td>分割回文串</td>
+<td>组合型DFS+Backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>87</td>
+<td><a href="https://www.lintcode.com/problem/77/" target="_blank" rel="noopener">77-longest-common-subsequence</a></td>
+<td>最长公共子序列(LCS)</td>
+<td>match-dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>88</td>
+<td><a href="https://www.lintcode.com/problem/79/" target="_blank" rel="noopener">79-longest-common-substring</a></td>
+<td>最长公共子串(LCS)</td>
+<td>Two Sequences DP</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>89</td>
+<td><a href="https://www.lintcode.com/problem/680/" target="_blank" rel="noopener">680-spilt-string</a></td>
+<td>分割字符串</td>
+<td>组合型DFS+Backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>90</td>
+<td><a href="https://www.lintcode.com/problem/15/" target="_blank" rel="noopener">15-permutations</a></td>
+<td>全排列</td>
+<td>排列型DFS+Backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>91</td>
+<td><a href="https://www.lintcode.com/problem/16/" target="_blank" rel="noopener">16-permutations-ii</a></td>
+<td>全排列</td>
+<td>排列型DFS+Backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>92</td>
+<td><a href="https://www.lintcode.com/problem/669/" target="_blank" rel="noopener">669-coin-change</a></td>
+<td>换硬币</td>
+<td>无限背包,DFS,DP,不用回溯</td>
+<td></td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>93</td>
+<td><a href="https://www.lintcode.com/problem/816/" target="_blank" rel="noopener">816-traveling-salesman-problem</a></td>
+<td>旅行商问题</td>
+<td>排列型DFS，pruning,dp,旅行售货员问题，TSP问题，组合优化</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>94</td>
+<td><a href="https://www.lintcode.com/problem/1147/" target="_blank" rel="noopener">1147-work-plan</a></td>
+<td>工作安排</td>
+<td>coordinate-dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>95</td>
+<td><a href="https://www.lintcode.com/problem/76/" target="_blank" rel="noopener">76-longest-increasing-subsequence</a></td>
+<td>最长上升子序列(LIS)</td>
+<td>match-dp，LIS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>96</td>
+<td><a href="https://www.lintcode.com/problem/91/" target="_blank" rel="noopener">91-minimum-adjustment-cost</a></td>
+<td>最小调整代价</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>97</td>
+<td><a href="https://www.lintcode.com/problem/34/" target="_blank" rel="noopener">34-n-queens-ii</a></td>
+<td>N皇后问题（方案数）</td>
+<td>Backtracking+DFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>98</td>
+<td><a href="https://www.lintcode.com/problem/33/" target="_blank" rel="noopener">33-n-queens</a></td>
+<td>N皇后问题（具体方案）</td>
+<td>Backtracking+DFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>99</td>
+<td><a href="https://www.lintcode.com/problem/622/" target="_blank" rel="noopener">622-frog-jump</a></td>
+<td>青蛙跳</td>
+<td>DFS，DP</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>100</td>
+<td><a href="https://www.lintcode.com/problem/602/" target="_blank" rel="noopener">602-russian-doll-envelopes</a></td>
+<td>俄罗斯套娃信封</td>
+<td>dfs(指数级),dp(正解)</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>101</td>
+<td><a href="https://www.lintcode.com/problem/116/" target="_blank" rel="noopener">116-jump-game</a></td>
+<td>跳跃游戏</td>
+<td>单序列dp(可行性)，贪心</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>102</td>
+<td><a href="https://www.lintcode.com/problem/117/" target="_blank" rel="noopener">117-jump-game-ii</a></td>
+<td>跳跃游戏</td>
+<td>单序列dp(最小值)</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>103</td>
+<td><a href="https://www.lintcode.com/problem/149/" target="_blank" rel="noopener">149-best-time-to-buy-and-sell-stock</a></td>
+<td>买卖股票的最佳时机（一次交易）</td>
+<td>单序列dp(最大值)</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>104</td>
+<td><a href="https://www.lintcode.com/problem/115/" target="_blank" rel="noopener">115-unique-paths-ii</a></td>
+<td>不同的路径 II</td>
+<td>坐标DP</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>105</td>
+<td><a href="https://www.lintcode.com/problem/111/" target="_blank" rel="noopener">111-climbing-stairs</a></td>
+<td>爬楼梯</td>
+<td>单序列dp(计数问题)</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>106</td>
+<td><a href="https://www.lintcode.com/problem/563/" target="_blank" rel="noopener">563-backpack-v</a></td>
+<td>背包问题 V</td>
+<td>Backpack DP</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>107</td>
+<td><a href="https://www.lintcode.com/problem/630/" target="_blank" rel="noopener">630-knight-shortest-path-ii</a></td>
+<td>骑士的最短路径II</td>
+<td>坐标dp, 单向BFS-&gt;双向BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>108</td>
+<td><a href="https://www.lintcode.com/problem/564/" target="_blank" rel="noopener">564-combination-sum-iv(backpack-vi)</a></td>
+<td>组合总和 IV</td>
+<td>单序列dp，Backpack DP</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>109</td>
+<td><a href="https://www.lintcode.com/problem/512/" target="_blank" rel="noopener">512-decode-ways</a></td>
+<td>解码方法</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>110</td>
+<td><a href="https://www.lintcode.com/problem/589/" target="_blank" rel="noopener">589-connecting-graph</a></td>
+<td>连接图</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td>2021/2/14</td>
+<td></td>
+</tr>
+<tr>
+<td>111</td>
+<td><a href="https://www.lintcode.com/problem/752/" target="_blank" rel="noopener">752-rogue-knight-sven</a></td>
+<td>流浪剑客斯温</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/7</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>112</td>
+<td><a href="https://www.lintcode.com/problem/590/" target="_blank" rel="noopener">590-connecting-graph-ii</a></td>
+<td>连接图</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>113</td>
+<td><a href="https://www.lintcode.com/problem/360/" target="_blank" rel="noopener">360-sliding-window-median</a></td>
+<td>滑动窗口的中位数</td>
+<td>heap，Sliding Window</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>114</td>
+<td><a href="https://www.lintcode.com/problem/401/" target="_blank" rel="noopener">401-kth-smallest-number-in-sorted-matrix</a></td>
+<td>排序矩阵中的从小到大第k个数</td>
+<td>heap</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>115</td>
+<td><a href="https://www.lintcode.com/problem/362/" target="_blank" rel="noopener">362-sliding-window-maximum</a></td>
+<td>滑动窗口的最大值</td>
+<td>monotonic-queue</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>116</td>
+<td><a href="https://www.lintcode.com/problem/178/" target="_blank" rel="noopener">178-graph-valid-tree</a></td>
+<td>图是否是树</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>117</td>
+<td><a href="https://www.lintcode.com/problem/434/" target="_blank" rel="noopener">434-number-of-islands-ii</a></td>
+<td>岛屿的个数II</td>
+<td>union-find</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>118</td>
+<td><a href="https://www.lintcode.com/problem/430/" target="_blank" rel="noopener">430-scramble-string</a></td>
+<td>攀爬字符串</td>
+<td>dfs+pruning</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>119</td>
+<td><a href="https://www.lintcode.com/problem/802/" target="_blank" rel="noopener">802-sudoku-solver</a></td>
+<td>数独</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>120</td>
+<td><a href="https://www.lintcode.com/problem/121/" target="_blank" rel="noopener">121-word-ladder-ii</a></td>
+<td>单词接龙 II</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>121</td>
+<td><a href="https://www.lintcode.com/problem/582/" target="_blank" rel="noopener">582-word-break-ii</a></td>
+<td>单词拆分II</td>
+<td>dfs+pruning+backtracking</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>122</td>
+<td><a href="https://www.lintcode.com/problem/652/" target="_blank" rel="noopener">652-factorization</a></td>
+<td>因式分解</td>
+<td>dfs+pruning+backtracking</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>123</td>
+<td><a href="https://www.lintcode.com/problem/119/" target="_blank" rel="noopener">119-edit-distance</a></td>
+<td>编辑距离</td>
+<td>匹配性dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>124</td>
+<td><a href="https://www.lintcode.com/problem/787/" target="_blank" rel="noopener">787-the-maze</a></td>
+<td>迷宫</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>125</td>
+<td><a href="https://www.lintcode.com/problem/788/" target="_blank" rel="noopener">788-the-maze-ii</a></td>
+<td>迷宫</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>126</td>
+<td><a href="https://www.lintcode.com/problem/789/" target="_blank" rel="noopener">789-the-maze-iii</a></td>
+<td>迷宫</td>
+<td>bfs</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>127</td>
+<td><a href="https://www.lintcode.com/problem/691/" target="_blank" rel="noopener">691-recover-binary-search-tree</a></td>
+<td>恢复二叉搜索树</td>
+<td>bst</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>128</td>
+<td><a href="https://www.lintcode.com/problem/82/" target="_blank" rel="noopener">82-single-number</a></td>
+<td>落单的数2n*1,两次</td>
+<td>bit，hash</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>129</td>
+<td><a href="https://www.lintcode.com/problem/83/" target="_blank" rel="noopener">83-single-number-ii</a></td>
+<td>落单的数 II 3n*1，三次</td>
+<td>bit，hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>130</td>
+<td><a href="https://www.lintcode.com/problem/84/" target="_blank" rel="noopener">84-single-number-iii</a></td>
+<td>落单的数2*n + 2</td>
+<td>bit，hash</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>131</td>
+<td><a href="https://www.lintcode.com/problem/46/" target="_blank" rel="noopener">46-majority-element</a></td>
+<td>主元素(不是众数) 1/2</td>
+<td>Enumerate</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>132</td>
+<td><a href="https://www.lintcode.com/problem/1018/" target="_blank" rel="noopener">1018-champagne-tower(triangle)</a></td>
+<td>香槟塔</td>
+<td>二维坐标dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>133</td>
+<td><a href="https://www.lintcode.com/problem/200/" target="_blank" rel="noopener">200-longest-palindromic-substring</a></td>
+<td>最长回文子串</td>
+<td>区间dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>134</td>
+<td><a href="https://www.lintcode.com/problem/1565/" target="_blank" rel="noopener">1565-modern-ludo-i</a></td>
+<td>飞行棋 I</td>
+<td>一维坐标dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>135</td>
+<td><a href="https://www.lintcode.com/problem/1141/" target="_blank" rel="noopener">1141-the-months-days</a></td>
+<td>月份天数</td>
+<td>闰年</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>136</td>
+<td><a href="https://www.lintcode.com/problem/254/" target="_blank" rel="noopener">254-drop-eggs</a></td>
+<td>丢鸡蛋</td>
+<td>归纳法</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>137</td>
+<td><a href="https://www.lintcode.com/problem/47/" target="_blank" rel="noopener">47-majority-element-ii</a></td>
+<td>主元素1/3</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/19</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>138</td>
+<td><a href="https://www.lintcode.com/problem/48/" target="_blank" rel="noopener">48-majority-element-iii</a></td>
+<td>主元素1/k</td>
+<td>HashTable</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>139</td>
+<td><a href="https://www.lintcode.com/problem/150/" target="_blank" rel="noopener">150-best-time-to-buy-and-sell-stock-ii</a></td>
+<td>买卖股票的最佳时机 II(多次交易)</td>
+<td>贪心</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>140</td>
+<td><a href="https://www.lintcode.com/problem/151/" target="_blank" rel="noopener">151-best-time-to-buy-and-sell-stock-iii</a></td>
+<td>买卖股票的最佳时机 III(两笔交易)</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>141</td>
+<td><a href="https://www.lintcode.com/problem/393/" target="_blank" rel="noopener">393-best-time-to-buy-and-sell-stock-iv</a></td>
+<td>买卖股票的最佳时机 III(K笔交易)</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>142</td>
+<td><a href="https://www.lintcode.com/problem/44/" target="_blank" rel="noopener">44-minimum-subarray</a></td>
+<td>最小子数组</td>
+<td>贪心</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>143</td>
+<td><a href="https://www.lintcode.com/problem/45/" target="_blank" rel="noopener">45-maximum-subarray-difference</a></td>
+<td>最大子数组差</td>
+<td>贪心</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>144</td>
+<td><a href="https://www.lintcode.com/problem/138/" target="_blank" rel="noopener">138-subarray-sum</a></td>
+<td>子数组之和</td>
+<td>hashmap</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>145</td>
+<td><a href="https://www.lintcode.com/problem/139/" target="_blank" rel="noopener">139-subarray-sum-closest</a></td>
+<td>最接近零的子数组和</td>
+<td>Two Pointers，hashmap</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>146</td>
+<td><a href="https://www.lintcode.com/problem/56/" target="_blank" rel="noopener">56-two-sum</a></td>
+<td>两数之和</td>
+<td>Two Pointers</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>147</td>
+<td><a href="https://www.lintcode.com/problem/608/" target="_blank" rel="noopener">608-two-sum-ii-input-array-is-sorted</a></td>
+<td>两数和 II-输入已排序的数组</td>
+<td>Two Pointers</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>148</td>
+<td><a href="https://www.lintcode.com/problem/57/" target="_blank" rel="noopener">57-3sum</a></td>
+<td>三数之和</td>
+<td>Two Pointers</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>149</td>
+<td><a href="https://www.lintcode.com/problem/533/" target="_blank" rel="noopener">533-two-sum-closest-to-target</a></td>
+<td>两数和的最接近值</td>
+<td>Two Pointers</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>150</td>
+<td><a href="https://www.lintcode.com/problem/89/" target="_blank" rel="noopener">89-k-sum</a></td>
+<td>K数之和</td>
+<td>dp</td>
+<td>Hard</td>
+<td></td>
+<td>2020/7/20</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>151</td>
+<td><a href="https://www.lintcode.com/problem/140/" target="_blank" rel="noopener">140-fast-power</a></td>
+<td>快速幂</td>
+<td>DC</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>152</td>
+<td><a href="https://www.lintcode.com/problem/1324/" target="_blank" rel="noopener">1324-count-primes</a></td>
+<td>质数的个数</td>
+<td>Mathmatics</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>153</td>
+<td><a href="https://www.lintcode.com/problem/141/" target="_blank" rel="noopener">141-sqrtx</a></td>
+<td>对x开根</td>
+<td>Mathmatics</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>154</td>
+<td><a href="https://www.lintcode.com/problem/2/" target="_blank" rel="noopener">2-trailing-zeros</a></td>
+<td>尾部的零</td>
+<td>Mathmatics</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>155</td>
+<td><a href="https://www.lintcode.com/problem/142/" target="_blank" rel="noopener">142.o1-check-power-of-2</a></td>
+<td>O(1)时间检测2的幂次</td>
+<td>Binary</td>
+<td>Easy</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>156</td>
+<td><a href="https://www.lintcode.com/problem/49/" target="_blank" rel="noopener">49-sort-letters-by-case</a></td>
+<td>字符大小写排序</td>
+<td>Two Pointers</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>157</td>
+<td><a href="https://www.lintcode.com/problem/1563/" target="_blank" rel="noopener">1563-shortest-path-to-the-destination</a></td>
+<td>目的地的最短路径</td>
+<td>bfs</td>
+<td>Medium</td>
+<td></td>
+<td>2020/7/21</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>158</td>
+<td><a href="https://www.lintcode.com/problem/108/" target="_blank" rel="noopener">108-palindrome-partitioning-ii</a></td>
+<td>分割回文串 II</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>159</td>
+<td><a href="https://www.lintcode.com/problem/107/" target="_blank" rel="noopener">107-word-break</a></td>
+<td>单词拆分 I</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>160</td>
+<td><a href="https://www.lintcode.com/problem/41/" target="_blank" rel="noopener">41-maximum-subarray</a></td>
+<td>最大子数组</td>
+<td>dp</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>161</td>
+<td><a href="https://www.lintcode.com/problem/29/" target="_blank" rel="noopener">29-interleaving-string</a></td>
+<td>交叉字符串</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>162</td>
+<td><a href="https://www.lintcode.com/problem/513/" target="_blank" rel="noopener">513-perfect-squares</a></td>
+<td>完美平方</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>163</td>
+<td><a href="https://www.lintcode.com/problem/394/" target="_blank" rel="noopener">394-coins-in-a-line</a></td>
+<td>硬币排成线</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>164</td>
+<td><a href="https://www.lintcode.com/problem/92/" target="_blank" rel="noopener">92-backpack</a></td>
+<td>背包问题</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>165</td>
+<td><a href="https://www.lintcode.com/problem/118/" target="_blank" rel="noopener">118-distinct-subsequences</a></td>
+<td>不同的子序列</td>
+<td>dp</td>
+<td>Medium</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>166</td>
+<td><a href="https://www.lintcode.com/problem/604/" target="_blank" rel="noopener">604-window-sum</a></td>
+<td>滑动窗口内数的和</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>167</td>
+<td><a href="https://www.lintcode.com/problem/539/" target="_blank" rel="noopener">539-move-zeroes</a></td>
+<td>移动0</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>168</td>
+<td><a href="https://www.lintcode.com/problem/521/" target="_blank" rel="noopener">521.remove-duplicate-numbers-in-array</a></td>
+<td>数组去重</td>
+<td>two-pointer</td>
+<td>Easy</td>
+<td></td>
+<td>2020/8/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>169</td>
+<td><a href="https://www.lintcode.com/problem/638/" target="_blank" rel="noopener">638. Isomorphic Strings</a></td>
+<td>字符同构</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>170</td>
+<td><a href="https://www.lintcode.com/problem/626/" target="_blank" rel="noopener">626. Rectangle Overlap</a></td>
+<td>矩形重叠</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>171</td>
+<td><a href="https://www.lintcode.com/problem/637/" target="_blank" rel="noopener">637. Valid Word Abbreviation</a></td>
+<td>检查缩写单词</td>
+<td>string</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>172</td>
+<td><a href="https://www.lintcode.com/problem/639/" target="_blank" rel="noopener">639. Word Abbreviation</a></td>
+<td>单词缩写</td>
+<td>string</td>
+<td>Hard</td>
+<td></td>
+<td>2021/2/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>173</td>
+<td><a href="https://www.lintcode.com/problem/642/" target="_blank" rel="noopener">642. Moving Average from Data Stream</a></td>
+<td>数据流滑动窗口平均值</td>
+<td>Prefix Sum Array，rolling array</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>174</td>
+<td><a href="https://www.lintcode.com/problem/644/" target="_blank" rel="noopener">644. Strobogrammatic Number</a></td>
+<td>镜像数字</td>
+<td>Enumerate</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>175</td>
+<td><a href="https://www.lintcode.com/problem/640/" target="_blank" rel="noopener">640. One Edit Distance</a></td>
+<td>一次编辑距离</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/11</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>176</td>
+<td><a href="https://www.lintcode.com/problem/660/" target="_blank" rel="noopener">660. Read N Characters Given Read4</a></td>
+<td>用Read4从文件中读取N个字符 II-多次调用</td>
+<td>Enumerate</td>
+<td>Hard</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>177</td>
+<td><a href="https://www.lintcode.com/problem/659/" target="_blank" rel="noopener">659. Encode and Decode Strings</a></td>
+<td>编码和解码字符串</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>178</td>
+<td><a href="https://www.lintcode.com/problem/419/" target="_blank" rel="noopener">419. Roman to Integer</a></td>
+<td>罗马数字转整数</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>179</td>
+<td><a href="https://www.lintcode.com/problem/418/" target="_blank" rel="noopener">418. Integer to Roman</a></td>
+<td>整数转罗马数字</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>180</td>
+<td><a href="https://www.lintcode.com/problem/645/" target="_blank" rel="noopener">645. Find the Celebrity</a></td>
+<td>识别名人</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>181</td>
+<td><a href="https://www.lintcode.com/problem/641/" target="_blank" rel="noopener">641. Missing Ranges</a></td>
+<td>丢失的间隔</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>182</td>
+<td><a href="https://www.lintcode.com/problem/156/" target="_blank" rel="noopener">156. Merge Intervals</a></td>
+<td>合并区间</td>
+<td>Enumerate</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>183</td>
+<td><a href="https://www.lintcode.com/problem/30/" target="_blank" rel="noopener">30. Insert Interval</a></td>
+<td>插入区间</td>
+<td>Enumerate</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>184</td>
+<td><a href="https://www.lintcode.com/problem/646/" target="_blank" rel="noopener">646. First Position Unique Character</a></td>
+<td>第一个不重复字符位置</td>
+<td>Hash</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>185</td>
+<td><a href="https://www.lintcode.com/problem/647/" target="_blank" rel="noopener">647. Find All Anagrams in a String</a></td>
+<td>子串字谜</td>
+<td>Hash+Siding Windows</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/12</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>186</td>
+<td><a href="https://www.lintcode.com/problem/423/" target="_blank" rel="noopener">423. Valid Parentheses</a></td>
+<td>有效的括号序列</td>
+<td>Stack</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>187</td>
+<td><a href="https://www.jiuzhang.com/problem/load-balancer/" target="_blank" rel="noopener">526. Load Balancer</a></td>
+<td>负载均衡</td>
+<td>DS</td>
+<td></td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>188</td>
+<td><a href="https://www.lintcode.com/problem/662/" target="_blank" rel="noopener">662. Guess Number Higher or Lower</a></td>
+<td>猜数游戏</td>
+<td>Binary Search</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>189</td>
+<td><a href="https://www.lintcode.com/problem/661/" target="_blank" rel="noopener">661. Convert BST to Greater Tree</a></td>
+<td>把二叉搜索树转化成更大的树</td>
+<td>BST</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>190</td>
+<td><a href="https://www.lintcode.com/problem/649/" target="_blank" rel="noopener">649. Binary Tree Upside Down</a></td>
+<td>二叉树翻转</td>
+<td>BST</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>191</td>
+<td><a href="https://www.lintcode.com/problem/650/" target="_blank" rel="noopener">650. Find Leaves of Binary Tree</a></td>
+<td>二叉树叶子顺序遍历</td>
+<td>BST</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>192</td>
+<td><a href="https://www.lintcode.com/problem/651/" target="_blank" rel="noopener">651. Binary Tree Vertical Order Traversal</a></td>
+<td>二叉树垂直遍历</td>
+<td>Hash+BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>193</td>
+<td><a href="https://www.lintcode.com/problem/448/" target="_blank" rel="noopener">448. Inorder Successor in BST</a></td>
+<td>二叉查找树的中序后继</td>
+<td>BST</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>194</td>
+<td><a href="https://www.lintcode.com/problem/477/" target="_blank" rel="noopener">477. Surrounded Regions</a></td>
+<td>被围绕的区域</td>
+<td>BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>195</td>
+<td><a href="https://www.lintcode.com/problem/663/" target="_blank" rel="noopener">663. Walls and Gates</a></td>
+<td>墙和门</td>
+<td>BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/13</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>196</td>
+<td><a href="https://www.lintcode.com/problem/32/" target="_blank" rel="noopener">32. Minimum Window Substring</a></td>
+<td>最小子串覆盖</td>
+<td>Two pointer</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>197</td>
+<td><a href="https://www.lintcode.com/problem/543/" target="_blank" rel="noopener">543. Kth Largest in N Arrays</a></td>
+<td>N数组第K大元素(一个数组第<a href="https://www.lintcode.com/problem/5/" target="_blank" rel="noopener">K大</a>)</td>
+<td>Heap</td>
+<td>Hard</td>
+<td></td>
+<td>2021/2/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>198</td>
+<td><a href="https://www.lintcode.com/problem/465/" target="_blank" rel="noopener">465. Kth Smallest Sum In Two Sorted Arrays</a></td>
+<td>两个排序数组和的第K小</td>
+<td>Heap</td>
+<td>Hard</td>
+<td></td>
+<td>2021/2/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>199</td>
+<td><a href="https://www.lintcode.com/problem/591/" target="_blank" rel="noopener">591. Connecting Graph III</a></td>
+<td>连接图 III</td>
+<td>UF</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>200</td>
+<td><a href="https://www.lintcode.com/problem/1179/" target="_blank" rel="noopener">1179. Friend Circles</a></td>
+<td>朋友圈</td>
+<td>UF</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/14</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>201</td>
+<td><a href="https://www.lintcode.com/problem/152/" target="_blank" rel="noopener">152. Combinations</a></td>
+<td>组合</td>
+<td>DFS，组合</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>202</td>
+<td><a href="https://www.lintcode.com/problem/135/" target="_blank" rel="noopener">135. Combination Sum I</a></td>
+<td>组合数之和</td>
+<td>DFS，组合</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>203</td>
+<td><a href="https://www.lintcode.com/problem/153/" target="_blank" rel="noopener">153. Combination Sum II</a></td>
+<td>组合数之和</td>
+<td>DFS，组合</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>204</td>
+<td><a href="https://www.lintcode.com/problem/1321/" target="_blank" rel="noopener">1321. Combination Sum III</a></td>
+<td>组合数之和</td>
+<td>DFS，组合</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>205</td>
+<td><a href="https://www.lintcode.com/problem/457/" target="_blank" rel="noopener">457. Classical Binary Search</a></td>
+<td>经典二分查找问题</td>
+<td>Binary Search</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/15</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>206</td>
+<td><a href="https://www.lintcode.com/problem/366/" target="_blank" rel="noopener">366. Fibonacci</a></td>
+<td>斐波那契</td>
+<td>iteration/recursion,多项公式</td>
+<td>Naive</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>207</td>
+<td><a href="https://www.lintcode.com/problem/1807/" target="_blank" rel="noopener">1807. Fibonacci easy</a></td>
+<td>斐波那契</td>
+<td>iteration</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>208</td>
+<td><a href="https://www.lintcode.com/problem/powx-n/" target="_blank" rel="noopener">428. Pow(x, n)</a></td>
+<td>x的n次幂</td>
+<td>recursion,decrease-and-conquer</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>209</td>
+<td><a href="https://www.lintcode.com/problem/451/" target="_blank" rel="noopener">451. Swap Nodes in Pairs</a></td>
+<td>两两交换链表中的节点</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>210</td>
+<td><a href="https://www.lintcode.com/problem/450/" target="_blank" rel="noopener">450. Reverse Nodes in k-Group</a></td>
+<td>K组翻转链表</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>211</td>
+<td><a href="https://www.lintcode.com/problem/1425/" target="_blank" rel="noopener">1425. Backspace String Compare</a></td>
+<td>比较含退格的字符串</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>212</td>
+<td><a href="https://www.lintcode.com/problem/5/" target="_blank" rel="noopener">5.Kth Largest Element</a></td>
+<td>数组第k大元素</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>213</td>
+<td><a href="https://www.lintcode.com/problem/471/" target="_blank" rel="noopener">471. Top K Frequent Words</a></td>
+<td>最高频的K个单词</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>214</td>
+<td><a href="https://www.lintcode.com/problem/1311/" target="_blank" rel="noopener">1311. Lowest Common Ancestor of a Binary Search Tree</a></td>
+<td>二叉搜索树的最近公共祖先</td>
+<td></td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>215</td>
+<td><a href="https://www.lintcode.com/problem/1509/" target="_blank" rel="noopener">1509. Lemonade Change</a></td>
+<td>柠檬水找零</td>
+<td>Greedy</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>216</td>
+<td><a href="https://www.lintcode.com/problem/1230/" target="_blank" rel="noopener">1230. Assign Cookies</a></td>
+<td>分饼干</td>
+<td>Greedy</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>217</td>
+<td><a href="https://www.lintcode.com/problem/1493/" target="_blank" rel="noopener">1493. Walking Robot Simulation</a></td>
+<td>模拟行走机器人</td>
+<td>Greedy</td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>218</td>
+<td><a href="https://www.lintcode.com/problem/155/" target="_blank" rel="noopener">155. Minimum Depth of Binary Tree</a></td>
+<td>二叉树的最小深度</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>219</td>
+<td><a href="https://www.lintcode.com/problem/1360/" target="_blank" rel="noopener">1360. Symmetric Tree</a></td>
+<td>对称树</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>220</td>
+<td><a href="https://www.lintcode.com/problem/1244/" target="_blank" rel="noopener">1244. Minimum Genetic Mutation</a></td>
+<td>最小基因变化</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>221</td>
+<td><a href="https://www.lintcode.com/problem/427/" target="_blank" rel="noopener">427. Generate Parentheses</a></td>
+<td>生成括号</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>222</td>
+<td><a href="https://www.lintcode.com/problem/1195/" target="_blank" rel="noopener">1195. Find Largest Value in Each Tree Row</a></td>
+<td>找出树中每行的最大值</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>223</td>
+<td><a href="https://www.lintcode.com/problem/120/" target="_blank" rel="noopener">120. Word Ladder</a></td>
+<td>单词接龙</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>224</td>
+<td><a href="https://www.lintcode.com/problem/615/" target="_blank" rel="noopener">615. Course Schedule</a></td>
+<td>课程表</td>
+<td></td>
+<td></td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>225</td>
+<td><a href="https://www.lintcode.com/problem/1189/" target="_blank" rel="noopener">1189. Minesweeper</a></td>
+<td>扫雷游戏</td>
+<td>BFS</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>226</td>
+<td><a href="https://www.lintcode.com/problem/389/" target="_blank" rel="noopener">389. Valid Sudoku</a></td>
+<td>判断数独是否合法</td>
+<td>Simulation</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>227</td>
+<td><a href="https://www.lintcode.com/problem/123/" target="_blank" rel="noopener">123. Word Search</a></td>
+<td>单词搜索</td>
+<td>DFS</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>228</td>
+<td><a href="https://www.lintcode.com/problem/664/" target="_blank" rel="noopener">664. Counting Bits</a></td>
+<td>数 1</td>
+<td>Bit，DP</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>229</td>
+<td><a href="https://www.lintcode.com/problem/maximum-product-subarray/" target="_blank" rel="noopener">191. Maximum Product Subarray</a></td>
+<td>乘积最大子序列</td>
+<td>线性dp</td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>230</td>
+<td><a href="https://www.lintcode.com/problem/556/" target="_blank" rel="noopener">556. Standard Bloom Filter</a></td>
+<td>标准型布隆过滤器</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>231</td>
+<td><a href="https://www.lintcode.com/problem/555/" target="_blank" rel="noopener">555. Counting Bloom Filter</a></td>
+<td>计数型布隆过滤器</td>
+<td></td>
+<td>Medium</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>232</td>
+<td><a href="https://www.lintcode.com/problem/1332/" target="_blank" rel="noopener">1332. Number of 1 Bits</a></td>
+<td>判断一个整数中有多少个1</td>
+<td>Bit</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>233</td>
+<td><a href="https://www.lintcode.com/problem/204/" target="_blank" rel="noopener">204. Singleton</a></td>
+<td>单例</td>
+<td>OOD</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>234</td>
+<td><a href="https://www.lintcode.com/problem/496/" target="_blank" rel="noopener">496. Toy Factory</a></td>
+<td>工厂</td>
+<td>OOD</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>235</td>
+<td><a href="https://www.lintcode.com/problem/175/" target="_blank" rel="noopener">175. Invert Binary Tree</a></td>
+<td>反转二叉树</td>
+<td>Tree</td>
+<td>Easy</td>
+<td></td>
+<td>2021/2/16</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/lintcode/" rel="tag"># lintcode</a>
+          
+            <a href="/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/15/guava-retry-code-analysis/" rel="prev" title="guava-retry源码分析">
+                guava-retry源码分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="简单" />
+            
+              <p class="site-author-name" itemprop="name">简单</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaozhiliaoo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiaozhiliaoo@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCC_iEedYpLIqEi9BY7PDvaQ" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.cn/injobs/in/li-li-41165799" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/2216564802" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">简单</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问人数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'cb11b8b7bc132e255809',
+      clientSecret: '278f02fc92231dea3c9b12f3ba0abcfdb3e4092e',
+      repo: 'xiaozhiliaoo-blog-comment',
+      owner: 'xiaozhiliaoo',
+      admin: ['xiaozhiliaoo'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

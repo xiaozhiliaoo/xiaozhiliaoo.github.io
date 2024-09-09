@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入访问密码') !== 'helloworld'){
+            while(true) {
+                alert('密码错误！请关闭网页！');
+            }
+            history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据同步,MySQL和Redis," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据同步问题是应用层非常值得研究的一个设计问题，也是为数不多值得研究的数据问题。虽然在实践中各种方案会运行的很好，但是这些方案背后有哪些假设，以及问题的模型是什么，这个点并没有得到充分理解，所以本文以经验之谈分析了下数据同步的设计问题，案例分析以及结论。 数据同步的设计问题数据同步问题是将一个地方数据，经过计算&#x2F;不计算挪动到另外一个地方，在这个过程中，会面临三个问题：  如何同步？机器是否跨网络，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊数据同步(Redis和MySQL数据同步)">
+<meta property="og:url" content="http://yoursite.com/2022/09/24/data-synchronization-thinking/index.html">
+<meta property="og:site_name" content="小知了的博客">
+<meta property="og:description" content="数据同步问题是应用层非常值得研究的一个设计问题，也是为数不多值得研究的数据问题。虽然在实践中各种方案会运行的很好，但是这些方案背后有哪些假设，以及问题的模型是什么，这个点并没有得到充分理解，所以本文以经验之谈分析了下数据同步的设计问题，案例分析以及结论。 数据同步的设计问题数据同步问题是将一个地方数据，经过计算&#x2F;不计算挪动到另外一个地方，在这个过程中，会面临三个问题：  如何同步？机器是否跨网络，">
+<meta property="article:published_time" content="2022-09-24T12:51:41.000Z">
+<meta property="article:modified_time" content="2024-07-05T17:23:28.028Z">
+<meta property="article:author" content="简单">
+<meta property="article:tag" content="数据同步">
+<meta property="article:tag" content="MySQL和Redis">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2022/09/24/data-synchronization-thinking/"/>
+
+
+
+
+
+  <title>聊聊数据同步(Redis和MySQL数据同步) | 小知了的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小知了的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">神仙本是凡人做，只怕凡人心不坚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readinglist">
+          <a href="/reading-list/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            阅读清单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/09/24/data-synchronization-thinking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="简单">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小知了的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">聊聊数据同步(Redis和MySQL数据同步)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-09-24T20:51:41+08:00">
+                2022-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/system-design/" itemprop="url" rel="index">
+                    <span itemprop="name">system design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">浏览</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数据同步问题是应用层非常值得研究的一个设计问题，也是为数不多值得研究的数据问题。虽然在实践中各种方案会运行的很好，但是这些方案背后有哪些假设，以及问题的模型是什么，这个点并没有得到充分理解，所以本文以经验之谈分析了下数据同步的设计问题，案例分析以及结论。</p>
+<h1 id="数据同步的设计问题"><a href="#数据同步的设计问题" class="headerlink" title="数据同步的设计问题"></a>数据同步的设计问题</h1><p>数据同步问题是将一个地方数据，经过计算/不计算挪动到另外一个地方，在这个过程中，会面临三个问题：</p>
+<ol>
+<li><strong>如何同步？</strong>机器是否跨网络，是否单机，策略是双写或者是异步写？同步的是指令还是数据？双写中并发写问题如何解决？</li>
+<li><strong>数据形态是什么？</strong>副本，缓存（缓存是一种特殊的副本），副本形态可能高写入，缓存形态一般高读取。</li>
+<li><strong>谁来解决这个问题？</strong>应用层，还是中间件层。发起同步的进程还是后台进程？</li>
+</ol>
+<p>这些问题抽象为：多节点(同构或异构)数据复制带来的一致性问题。而这样问题也会受到CAP或者Jepsen中一致性的等级所制约。</p>
+<p>我们来依次看看这些问题。如何同步的问题抽象是写入保证一致性，而跨网络抽象成复制问题，单机会抽象成单进程/线程读写问题，一个地方移动到另外一个地方，复制有主动/被动，有异步和同步，地点可以是内存到磁盘，可以是Redis到MySQL，可以是内存到Redis，数据的形态有副本，有缓存，不同的形态数据使用场景不同，带来的复制更新问题也不同，如缓存会有一系列缓存淘汰算法或者缓存更新策略(通读，通写，后写)，这个过程相对主动，谁来解决这个问题，影响了系统的实现。</p>
+<p>如果在单机情况下，那么要保证操作同时成功，或者同时失败，数据能保证一致性，那么单机系统中最完美的抽象是事务。事务的ACID特性完美解决了一系列问题，如并发控制和恢复系统。</p>
+<p>在分布式场景下，由于CAP/PACELC的限制，会导致数据同步（复制策略）不同，导致了不同的一致性级别。</p>
+<p>但是面对异构系统，且跨网络的模型，原子广播协议或者分布式事务可以解决此类问题，但是谁来解决跨系统分布式事务呢？据我所知，暂时没有这样机制。即使XA模型很早提出了，Java领域也有JTA模型，但是实际系统中很少使用，因为性能或者易用性的问题。所以双写问题带来的固然局限性，因为处理异常情况非常复杂，业内也没有非常成熟的实践。</p>
+<h1 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h1><p>案例有同构和异构系统的一致性总结。以及谁来解决这个问题来进行总结。</p>
+<table>
+<thead>
+<tr>
+<th>系统</th>
+<th>如何同步</th>
+<th>数据形态</th>
+<th>解决层</th>
+<th>CAP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Redis 主从</td>
+<td>异步复制</td>
+<td>副本</td>
+<td>Redis</td>
+<td>AP</td>
+</tr>
+<tr>
+<td>Redis和应用内存</td>
+<td>双写，异步写</td>
+<td>缓存</td>
+<td>应用层</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>操作系统的内存和磁盘</td>
+<td>双写</td>
+<td>缓存</td>
+<td>操作系统层</td>
+<td>CA</td>
+</tr>
+<tr>
+<td>Redis和MySQL</td>
+<td>双写，异步写</td>
+<td>缓存</td>
+<td>应用层</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>MySQL主从</td>
+<td>异步复制</td>
+<td>副本</td>
+<td>MySQL</td>
+<td>异步AP<br />同步CP</td>
+</tr>
+<tr>
+<td>Zookeeper</td>
+<td>ZAB协议</td>
+<td>副本</td>
+<td>Zookeeper</td>
+<td>CP</td>
+</tr>
+<tr>
+<td>Etcd</td>
+<td>Raft协议</td>
+<td>副本</td>
+<td>Etcd</td>
+<td>CP</td>
+</tr>
+<tr>
+<td>MySQL 内存和磁盘</td>
+<td>事务</td>
+<td>缓存</td>
+<td>MySQL</td>
+<td>CA</td>
+</tr>
+</tbody></table>
+<h2 id="Redis和MySQL同步分析"><a href="#Redis和MySQL同步分析" class="headerlink" title="Redis和MySQL同步分析"></a>Redis和MySQL同步分析</h2><p>同步为什么很困难？1 网络的引入导致成功，失败，不可知状态。  2  谁来解决问题，还是返回给操作方？如果没有操作方是进程呢？ 3 在同构系统同步已经很复杂但成熟，异构系统更加复杂且不成熟。4 更新操作的顺序考虑。</p>
+<p>如何简化问题？忽略网络，操作方解决。</p>
+<p>虽然问题分析比较有意思，但是方案来说有：</p>
+<blockquote>
+<ol>
+<li>同步：cache-aside（缓存驻留），read through(通读)，write through（通写）等。</li>
+<li>异步：单机内存队列（Sticky Available），消息中间件（请求定序），write behind（后写），Refresh ahead（预加载）等。</li>
+</ol>
+</blockquote>
+<p>这里重点看看cache-aside模式（方案1是缓存驻留模式，其他都是对比方案）的写入方案，也是理解同步问题的起点，下面有四种模式（假设没有发生网络异常）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方案1</span></span><br><span class="line">updateDB();</span><br><span class="line">deteleCache();</span><br><span class="line"></span><br><span class="line"><span class="comment">//方案2</span></span><br><span class="line">deleteCache();</span><br><span class="line">updateDB();</span><br><span class="line"></span><br><span class="line"><span class="comment">//方案3</span></span><br><span class="line">updateDB();</span><br><span class="line">updateCache();</span><br><span class="line"></span><br><span class="line"><span class="comment">//方案4</span></span><br><span class="line">updateCache();</span><br><span class="line">updateDB();</span><br></pre></td></tr></table></figure>
+
+<p><strong>方案1，先更新数据库，后删除缓存</strong>。这个方案是常用的方案。但是会有极小概率出现这种情况：读操作没有命中缓存，会去数据库取数据，此时写请求进入，写完数据库，然后缓存失效，之前的读请求再把老数据放进去，会导致脏数据问题。这个情况理论上会出现，但是概率非常小，需要满足条件有：发生在读缓存时失效，且有并发写入，数据库写比读慢很多，所以读操作必须在写操作前进去数据库，而晚于写操作更新缓存。</p>
+<p><strong>方案2，先删除缓存，后更新数据库。</strong>可能很短时间内，新的请求会读数据，然后发现缓存没有数据，就会设置缓存，导致缓存有脏数据。缓存宁愿没数据，也不要脏数据。这个概率发生要比1高很多。因为缓存模式就是读多血少。</p>
+<p><strong>方案3，先更新数据库，后更新缓存。</strong>由于缓存构建可能很慢，不是简单从数据库中读取出来，更新缓存可能会非常慢，不如直接删除缓存，在下次加载时候重新计算，更是因为并发写会导致脏数据问题。因为第二个写入可能会被第一个写入覆盖了。</p>
+<p><strong>方案4，先更新缓存，后更新数据库。</strong>理由同方案3。从效果上看该方案和通写一样，数据更新没有命中缓存，那么直接更新数据，如果命中缓存，那么更更新缓存，然后Cache自己更新数据库。</p>
+<p>以上四种方案本质是同步方案，而没有考虑网络异常，如果网络异常导致某一个节点不可用，就会导致同步失败（为了一致性而牺牲了可用性），此时应用层有感知，虽然处理这种失败可以重试，但是如果节点是宕机呢？数据可以暂时存在本地内存队列中，等节点启动后进行同步，而要保证下次请求读到上次写入的数据，那么需要满足Jepsen中<a href="https://jepsen.io/consistency/models/read-your-writes" target="_blank" rel="noopener">Read Your Writes</a>的一致性，但是这种一致性下可用性是Sticky Available，也就是会话一致性，需要将请求定位到同一台机器，但是如果该机器宕机了，那么内存数据会丢失。完美的方案是引入事务模型来解决同时成功或者同时失败从而使得开发者忽略一切底层细节，但是代价很高且缺少分布式事务方案可以直接来用，所以引入异步方案也是一种方式，异步更新时效性没有同步那么及时，但是需要解决的问题较少，可以进行后台定时同步（类似于反熵过程），或者消息队列进行CDC或者定序（分布式提交日志）等操作进行同步，较为复杂场景是MySQL主从和Redis主从进行同步，如果是读MySQL从，而后写入Redis主，那么数据也会不一样，但是需要理解Redis对于MySQL数据形态是什么？如果Redis当做缓存，那么会有一些列缓存更新问题出现，但是缓存使用必然会带来不一致性，只是能够接受多久的不一致性时间窗口。</p>
+<p>每一个种选择都会带来对应的问题，而需要仔细衡量解决问题的成本。<strong>没有完美的方案，只有削足适履的选择！</strong></p>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>本文将数据同步问题抽象成多节点数据复制带来的一致性问题。</p>
+<p>所以上表可以得出结论：</p>
+<ol>
+<li><strong>同构的系统的同步</strong>，采用共识协议或者健壮的复制，且由系统自己解决的方案占据大多数，</li>
+<li><strong>异构系统的同步</strong>，同步或者异步写都有可能，但是需要解决各自方案带来的问题，如同步需要保证同时成功，同时失败问题，而异步写需要解决系统间一致性延时问题。双写会在不同数据形态会展示不同的策略，如果数据形态是缓存，那么双写策略有通写，或者后写等缓存更新策略，还会有缓存淘汰算法等策略。一般由应用层解决较多。</li>
+<li><strong>实际工程中</strong>：同步的cache-aside，通读，异步Kafka方案，或者广播消息方式，定时任务刷新是解决这类问题的有效方案。</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li>耗子叔 极客时间-性能设计篇之-缓存</li>
+<li>微软：云计算架构设计模式 <a href="https://github.com/iambowen/cloud-design-patterns/blob/master/patterns/cache-aside.md" target="_blank" rel="noopener">Cache aside</a></li>
+<li><a href="https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html" target="_blank" rel="noopener">https://docs.aws.amazon.com/whitepapers/latest/database-caching-strategies-using-redis/caching-patterns.html</a></li>
+<li>Ehcache：<a href="https://www.ehcache.org/documentation/3.3/caching-patterns.html" target="_blank" rel="noopener">https://www.ehcache.org/documentation/3.3/caching-patterns.html</a></li>
+<li>耗子叔-缓存更新的套路 <a href="https://coolshell.cn/articles/17416.html" target="_blank" rel="noopener">https://coolshell.cn/articles/17416.html</a></li>
+<li>DDIA第十一章：流处理 <a href="https://github.com/Vonng/ddia/blob/master/ch11.md" target="_blank" rel="noopener">https://github.com/Vonng/ddia/blob/master/ch11.md</a></li>
+<li>Hazelcast Caching Patterns：<a href="https://hazelcast.com/blog/a-hitchhikers-guide-to-caching-patterns/" target="_blank" rel="noopener">https://hazelcast.com/blog/a-hitchhikers-guide-to-caching-patterns/</a></li>
+<li>Cache：<a href="https://en.wikipedia.org/wiki/Cache_(computing)" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cache_(computing)</a></li>
+<li>Cache stampede：<a href="https://en.wikipedia.org/wiki/Cache_stampede" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Cache_stampede</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/" rel="tag"># 数据同步</a>
+          
+            <a href="/tags/MySQL%E5%92%8CRedis/" rel="tag"># MySQL和Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/09/12/kafka-project-consumer-group/" rel="next" title="项目，Kafka消费组和Topic关系">
+                <i class="fa fa-chevron-left"></i> 项目，Kafka消费组和Topic关系
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2022/10/30/kafka-manager-explain/" rel="prev" title="Kafka监控概览">
+                Kafka监控概览 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="简单" />
+            
+              <p class="site-author-name" itemprop="name">简单</p>
+              <p class="site-description motion-element" itemprop="description">为学日益，为道日损</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xiaozhiliaoo" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xiaozhiliaoo@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/xiaozhiliaoo" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/7708088/lili" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.youtube.com/channel/UCC_iEedYpLIqEi9BY7PDvaQ" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.linkedin.cn/injobs/in/li-li-41165799" target="_blank" title="Linkedin">
+                      
+                        <i class="fa fa-fw fa-linkedin"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/2216564802" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据同步的设计问题"><span class="nav-number">1.</span> <span class="nav-text">数据同步的设计问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析"><span class="nav-number">2.</span> <span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis和MySQL同步分析"><span class="nav-number">2.1.</span> <span class="nav-text">Redis和MySQL同步分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">3.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">简单</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user">访问人数</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye">总访问量</i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'cb11b8b7bc132e255809',
+      clientSecret: '278f02fc92231dea3c9b12f3ba0abcfdb3e4092e',
+      repo: 'xiaozhiliaoo-blog-comment',
+      owner: 'xiaozhiliaoo',
+      admin: ['xiaozhiliaoo'],
+      id: location.pathname,
+      distractionFreeMode: 'false'
+    })
+    gitalk.render('gitalk-container')
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
